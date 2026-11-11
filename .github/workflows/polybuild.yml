@@ -13,11 +13,11 @@ jobs:
       matrix:
         package:
           - name: base server
-            task: workflowartifact_baseserver
+            task: artifact_baseserver
             artifact_in: base-centuria-server
             artifact_name: Base Centuria Server (Java Runtime)
           - name: legacy update payload
-            task: workflowartifact_legacyupdatedata
+            task: artifact_legacyupdatedata
             artifact_in: legacy-update-data
             artifact_name: Legacy Update Payload
     name: Build ${{ matrix.package.name }}
