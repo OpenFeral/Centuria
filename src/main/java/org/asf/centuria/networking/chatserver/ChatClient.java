@@ -297,6 +297,10 @@ public class ChatClient extends BasePersistentServiceClient<ChatClient, ChatServ
 			if (toRemove.size() != 0)
 				acc.getSaveSharedInventory().setItem("dms", dms);
 		}
+
+		// FIXME: load modules
+		// FIXME: update gcs module to load at the right time
+
 		// Send success
 		JsonObject res = new JsonObject();
 		res.addProperty("eventId", "sessions.start");

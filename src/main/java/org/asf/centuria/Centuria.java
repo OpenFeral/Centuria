@@ -784,9 +784,9 @@ public class Centuria {
 		keepAliveKickInterval = Long
 				.parseLong(keepAliveProperties.getOrDefault("keep-alive-kick-interval-secs", "4500"));
 
-		File textFilterHistoryConf = new File("textfilter.conf");
-		if (!textFilterHistoryConf.exists()) {
-			Files.writeString(textFilterHistoryConf.toPath(), "" //
+		File textFilterConf = new File("textfilter.conf");
+		if (!textFilterConf.exists()) {
+			Files.writeString(textFilterConf.toPath(), "" //
 					+ "# The amount of messages to retain in memory during context matching\n" //
 					+ "chat-message-memory-max-length=10\n" //
 					+ "\n" //
@@ -829,7 +829,7 @@ public class Centuria {
 			);
 		}
 		textFilterProperties = new HashMap<String, String>();
-		for (String line : Files.readAllLines(textFilterHistoryConf.toPath())) {
+		for (String line : Files.readAllLines(textFilterConf.toPath())) {
 			if (line.isEmpty() || line.startsWith("#"))
 				continue;
 			String key = line;
