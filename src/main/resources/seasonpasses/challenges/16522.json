@@ -1,0 +1,23 @@
+{
+  "challengeName": "Harvest 20 COMMON Blood Tundra ingredients",
+  "objectName": "SEASON01/Challenge107",
+  "challengeDefID": "16522",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 20
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2364"
+    ],
+    "tags": [
+      "Harvest",
+      "Common"
+    ]
+  }
+}

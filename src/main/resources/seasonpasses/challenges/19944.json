@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Ballroom furniture set in Sunken Thicket",
+  "objectName": "SEASON02/Challenge023",
+  "challengeDefID": "19944",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23154",
+      "3273"
+    ],
+    "tags": []
+  }
+}

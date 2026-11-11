@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Noble Snow Sculpture in City Fera",
+  "objectName": "SEASON03/Challenge175",
+  "challengeDefID": "23423",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23148",
+      "820"
+    ],
+    "tags": []
+  }
+}

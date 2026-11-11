@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Team Aradia Cap",
+  "objectName": "SEASON01/Challenge142",
+  "challengeDefID": "16557",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10796"
+    ],
+    "tags": []
+  }
+}

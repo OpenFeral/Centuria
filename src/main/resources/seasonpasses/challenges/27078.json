@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 2 Pyrite Cicadas",
+  "objectName": "SEASON05/Challenge139",
+  "challengeDefID": "27078",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "7594"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

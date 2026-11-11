@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Pinata Buddy",
+  "objectName": "SEASON03/Challenge095",
+  "challengeDefID": "23301",
+  "auraPointsReward": 21,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "30693"
+    ],
+    "tags": []
+  }
+}

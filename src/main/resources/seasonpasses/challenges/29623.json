@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at the Unity Treehouse in Lakeroot Valley",
+  "objectName": "SEASON06/Challenge210",
+  "challengeDefID": "29623",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "9687",
+      "23161"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Trade 2 Blue Oil Dyes to someone else",
+  "objectName": "SEASON04/Challenge093",
+  "challengeDefID": "24931",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "17530"
+    ],
+    "tags": [
+      "Trade"
+    ]
+  }
+}

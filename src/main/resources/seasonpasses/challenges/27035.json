@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Wizard Beard",
+  "objectName": "SEASON05/Challenge099",
+  "challengeDefID": "27035",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10745"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

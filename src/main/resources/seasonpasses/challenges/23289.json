@@ -1,0 +1,21 @@
+{
+  "challengeName": "Perform the \"Mad\" Emote at leakage site in To Dye For",
+  "objectName": "SEASON03/Challenge083",
+  "challengeDefID": "23289",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9121",
+      "1717"
+    ],
+    "tags": []
+  }
+}

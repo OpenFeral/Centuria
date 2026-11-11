@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Ogasa Flag Pauldrons in Lakeroot Valley",
+  "objectName": "SEASON02/Challenge051",
+  "challengeDefID": "19971",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19793",
+      "9687",
+      "26892"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

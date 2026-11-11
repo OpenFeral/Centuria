@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear Forest Tail Bells",
+  "objectName": "SEASON04/Challenge021",
+  "challengeDefID": "24853",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9937"
+    ],
+    "tags": []
+  }
+}

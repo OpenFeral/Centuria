@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Smithy Apron",
+  "objectName": "SEASON05/Challenge135",
+  "challengeDefID": "27074",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "24807"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

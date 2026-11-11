@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 5 Bat Eyes",
+  "objectName": "SEASON05/Challenge203",
+  "challengeDefID": "27152",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1129"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

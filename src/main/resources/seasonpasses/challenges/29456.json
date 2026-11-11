@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 5 Beautiful Bells",
+  "objectName": "SEASON06/Challenge057",
+  "challengeDefID": "29456",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "447"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

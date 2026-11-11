@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Twiggle Plush in Lakeroot Valley",
+  "objectName": "SEASON03/Challenge159",
+  "challengeDefID": "23368",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "23159",
+      "9687"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

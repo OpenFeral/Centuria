@@ -1,0 +1,22 @@
+{
+  "challengeName": "Obtain a COOL Clothing item by trading",
+  "objectName": "SEASON01/Challenge106",
+  "challengeDefID": "16521",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Trade",
+      "Uncommon",
+      "Clothing"
+    ]
+  }
+}

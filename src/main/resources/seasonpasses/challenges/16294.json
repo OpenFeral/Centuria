@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at the clock in City Fera",
+  "objectName": "SEASON01/Challenge005",
+  "challengeDefID": "16294",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19783",
+      "820",
+      "26892"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

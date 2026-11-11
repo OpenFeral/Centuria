@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind a Ruffian Tail",
+  "objectName": "SEASON04/Challenge204",
+  "challengeDefID": "25046",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "25518"
+    ],
+    "tags": [
+      "Unbind"
+    ]
+  }
+}

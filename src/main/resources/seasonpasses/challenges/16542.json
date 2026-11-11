@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie on the balcony inside Centuria",
+  "objectName": "SEASON01/Challenge127",
+  "challengeDefID": "16542",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1718",
+      "26817"
+    ],
+    "tags": []
+  }
+}

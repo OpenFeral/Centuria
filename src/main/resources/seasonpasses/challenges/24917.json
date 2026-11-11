@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 2 Crystalback Beetles",
+  "objectName": "SEASON04/Challenge079",
+  "challengeDefID": "24917",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3485"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

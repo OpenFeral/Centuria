@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Caroler\u0027s Lantern in the Blood Tundra",
+  "objectName": "SEASON03/Challenge154",
+  "challengeDefID": "23363",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2364",
+      "23191"
+    ],
+    "tags": []
+  }
+}

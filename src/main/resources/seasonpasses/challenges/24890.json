@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie next to the Elite Toad Hunter Set in City Fera",
+  "objectName": "SEASON04/Challenge052",
+  "challengeDefID": "24890",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23149",
+      "820"
+    ],
+    "tags": []
+  }
+}

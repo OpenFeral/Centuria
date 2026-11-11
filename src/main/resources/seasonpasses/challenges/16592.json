@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at Ogasa Village in Lakeroot Valley",
+  "objectName": "SEASON01/Challenge177",
+  "challengeDefID": "16592",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "19793",
+      "9687"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

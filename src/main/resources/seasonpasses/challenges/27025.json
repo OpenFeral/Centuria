@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind a Fera Table",
+  "objectName": "SEASON05/Challenge089",
+  "challengeDefID": "27025",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3684"
+    ],
+    "tags": [
+      "Unbind"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Brody Plushie in the Shattered Bay",
+  "objectName": "SEASON06/Challenge085",
+  "challengeDefID": "29484",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "1825",
+      "24541"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

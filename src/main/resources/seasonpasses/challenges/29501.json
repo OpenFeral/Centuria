@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Excite\" Emote next to the Boombox in the Blood Tundra",
+  "objectName": "SEASON06/Challenge102",
+  "challengeDefID": "29501",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9122",
+      "2364",
+      "23190"
+    ],
+    "tags": []
+  }
+}

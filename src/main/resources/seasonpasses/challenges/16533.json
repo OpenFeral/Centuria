@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at the base of the crystal in the Shattered Bay",
+  "objectName": "SEASON01/Challenge118",
+  "challengeDefID": "16533",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1825",
+      "19813",
+      "26892"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

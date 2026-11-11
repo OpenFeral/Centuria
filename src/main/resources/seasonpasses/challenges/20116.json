@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 3 Blood Red Dyes",
+  "objectName": "SEASON02/Challenge153",
+  "challengeDefID": "20116",
+  "auraPointsReward": 15,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 3
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10155"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

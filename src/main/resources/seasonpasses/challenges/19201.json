@@ -1,0 +1,22 @@
+{
+  "challengeName": "Visit Centuria",
+  "objectName": "TEST2/Challenge_Earn50LikesFromRockFlipping",
+  "challengeDefID": "19201",
+  "auraPointsReward": 5,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 50
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2327"
+    ],
+    "tags": [
+      "RockFlip"
+    ]
+  }
+}

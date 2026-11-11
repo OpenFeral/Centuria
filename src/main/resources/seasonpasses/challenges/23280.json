@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Lich Deco Hat and Fell Newsboy Hat in Centuria",
+  "objectName": "SEASON03/Challenge074",
+  "challengeDefID": "23280",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1718",
+      "26817"
+    ],
+    "tags": []
+  }
+}

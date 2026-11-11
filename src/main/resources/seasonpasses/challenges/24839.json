@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Plush Chair in the Blood Tundra",
+  "objectName": "SEASON04/Challenge007",
+  "challengeDefID": "24839",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "2364",
+      "19788"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

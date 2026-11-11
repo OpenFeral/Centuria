@@ -1,0 +1,22 @@
+{
+  "challengeName": "Complete a quest in the Blood Tundra",
+  "objectName": "SEASON04/Challenge070",
+  "challengeDefID": "24908",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "Complete",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2364"
+    ],
+    "tags": [
+      "Quest"
+    ]
+  }
+}

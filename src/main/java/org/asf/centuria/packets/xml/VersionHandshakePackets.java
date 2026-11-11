@@ -1,6 +1,6 @@
 package org.asf.centuria.packets.xml;
 
-import tools.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 public class VersionHandshakePackets {
 

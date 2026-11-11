@@ -1,0 +1,22 @@
+{
+  "challengeName": "Complete a quest in the Blood Tundra",
+  "objectName": "SEASON05/Challenge152",
+  "challengeDefID": "27092",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "Complete",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2364"
+    ],
+    "tags": [
+      "Quest"
+    ]
+  }
+}

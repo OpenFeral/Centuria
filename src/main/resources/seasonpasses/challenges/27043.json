@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with Striker in the Shattered Bay",
+  "objectName": "SEASON05/Challenge107",
+  "challengeDefID": "27043",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19815",
+      "1825"
+    ],
+    "tags": []
+  }
+}

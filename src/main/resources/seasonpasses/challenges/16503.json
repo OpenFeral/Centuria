@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at the top of the toboggan hill in the Blood Tundra",
+  "objectName": "SEASON01/Challenge089",
+  "challengeDefID": "16503",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "2364",
+      "19769"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

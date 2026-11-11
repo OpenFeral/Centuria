@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Mystic Gambler Set in the Sunken Thicket",
+  "objectName": "SEASON04/Challenge005",
+  "challengeDefID": "24829",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "3273",
+      "24575"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

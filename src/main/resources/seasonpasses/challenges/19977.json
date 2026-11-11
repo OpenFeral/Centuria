@@ -1,0 +1,22 @@
+{
+  "challengeName": "Complete a quest in Lakeroot Valley",
+  "objectName": "SEASON02/Challenge057",
+  "challengeDefID": "19977",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "Complete",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9687"
+    ],
+    "tags": [
+      "Quest"
+    ]
+  }
+}

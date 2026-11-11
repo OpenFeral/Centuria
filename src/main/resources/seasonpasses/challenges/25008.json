@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind a Sky Court Bed",
+  "objectName": "SEASON04/Challenge166",
+  "challengeDefID": "25008",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "24376"
+    ],
+    "tags": [
+      "Unbind"
+    ]
+  }
+}

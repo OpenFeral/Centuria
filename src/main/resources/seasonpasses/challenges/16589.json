@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 15 Runic Bark",
+  "objectName": "SEASON01/Challenge174",
+  "challengeDefID": "16589",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 15
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3474"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

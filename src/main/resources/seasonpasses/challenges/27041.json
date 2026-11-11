@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at the Chess furniture set in City Fera",
+  "objectName": "SEASON05/Challenge105",
+  "challengeDefID": "27041",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "820",
+      "24538"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

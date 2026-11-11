@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at the Chess clothing set in City Fera",
+  "objectName": "SEASON05/Challenge016",
+  "challengeDefID": "26900",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "820",
+      "26892",
+      "23149"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

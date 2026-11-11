@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie next to the Tundra Angler Set in the Blood Tundra",
+  "objectName": "SEASON04/Challenge174",
+  "challengeDefID": "25016",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2364",
+      "23192"
+    ],
+    "tags": []
+  }
+}

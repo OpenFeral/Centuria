@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 2 Stormy Day Dyes",
+  "objectName": "SEASON04/Challenge186",
+  "challengeDefID": "25028",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "17528"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

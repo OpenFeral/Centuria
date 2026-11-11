@@ -1,0 +1,22 @@
+{
+  "challengeName": "Obtain a COOL Furniture items by trading",
+  "objectName": "SEASON02/Challenge048",
+  "challengeDefID": "19968",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Uncommon",
+      "Furniture",
+      "Trade"
+    ]
+  }
+}

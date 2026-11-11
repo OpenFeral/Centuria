@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie on the Koi Islet in Lakeroot Valley",
+  "objectName": "SEASON04/Challenge030",
+  "challengeDefID": "24867",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9687",
+      "19787"
+    ],
+    "tags": []
+  }
+}

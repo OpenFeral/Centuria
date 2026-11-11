@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at The Tree in the Blood Tundra",
+  "objectName": "SEASON01/Challenge140",
+  "challengeDefID": "16555",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "2364",
+      "19761"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 5 Bone Needles",
+  "objectName": "SEASON01/Challenge188",
+  "challengeDefID": "16603",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "7603"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

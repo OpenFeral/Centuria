@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Yawn\" Emote next to the Sandcastle in Lakeroot Valley",
+  "objectName": "SEASON04/Challenge182",
+  "challengeDefID": "25024",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9108",
+      "19797",
+      "9687"
+    ],
+    "tags": []
+  }
+}

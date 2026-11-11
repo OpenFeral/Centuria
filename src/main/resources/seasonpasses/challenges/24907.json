@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the Wayfarer Skull in the Blood Tundra",
+  "objectName": "SEASON04/Challenge069",
+  "challengeDefID": "24907",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2364",
+      "19774"
+    ],
+    "tags": []
+  }
+}

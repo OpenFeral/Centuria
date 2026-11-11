@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at the Haunted House in City Fera",
+  "objectName": "SEASON05/Challenge034",
+  "challengeDefID": "26923",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "24540",
+      "26892",
+      "820"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

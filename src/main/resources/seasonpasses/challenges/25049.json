@@ -1,0 +1,20 @@
+{
+  "challengeName": "Visit Lakeroot Valley",
+  "objectName": "SEASON04/Challenge207",
+  "challengeDefID": "25049",
+  "auraPointsReward": 8,
+  "script": {
+    "actions": [
+      {
+        "action": "Visit",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9687"
+    ],
+    "tags": []
+  }
+}

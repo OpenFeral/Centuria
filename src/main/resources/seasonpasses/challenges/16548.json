@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Spiked Pauldrons",
+  "objectName": "SEASON01/Challenge133",
+  "challengeDefID": "16548",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "4834"
+    ],
+    "tags": []
+  }
+}

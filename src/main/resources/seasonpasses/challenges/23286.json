@@ -1,0 +1,22 @@
+{
+  "challengeName": "Trade 5 Indigo Dyes to someone else",
+  "objectName": "SEASON03/Challenge080",
+  "challengeDefID": "23286",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "429"
+    ],
+    "tags": [
+      "Trade"
+    ]
+  }
+}

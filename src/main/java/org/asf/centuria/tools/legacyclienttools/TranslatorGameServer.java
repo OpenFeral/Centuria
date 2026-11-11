@@ -19,7 +19,7 @@ import org.asf.centuria.packets.xml.handshake.version.ClientToServerHandshake;
 import org.asf.centuria.packets.xml.handshake.version.ServerToClientOK;
 import org.asf.centuria.packets.xt.gameserver.PrefixedPacket;
 
-import tools.jackson.dataformat.xml.XmlMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -30,7 +30,7 @@ public class TranslatorGameServer extends BaseSmartfoxServer {
 	public TranslatorGameServer(int localPort) throws IOException {
 		super(new ServerSocket(localPort, 0, InetAddress.getLoopbackAddress()));
 	}
-	
+
 	public boolean isLocalClient(SmartfoxClient client) {
 		return clients.contains(client);
 	}
@@ -168,10 +168,10 @@ public class TranslatorGameServer extends BaseSmartfoxServer {
 
 			// Handle authentication
 			handleAuthentication(localClient, remoteClient, auth, serverResponse);
-			
+
 			// Login complete packet
 			remoteClient.readRawPacket();
-			
+
 			// Request all items from upstream
 			remoteClient.sendPacket("%xt%o%ilt%-1%1%");
 			remoteClient.sendPacket("%xt%o%ilt%-1%200%");
@@ -200,7 +200,7 @@ public class TranslatorGameServer extends BaseSmartfoxServer {
 			remoteClient.sendPacket("%xt%o%ilt%-1%311%");
 
 			ArrayList<String> packets = new ArrayList<String>();
-			
+
 			// Read all packets except IL
 			int remainingIL = 25;
 			while (remainingIL > 0) {
@@ -209,15 +209,15 @@ public class TranslatorGameServer extends BaseSmartfoxServer {
 					packets.add(packet);
 				else {
 					remainingIL--;
-					
+
 					// Send
 					handlePacket(packet, remoteClient);
 				}
 			}
-			
+
 			// Complete login
 			localClient.sendPacket("%xt%ulc%-1%");
-			
+
 			// Other packets
 			for (String packet : packets) {
 				handlePacket(packet, remoteClient);

@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie in front of Twigla\u0027s Workshop in the Shattered Bay",
+  "objectName": "SEASON01/Challenge153",
+  "challengeDefID": "16568",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23150",
+      "1825"
+    ],
+    "tags": []
+  }
+}

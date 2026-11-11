@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Wicker Tail",
+  "objectName": "SEASON03/Challenge119",
+  "challengeDefID": "23325",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "18599"
+    ],
+    "tags": []
+  }
+}

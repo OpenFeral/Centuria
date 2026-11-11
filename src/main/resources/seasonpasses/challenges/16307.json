@@ -1,0 +1,22 @@
+{
+  "challengeName": "Trade 10 COMMON Ingredients to someone else",
+  "objectName": "SEASON01/Challenge011",
+  "challengeDefID": "16307",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 10
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Trade",
+      "Common",
+      "Ingredients"
+    ]
+  }
+}

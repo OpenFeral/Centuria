@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Cactus Buddy",
+  "objectName": "SEASON01/Challenge183",
+  "challengeDefID": "16598",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "29772"
+    ],
+    "tags": []
+  }
+}

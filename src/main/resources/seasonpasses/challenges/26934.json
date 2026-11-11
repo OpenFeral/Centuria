@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Kino Action Figure",
+  "objectName": "SEASON05/Challenge045",
+  "challengeDefID": "26934",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "25434"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

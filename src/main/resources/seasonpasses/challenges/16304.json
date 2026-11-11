@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind DJ Turntables",
+  "objectName": "SEASON01/Challenge008",
+  "challengeDefID": "16304",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "4432"
+    ],
+    "tags": [
+      "Unbind"
+    ]
+  }
+}

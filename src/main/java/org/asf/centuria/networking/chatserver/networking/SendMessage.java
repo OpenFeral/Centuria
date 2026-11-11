@@ -634,15 +634,28 @@ public class SendMessage extends AbstractChatPacket {
 		}
 
 		// Clean message
-		message = replaceCaseInsensitive(message, "<noparse>", "");
-		message = replaceCaseInsensitive(message, "</noparse>", "");
-		message = replaceCaseInsensitive(message, "\\<noparse\\>", "");
-		message = replaceCaseInsensitive(message, "\\</noparse\\>", "");
-		message = replaceCaseInsensitive(message, "\\<noparse>", "");
-		message = replaceCaseInsensitive(message, "\\</noparse>", "");
-		message = replaceCaseInsensitive(message, "<noparse\\>", "");
-		message = replaceCaseInsensitive(message, "</noparse\\>", "");
 		message = message.trim();
+
+		// Check if containing illegal tags
+		if (message.replace(" ", "").replace("\\", "").toLowerCase().contains("<noparse>")
+				|| message.replace(" ", "").replace("\\", "").toLowerCase().contains("<noparse/>")) {
+			// Message invalid, dont send it, we dont allow use of noparse tags this can be
+			// otherwise bad
+
+			// Time format
+			SimpleDateFormat fmt = new SimpleDateFormat("yyyy'-'MM'-'dd'T'HH':'mm':'ssXXX");
+			fmt.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+			// Send failure
+			SendMessage res = new SendMessage();
+			res.roomType = roomInstance.getType();
+			res.room = room;
+			res.message = "Whoah there! Your message contains invalid tags, as a precaution we do not allow the use of the noparse tags. Your message was not sent.";
+			res.sourceWriter = NIL_UUID;
+			res.sentAtWriter = fmt.format(new Date());
+			client.sendPacket(res);
+			return true;
+		}
 
 		// Check content
 		if (message.isBlank()) {
@@ -2234,14 +2247,6 @@ public class SendMessage extends AbstractChatPacket {
 			Centuria.logger.error("Failed to load textfilter.conf! Please make sure the syntax is correct.", e);
 			return chatMemory;
 		}
-	}
-
-	private String replaceCaseInsensitive(String msg, String target, String replacement) {
-		while (msg.toLowerCase().contains(target.toLowerCase())) {
-			int i = msg.toLowerCase().indexOf(target.toLowerCase());
-			msg = msg.substring(0, i) + replacement + msg.substring(i + target.length());
-		}
-		return msg;
 	}
 
 	// Command parser

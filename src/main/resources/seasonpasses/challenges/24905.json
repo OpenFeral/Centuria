@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Play\" Emote next to the Winterwing clothing set in the Blood Tundra",
+  "objectName": "SEASON04/Challenge067",
+  "challengeDefID": "24905",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9190",
+      "19761",
+      "2364"
+    ],
+    "tags": []
+  }
+}

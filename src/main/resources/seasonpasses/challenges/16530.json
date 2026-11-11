@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Barbecue Grill",
+  "objectName": "SEASON01/Challenge115",
+  "challengeDefID": "16530",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "30095"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

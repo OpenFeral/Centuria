@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Tundra Angler Set in the Blood Tundra",
+  "objectName": "SEASON04/Challenge083",
+  "challengeDefID": "24921",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "2364",
+      "23192"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

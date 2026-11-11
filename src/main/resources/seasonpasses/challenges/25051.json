@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie next to the Lich \u0026 Fell Rings displayed in Fera Fashions",
+  "objectName": "SEASON04/Challenge209",
+  "challengeDefID": "25051",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19786",
+      "1716"
+    ],
+    "tags": []
+  }
+}

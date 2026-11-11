@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Twiggle Plush in Lakeroot Valley",
+  "objectName": "SEASON03/Challenge100",
+  "challengeDefID": "23306",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23159",
+      "9687"
+    ],
+    "tags": []
+  }
+}

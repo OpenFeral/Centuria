@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft Tail Wings",
+  "objectName": "SEASON05/Challenge161",
+  "challengeDefID": "27104",
+  "auraPointsReward": 24,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "30624"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

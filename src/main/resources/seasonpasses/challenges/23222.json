@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 2 Blooderflies",
+  "objectName": "SEASON03/Challenge025",
+  "challengeDefID": "23222",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "7575"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

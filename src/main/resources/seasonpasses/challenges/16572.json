@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the top of the Mistbreath Dragon statue in Mugmyre Marsh",
+  "objectName": "SEASON01/Challenge157",
+  "challengeDefID": "16572",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2147",
+      "19801"
+    ],
+    "tags": []
+  }
+}

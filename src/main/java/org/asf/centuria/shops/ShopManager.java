@@ -54,7 +54,10 @@ public class ShopManager {
 			// Load enigmas
 			if (shopObject.has("enigmas")) {
 				JsonArray enigmas = shopObject.get("enigmas").getAsJsonArray();
-				enigmas.forEach((id) -> shop.enigmas.add(id.getAsString()));
+				enigmas.forEach((id) -> {
+					if (!shop.enigmas.contains(id.getAsString()))
+						shop.enigmas.add(id.getAsString());
+				});
 			}
 
 			// Load object name if present

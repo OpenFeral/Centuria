@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to 3 NPCs in Sunken Thicket",
+  "objectName": "TEST/Challenge_TalkTo3NPCsInSunkenThicket",
+  "challengeDefID": "16865",
+  "auraPointsReward": 21,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 3
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3273"
+    ],
+    "tags": []
+  }
+}

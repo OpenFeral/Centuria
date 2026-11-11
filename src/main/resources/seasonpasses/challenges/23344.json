@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Wicker Collar",
+  "objectName": "SEASON03/Challenge135",
+  "challengeDefID": "23344",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "Equals",
+        "value": 1
+      }
+    ],
+    "operation": "Set",
+    "defs": [
+      "18605"
+    ],
+    "tags": []
+  }
+}

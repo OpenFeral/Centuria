@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Rare \"Sanguine Crest\" Painting in the Blood Tundra",
+  "objectName": "SEASON01/Challenge160",
+  "challengeDefID": "16575",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19772",
+      "2364"
+    ],
+    "tags": []
+  }
+}

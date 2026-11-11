@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the top of the toboggan hill in the Blood Tundra",
+  "objectName": "SEASON01/Challenge171",
+  "challengeDefID": "16586",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2364",
+      "19769"
+    ],
+    "tags": []
+  }
+}

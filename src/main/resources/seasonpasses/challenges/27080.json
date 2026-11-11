@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the base of the Large Crystal in the Shattered Bay",
+  "objectName": "SEASON05/Challenge141",
+  "challengeDefID": "27080",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1825",
+      "19813"
+    ],
+    "tags": []
+  }
+}

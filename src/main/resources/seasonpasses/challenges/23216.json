@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Ravishing clothing set in the Sunken Thicket",
+  "objectName": "SEASON03/Challenge019",
+  "challengeDefID": "23216",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19821",
+      "3273"
+    ],
+    "tags": []
+  }
+}

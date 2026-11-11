@@ -9,6 +9,7 @@
         // Its possible to disable the formatters using `RAW:...`
 
         // Major-next
+        "major-next-develop": [],
         "major-next-testing": [
             "major-next-develop"
         ],
@@ -23,6 +24,7 @@
         ],
 
         // LTS-next
+        "lts-next-develop": [],
         "lts-next-testing": [
             "lts-next-develop"
         ],
@@ -149,5 +151,52 @@
             "lts-{1}-experimental",
             "major-{1}"
         ]
+    },
+
+    // Set merge strategies
+    //
+    // Accepts for the INPUT branch
+    // Accepts either a map or merge strat
+    //
+    // For map, it selects the matching PATTERN that was used as target branch and a merge strat
+    // For map, the key '*' is used as fallback when the merge strat isnt configured
+    //
+    // Valid merge srats are: ff, merge, rebase, forceff
+    // The mode forceff is an alternate rebase-like mode that, if the contents match between two branches, ditches the commit history and syncs up forcefully, useful for fast-forwarding squash commits
+    "hardMergeStrategies": {
+        "major-next-testing": "forceff",
+        "major-next-staging": "forceff",
+        "major-next-experimental": "forceff",
+        "major-next": "forceff",
+
+        "lts-next-testing": "forceff",
+        "lts-next-staging": "forceff",
+        "lts-next-experimental": "forceff",
+        "lts-next": "forceff",
+
+        "major-*-testing": "forceff",
+        "major-*-staging": "forceff",
+        "major-*-experimental": "forceff",
+        "major-*": "forceff",
+
+        "lts-*-develop": {
+            "major-{1}-develop": "merge"
+        },
+        "lts-*-testing": {
+            "lts-{1}-develop": "forceff",
+            "major-{1}-testing": "merge"
+        },
+        "lts-*-staging": {
+            "lts-{1}-testing": "forceff",
+            "major-{1}-staging": "merge"
+        },
+        "lts-*-experimental": {
+            "lts-{1}-staging": "forceff",
+            "major-{1}-experimental": "merge"
+        },
+        "lts-*": {
+            "lts-{1}-experimental": "forceff",
+            "major-{1}": "merge"
+        }
     }
 }

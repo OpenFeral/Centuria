@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Cinderfish Back Buddy",
+  "objectName": "SEASON04/Challenge193",
+  "challengeDefID": "25035",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "30214"
+    ],
+    "tags": []
+  }
+}

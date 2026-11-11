@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to Darcy",
+  "objectName": "SEASON05/Challenge187",
+  "challengeDefID": "27136",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3187"
+    ],
+    "tags": []
+  }
+}

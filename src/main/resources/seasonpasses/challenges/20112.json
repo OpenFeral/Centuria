@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Brody Plushie in Lakeroot Valley",
+  "objectName": "SEASON02/Challenge149",
+  "challengeDefID": "20112",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19791",
+      "9687"
+    ],
+    "tags": []
+  }
+}

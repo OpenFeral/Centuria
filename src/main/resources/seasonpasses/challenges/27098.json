@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Kiteray Kite in the Blood Tundra",
+  "objectName": "SEASON05/Challenge155",
+  "challengeDefID": "27098",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2364",
+      "19774"
+    ],
+    "tags": []
+  }
+}

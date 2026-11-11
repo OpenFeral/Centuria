@@ -1,0 +1,20 @@
+{
+  "challengeName": "Take a Selfie at the leakage site in Latchkey\u0027s Lab",
+  "objectName": "SEASON05/Challenge168",
+  "challengeDefID": "27116",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "7790"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Mausoleum",
+  "objectName": "SEASON02/Challenge147",
+  "challengeDefID": "20110",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19884"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

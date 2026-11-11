@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 2 Dried Veins",
+  "objectName": "SEASON01/Challenge206",
+  "challengeDefID": "31271",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "7599"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

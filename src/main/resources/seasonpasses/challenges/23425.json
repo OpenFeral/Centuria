@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Cozy Furniture Set in Lakeroot Valley",
+  "objectName": "SEASON03/Challenge177",
+  "challengeDefID": "23425",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9687",
+      "19790"
+    ],
+    "tags": []
+  }
+}

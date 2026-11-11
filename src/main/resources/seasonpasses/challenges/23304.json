@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft an Art Deco Jeweled Headpiece",
+  "objectName": "SEASON03/Challenge098",
+  "challengeDefID": "23304",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3471"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

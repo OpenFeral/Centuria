@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Sushi Chef Headband",
+  "objectName": "SEASON02/Challenge028",
+  "challengeDefID": "19949",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "12493"
+    ],
+    "tags": []
+  }
+}

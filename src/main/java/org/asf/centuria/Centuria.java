@@ -138,6 +138,10 @@ public class Centuria {
 		return lockUpdaterUntilFixed;
 	}
 
+	// Current version
+	// FIXME: replace with better solution
+	public static String SERVER_UPDATE_VERSION = "b1.7.4";
+
 	// Servers
 	private static ConnectiveHttpServer apiServer;
 	public static ConnectiveHttpServer directorServer;
@@ -230,8 +234,7 @@ public class Centuria {
 			}
 
 			// Create config
-			InputStream strm = Centuria.class.getClassLoader()
-					.getResourceAsStream("skel/updater.json");
+			InputStream strm = Centuria.class.getClassLoader().getResourceAsStream("skel/updater.json");
 			String configData = new String(strm.readAllBytes(), "UTF-8");
 			strm.close();
 			Files.writeString(Path.of("updater.json"),
@@ -501,15 +504,6 @@ public class Centuria {
 		gameServer.stop();
 	}
 
-	private static JsonObject createUpdateCollection(String comment, boolean enabled, String channel, String strategy) {
-		JsonObject col = new JsonObject();
-		col.addProperty("__COMMENT__", comment);
-		col.addProperty("enabled", enabled);
-		col.addProperty("channel", channel);
-		col.addProperty("strategy", strategy);
-		return col;
-	}
-
 	/**
 	 * Cancels the update
 	 * 
@@ -568,22 +562,22 @@ public class Centuria {
 					// Send message
 					String message = null;
 					switch (remaining) {
-						case 120:
-						case 60:
-						case 30:
-						case 15:
-						case 10:
-						case 5:
-						case 3:
-							message = "%xt%ua%-1%7391|" + remaining + "%";
-							break;
-						case 1:
-							message = "%xt%ua%-1%7390|1%";
-							break;
-						case 0:
-							// Shut down
-							updateShutdown(null);
-							return;
+					case 120:
+					case 60:
+					case 30:
+					case 15:
+					case 10:
+					case 5:
+					case 3:
+						message = "%xt%ua%-1%7391|" + remaining + "%";
+						break;
+					case 1:
+						message = "%xt%ua%-1%7390|1%";
+						break;
+					case 0:
+						// Shut down
+						updateShutdown(null);
+						return;
 					}
 
 					if (message != null) {

@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the Blood Snake Waterfall in the Blood Tundra",
+  "objectName": "SEASON05/Challenge073",
+  "challengeDefID": "26973",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23189",
+      "2364"
+    ],
+    "tags": []
+  }
+}

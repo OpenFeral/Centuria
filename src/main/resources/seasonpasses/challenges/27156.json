@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Wizard Beard",
+  "objectName": "SEASON05/Challenge207",
+  "challengeDefID": "27156",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10745"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Adventure Clothing Set in the Blood Tundra",
+  "objectName": "SEASON06/Challenge180",
+  "challengeDefID": "29593",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2364",
+      "19788"
+    ],
+    "tags": []
+  }
+}

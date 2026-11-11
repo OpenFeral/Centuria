@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Flex\" Emote on the floating rocks in Mugmyre Marsh",
+  "objectName": "SEASON05/Challenge170",
+  "challengeDefID": "27118",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9151",
+      "2147",
+      "23188"
+    ],
+    "tags": []
+  }
+}

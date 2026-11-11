@@ -9,6 +9,7 @@ import java.util.TimeZone;
 import org.asf.centuria.Centuria;
 import org.asf.centuria.accounts.AccountManager;
 import org.asf.centuria.accounts.CenturiaAccount;
+import org.asf.centuria.entities.players.Player;
 import org.asf.centuria.seasonpasses.SeasonPassDefinition;
 import org.asf.centuria.seasonpasses.SeasonPassManager;
 import org.asf.connective.RemoteClient;
@@ -45,6 +46,7 @@ public class SeasonPassRequestHandler extends HttpPushHandler {
 
 			// Find account
 			CenturiaAccount acc = AccountManager.getInstance().getAccount(jwtPl.get("uuid").getAsString());
+			Player plr = acc.getOnlinePlayerInstance();
 
 			// Get path
 			String path = this.getRequestPath().substring(path().length());
@@ -57,6 +59,8 @@ public class SeasonPassRequestHandler extends HttpPushHandler {
 
 			// Get season
 			SeasonPassDefinition def = SeasonPassManager.getCurrentPass();
+			if (plr != null)
+				def = plr.getCurrentSeasonPass();
 			if (def != null) {
 				// Handle path
 				if (path.equals("/seasons/player-season")) {
@@ -72,7 +76,7 @@ public class SeasonPassRequestHandler extends HttpPushHandler {
 
 					// Add pass stuff
 					res.addProperty("def_id", def.passDefID);
-					res.addProperty("end_date", fmt.format(new Date(def.endDate)));
+					res.addProperty("end_date", fmt.format(new Date(def.endDateLiveTimestamp)));
 
 					// More user specifics
 					res.addProperty("has_pass", false); // TODO

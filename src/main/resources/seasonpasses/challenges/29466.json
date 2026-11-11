@@ -1,0 +1,22 @@
+{
+  "challengeName": "Earn a Clothing Item from What the Hex",
+  "objectName": "SEASON06/Challenge067",
+  "challengeDefID": "29466",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23333"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

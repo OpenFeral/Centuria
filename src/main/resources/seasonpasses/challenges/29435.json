@@ -1,0 +1,20 @@
+{
+  "challengeName": "Visit To Dye For",
+  "objectName": "SEASON06/Challenge036",
+  "challengeDefID": "29435",
+  "auraPointsReward": 8,
+  "script": {
+    "actions": [
+      {
+        "action": "Visit",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1717"
+    ],
+    "tags": []
+  }
+}

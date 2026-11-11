@@ -1,0 +1,23 @@
+{
+  "challengeName": "Harvest 5 Rich Pigments in Lakeroot Valley",
+  "objectName": "SEASON01/Challenge131",
+  "challengeDefID": "16546",
+  "auraPointsReward": 21,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9687",
+      "28489"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

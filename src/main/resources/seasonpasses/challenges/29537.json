@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Mad\" Emote at the leakage site in the Shattered Bay",
+  "objectName": "SEASON06/Challenge126",
+  "challengeDefID": "29537",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9121",
+      "1825",
+      "19813"
+    ],
+    "tags": []
+  }
+}

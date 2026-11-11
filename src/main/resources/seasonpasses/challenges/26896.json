@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind an Eggshell Hat",
+  "objectName": "SEASON05/Challenge012",
+  "challengeDefID": "26896",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "13164"
+    ],
+    "tags": [
+      "Unbind"
+    ]
+  }
+}

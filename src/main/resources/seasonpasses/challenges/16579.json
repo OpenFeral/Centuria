@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at The Tree in the Blood Tundra",
+  "objectName": "SEASON01/Challenge164",
+  "challengeDefID": "16579",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2364",
+      "19761"
+    ],
+    "tags": []
+  }
+}

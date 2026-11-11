@@ -1,0 +1,23 @@
+{
+  "challengeName": "Craft any 1 Item from the Dusk Clothing Set",
+  "objectName": "SEASON03/Challenge027",
+  "challengeDefID": "23224",
+  "auraPointsReward": 23,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "24833"
+    ],
+    "tags": [
+      "Craft",
+      "List"
+    ]
+  }
+}

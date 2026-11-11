@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Voyager furniture set in Twigla\u0027s Workshop",
+  "objectName": "SEASON02/Challenge170",
+  "challengeDefID": "20136",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2619",
+      "19807"
+    ],
+    "tags": []
+  }
+}

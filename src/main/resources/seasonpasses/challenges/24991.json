@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie next to Kino in the Shattered Bay",
+  "objectName": "SEASON04/Challenge152",
+  "challengeDefID": "24991",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19812",
+      "1825"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Obtain 5 COMMON Dyes by trading",
+  "objectName": "SEASON06/Challenge076",
+  "challengeDefID": "29475",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Common",
+      "Dye",
+      "Trade"
+    ]
+  }
+}

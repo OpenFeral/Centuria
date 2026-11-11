@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 5 Radiant Shards",
+  "objectName": "SEASON01/Challenge163",
+  "challengeDefID": "16578",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "6293"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

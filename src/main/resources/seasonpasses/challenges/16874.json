@@ -1,0 +1,20 @@
+{
+  "challengeName": "Complete 5 levels in Twiggle Builders",
+  "objectName": "TEST/Challenge_Complete5LevelsInTwiggleBuilders",
+  "challengeDefID": "16874",
+  "auraPointsReward": 3,
+  "script": {
+    "actions": [
+      {
+        "action": "GameLevel",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "4111"
+    ],
+    "tags": []
+  }
+}

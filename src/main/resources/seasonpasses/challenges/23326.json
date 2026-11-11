@@ -1,0 +1,22 @@
+{
+  "challengeName": "Trade 2 Rain Forest Dyes to someone else",
+  "objectName": "SEASON03/Challenge120",
+  "challengeDefID": "23326",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "17541"
+    ],
+    "tags": [
+      "Trade"
+    ]
+  }
+}

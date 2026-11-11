@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Peachburst clothing set in Lakeroot Valley",
+  "objectName": "SEASON05/Challenge031",
+  "challengeDefID": "26920",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19792",
+      "26892",
+      "9687"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

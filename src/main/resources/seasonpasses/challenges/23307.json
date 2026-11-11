@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear an Art Deco Jeweled Headpiece",
+  "objectName": "SEASON03/Challenge101",
+  "challengeDefID": "23307",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3471"
+    ],
+    "tags": []
+  }
+}

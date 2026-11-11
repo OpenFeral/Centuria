@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to 5 NPCs in the Shattered Bay",
+  "objectName": "SEASON04/Challenge017",
+  "challengeDefID": "24849",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1825"
+    ],
+    "tags": []
+  }
+}

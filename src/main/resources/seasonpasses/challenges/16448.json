@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Excite\" Emote next to the Artist clothing set in Twigla\u0027s Workshop",
+  "objectName": "SEASON01/Challenge035",
+  "challengeDefID": "16448",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9122",
+      "2619",
+      "19808"
+    ],
+    "tags": []
+  }
+}

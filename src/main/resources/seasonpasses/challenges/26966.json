@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 10 New Lime Dyes",
+  "objectName": "SEASON05/Challenge069",
+  "challengeDefID": "26966",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 10
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10180"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

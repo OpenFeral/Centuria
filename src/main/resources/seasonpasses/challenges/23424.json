@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 2 Aquarion Roses",
+  "objectName": "SEASON03/Challenge176",
+  "challengeDefID": "23424",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "Equals",
+        "value": 2
+      }
+    ],
+    "operation": "Set",
+    "defs": [
+      "310"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

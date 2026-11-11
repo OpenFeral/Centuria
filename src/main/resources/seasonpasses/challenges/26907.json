@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Sleep\" Emote at the Clocktower in City Fera",
+  "objectName": "SEASON05/Challenge023",
+  "challengeDefID": "26907",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "8930",
+      "820",
+      "19783"
+    ],
+    "tags": []
+  }
+}

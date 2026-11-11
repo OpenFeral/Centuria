@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 5 Runic Mites",
+  "objectName": "SEASON03/Challenge192",
+  "challengeDefID": "23440",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3479"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

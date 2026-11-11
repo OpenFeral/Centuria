@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Play\" Emote next to the lonely shrine in Mugmyre Marsh",
+  "objectName": "SEASON01/Challenge065",
+  "challengeDefID": "16479",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2147",
+      "9190",
+      "19805"
+    ],
+    "tags": []
+  }
+}

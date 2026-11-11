@@ -1,0 +1,22 @@
+{
+  "challengeName": "Complete 10 Levels of Twiggle Builders",
+  "objectName": "SEASON03/Challenge086",
+  "challengeDefID": "23292",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "CompleteLevel",
+        "comparison": "GreaterThanOrEqual",
+        "value": 10
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "4111"
+    ],
+    "tags": [
+      "Game"
+    ]
+  }
+}

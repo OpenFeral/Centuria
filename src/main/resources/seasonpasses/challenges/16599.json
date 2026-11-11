@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at the docks in Mugmyre Marsh",
+  "objectName": "SEASON01/Challenge184",
+  "challengeDefID": "16599",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "2147",
+      "19804"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

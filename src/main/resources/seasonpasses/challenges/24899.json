@@ -1,0 +1,21 @@
+{
+  "challengeName": "Perform the \"Mad\" Emote at leakage site in Twigla\u0027s Workshop",
+  "objectName": "SEASON04/Challenge061",
+  "challengeDefID": "24899",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9121",
+      "2619"
+    ],
+    "tags": []
+  }
+}

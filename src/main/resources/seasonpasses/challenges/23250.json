@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to Mallory",
+  "objectName": "SEASON03/Challenge044",
+  "challengeDefID": "23250",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "5835"
+    ],
+    "tags": []
+  }
+}

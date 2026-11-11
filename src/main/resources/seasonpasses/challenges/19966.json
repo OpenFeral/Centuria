@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind a Rat King\u0027s Rug",
+  "objectName": "SEASON02/Challenge046",
+  "challengeDefID": "19966",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "20338"
+    ],
+    "tags": [
+      "Unbind"
+    ]
+  }
+}

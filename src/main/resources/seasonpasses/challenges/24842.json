@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the top of the Rat Wall in City Fera",
+  "objectName": "SEASON04/Challenge010",
+  "challengeDefID": "24842",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "820",
+      "19782"
+    ],
+    "tags": []
+  }
+}

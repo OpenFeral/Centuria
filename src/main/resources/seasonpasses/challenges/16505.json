@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Play\" Emote next to the group of Snowbolds in the Blood Tundra forest",
+  "objectName": "SEASON01/Challenge091",
+  "challengeDefID": "16505",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9190",
+      "2364",
+      "23192"
+    ],
+    "tags": []
+  }
+}

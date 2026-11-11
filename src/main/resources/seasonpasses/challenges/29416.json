@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the leakage site in Lakeroot Valley",
+  "objectName": "SEASON06/Challenge025",
+  "challengeDefID": "29416",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9687",
+      "19792"
+    ],
+    "tags": []
+  }
+}

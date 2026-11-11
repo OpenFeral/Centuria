@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at the Waterfalls in Mugmyre Marsh",
+  "objectName": "SEASON02/Challenge159",
+  "challengeDefID": "20122",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "23187",
+      "2147"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

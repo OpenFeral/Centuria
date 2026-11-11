@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Excite\" Emote next to the Miss Marguerite Plushie in To Dye For",
+  "objectName": "SEASON06/Challenge029",
+  "challengeDefID": "29429",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9122",
+      "1717",
+      "19810"
+    ],
+    "tags": []
+  }
+}

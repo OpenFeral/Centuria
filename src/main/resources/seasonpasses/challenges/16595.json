@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Rare Feathered Tail Flipper",
+  "objectName": "SEASON01/Challenge180",
+  "challengeDefID": "16595",
+  "auraPointsReward": 22,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "13060"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "challengeName": "Earn 1000 Likes from Twiggle Builders",
+  "objectName": "SEASON02/Challenge084",
+  "challengeDefID": "20047",
+  "auraPointsReward": 21,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1000
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "4111",
+      "2327"
+    ],
+    "tags": [
+      "Game"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "challengeName": "Open 6 Silver Chests",
+  "objectName": "SEASON04/Challenge170",
+  "challengeDefID": "25012",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "Complete",
+        "comparison": "GreaterThanOrEqual",
+        "value": 6
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Chest",
+      "Silver"
+    ]
+  }
+}

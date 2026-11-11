@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Fera Bed",
+  "objectName": "SEASON05/Challenge179",
+  "challengeDefID": "27127",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3676"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

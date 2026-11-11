@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 15 Swamp Anemones",
+  "objectName": "SEASON05/Challenge128",
+  "challengeDefID": "27067",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 15
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "445"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

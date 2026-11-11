@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Team Delilah Cap",
+  "objectName": "SEASON01/Challenge146",
+  "challengeDefID": "16561",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10793"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "challengeName": "Open 2 Gold Chests",
+  "objectName": "SEASON03/Challenge034",
+  "challengeDefID": "23231",
+  "auraPointsReward": 23,
+  "script": {
+    "actions": [
+      {
+        "action": "Complete",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Chest",
+      "Gold"
+    ]
+  }
+}

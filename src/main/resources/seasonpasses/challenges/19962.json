@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Shattered Mirror",
+  "objectName": "SEASON02/Challenge042",
+  "challengeDefID": "19962",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19887"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

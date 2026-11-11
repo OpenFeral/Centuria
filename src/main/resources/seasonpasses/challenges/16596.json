@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to Alma",
+  "objectName": "SEASON01/Challenge181",
+  "challengeDefID": "16596",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "8280"
+    ],
+    "tags": []
+  }
+}

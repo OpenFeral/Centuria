@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Sit\" Emote at the Blood Snake Waterfalls in the Blood Tundra",
+  "objectName": "SEASON03/Challenge052",
+  "challengeDefID": "23258",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9116",
+      "23189",
+      "2364"
+    ],
+    "tags": []
+  }
+}

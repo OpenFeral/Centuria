@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Excite\" Emote next to the Tundra Angler clothing set in the Blood Tundra",
+  "objectName": "SEASON05/Challenge180",
+  "challengeDefID": "27128",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9122",
+      "23192",
+      "2364"
+    ],
+    "tags": []
+  }
+}

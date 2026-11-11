@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Teeter Plushie in Mugmyre Marsh",
+  "objectName": "SEASON06/Challenge134",
+  "challengeDefID": "29545",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2147",
+      "23188"
+    ],
+    "tags": []
+  }
+}

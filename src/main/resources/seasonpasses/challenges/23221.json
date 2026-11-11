@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 15 Mangrove Bark",
+  "objectName": "SEASON03/Challenge024",
+  "challengeDefID": "23221",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 15
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "383"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

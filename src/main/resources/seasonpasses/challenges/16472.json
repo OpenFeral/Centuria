@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Beach Hat",
+  "objectName": "SEASON01/Challenge058",
+  "challengeDefID": "16472",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "28506"
+    ],
+    "tags": []
+  }
+}

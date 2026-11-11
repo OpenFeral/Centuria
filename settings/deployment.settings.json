@@ -1,6 +1,0 @@
-{
-    // CI/CD jobs
-    // FIXME: implement
-    // FIXME: should have multiple modes for handling pushes, we should however use push to any branch, but only if the commit hasnt been built before
-    // FIXME: if we dont handle the commit for our local config, we will end up building the build each time when autoff fast-fowrads, which is not needed, the jobs are structured to only need one build
-}

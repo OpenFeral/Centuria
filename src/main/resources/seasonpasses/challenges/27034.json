@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Couture Cap",
+  "objectName": "SEASON05/Challenge098",
+  "challengeDefID": "27034",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "27312"
+    ],
+    "tags": []
+  }
+}

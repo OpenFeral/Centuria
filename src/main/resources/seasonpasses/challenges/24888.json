@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to Ophelia",
+  "objectName": "SEASON04/Challenge050",
+  "challengeDefID": "24888",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1669"
+    ],
+    "tags": []
+  }
+}

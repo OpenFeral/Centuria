@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Rubber Ducky in Sunken Thicket",
+  "objectName": "SEASON02/Challenge007",
+  "challengeDefID": "19928",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3273",
+      "19817"
+    ],
+    "tags": []
+  }
+}

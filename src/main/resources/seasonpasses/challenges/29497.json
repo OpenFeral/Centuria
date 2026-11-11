@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at the Spa Furniture Set in the Sunken Thicket",
+  "objectName": "SEASON06/Challenge098",
+  "challengeDefID": "29497",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "3273",
+      "19818"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

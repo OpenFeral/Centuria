@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 10 Rare Furniture",
+  "objectName": "TEST/Challenge_Craft10RareFurniture",
+  "challengeDefID": "15618",
+  "auraPointsReward": 5,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 10
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Craft",
+      "Furniture",
+      "Rare"
+    ]
+  }
+}

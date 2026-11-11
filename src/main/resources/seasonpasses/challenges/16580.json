@@ -1,0 +1,20 @@
+{
+  "challengeName": "Earn 7500 Likes",
+  "objectName": "SEASON01/Challenge165",
+  "challengeDefID": "16580",
+  "auraPointsReward": 21,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 7500
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2327"
+    ],
+    "tags": []
+  }
+}

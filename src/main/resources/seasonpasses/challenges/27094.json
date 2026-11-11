@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Kitsune Balloon in Lakeroot Valley",
+  "objectName": "SEASON05/Challenge154",
+  "challengeDefID": "27094",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "9687",
+      "19794"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

@@ -2,8 +2,7 @@ package org.asf.centuria.modules.eventbus;
 
 /**
  * 
- * Abstract event object, needs to be annotated with EventPath for registration
- * to work.
+ * Abstract event object
  * 
  * @author Sky Swimmer - AerialWorks Software Foundation
  *

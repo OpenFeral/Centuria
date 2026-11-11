@@ -1,0 +1,20 @@
+{
+  "challengeName": "Craft a Rare Spring Tsukue",
+  "objectName": "SEASON04/Challenge130",
+  "challengeDefID": "24969",
+  "auraPointsReward": 22,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26551"
+    ],
+    "tags": []
+  }
+}

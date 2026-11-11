@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform any Emote next to the Arrowpeak Flag Pauldrons in Lakeroot Valley",
+  "objectName": "SEASON02/Challenge030",
+  "challengeDefID": "19951",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "19790",
+      "9687"
+    ],
+    "tags": []
+  }
+}

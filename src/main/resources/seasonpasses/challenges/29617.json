@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind a Copper Age Gate",
+  "objectName": "SEASON06/Challenge204",
+  "challengeDefID": "29617",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "11279"
+    ],
+    "tags": [
+      "Unbind"
+    ]
+  }
+}

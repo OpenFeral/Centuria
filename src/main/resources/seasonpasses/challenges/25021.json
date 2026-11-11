@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie next to the Star Shikari Set in Mugmyre Marsh",
+  "objectName": "SEASON04/Challenge179",
+  "challengeDefID": "25021",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2147",
+      "19806"
+    ],
+    "tags": []
+  }
+}

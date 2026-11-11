@@ -1,0 +1,22 @@
+{
+  "challengeName": "Trade 2  Magenta Dyes to someone else",
+  "objectName": "SEASON02/Challenge017",
+  "challengeDefID": "19938",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10178"
+    ],
+    "tags": [
+      "Trade"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "challengeName": "Open 10 Bronze Chests",
+  "objectName": "SEASON03/Challenge060",
+  "challengeDefID": "23266",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "Complete",
+        "comparison": "Equals",
+        "value": 10
+      }
+    ],
+    "operation": "Set",
+    "defs": [],
+    "tags": [
+      "Chest",
+      "Bronze"
+    ]
+  }
+}

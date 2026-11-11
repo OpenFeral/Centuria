@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 2 Crystal Rattlers",
+  "objectName": "SEASON04/Challenge120",
+  "challengeDefID": "24959",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "7580"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

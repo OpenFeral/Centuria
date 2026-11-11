@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the top of the grand tree canopy in the Sunken Thicket",
+  "objectName": "SEASON04/Challenge157",
+  "challengeDefID": "24996",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19819",
+      "3273"
+    ],
+    "tags": []
+  }
+}

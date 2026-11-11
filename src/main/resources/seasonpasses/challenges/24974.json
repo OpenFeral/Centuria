@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft Rare Thorn Cuffs",
+  "objectName": "SEASON04/Challenge135",
+  "challengeDefID": "24974",
+  "auraPointsReward": 22,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "16848"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

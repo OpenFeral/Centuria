@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the Cinderfish Pond in Lakeroot Valley",
+  "objectName": "SEASON03/Challenge082",
+  "challengeDefID": "23288",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9687",
+      "23211"
+    ],
+    "tags": []
+  }
+}

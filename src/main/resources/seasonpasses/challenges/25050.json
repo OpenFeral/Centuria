@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 10 Pigments",
+  "objectName": "SEASON04/Challenge208",
+  "challengeDefID": "25050",
+  "auraPointsReward": 20,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 20
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "28488"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind a Plain Stepping Stone",
+  "objectName": "SEASON03/Challenge032",
+  "challengeDefID": "23229",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "21196"
+    ],
+    "tags": [
+      "Unbind"
+    ]
+  }
+}

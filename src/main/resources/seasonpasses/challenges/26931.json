@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Kitsune Balloon in Lakeroot Valley",
+  "objectName": "SEASON05/Challenge042",
+  "challengeDefID": "26931",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9687",
+      "19794"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "challengeName": "Visit the Blood Tundra",
+  "objectName": "SEASON02/Challenge004",
+  "challengeDefID": "19925",
+  "auraPointsReward": 8,
+  "script": {
+    "actions": [
+      {
+        "action": "Visit",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2364"
+    ],
+    "tags": []
+  }
+}

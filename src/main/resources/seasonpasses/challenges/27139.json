@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at Bellamy\u0027s Outpost in the Sunken Thicket",
+  "objectName": "SEASON05/Challenge190",
+  "challengeDefID": "27139",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "3273",
+      "23153"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

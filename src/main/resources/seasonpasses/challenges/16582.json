@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Rare Antlered Delilah Cap",
+  "objectName": "SEASON01/Challenge167",
+  "challengeDefID": "16582",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "20443"
+    ],
+    "tags": []
+  }
+}

@@ -510,7 +510,7 @@ public abstract class CenturiaAccount {
 		if (reason != null)
 			banInfo.addProperty("reason", reason);
 		banInfo.addProperty("type", "ban");
-		banInfo.addProperty("unbanTimestamp", System.currentTimeMillis() + (days * 24 * 60 * 60 * 1000));
+		banInfo.addProperty("unbanTimestamp", System.currentTimeMillis() + ((long) days * 24 * 60 * 60 * 1000));
 		getSaveSharedInventory().setItem("penalty", banInfo);
 
 		// Find online player
@@ -645,8 +645,8 @@ public abstract class CenturiaAccount {
 		if (reason != null)
 			muteInfo.addProperty("reason", reason);
 		muteInfo.addProperty("type", "mute");
-		muteInfo.addProperty("unmuteTimestamp", System.currentTimeMillis() + (minutes * 60 * 1000)
-				+ (hours * 60 * 60 * 1000) + (days * 24 * 60 * 60 * 1000));
+		muteInfo.addProperty("unmuteTimestamp", System.currentTimeMillis() + ((long) minutes * 60 * 1000)
+				+ ((long) hours * 60 * 60 * 1000) + ((long) days * 24 * 60 * 60 * 1000));
 		getSaveSharedInventory().setItem("penalty", muteInfo);
 
 		// Sync online player

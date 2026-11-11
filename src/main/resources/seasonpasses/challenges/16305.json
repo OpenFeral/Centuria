@@ -1,0 +1,23 @@
+{
+  "challengeName": "Harvest 10 COOL Lakeroot Valley ingredients",
+  "objectName": "SEASON01/Challenge009",
+  "challengeDefID": "16305",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 10
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9687"
+    ],
+    "tags": [
+      "Harvest",
+      "Uncommon"
+    ]
+  }
+}

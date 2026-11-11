@@ -1,0 +1,21 @@
+{
+  "challengeName": "Sleep in Mugmyre Marsh",
+  "objectName": "TEST/Challenge_PerformSleepInMugmyreMarsh",
+  "challengeDefID": "16863",
+  "auraPointsReward": 20,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "8930",
+      "9130"
+    ],
+    "tags": []
+  }
+}

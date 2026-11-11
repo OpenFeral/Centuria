@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie Serial Chiller\u0027s Cave in Blood Tundra",
+  "objectName": "SEASON02/Challenge132",
+  "challengeDefID": "20095",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23190",
+      "2364"
+    ],
+    "tags": []
+  }
+}

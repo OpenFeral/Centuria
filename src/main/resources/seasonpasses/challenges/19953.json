@@ -1,0 +1,23 @@
+{
+  "challengeName": "Harvest 5 Rich Pigments in Blood Tundra",
+  "objectName": "SEASON02/Challenge032",
+  "challengeDefID": "19953",
+  "auraPointsReward": 21,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "28489",
+      "2364"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

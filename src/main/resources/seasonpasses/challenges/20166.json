@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 10 Pumpkin Dyes",
+  "objectName": "SEASON02/Challenge185",
+  "challengeDefID": "20166",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 10
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "17533"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

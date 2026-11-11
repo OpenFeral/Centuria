@@ -1,0 +1,21 @@
+{
+  "challengeName": "Visit Centuria",
+  "objectName": "TEST2/Challenge_Earn2IngredientsFromRockFlipping",
+  "challengeDefID": "19202",
+  "auraPointsReward": 5,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "RockFlip",
+      "Ingredients"
+    ]
+  }
+}

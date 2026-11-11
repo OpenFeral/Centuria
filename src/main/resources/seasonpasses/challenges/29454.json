@@ -1,0 +1,22 @@
+{
+  "challengeName": "Earn a Furniture Item from Twiggle Builders",
+  "objectName": "SEASON06/Challenge055",
+  "challengeDefID": "29454",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23335"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Builder Twiggle Plush in the Sunken Thicket",
+  "objectName": "SEASON03/Challenge057",
+  "challengeDefID": "23263",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19819",
+      "3273"
+    ],
+    "tags": []
+  }
+}

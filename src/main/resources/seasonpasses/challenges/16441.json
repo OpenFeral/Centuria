@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Barbecue Cooler",
+  "objectName": "SEASON01/Challenge029",
+  "challengeDefID": "16441",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "29893"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

@@ -150,7 +150,7 @@ public class RandomizedSpawnBehaviour implements ISpawnBehaviourProvider {
 		// Check rotation
 		int rotationHours = Integer.parseInt(properties.getOrDefault("rotation-hours", "3"));
 		if (rotations.containsKey(levelID)
-				&& rotations.get(levelID).time + (rotationHours * 60 * 60 * 1000) > System.currentTimeMillis()) {
+				&& rotations.get(levelID).time + (rotationHours * 60 * 60 * 1000l) > System.currentTimeMillis()) {
 			update = false;
 		}
 
@@ -419,7 +419,8 @@ public class RandomizedSpawnBehaviour implements ISpawnBehaviourProvider {
 					rot.mapping.getOrDefault(t.id, t.id))) {
 				long lastUnlock = plr.account.getSaveSpecificInventory().getInteractionMemory()
 						.getLastTreasureUnlockTime(levelID, rot.mapping.getOrDefault(t.id, t.id));
-				if (lastUnlock > rot.time && System.currentTimeMillis() < lastUnlock + (rotationHours * 60 * 60 * 1000))
+				if (lastUnlock > rot.time
+						&& System.currentTimeMillis() < lastUnlock + (rotationHours * 60 * 60 * 1000l))
 					return false;
 			}
 			return true;

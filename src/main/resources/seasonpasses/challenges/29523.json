@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 2 Void Beetles",
+  "objectName": "SEASON06/Challenge124",
+  "challengeDefID": "29523",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "6304"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

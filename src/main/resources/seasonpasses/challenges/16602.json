@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Artist clothing set in Twigla\u0027s Workshop",
+  "objectName": "SEASON01/Challenge187",
+  "challengeDefID": "16602",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2619",
+      "19808"
+    ],
+    "tags": []
+  }
+}

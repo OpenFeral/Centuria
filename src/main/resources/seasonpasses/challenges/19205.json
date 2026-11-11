@@ -1,0 +1,20 @@
+{
+  "challengeName": "Visit Centuria",
+  "objectName": "TEST2/Challenge_WearForagerArmBands",
+  "challengeDefID": "19205",
+  "auraPointsReward": 5,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3861"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to Viola",
+  "objectName": "SEASON04/Challenge006",
+  "challengeDefID": "24830",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1412"
+    ],
+    "tags": []
+  }
+}

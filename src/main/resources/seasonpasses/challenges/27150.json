@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 2 Slate Dyes",
+  "objectName": "SEASON05/Challenge201",
+  "challengeDefID": "27150",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10167"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

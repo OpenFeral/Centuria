@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie on the Stage in Centuria",
+  "objectName": "SEASON04/Challenge118",
+  "challengeDefID": "24957",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 6
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1718",
+      "19776"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft Jester Leggings",
+  "objectName": "SEASON06/Challenge184",
+  "challengeDefID": "29597",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10993"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

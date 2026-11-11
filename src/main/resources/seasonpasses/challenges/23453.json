@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Caroler\u0027s Lantern in the Blood Tundra",
+  "objectName": "SEASON03/Challenge205",
+  "challengeDefID": "23453",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "2364",
+      "23191"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

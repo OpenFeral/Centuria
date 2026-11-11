@@ -1,0 +1,22 @@
+{
+  "challengeName": "Complete 10 Levels of Do or Dye",
+  "objectName": "SEASON04/Challenge062",
+  "challengeDefID": "24900",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "CompleteLevel",
+        "comparison": "GreaterThanOrEqual",
+        "value": 10
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "5054"
+    ],
+    "tags": [
+      "Game"
+    ]
+  }
+}

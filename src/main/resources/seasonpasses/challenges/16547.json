@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie next to the Fell Parasol in City Fera",
+  "objectName": "SEASON01/Challenge132",
+  "challengeDefID": "16547",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23148",
+      "820"
+    ],
+    "tags": []
+  }
+}

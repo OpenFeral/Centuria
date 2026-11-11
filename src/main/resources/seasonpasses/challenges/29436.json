@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at the Wedding Reception in Lakeroot Valley",
+  "objectName": "SEASON06/Challenge037",
+  "challengeDefID": "29436",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23160",
+      "9687",
+      "26892"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

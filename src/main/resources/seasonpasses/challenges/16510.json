@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Flex\" Emote next to the Chateau furniture set in Lakeroot Valley",
+  "objectName": "SEASON01/Challenge096",
+  "challengeDefID": "16510",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9151",
+      "9687",
+      "23160"
+    ],
+    "tags": []
+  }
+}

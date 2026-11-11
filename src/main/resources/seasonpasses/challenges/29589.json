@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Flex\" Emote next to the Lucky Kobold in Lakeroot Valley",
+  "objectName": "SEASON06/Challenge176",
+  "challengeDefID": "29589",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9151",
+      "9687",
+      "23161"
+    ],
+    "tags": []
+  }
+}

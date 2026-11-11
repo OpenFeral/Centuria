@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind a Fera Sofa",
+  "objectName": "SEASON05/Challenge199",
+  "challengeDefID": "27148",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3683"
+    ],
+    "tags": [
+      "Unbind"
+    ]
+  }
+}

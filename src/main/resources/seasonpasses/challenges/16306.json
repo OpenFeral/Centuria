@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote in the tree canopy of the Sunken Thicket",
+  "objectName": "SEASON01/Challenge010",
+  "challengeDefID": "16306",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "19819",
+      "3273"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

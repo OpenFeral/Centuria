@@ -1,0 +1,21 @@
+{
+  "challengeName": "Harvest 15 COOL ingredients",
+  "objectName": "SEASON02/Challenge204",
+  "challengeDefID": "20185",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 15
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Uncommon",
+      "Harvest"
+    ]
+  }
+}

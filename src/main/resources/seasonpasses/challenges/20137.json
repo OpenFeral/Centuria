@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the jewelry display case in Fera Fashions",
+  "objectName": "SEASON02/Challenge171",
+  "challengeDefID": "20137",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19786",
+      "1716"
+    ],
+    "tags": []
+  }
+}

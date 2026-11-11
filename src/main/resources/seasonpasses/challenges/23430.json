@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Sit\" Emote at the Lake Docks in Mugmyre Marsh",
+  "objectName": "SEASON03/Challenge182",
+  "challengeDefID": "23430",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9116",
+      "2147",
+      "19804"
+    ],
+    "tags": []
+  }
+}

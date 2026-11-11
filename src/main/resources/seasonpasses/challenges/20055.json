@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Mad\" Emote at leakage site in Blood Tundra",
+  "objectName": "SEASON02/Challenge092",
+  "challengeDefID": "20055",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23191",
+      "9121",
+      "2364"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Extravagant Hat in the Shattered Bay",
+  "objectName": "SEASON05/Challenge114",
+  "challengeDefID": "27051",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1825",
+      "19816"
+    ],
+    "tags": []
+  }
+}

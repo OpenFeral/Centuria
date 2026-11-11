@@ -1,0 +1,20 @@
+{
+  "challengeName": "Get 500 points in What the Hex",
+  "objectName": "TEST/Challenge_Get500PointsInWhatTheHex",
+  "challengeDefID": "15622",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "Score",
+        "comparison": "GreaterThanOrEqual",
+        "value": 500
+      }
+    ],
+    "operation": "Set",
+    "defs": [
+      "3272"
+    ],
+    "tags": []
+  }
+}

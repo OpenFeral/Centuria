@@ -1,0 +1,23 @@
+{
+  "challengeName": "Harvest 10 COOL Blood Tundra ingredients",
+  "objectName": "SEASON06/Challenge001",
+  "challengeDefID": "29392",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 10
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2364"
+    ],
+    "tags": [
+      "Uncommon",
+      "Harvest"
+    ]
+  }
+}

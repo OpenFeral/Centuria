@@ -1,0 +1,20 @@
+{
+  "challengeName": "Earn 1500 Likes",
+  "objectName": "TEST/Challenge_Earn1500Likes",
+  "challengeDefID": "15626",
+  "auraPointsReward": 8,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1500
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2327"
+    ],
+    "tags": []
+  }
+}

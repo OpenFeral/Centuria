@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the leakage site in the Shattered Bay",
+  "objectName": "SEASON01/Challenge024",
+  "challengeDefID": "16408",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1825",
+      "23151"
+    ],
+    "tags": []
+  }
+}

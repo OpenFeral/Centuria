@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 10 Runic Mites",
+  "objectName": "TEST/Challenge_Harvest10RunicMites",
+  "challengeDefID": "15624",
+  "auraPointsReward": 13,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 10
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3479"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

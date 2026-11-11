@@ -1,0 +1,21 @@
+{
+  "challengeName": "Perform the \"Sleep\" Emote next to the Balloonist clothing set in Fera Fashions",
+  "objectName": "SEASON05/Challenge196",
+  "challengeDefID": "27145",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "8930",
+      "1716"
+    ],
+    "tags": []
+  }
+}

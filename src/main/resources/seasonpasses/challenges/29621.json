@@ -1,0 +1,22 @@
+{
+  "challengeName": "Wear any 1 item from the Garden Clothing Set",
+  "objectName": "SEASON06/Challenge208",
+  "challengeDefID": "29621",
+  "auraPointsReward": 24,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "31258"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

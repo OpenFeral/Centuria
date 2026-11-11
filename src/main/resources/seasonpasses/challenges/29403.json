@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Noct Plushie in the Blood Tundra",
+  "objectName": "SEASON06/Challenge012",
+  "challengeDefID": "29403",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2364",
+      "31230"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "challengeName": "Perform any Emote at the Skeleton Tree in Blood Tundra",
+  "objectName": "SEASON02/Challenge059",
+  "challengeDefID": "19985",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19761",
+      "2364"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

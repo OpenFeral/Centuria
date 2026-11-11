@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 15 Water Striders",
+  "objectName": "SEASON05/Challenge049",
+  "challengeDefID": "26938",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 15
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "6307"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 1 Rare Tulip Tail",
+  "objectName": "TEST/Challenge_Craft1RareTulipTail",
+  "challengeDefID": "15596",
+  "auraPointsReward": 7,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "4743"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

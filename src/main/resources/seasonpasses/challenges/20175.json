@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear Beasty Brows",
+  "objectName": "SEASON02/Challenge193",
+  "challengeDefID": "20175",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19284"
+    ],
+    "tags": []
+  }
+}

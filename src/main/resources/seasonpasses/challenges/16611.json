@@ -1,0 +1,22 @@
+{
+  "challengeName": "Trade 5 Purple Dyes to someone else",
+  "objectName": "SEASON01/Challenge196",
+  "challengeDefID": "16611",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "431"
+    ],
+    "tags": [
+      "Trade"
+    ]
+  }
+}

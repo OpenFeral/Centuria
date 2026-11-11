@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at Ogasa Village in Lakeroot Valley",
+  "objectName": "SEASON01/Challenge210",
+  "challengeDefID": "31275",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19793",
+      "9687"
+    ],
+    "tags": []
+  }
+}

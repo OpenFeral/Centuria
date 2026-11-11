@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Cloudburst Clothing Set in City Fera",
+  "objectName": "SEASON03/Challenge053",
+  "challengeDefID": "23259",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23149",
+      "26892",
+      "820"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

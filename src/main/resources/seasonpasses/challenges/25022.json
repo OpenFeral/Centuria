@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 5 Dark Silver Dyes",
+  "objectName": "SEASON04/Challenge180",
+  "challengeDefID": "25022",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10147"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

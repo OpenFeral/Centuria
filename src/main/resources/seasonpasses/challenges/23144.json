@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Snowball Necklace",
+  "objectName": "SEASON03/Challenge002",
+  "challengeDefID": "23144",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23026"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

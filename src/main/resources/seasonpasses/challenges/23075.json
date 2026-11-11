@@ -1,0 +1,23 @@
+{
+  "challengeName": "Get 1 Voyager Set Clothing Item from Trading",
+  "objectName": "TEST3/GetListTrade",
+  "challengeDefID": "23075",
+  "auraPointsReward": 5,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23057"
+    ],
+    "tags": [
+      "Trade",
+      "List"
+    ]
+  }
+}

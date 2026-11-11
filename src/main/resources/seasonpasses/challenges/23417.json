@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 5 Twinkling Twine",
+  "objectName": "SEASON03/Challenge169",
+  "challengeDefID": "23417",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "6301"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

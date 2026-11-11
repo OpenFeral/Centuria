@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Sleep\" Emote next to the Bard Water Fountain in Mugmyre Marsh",
+  "objectName": "SEASON04/Challenge126",
+  "challengeDefID": "24965",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "8930",
+      "19803",
+      "2147"
+    ],
+    "tags": []
+  }
+}

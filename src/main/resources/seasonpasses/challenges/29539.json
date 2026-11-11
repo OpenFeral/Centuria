@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Crag Shelf",
+  "objectName": "SEASON06/Challenge128",
+  "challengeDefID": "29539",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "4955"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

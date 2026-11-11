@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote in the Sandbox in Mugmyre Marsh",
+  "objectName": "SEASON06/Challenge041",
+  "challengeDefID": "29440",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "2147",
+      "19806"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

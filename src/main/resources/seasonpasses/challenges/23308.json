@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 15 Radiant Stones",
+  "objectName": "SEASON03/Challenge102",
+  "challengeDefID": "23308",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 15
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "6294"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

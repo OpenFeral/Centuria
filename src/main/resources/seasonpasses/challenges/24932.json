@@ -1,0 +1,23 @@
+{
+  "challengeName": "Earn 1000 Likes from Do or Dye",
+  "objectName": "SEASON04/Challenge094",
+  "challengeDefID": "24932",
+  "auraPointsReward": 21,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1000
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2327",
+      "5054"
+    ],
+    "tags": [
+      "Game"
+    ]
+  }
+}

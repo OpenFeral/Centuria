@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie next to the Chateau furniture set in Lakeroot Valley",
+  "objectName": "SEASON01/Challenge192",
+  "challengeDefID": "16607",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9687",
+      "23160"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Skald Plushie in Blood Tundra",
+  "objectName": "SEASON02/Challenge033",
+  "challengeDefID": "19954",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19771",
+      "2364"
+    ],
+    "tags": []
+  }
+}

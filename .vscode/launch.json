@@ -27,6 +27,17 @@
             "classPaths": ["$Test","$Runtime"],
             "vmArgs" : "-DdebugMode -DaddCpModules=org.asf.centuria.TestModule",
             "projectName": "Centuria Legacy-${workspaceFolderBasename}"
+        },
+
+        // Attach to live
+        {
+            "type": "java",
+            "name": "Attach to EmuFeral Live",
+            "request": "attach",
+            "hostName": "169.90.10.100",
+            "port": 8000,
+
+            "projectName": "Centuria Legacy-${workspaceFolderBasename}"
         }
     ]
 }

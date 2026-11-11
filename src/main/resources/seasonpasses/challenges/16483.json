@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Excite\" Emote next to the Ornate clothing set in Fera Fashions",
+  "objectName": "SEASON01/Challenge069",
+  "challengeDefID": "16483",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1716",
+      "31215",
+      "9122"
+    ],
+    "tags": []
+  }
+}

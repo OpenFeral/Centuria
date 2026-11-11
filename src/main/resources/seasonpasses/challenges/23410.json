@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Rare Bard Purse",
+  "objectName": "SEASON03/Challenge163",
+  "challengeDefID": "23410",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "24466"
+    ],
+    "tags": []
+  }
+}

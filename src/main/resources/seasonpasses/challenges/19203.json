@@ -1,0 +1,21 @@
+{
+  "challengeName": "Visit Centuria",
+  "objectName": "TEST2/Challenge_Earn3IngredientsFromDigging",
+  "challengeDefID": "19203",
+  "auraPointsReward": 5,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 3
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Dig",
+      "Ingredients"
+    ]
+  }
+}

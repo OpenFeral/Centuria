@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at Kino\u0027s Booth in the Sunken Thicket",
+  "objectName": "SEASON05/Challenge007",
+  "challengeDefID": "26890",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "3273",
+      "24575"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

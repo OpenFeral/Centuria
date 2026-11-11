@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 2 Purelight Blooms",
+  "objectName": "SEASON01/Challenge202",
+  "challengeDefID": "17064",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "381"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

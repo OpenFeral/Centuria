@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind a Spacer League Mohawk",
+  "objectName": "SEASON02/Challenge130",
+  "challengeDefID": "20093",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "12339"
+    ],
+    "tags": [
+      "Unbind"
+    ]
+  }
+}

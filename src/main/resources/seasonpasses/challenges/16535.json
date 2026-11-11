@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 2 Mauve Dyes",
+  "objectName": "SEASON01/Challenge120",
+  "challengeDefID": "16535",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "433"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

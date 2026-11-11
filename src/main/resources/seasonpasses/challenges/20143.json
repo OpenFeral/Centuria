@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Sit\" Emote next to Skip in Shattered Bay",
+  "objectName": "SEASON02/Challenge177",
+  "challengeDefID": "20143",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19816",
+      "1825",
+      "9116"
+    ],
+    "tags": []
+  }
+}

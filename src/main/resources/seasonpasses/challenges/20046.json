@@ -1,0 +1,22 @@
+{
+  "challengeName": "Wear any 1 item from the Dark Space Clothing Set",
+  "objectName": "SEASON02/Challenge083",
+  "challengeDefID": "20046",
+  "auraPointsReward": 24,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23138"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

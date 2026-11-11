@@ -1,0 +1,20 @@
+{
+  "challengeName": "Earn 5000 Likes",
+  "objectName": "SEASON02/Challenge106",
+  "challengeDefID": "20069",
+  "auraPointsReward": 20,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5000
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2327"
+    ],
+    "tags": []
+  }
+}

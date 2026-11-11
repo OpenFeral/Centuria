@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Rare Horned Team Aradia Cap ",
+  "objectName": "SEASON01/Challenge161",
+  "challengeDefID": "16576",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "20440"
+    ],
+    "tags": []
+  }
+}

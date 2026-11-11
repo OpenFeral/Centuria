@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 10 Cool Gray Light Dyes",
+  "objectName": "SEASON01/Challenge040",
+  "challengeDefID": "16453",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 10
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10168"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

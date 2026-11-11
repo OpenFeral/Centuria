@@ -1,0 +1,22 @@
+{
+  "challengeName": "Trade a COMMON Clothing item to someone else",
+  "objectName": "SEASON04/Challenge184",
+  "challengeDefID": "25026",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Common",
+      "Clothing",
+      "Trade"
+    ]
+  }
+}

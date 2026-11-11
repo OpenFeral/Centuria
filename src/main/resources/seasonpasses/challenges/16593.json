@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 5 Leering Eyes",
+  "objectName": "SEASON01/Challenge178",
+  "challengeDefID": "16593",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "453"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

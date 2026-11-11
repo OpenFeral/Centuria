@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Arrowpeak Pauldrons in Lakeroot Valley",
+  "objectName": "SEASON02/Challenge011",
+  "challengeDefID": "19932",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19790",
+      "9687"
+    ],
+    "tags": []
+  }
+}

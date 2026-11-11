@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 2 Carnation Koi",
+  "objectName": "SEASON01/Challenge197",
+  "challengeDefID": "16612",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "6295"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

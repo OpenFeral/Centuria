@@ -1,0 +1,20 @@
+{
+  "challengeName": "Visit the Sunken Thicket",
+  "objectName": "SEASON02/Challenge054",
+  "challengeDefID": "19974",
+  "auraPointsReward": 8,
+  "script": {
+    "actions": [
+      {
+        "action": "Visit",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3273"
+    ],
+    "tags": []
+  }
+}

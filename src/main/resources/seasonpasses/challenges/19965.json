@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Creepy Puppet in City Fera",
+  "objectName": "SEASON02/Challenge045",
+  "challengeDefID": "19965",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "820",
+      "19781"
+    ],
+    "tags": []
+  }
+}

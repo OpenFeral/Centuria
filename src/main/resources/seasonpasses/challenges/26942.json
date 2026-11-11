@@ -1,0 +1,21 @@
+{
+  "challengeName": "Perform the \"Excite\" Emote next to the Spring Clover furniture set in Twigla\u0027s Workshop",
+  "objectName": "SEASON05/Challenge052",
+  "challengeDefID": "26942",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9122",
+      "2619"
+    ],
+    "tags": []
+  }
+}

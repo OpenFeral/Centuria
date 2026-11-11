@@ -1,0 +1,22 @@
+{
+  "challengeName": "Obtain 2 COOL Dyes items by trading",
+  "objectName": "SEASON01/Challenge085",
+  "challengeDefID": "16499",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Trade",
+      "Uncommon",
+      "Dye"
+    ]
+  }
+}

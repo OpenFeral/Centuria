@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Mad\" Emote at leakage site in Mugmyre Marsh",
+  "objectName": "SEASON02/Challenge100",
+  "challengeDefID": "20063",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9121",
+      "19802",
+      "2147"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Kiteray Kite in the Blood Tundra",
+  "objectName": "SEASON05/Challenge072",
+  "challengeDefID": "26971",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "2364",
+      "19774"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

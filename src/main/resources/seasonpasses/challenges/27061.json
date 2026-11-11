@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Play\" Emote next to the Rising clothing set in Centuria",
+  "objectName": "SEASON05/Challenge123",
+  "challengeDefID": "27061",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19776",
+      "1718",
+      "9190"
+    ],
+    "tags": []
+  }
+}

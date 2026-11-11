@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Play\" Emote next to the Clothier Plushie in Mugmyre Marsh",
+  "objectName": "SEASON02/Challenge014",
+  "challengeDefID": "19935",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9190",
+      "19799",
+      "2147"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Noct Plushie in the Blood Tundra",
+  "objectName": "SEASON06/Challenge104",
+  "challengeDefID": "29503",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "2364",
+      "31230"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

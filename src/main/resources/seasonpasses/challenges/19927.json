@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to Brett",
+  "objectName": "SEASON02/Challenge039",
+  "challengeDefID": "19927",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2634"
+    ],
+    "tags": []
+  }
+}

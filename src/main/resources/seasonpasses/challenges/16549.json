@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie next to the Lich Handbag in City Fera",
+  "objectName": "SEASON01/Challenge134",
+  "challengeDefID": "16549",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23147",
+      "820"
+    ],
+    "tags": []
+  }
+}

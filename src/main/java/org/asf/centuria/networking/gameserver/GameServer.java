@@ -70,7 +70,7 @@ import org.asf.centuria.security.IpAddressMatcher;
 import org.asf.centuria.social.SocialEntry;
 import org.asf.centuria.social.SocialManager;
 
-import tools.jackson.dataformat.xml.XmlMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

@@ -19,6 +19,7 @@ import org.apache.logging.log4j.Logger;
 import org.asf.centuria.modules.dependencies.IMavenRepositoryProvider;
 import org.asf.centuria.modules.dependencies.IModuleMavenDependencyProvider;
 import org.asf.centuria.modules.eventbus.EventBus;
+import org.asf.centuria.modules.eventbus.impl.EventBusImpl;
 import org.objectweb.asm.tree.ClassNode;
 
 /**
@@ -68,6 +69,7 @@ public class ModuleManager {
 		FluidClassPool pool = FluidClassPool.create();
 		DynamicClassLoader loader = new DynamicClassLoader();
 		moduleLoader = loader;
+		EventBusImpl.initClassLoader(loader);
 
 		// Load modules
 		findAndLoadModules(pool, modulesDir);

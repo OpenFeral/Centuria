@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Radiant Table",
+  "objectName": "SEASON04/Challenge132",
+  "challengeDefID": "24971",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "4586"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

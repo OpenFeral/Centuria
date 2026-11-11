@@ -4,8 +4,8 @@ import org.asf.centuria.packets.smartfox.ISmartfoxPacket;
 import org.asf.centuria.networking.smartfox.SmartfoxClient;
 import org.asf.centuria.packets.xml.VersionHandshakePackets;
 
-import tools.jackson.core.JacksonException;
-import tools.jackson.dataformat.xml.XmlMapper;
+import com.fasterxml.jackson.core.JacksonException;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 public class ServerToClientOK implements ISmartfoxPacket {
 	private XmlMapper mapper;

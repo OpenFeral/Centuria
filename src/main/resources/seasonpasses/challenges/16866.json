@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to Brody",
+  "objectName": "TEST/Challenge_TalkToBrody",
+  "challengeDefID": "16866",
+  "auraPointsReward": 22,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1595"
+    ],
+    "tags": []
+  }
+}

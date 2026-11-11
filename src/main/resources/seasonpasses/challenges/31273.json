@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at Arrowpeak Village in Lakeroot Valley",
+  "objectName": "SEASON01/Challenge208",
+  "challengeDefID": "31273",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9687",
+      "19790"
+    ],
+    "tags": []
+  }
+}

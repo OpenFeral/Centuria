@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Soccer Ball in Mugmyre Marsh",
+  "objectName": "SEASON06/Challenge106",
+  "challengeDefID": "29505",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2147",
+      "19803"
+    ],
+    "tags": []
+  }
+}

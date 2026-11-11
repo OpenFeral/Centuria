@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to Fjord",
+  "objectName": "SEASON02/Challenge082",
+  "challengeDefID": "20045",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "21560"
+    ],
+    "tags": []
+  }
+}

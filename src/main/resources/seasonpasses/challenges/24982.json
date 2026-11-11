@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at What the Hex in the Sunken Thicket",
+  "objectName": "SEASON04/Challenge143",
+  "challengeDefID": "24982",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19821",
+      "3273"
+    ],
+    "tags": []
+  }
+}

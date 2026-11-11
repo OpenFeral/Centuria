@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Excite\" Emote next to the pile of Snacks in Centuria",
+  "objectName": "SEASON02/Challenge064",
+  "challengeDefID": "19990",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9122",
+      "19775",
+      "1718"
+    ],
+    "tags": []
+  }
+}

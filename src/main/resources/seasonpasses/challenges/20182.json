@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Wedding Veil and Top Hat in Shattered Bay",
+  "objectName": "SEASON02/Challenge194",
+  "challengeDefID": "20182",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19816",
+      "1825"
+    ],
+    "tags": []
+  }
+}

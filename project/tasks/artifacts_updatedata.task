@@ -1,0 +1,5 @@
+#!/bin/bash
+
+function artifacts_updatedata_run() {
+    addTaskTo artifacts
+}

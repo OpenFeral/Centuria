@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Phalanx Longspear",
+  "objectName": "SEASON04/Challenge016",
+  "challengeDefID": "24848",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "27574"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

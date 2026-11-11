@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 2 Gold Plasma Cores",
+  "objectName": "SEASON04/Challenge142",
+  "challengeDefID": "24981",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "6285"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Mad\" Emote at the Blood Snake Waterfall in the Blood Tundra",
+  "objectName": "SEASON05/Challenge048",
+  "challengeDefID": "26937",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9121",
+      "23189",
+      "2364"
+    ],
+    "tags": []
+  }
+}

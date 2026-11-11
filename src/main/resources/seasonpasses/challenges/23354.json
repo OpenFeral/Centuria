@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to Bellamy",
+  "objectName": "SEASON03/Challenge145",
+  "challengeDefID": "23354",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "11935"
+    ],
+    "tags": []
+  }
+}

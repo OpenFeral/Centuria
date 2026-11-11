@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Bell Bobble Anklet",
+  "objectName": "SEASON01/Challenge097",
+  "challengeDefID": "16511",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "11011"
+    ],
+    "tags": []
+  }
+}

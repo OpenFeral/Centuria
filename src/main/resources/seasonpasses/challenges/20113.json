@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Yawn\" Emote next to the Creepy Puppet in City Fera",
+  "objectName": "SEASON02/Challenge150",
+  "challengeDefID": "20113",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9108",
+      "19781",
+      "820"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "challengeName": "Open 3 Gold Chests",
+  "objectName": "TEST/Challenge_Open3GoldChests",
+  "challengeDefID": "16871",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "Complete",
+        "comparison": "GreaterThanOrEqual",
+        "value": 3
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Chest",
+      "Gold"
+    ]
+  }
+}

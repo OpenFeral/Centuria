@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Twiggle Ghost",
+  "objectName": "SEASON02/Challenge072",
+  "challengeDefID": "20028",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "20646"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

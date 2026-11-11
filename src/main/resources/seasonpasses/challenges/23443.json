@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Sleep\" Emote at the top of the Mistbreath Dragon Statue in Mugmyre Marsh",
+  "objectName": "SEASON03/Challenge195",
+  "challengeDefID": "23443",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "8930",
+      "2147",
+      "19801"
+    ],
+    "tags": []
+  }
+}

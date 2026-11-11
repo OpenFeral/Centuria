@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Huntress Headband",
+  "objectName": "SEASON03/Challenge200",
+  "challengeDefID": "23448",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "20458"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

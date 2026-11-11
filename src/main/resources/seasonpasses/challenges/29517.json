@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at the Reading Nook in the Blood Tundra",
+  "objectName": "SEASON06/Challenge118",
+  "challengeDefID": "29517",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "2364",
+      "19772"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

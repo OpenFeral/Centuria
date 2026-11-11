@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Excite\" Emote on the stage in Centuria",
+  "objectName": "SEASON01/Challenge126",
+  "challengeDefID": "16541",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9122",
+      "19776",
+      "1718"
+    ],
+    "tags": []
+  }
+}

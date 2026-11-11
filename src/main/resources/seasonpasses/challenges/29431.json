@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Pinata",
+  "objectName": "SEASON06/Challenge032",
+  "challengeDefID": "29431",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "4437"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

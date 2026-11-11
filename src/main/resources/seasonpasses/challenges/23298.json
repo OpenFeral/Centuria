@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Noble Snow Sculpture in City Fera",
+  "objectName": "SEASON03/Challenge092",
+  "challengeDefID": "23298",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "820",
+      "23148",
+      "26892"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

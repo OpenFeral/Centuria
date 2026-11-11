@@ -1,0 +1,22 @@
+{
+  "challengeName": "Trade 5 Bubblegum Pink Dyes to someone else",
+  "objectName": "SEASON05/Challenge066",
+  "challengeDefID": "26962",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10186"
+    ],
+    "tags": [
+      "Trade"
+    ]
+  }
+}

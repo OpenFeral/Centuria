@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the Floating Island House in Sunken Thicket",
+  "objectName": "SEASON02/Challenge067",
+  "challengeDefID": "20016",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "24556",
+      "3273"
+    ],
+    "tags": []
+  }
+}

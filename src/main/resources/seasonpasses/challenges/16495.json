@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to Twigla",
+  "objectName": "SEASON01/Challenge081",
+  "challengeDefID": "16495",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3961"
+    ],
+    "tags": []
+  }
+}

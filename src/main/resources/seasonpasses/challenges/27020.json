@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to Kino",
+  "objectName": "SEASON05/Challenge085",
+  "challengeDefID": "27020",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "7780"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at Sporesville in Mugmyre Marsh",
+  "objectName": "SEASON02/Challenge068",
+  "challengeDefID": "20024",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19806",
+      "2147"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the leakage site in the Blood Tundra",
+  "objectName": "SEASON06/Challenge153",
+  "challengeDefID": "29565",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2364",
+      "19788"
+    ],
+    "tags": []
+  }
+}

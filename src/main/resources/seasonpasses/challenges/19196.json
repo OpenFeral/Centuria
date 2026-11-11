@@ -1,0 +1,18 @@
+{
+  "challengeName": "Visit Centuria",
+  "objectName": "TEST2/Challenge_Take3Selfies",
+  "challengeDefID": "19196",
+  "auraPointsReward": 5,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 3
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": []
+  }
+}

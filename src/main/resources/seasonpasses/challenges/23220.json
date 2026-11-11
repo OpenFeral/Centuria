@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Sit\" Emote on a bench at the base of the Giant Crystal in the Shattered Bay",
+  "objectName": "SEASON03/Challenge023",
+  "challengeDefID": "23220",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9116",
+      "19813",
+      "1825"
+    ],
+    "tags": []
+  }
+}

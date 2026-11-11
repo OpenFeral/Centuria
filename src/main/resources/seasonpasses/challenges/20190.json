@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Sit\" Emote on the Dark Ornate Throne in Blood Tundra",
+  "objectName": "SEASON02/Challenge209",
+  "challengeDefID": "20190",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9116",
+      "31230",
+      "2364"
+    ],
+    "tags": []
+  }
+}

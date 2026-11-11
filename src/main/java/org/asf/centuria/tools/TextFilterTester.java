@@ -13,8 +13,8 @@ import org.asf.centuria.textfilter.result.FilterResult;
 import org.asf.centuria.textfilter.result.TextPart;
 import org.asf.centuria.textfilter.result.WordMatch;
 
-import tools.jackson.databind.ObjectMapper;
-import tools.jackson.core.JacksonException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.JacksonException;
 
 public class TextFilterTester {
 

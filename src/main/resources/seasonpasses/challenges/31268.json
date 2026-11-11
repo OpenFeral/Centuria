@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie in the tree canopy in the Sunken Thicket",
+  "objectName": "SEASON01/Challenge203",
+  "challengeDefID": "31268",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19819",
+      "3273"
+    ],
+    "tags": []
+  }
+}

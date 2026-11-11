@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Mossy Stepping Stone",
+  "objectName": "SEASON03/Challenge008",
+  "challengeDefID": "23198",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "21199"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at Hallowmist Crossing in Lakeroot Valley",
+  "objectName": "SEASON04/Challenge169",
+  "challengeDefID": "25011",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "9687",
+      "19792"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

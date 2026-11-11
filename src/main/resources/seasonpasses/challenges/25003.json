@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Radiant Chair",
+  "objectName": "SEASON04/Challenge164",
+  "challengeDefID": "25003",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "4588"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

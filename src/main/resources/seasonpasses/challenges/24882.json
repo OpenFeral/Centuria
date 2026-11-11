@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 5 Octovenom Ink",
+  "objectName": "SEASON04/Challenge044",
+  "challengeDefID": "24882",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "451"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

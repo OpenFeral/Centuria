@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Team Aradia Cap",
+  "objectName": "SEASON01/Challenge139",
+  "challengeDefID": "16554",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10796"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

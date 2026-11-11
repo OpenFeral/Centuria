@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote on the edge of the plank in the Blood Tundra",
+  "objectName": "SEASON06/Challenge148",
+  "challengeDefID": "29560",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "2364",
+      "19770"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

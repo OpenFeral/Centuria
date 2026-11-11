@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the leakage site in the Sunken Thicket",
+  "objectName": "SEASON06/Challenge139",
+  "challengeDefID": "29550",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3273",
+      "19819"
+    ],
+    "tags": []
+  }
+}

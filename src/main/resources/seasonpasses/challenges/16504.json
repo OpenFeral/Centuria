@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft Boxing Gloves",
+  "objectName": "SEASON01/Challenge090",
+  "challengeDefID": "16504",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "28016"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

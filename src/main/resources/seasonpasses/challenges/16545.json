@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft Spiked Pauldrons",
+  "objectName": "SEASON01/Challenge130",
+  "challengeDefID": "16545",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "4834"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

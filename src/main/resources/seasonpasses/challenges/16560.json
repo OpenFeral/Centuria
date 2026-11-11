@@ -1,0 +1,23 @@
+{
+  "challengeName": "Harvest 5 Rare Blood Tundra ingredients",
+  "objectName": "SEASON01/Challenge145",
+  "challengeDefID": "16560",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2364"
+    ],
+    "tags": [
+      "Rare",
+      "Harvest"
+    ]
+  }
+}

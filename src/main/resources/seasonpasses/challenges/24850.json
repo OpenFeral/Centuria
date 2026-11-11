@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Waterfalls in the Shattered Bay",
+  "objectName": "SEASON04/Challenge020",
+  "challengeDefID": "24850",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "1825",
+      "23151"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

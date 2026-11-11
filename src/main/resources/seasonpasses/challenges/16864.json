@@ -1,0 +1,22 @@
+{
+  "challengeName": "Complete 2 Quests in Blood Tundra",
+  "objectName": "TEST/Challenge_Complete2QuestsInBloodTundra",
+  "challengeDefID": "16864",
+  "auraPointsReward": 1,
+  "script": {
+    "actions": [
+      {
+        "action": "Complete",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9129"
+    ],
+    "tags": [
+      "Quest"
+    ]
+  }
+}

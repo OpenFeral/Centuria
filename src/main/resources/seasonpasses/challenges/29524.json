@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Brody Plushie in the Shattered Bay",
+  "objectName": "SEASON06/Challenge125",
+  "challengeDefID": "29524",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1825",
+      "24541"
+    ],
+    "tags": []
+  }
+}

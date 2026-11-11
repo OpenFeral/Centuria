@@ -1,0 +1,22 @@
+{
+  "challengeName": "Visit Centuria",
+  "objectName": "TEST2/Challenge_PerformScaredOnTopOfRatWall",
+  "challengeDefID": "19192",
+  "auraPointsReward": 5,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "820",
+      "9147",
+      "19606"
+    ],
+    "tags": []
+  }
+}

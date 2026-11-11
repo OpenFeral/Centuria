@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie in the rainy place in Lakeroot Valley",
+  "objectName": "SEASON05/Challenge182",
+  "challengeDefID": "27130",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19796",
+      "9687"
+    ],
+    "tags": []
+  }
+}
