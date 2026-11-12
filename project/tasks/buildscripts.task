@@ -1,11 +1,11 @@
 #!/bin/bash
 
-function build_scripts_define() {
+function buildscripts_define() {
     requireTask gradlebuild
     addTaskTo build
 }
 
-function build_scripts_run() {
+function buildscripts_run() {
     # Create tools
     createFolder "$BASEBUILDDIR/scripts"
 
