@@ -2359,6 +2359,8 @@ public class SendMessage extends AbstractChatPacket {
 				res.room = message.room;
 				res.message = message.message;
 				res.messagePlain = message.messagePlain;
+				res.messageHighlighted = message.messageHighlighted;
+				res.messageHighlightedPlain = message.messageHighlightedPlain;
 				res.moderatorMessage = true;
 				res.originalMessage = message.originalMessage;
 				res.alertingMessage = message.alertingMessage;
@@ -2390,6 +2392,8 @@ public class SendMessage extends AbstractChatPacket {
 						res.room = message.room;
 						res.message = message.message;
 						res.messagePlain = message.messagePlain;
+						res.messageHighlighted = message.messageHighlighted;
+						res.messageHighlightedPlain = message.messageHighlightedPlain;
 						res.moderatorMessage = true;
 						res.originalMessage = message.originalMessage;
 						res.alertingMessage = message.alertingMessage;
