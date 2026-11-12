@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Nightfall Helmet",
+  "objectName": "SEASON02/Challenge118",
+  "challengeDefID": "20081",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "21808"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

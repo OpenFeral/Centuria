@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Flex\" Emote at the Tree in the Blood Tundra",
+  "objectName": "SEASON03/Challenge077",
+  "challengeDefID": "23283",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "Equals",
+        "value": 1
+      }
+    ],
+    "operation": "Set",
+    "defs": [
+      "9151",
+      "2364",
+      "19761"
+    ],
+    "tags": []
+  }
+}

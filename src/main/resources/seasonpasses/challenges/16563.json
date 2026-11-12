@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind a Team Delilah Cap",
+  "objectName": "SEASON01/Challenge150",
+  "challengeDefID": "16563",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10793"
+    ],
+    "tags": [
+      "Unbind"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Earn 500 points in What the Hex",
+  "objectName": "SEASON06/Challenge201",
+  "challengeDefID": "29614",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "Score",
+        "comparison": "GreaterThanOrEqual",
+        "value": 500
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3272"
+    ],
+    "tags": [
+      "Game"
+    ]
+  }
+}

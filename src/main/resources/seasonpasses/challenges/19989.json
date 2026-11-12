@@ -1,0 +1,23 @@
+{
+  "challengeName": "Harvest 5 Rare Mugmyre Marsh ingredients",
+  "objectName": "SEASON02/Challenge063",
+  "challengeDefID": "19989",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2147"
+    ],
+    "tags": [
+      "Rare",
+      "Harvest"
+    ]
+  }
+}

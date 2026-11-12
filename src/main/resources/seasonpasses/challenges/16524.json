@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind a Bell Bobble Anklet",
+  "objectName": "SEASON01/Challenge109",
+  "challengeDefID": "16524",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "11011"
+    ],
+    "tags": [
+      "Unbind"
+    ]
+  }
+}

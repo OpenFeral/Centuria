@@ -1,9 +1,0 @@
-main todo:
-- overhaul account storage
-
-interaction update:
-- questgivers
-- enigmas
-
-trade system update:
-- trading

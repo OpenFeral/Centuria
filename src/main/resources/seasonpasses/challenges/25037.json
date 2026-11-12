@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Blossom Painting in City Fera",
+  "objectName": "SEASON04/Challenge195",
+  "challengeDefID": "25037",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "820",
+      "19783"
+    ],
+    "tags": [
+      "Common"
+    ]
+  }
+}

@@ -38,27 +38,31 @@ Severity USER_STRICT_MODE
 
 
 Phrase fuck
-    Mode WORD_CONTAINS
+	Mode WORD_CONTAINS
     Variant fucking
     Variant fuck1ng
-    Variant fuk
-    Variant fck
-    Variant feck
     Variant f u c k
 Endphrase
 
 Phrase fuck
-    Mode WHOLE_PHRASE
+	Mode WHOLE_PHRASE
+    Variant fuk
+    Variant fck
+    Variant feck
+Endphrase
+
+Phrase fuck
+	Mode WHOLE_PHRASE
     Variant f u c k
 Endphrase
 
 Phrase anus
-    Mode WORD_CONTAINS
+    Mode WHOLE_PHRASE
     Variant 4nus
 Endphrase
 
 Phrase arse
-    Mode WORD_CONTAINS
+    Mode WHOLE_PHRASE
     Variant 4rse
     Variant ars3
     Variant 4rs3

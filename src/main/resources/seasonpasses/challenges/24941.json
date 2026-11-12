@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie next to the Sweeping Brooms in the Shattered Bay",
+  "objectName": "SEASON04/Challenge103",
+  "challengeDefID": "24941",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "24541",
+      "1825"
+    ],
+    "tags": []
+  }
+}

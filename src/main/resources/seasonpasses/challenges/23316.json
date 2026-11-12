@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Twiggle Hut in the Sunken Thicket",
+  "objectName": "SEASON03/Challenge110",
+  "challengeDefID": "23316",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "24554",
+      "3273"
+    ],
+    "tags": []
+  }
+}

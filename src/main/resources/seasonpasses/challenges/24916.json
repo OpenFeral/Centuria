@@ -1,0 +1,20 @@
+{
+  "challengeName": "Take a Selfie at leakage site in Twigla\u0027s Workshop",
+  "objectName": "SEASON04/Challenge078",
+  "challengeDefID": "24916",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2619"
+    ],
+    "tags": []
+  }
+}

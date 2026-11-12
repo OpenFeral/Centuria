@@ -1,0 +1,12 @@
+#!/bin/bash
+
+function artifact_legacyupdatedata_define() {
+    requireTask buildlegacyupdatedata
+    addTaskTo artifacts_updatedata
+}
+
+function artifact_legacyupdatedata_run() {
+    # Install
+    createFolder "$BASEBUILDDIR/artifacts/legacy-update-data"
+    cp -rfv "$BASEBUILDDIR/rawpackages/updatedatalegacy/." "$BASEBUILDDIR/artifacts/legacy-update-data"
+}

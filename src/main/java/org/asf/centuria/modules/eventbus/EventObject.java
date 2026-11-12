@@ -2,10 +2,9 @@ package org.asf.centuria.modules.eventbus;
 
 /**
  * 
- * Abstract event object, needs to be annotated with EventPath for registration
- * to work.
+ * Abstract event object
  * 
- * @author Sky Swimmer - AerialWorks Software Foundation
+ * @author Sky Swimmer
  *
  */
 public abstract class EventObject {
@@ -26,6 +25,15 @@ public abstract class EventObject {
 	 */
 	public void setHandled() {
 		handled = true;
+	}
+
+	/**
+	 * Called when the event object has been registered
+	 * 
+	 * @param bus Event bus that the event was registered to
+	 * @since Beta 1.7.4
+	 */
+	public void onRegister(EventBus bus) {
 	}
 
 }

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft any 1 item from the Harvest Prince Clothing Set",
+  "objectName": "SEASON02/Challenge163",
+  "challengeDefID": "20129",
+  "auraPointsReward": 23,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26939"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

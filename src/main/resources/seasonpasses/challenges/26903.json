@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to Striker in the Shattered Bay",
+  "objectName": "SEASON05/Challenge019",
+  "challengeDefID": "26903",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "1825",
+      "19815"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

@@ -13,3 +13,15 @@ server/
 libraries/
 emulibs/
 Launch Centuria Server**.launch
+
+# Polytool
+.polytool/
+.polylocal/
+.polytool-version
+deps/
+
+# Environment
+environment/
+
+# Run
+run/

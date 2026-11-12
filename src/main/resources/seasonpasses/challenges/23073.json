@@ -1,0 +1,23 @@
+{
+  "challengeName": "Unbind 1 Voyager Set Clothing Item",
+  "objectName": "TEST3/UncraftList",
+  "challengeDefID": "23073",
+  "auraPointsReward": 5,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23057"
+    ],
+    "tags": [
+      "Unbind",
+      "List"
+    ]
+  }
+}

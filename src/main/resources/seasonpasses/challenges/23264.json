@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to Skip",
+  "objectName": "SEASON03/Challenge058",
+  "challengeDefID": "23264",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3458"
+    ],
+    "tags": []
+  }
+}

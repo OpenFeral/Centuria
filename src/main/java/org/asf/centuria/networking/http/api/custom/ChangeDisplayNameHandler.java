@@ -98,7 +98,8 @@ public class ChangeDisplayNameHandler extends HttpPushHandler {
 
 			// Check if the name is in use
 			String newName = payload.get("new_display_name").getAsString();
-			if (manager.isDisplayNameInUse(newName) && !manager.getUserByDisplayName(newName).equals(acc.getAccountID())
+			if ((manager.isDisplayNameInUse(newName) && (manager.getUserByDisplayName(newName) == null
+					|| !manager.getUserByDisplayName(newName).equals(acc.getAccountID())))
 					|| (manager.isDisplayNameInUse(newName) && acc.isRenameRequired())) {
 				response.addProperty("status", "failure");
 				response.addProperty("error", "display_name_in_use");

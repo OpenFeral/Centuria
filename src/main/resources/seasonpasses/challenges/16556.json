@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the bar in Centuria",
+  "objectName": "SEASON01/Challenge141",
+  "challengeDefID": "16556",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19775",
+      "1718"
+    ],
+    "tags": []
+  }
+}

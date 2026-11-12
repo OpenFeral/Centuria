@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Ravishing Clothing Set in the Sunken Thicket",
+  "objectName": "SEASON03/Challenge072",
+  "challengeDefID": "23278",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "2147",
+      "19821"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

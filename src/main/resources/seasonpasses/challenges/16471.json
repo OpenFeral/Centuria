@@ -1,0 +1,20 @@
+{
+  "challengeName": "Visit Twigla\u0027s Workshop",
+  "objectName": "SEASON01/Challenge057",
+  "challengeDefID": "16471",
+  "auraPointsReward": 8,
+  "script": {
+    "actions": [
+      {
+        "action": "Visit",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2619"
+    ],
+    "tags": []
+  }
+}

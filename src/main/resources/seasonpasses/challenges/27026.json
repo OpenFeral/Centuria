@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Clover Tail",
+  "objectName": "SEASON05/Challenge090",
+  "challengeDefID": "27026",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "25812"
+    ],
+    "tags": []
+  }
+}

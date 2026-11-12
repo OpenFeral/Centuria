@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Twiggle Hut in Lakeroot Valley",
+  "objectName": "SEASON03/Challenge001",
+  "challengeDefID": "23126",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "9687",
+      "23160"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

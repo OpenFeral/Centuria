@@ -1,0 +1,5 @@
+#!/bin/bash
+
+function gradlebuild_run() {
+    callSingleTaskForced gradle build "$@" || return 1
+}

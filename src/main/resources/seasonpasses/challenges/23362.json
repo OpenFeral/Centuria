@@ -1,0 +1,21 @@
+{
+  "challengeName": "Perform the \"Mad\" Emote at leakage site in Fera Fashions",
+  "objectName": "SEASON03/Challenge153",
+  "challengeDefID": "23362",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9121",
+      "1716"
+    ],
+    "tags": []
+  }
+}

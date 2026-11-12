@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 10 Honey Dyes",
+  "objectName": "SEASON06/Challenge111",
+  "challengeDefID": "29510",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 10
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "27827"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

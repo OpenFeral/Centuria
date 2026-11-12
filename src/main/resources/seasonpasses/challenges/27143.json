@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 15 Black Bark",
+  "objectName": "SEASON05/Challenge194",
+  "challengeDefID": "27143",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 15
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "7606"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

@@ -62,7 +62,7 @@ public class ObjectRespawnRequestPacket implements IXtPacket<ObjectRespawnReques
 
 		// Log if in debug
 		if (Centuria.debugMode)
-			System.out.println("Respawn set: " + plr.account.getDisplayName() + ": " + plr.respawn.replace("%", ", "));
+			Centuria.logger.debug("Respawn set: " + plr.account.getDisplayName() + ": " + plr.respawn.replace("%", ", "));
 
 		// Broadcast respawn
 		GameServer srv = (GameServer) client.getServer();

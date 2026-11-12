@@ -64,7 +64,8 @@ public class UpdateDisplayNameHandler extends HttpPushHandler {
 			}
 
 			// Check if the name is in use
-			if (manager.isDisplayNameInUse(newName) && !manager.getUserByDisplayName(newName).equals(acc.getAccountID())
+			if ((manager.isDisplayNameInUse(newName) && (manager.getUserByDisplayName(newName) == null
+					|| !manager.getUserByDisplayName(newName).equals(acc.getAccountID())))
 					|| (manager.isDisplayNameInUse(newName) && acc.isRenameRequired())) {
 				setResponseContent("text/json", "{\"error\":\"display_name_already_taken\"}");
 				return; // Name is in use

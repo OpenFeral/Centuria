@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Knight Clothing Set in the Shattered Bay",
+  "objectName": "SEASON03/Challenge165",
+  "challengeDefID": "23412",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "24541",
+      "1825"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

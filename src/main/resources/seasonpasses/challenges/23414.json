@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the Hot Spring in the Shattered Bay",
+  "objectName": "SEASON03/Challenge167",
+  "challengeDefID": "23414",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19772",
+      "2364"
+    ],
+    "tags": []
+  }
+}

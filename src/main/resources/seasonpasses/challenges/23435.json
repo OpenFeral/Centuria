@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the Village in the Blood Tundra",
+  "objectName": "SEASON03/Challenge187",
+  "challengeDefID": "23435",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2364",
+      "19788"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Phalanx Longspear",
+  "objectName": "SEASON04/Challenge168",
+  "challengeDefID": "25010",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "27574"
+    ],
+    "tags": []
+  }
+}

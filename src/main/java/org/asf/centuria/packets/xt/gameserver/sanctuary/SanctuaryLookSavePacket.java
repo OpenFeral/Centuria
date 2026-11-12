@@ -48,7 +48,7 @@ public class SanctuaryLookSavePacket implements IXtPacket<SanctuaryLookSavePacke
 
 		// Log
 		if (Centuria.debugMode) {
-			System.out.println("[SANCTUARYEDITOR] [SAVELOOK]  Client to server (lookSlotId: " + lookSlotId
+			Centuria.logger.debug("[SANCTUARYEDITOR] [SAVELOOK]  Client to server (lookSlotId: " + lookSlotId
 					+ ", lookSlotName: " + lookSlotName + ")");
 		}
 
@@ -64,7 +64,7 @@ public class SanctuaryLookSavePacket implements IXtPacket<SanctuaryLookSavePacke
 		// Send look save
 		plr.client.sendPacket(this);
 		if (Centuria.debugMode) {
-			System.out.println("[SANCTUARYEDITOR] [SAVELOOK]  Server to client SSL: " + this.build());
+			Centuria.logger.debug("[SANCTUARYEDITOR] [SAVELOOK]  Server to client SSL: " + this.build());
 		}
 
 		return true;

@@ -51,7 +51,7 @@ public class ObjectActionFinishPacket implements IXtPacket<ObjectActionFinishPac
 			return true; // Invalid interaction
 
 		if (Centuria.debugMode) {
-			System.out.println("[INTERACTION] [FINISH] Client to server (target: " + target + ")");
+			Centuria.logger.debug("[INTERACTION] [FINISH] Client to server (target: " + target + ")");
 		}
 
 		// Find object

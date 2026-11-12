@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 10 White Chocolate Dyes",
+  "objectName": "SEASON04/Challenge036",
+  "challengeDefID": "24874",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 10
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10170"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

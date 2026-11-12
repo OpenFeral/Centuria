@@ -1,6 +1,7 @@
 package org.asf.centuria.modules.events.updates;
 
 import org.asf.centuria.modules.eventbus.EventObject;
+import org.asf.centuria.updater.collections.PolyCollection;
 
 /**
  * 
@@ -12,12 +13,23 @@ import org.asf.centuria.modules.eventbus.EventObject;
  */
 public class ServerUpdateEvent extends EventObject {
 
+	private PolyCollection[] updatedCollections;
 	private String updateVersion;
 	private int minutes;
 
-	public ServerUpdateEvent(String updateVersion, int minutes) {
+	public ServerUpdateEvent(String updateVersion, int minutes, PolyCollection[] updatedCollections) {
 		this.updateVersion = updateVersion;
 		this.minutes = minutes;
+		this.updatedCollections = updatedCollections;
+	}
+
+	/**
+	 * Retrieves the updated server collections
+	 * 
+	 * @return Array of PolyCollectionDef instances
+	 */
+	public PolyCollection[] getUpdatedCollections() {
+		return updatedCollections.clone();
 	}
 
 	/**

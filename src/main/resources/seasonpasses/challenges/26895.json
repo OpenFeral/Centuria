@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 2 Venus Venoms",
+  "objectName": "SEASON05/Challenge011",
+  "challengeDefID": "26895",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "6303"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 15 Spore Silk",
+  "objectName": "SEASON04/Challenge012",
+  "challengeDefID": "24844",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 15
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "6300"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

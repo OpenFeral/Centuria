@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to Halima",
+  "objectName": "SEASON01/Challenge185",
+  "challengeDefID": "16600",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "8281"
+    ],
+    "tags": []
+  }
+}

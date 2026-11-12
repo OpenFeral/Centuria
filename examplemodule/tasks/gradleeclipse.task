@@ -1,0 +1,9 @@
+#!/bin/bash
+
+function gradleeclipse_define() {
+    addTaskTo eclipse
+}
+
+function gradleeclipse_run() {
+    callSingleTaskForced gradle eclipse "$@" || return 1
+}

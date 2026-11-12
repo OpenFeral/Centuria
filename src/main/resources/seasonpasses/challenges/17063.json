@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Rare \"The Game Master\" Painting in the Sunken Thicket",
+  "objectName": "SEASON01/Challenge201",
+  "challengeDefID": "17063",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "24575",
+      "3273"
+    ],
+    "tags": []
+  }
+}

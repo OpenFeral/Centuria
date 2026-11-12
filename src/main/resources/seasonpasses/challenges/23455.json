@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Play\" Emote in the rainy place of Lakeroot Valley",
+  "objectName": "SEASON03/Challenge207",
+  "challengeDefID": "23455",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9190",
+      "9687",
+      "19796"
+    ],
+    "tags": []
+  }
+}

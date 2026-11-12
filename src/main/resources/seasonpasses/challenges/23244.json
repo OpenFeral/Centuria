@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft an Art Deco Bed",
+  "objectName": "SEASON03/Challenge038",
+  "challengeDefID": "23244",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "5121"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

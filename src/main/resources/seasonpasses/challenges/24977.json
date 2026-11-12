@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie next to the Adventure Spear in Ogasa Village in Lakeroot Valley",
+  "objectName": "SEASON04/Challenge138",
+  "challengeDefID": "24977",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9687",
+      "19793"
+    ],
+    "tags": []
+  }
+}

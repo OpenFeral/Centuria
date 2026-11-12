@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Disappearing Girl",
+  "objectName": "SEASON02/Challenge049",
+  "challengeDefID": "19969",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "20674"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

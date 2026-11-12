@@ -102,7 +102,7 @@ public class InventoryItemUseDye implements IXtPacket<InventoryItemUseDye> {
 					undyeInfo += ", ";
 				undyeInfo += channel;
 			}
-			System.out.println("[INVENTORY] [DYE]  Client to server (item: " + itemID + ", dyes: " + dyeInfo
+			Centuria.logger.debug("[INVENTORY] [DYE]  Client to server (item: " + itemID + ", dyes: " + dyeInfo
 					+ ", undyes: " + undyeInfo + ")");
 		}
 

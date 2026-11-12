@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Rare \"Marvelous Miss Marguerite\" Painting in To Dye For ",
+  "objectName": "SEASON01/Challenge175",
+  "challengeDefID": "16590",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "31216",
+      "1717"
+    ],
+    "tags": []
+  }
+}

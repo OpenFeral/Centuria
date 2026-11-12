@@ -1,0 +1,22 @@
+{
+  "challengeName": "Obtain 5 COOL Ingredients by trading",
+  "objectName": "SEASON01/Challenge079",
+  "challengeDefID": "16493",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Trade",
+      "Uncommon",
+      "Ingredients"
+    ]
+  }
+}

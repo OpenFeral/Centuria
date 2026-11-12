@@ -9,9 +9,9 @@ import java.lang.annotation.Target;
 /**
  * 
  * An annotation used to mark a method as EventListener, the arguments will need
- * to contain a EventObject for this to work.
+ * to contain a EventObject for this to work
  * 
- * @author Sky Swimmer - AerialWorks Software Foundation
+ * @author Sky Swimmer
  *
  */
 @Retention(RUNTIME)

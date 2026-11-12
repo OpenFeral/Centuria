@@ -58,7 +58,7 @@ public class AvatarLookSavePacket implements IXtPacket<AvatarLookSavePacket> {
 
 			// Log
 			if (Centuria.debugMode) {
-				System.out.println(
+				Centuria.logger.debug(
 						"[AVATAREDITOR] [SAVELOOK]  Client to server (look: " + lookID + ", name: " + lookName + ")");
 			}
 
@@ -118,7 +118,7 @@ public class AvatarLookSavePacket implements IXtPacket<AvatarLookSavePacket> {
 			// Send response
 			client.sendPacket(this);
 		} catch (Exception exception) {
-			System.out.println("[AVATAREDITOR] [SAVELOOK] Exception Caught: ");
+			Centuria.logger.error("[AVATAREDITOR] [SAVELOOK] Exception Caught: ");
 			exception.printStackTrace();
 			lookID = "";
 			client.sendPacket(this);

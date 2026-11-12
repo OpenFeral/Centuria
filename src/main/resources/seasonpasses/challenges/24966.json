@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 5 Flowering Mulch",
+  "objectName": "SEASON04/Challenge127",
+  "challengeDefID": "24966",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "7584"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "challengeName": "Get 5000 points in Dizzywing Dispatch",
+  "objectName": "TEST/Challenge_Get5000PointsInDizzywing",
+  "challengeDefID": "15623",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "Score",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5000
+      }
+    ],
+    "operation": "Set",
+    "defs": [
+      "8192"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,20 @@
+# Project information
+group=org.openferal.centuria
+id=centuria-server
+name="Centuria Legacy"
+
+# Load version info
+source version.pcb
+
+# Version info
+version="$version"
+setLocal "updateType" "$updateType"
+setLocal "majorVersion" "$majorVersion"
+setLocal "versionPretty" "$versionPretty"
+
+# Legacy
+setLocal "legacyCenturiaUpdateChannel" "$legacyCenturiaUpdateChannel"
+
+# Test
+tasksdir="project/tasks"
+dependenciesdir="project/dependencies"

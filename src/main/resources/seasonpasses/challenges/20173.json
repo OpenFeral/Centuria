@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the upper deck Waterfalls in Shattered Bay",
+  "objectName": "SEASON02/Challenge191",
+  "challengeDefID": "20173",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23151",
+      "1825"
+    ],
+    "tags": []
+  }
+}

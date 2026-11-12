@@ -1,0 +1,21 @@
+{
+  "challengeName": "Perform the \"Excite\" Emote next to the Twigla Plushie in Twigla\u0027s Workshop",
+  "objectName": "SEASON06/Challenge014",
+  "challengeDefID": "29405",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9122",
+      "2619"
+    ],
+    "tags": []
+  }
+}

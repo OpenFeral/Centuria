@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Silken Slug",
+  "objectName": "SEASON03/Challenge087",
+  "challengeDefID": "23293",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "20634"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

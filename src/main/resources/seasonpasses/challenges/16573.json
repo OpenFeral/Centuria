@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 15 Shimmer Blades",
+  "objectName": "SEASON01/Challenge158",
+  "challengeDefID": "16573",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 15
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "6298"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

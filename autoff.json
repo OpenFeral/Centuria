@@ -1,0 +1,202 @@
+{
+    "enabled": true,
+    "branches": {
+        // Patterns for the development branch lifecycle
+        // Patterns support wildcard logic and regex logic, but only wildcards support parameter insertion
+        //
+        // Wildcard is enabled whenever * is present in the set name, or if started with `WCM:...`
+        // Regex is enabled when started with `RXM:...`
+        // Its possible to disable the formatters using `RAW:...`
+
+        // Major-next
+        "major-next-develop": [],
+        "major-next-testing": [
+            "major-next-develop"
+        ],
+        "major-next-staging": [
+            "major-next-testing"
+        ],
+        "major-next-experimental": [
+            "major-next-staging"
+        ],
+        "major-next": [
+            "major-next-experimental"
+        ],
+
+        // LTS-next
+        "lts-next-develop": [],
+        "lts-next-testing": [
+            "lts-next-develop"
+        ],
+        "lts-next-staging": [
+            "lts-next-testing"
+        ],
+        "lts-next-experimental": [
+            "lts-next-staging"
+        ],
+        "lts-next": [
+            "lts-next-experimental"
+        ],
+
+        // Main major versions
+        "major-*-develop": [
+            "major-next-develop"
+        ],
+        "major-*-testing": [
+            "major-{1}-develop",
+            "major-next-testing"
+        ],
+        "major-*-staging": [
+            "major-{1}-testing",
+            "major-next-staging"
+        ],
+        "major-*-experimental": [
+            "major-{1}-staging",
+            "major-next-experimental"
+        ],
+        "major-*": [
+            "major-{1}-experimental",
+            "major-next"
+        ],
+
+        // Patterns for the LTS branches
+        "lts-*-develop": [
+            "major-next-develop",
+            "major-{1}-develop"
+        ],
+        "lts-*-testing": [
+            "lts-{1}-develop",
+            "major-{1}-testing",
+            "lts-next-testing",
+            "major-next-testing"
+        ],
+        "lts-*-staging": [
+            "lts-{1}-testing",
+            "major-{1}-staging",
+            "lts-next-staging",
+            "major-next-staging"
+        ],
+        "lts-*-experimental": [
+            "lts-{1}-staging",
+            "major-{1}-experimental",
+            "lts-next-experimental",
+            "major-next-experimental"
+        ],
+        "lts-*": [
+            "lts-{1}-experimental",
+            "major-{1}",
+            "lts-next",
+            "major-next"
+        ]
+    },
+
+    // For the given configurations and target branches, merge even if diverging
+    // We only want this for the branches with rolling PRs
+    "hardMergeFor": {
+        "major-next-testing": [
+            "major-next-develop"
+        ],
+        "major-next-staging": [
+            "major-next-testing"
+        ],
+        "major-next-experimental": [
+            "major-next-staging"
+        ],
+        "major-next": [
+            "major-next-experimental"
+        ],
+
+        "lts-next-testing": [
+            "lts-next-develop"
+        ],
+        "lts-next-staging": [
+            "lts-next-testing"
+        ],
+        "lts-next-experimental": [
+            "lts-next-staging"
+        ],
+        "lts-next": [
+            "lts-next-experimental"
+        ],
+
+        "major-*-testing": [
+            "major-{1}-develop"
+        ],
+        "major-*-staging": [
+            "major-{1}-testing"
+        ],
+        "major-*-experimental": [
+            "major-{1}-staging"
+        ],
+        "major-*": [
+            "major-{1}-experimental"
+        ],
+
+        "lts-*-develop": [
+            "major-{1}-develop"
+        ],
+        "lts-*-testing": [
+            "lts-{1}-develop",
+            "major-{1}-testing"
+        ],
+        "lts-*-staging": [
+            "lts-{1}-testing",
+            "major-{1}-staging"
+        ],
+        "lts-*-experimental": [
+            "lts-{1}-staging",
+            "major-{1}-experimental"
+        ],
+        "lts-*": [
+            "lts-{1}-experimental",
+            "major-{1}"
+        ]
+    },
+
+    // Set merge strategies
+    //
+    // Accepts for the INPUT branch
+    // Accepts either a map or merge strat
+    //
+    // For map, it selects the matching PATTERN that was used as target branch and a merge strat
+    // For map, the key '*' is used as fallback when the merge strat isnt configured
+    //
+    // Valid merge srats are: ff, merge, rebase, forceff
+    // The mode forceff is an alternate rebase-like mode that, if the contents match between two branches, ditches the commit history and syncs up forcefully, useful for fast-forwarding squash commits
+    "hardMergeStrategies": {
+        "major-next-testing": "forceff",
+        "major-next-staging": "forceff",
+        "major-next-experimental": "forceff",
+        "major-next": "forceff",
+
+        "lts-next-testing": "forceff",
+        "lts-next-staging": "forceff",
+        "lts-next-experimental": "forceff",
+        "lts-next": "forceff",
+
+        "major-*-testing": "forceff",
+        "major-*-staging": "forceff",
+        "major-*-experimental": "forceff",
+        "major-*": "forceff",
+
+        "lts-*-develop": {
+            "major-{1}-develop": "merge"
+        },
+        "lts-*-testing": {
+            "lts-{1}-develop": "forceff",
+            "major-{1}-testing": "merge"
+        },
+        "lts-*-staging": {
+            "lts-{1}-testing": "forceff",
+            "major-{1}-staging": "merge"
+        },
+        "lts-*-experimental": {
+            "lts-{1}-staging": "forceff",
+            "major-{1}-experimental": "merge"
+        },
+        "lts-*": {
+            "lts-{1}-experimental": "forceff",
+            "major-{1}": "merge"
+        }
+    }
+}

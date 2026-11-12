@@ -448,4 +448,53 @@ public class FileBasedDMManager extends DMManager {
 		}
 	}
 
+	@Override
+	public void setSentWelcome(String dmID, boolean state) {
+		if (!dmExists(dmID))
+			return;
+		try {
+			// Parse DM
+			FileReader reader = new FileReader("dms/" + UUID.fromString(dmID) + ".json");
+			JsonObject dm = JsonParser.parseReader(reader).getAsJsonObject();
+			reader.close();
+
+			// Update state
+			dm.addProperty("sentWelcome", state);
+
+			// Save to disk
+			while (activeIDs.contains(dmID))
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					break;
+				}
+			try {
+				activeIDs.add(dmID);
+				Files.writeString(Path.of("dms/" + UUID.fromString(dmID) + ".json"), dm.toString());
+			} finally {
+				activeIDs.remove(dmID);
+			}
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	@Override
+	public boolean hasSentWelcome(String dmID) {
+		if (!dmExists(dmID))
+			return false;
+		try {
+			// Parse DM
+			FileReader reader = new FileReader("dms/" + UUID.fromString(dmID) + ".json");
+			JsonObject dm = JsonParser.parseReader(reader).getAsJsonObject();
+			boolean state = false;
+			if (dm.has("sentWelcome"))
+				state = dm.get("sentWelcome").getAsBoolean();
+			reader.close();
+			return state;
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
 }

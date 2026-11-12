@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with Twigla",
+  "objectName": "SEASON04/Challenge161",
+  "challengeDefID": "25000",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23232",
+      "2619"
+    ],
+    "tags": []
+  }
+}

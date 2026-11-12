@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the Cafe in City Fera",
+  "objectName": "SEASON06/Challenge175",
+  "challengeDefID": "29588",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "820",
+      "23145"
+    ],
+    "tags": []
+  }
+}

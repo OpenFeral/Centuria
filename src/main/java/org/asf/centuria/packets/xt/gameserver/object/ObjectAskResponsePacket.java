@@ -48,7 +48,7 @@ public class ObjectAskResponsePacket implements IXtPacket<ObjectAskResponsePacke
 			return true; // Invalid interaction
 
 		if (Centuria.debugMode) {
-			System.out.println("[INTERACTION] [ASKRESPONSE] Client to server (target: " + target + ", state: "
+			Centuria.logger.debug("[INTERACTION] [ASKRESPONSE] Client to server (target: " + target + ", state: "
 					+ currentState + ")");
 		}
 

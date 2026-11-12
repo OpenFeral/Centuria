@@ -41,10 +41,16 @@ Phrase fuck
 	Mode WORD_CONTAINS
     Variant fucking
     Variant fuck1ng
+    Variant f u c k
+    
+    Context-Include Local *
+Endphrase
+
+Phrase fuck
+	Mode WHOLE_PHRASE
     Variant fuk
     Variant fck
     Variant feck
-    Variant f u c k
     
     Context-Include Local *
 Endphrase
@@ -60,10 +66,18 @@ Phrase fuck
 	Mode WORD_CONTAINS
     Variant fucking
     Variant fuck1ng
+    Variant f u c k
+    
+    Context-Include Global *
+    
+    Reason Due to recent filter triggers, this phrase is being temporarily censored to prevent the use of it in NSFW context.
+Endphrase
+
+Phrase fuck
+	Mode WHOLE_PHRASE
     Variant fuk
     Variant fck
     Variant feck
-    Variant f u c k
     
     Context-Include Global *
     
@@ -158,7 +172,7 @@ Phrase b10wj0b
 Endphrase
 
 Phrase boob
-    Mode WORD_CONTAINS
+    Mode WHOLE_PHRASE
     Variant b00b
     Variant bo0b
     Variant b0ob
@@ -204,7 +218,7 @@ Phrase whore
 Endphrase
 
 Phrase dick
-    Mode WORD_CONTAINS
+    Mode WHOLE_PHRASE
     Variant d1ck
     Variant cock
     Variant c0ck
@@ -276,7 +290,7 @@ Phrase pu5sy
 Endphrase
 
 Phrase slut
-    Mode WORD_CONTAINS
+    Mode WHOLE_PHRASE
     Severity INSTAMUTE
     Variant 51ut
     Variant 5lut
@@ -289,13 +303,24 @@ Endphrase
 
 Phrase sex
     Mode WHOLE_PHRASE
-    Variant s e x
-    Variant s ex
-    Variant se x
+    
+    Context-Include Local *
+    Context-Include Global *  
+    
+    Severity INSTAMUTE
 Endphrase
 
 Phrase sex
     Mode WHOLE_PHRASE
+    Severity ALWAYS_FILTERED
+    Reason While this word has innocent use cases for instance to refer to gender, we have blocked the use of this word to prevent NSFW context.
+Endphrase
+
+Phrase sex
+    Mode WHOLE_PHRASE
+    Variant s e x
+    Variant s ex
+    Variant se x
     Variant s3x
     Variant 53x
     Variant 5ex
@@ -326,7 +351,7 @@ Phrase smegma
 Endphrase
 
 Phrase cunt
-    Mode WORD_CONTAINS
+    Mode WHOLE_PHRASE
     Severity INSTAMUTE
 Endphrase
 
@@ -393,7 +418,7 @@ Phrase schlong
 Endphrase
 
 Phrase cum
-    Mode WORD_CONTAINS
+    Mode WHOLE_PHRASE
     Severity INSTAMUTE
 Endphrase
 
@@ -403,7 +428,7 @@ Phrase c u m
 Endphrase
 
 Phrase semen
-    Mode WORD_CONTAINS
+    Mode WHOLE_PHRASE
     Severity INSTAMUTE
 Endphrase
 
@@ -417,7 +442,7 @@ Phrase semen
 Endphrase
 
 Phrase sperm
-    Mode WORD_CONTAINS
+    Mode WHOLE_PHRASE
     Severity INSTAMUTE
 Endphrase
 
@@ -456,7 +481,7 @@ Phrase erect
     Mode WHOLE_PHRASE
     Severity ALWAYS_FILTERED
     Variant erected
-    Reason "While this phrase has innocent uses, a common use is in NSFW context, which is why we have decided to add this phrase to the filters."
+    Reason While this phrase has innocent uses, a common use is in NSFW context, which is why we have decided to add this phrase to the filters.
 Endphrase
 
 Phrase 3rect
@@ -708,3 +733,28 @@ Phrase coochie
     Severity INSTAMUTE
     Variant kewchie
 Endphrase
+
+Phrase drugs
+	Mode WHOLE_PHRASE
+	Variant drug
+	Variant dr*g
+	Variant dr*gs
+Endphrase
+
+Phrase pothead
+	Mode WHOLE_PHRASE
+	Variant p0thead
+	Variant poth3ad
+	Variant p0th3ad
+	Variant p0the4d
+	Variant poth34d
+	Variant p0th34d
+	Variant p0theads
+	Variant poth3ads
+	Variant p0th3ads
+	Variant p0the4ds
+	Variant poth34ds
+	Variant p0th34ds
+	Variant potheads
+Endphrase
+

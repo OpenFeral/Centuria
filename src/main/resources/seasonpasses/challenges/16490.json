@@ -1,0 +1,20 @@
+{
+  "challengeName": "Visit City Fera",
+  "objectName": "SEASON01/Challenge076",
+  "challengeDefID": "16490",
+  "auraPointsReward": 8,
+  "script": {
+    "actions": [
+      {
+        "action": "Visit",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "820"
+    ],
+    "tags": []
+  }
+}

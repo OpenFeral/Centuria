@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Mad\" Emote next to the leakage site in the Sunken Thicket",
+  "objectName": "SEASON01/Challenge020",
+  "challengeDefID": "16404",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9121",
+      "3273",
+      "19818"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to Grayson",
+  "objectName": "SEASON01/Challenge094",
+  "challengeDefID": "16508",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2678"
+    ],
+    "tags": []
+  }
+}

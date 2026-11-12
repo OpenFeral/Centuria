@@ -1,0 +1,17 @@
+#!/bin/bash
+
+function buildscripts_define() {
+    requireTask gradlebuild
+    addTaskTo build
+}
+
+function buildscripts_run() {
+    # Create tools
+    createFolder "$BASEBUILDDIR/scripts"
+
+    # Copy results
+    cp -rfv "build/gradleout/tools/." "$BASEBUILDDIR/scripts"
+
+    # chmod it
+    chmod +x "$BASEBUILDDIR/scripts/"*
+}

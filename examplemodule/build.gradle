@@ -15,14 +15,16 @@ ext.authorname = "AerialWorks Software Foundation"
 // Internal
 apply plugin: 'eclipse'
 
+buildDir = 'build/gradleout'
+
 Calendar cal = new GregorianCalendar();
 cal.setTime(new Date());
 ext.buildyear = cal.get(Calendar.YEAR).toString();
 
 repositories {
 	mavenCentral()
-	flatDir {
-		dirs 'libraries'
+    flatDir {
+        dirs 'deps/centuria-server/project/dependencies/fluid'
 	}
 }
 
@@ -42,71 +44,26 @@ jar {
 }
 
 dependencies {
+	implementation project(":Centuria Legacy")
+	implementation project(":connective-http")
 	testImplementation group: 'junit', name: 'junit', version: '4.13.2'
-
-	implementation name: "Centuria"
-	implementation name: "connective-http"
 }
 
 project.configurations.implementation.canBeResolved = true
-
-// createEclipseLaunches {
-// 	name "Launch Centuria Server (${project.name})"
-
-// 	// Main server
-// 	mainClass "org.asf.centuria.Centuria"
-// 	workingDir "server"
-
-// 	// Enable debug mode
-// 	jvm "-DdebugMode=true"
-
-// 	// Make sure the module is loaded into the server
-// 	jvm "-DaddCpModules=${modulePackage}.${moduleClass}"
-
-// 	// Server dependencies
-// 	classpath project // current project
-// 	classpath {
-// 		// libraries
-// 		for (File file : new File("libraries").listFiles()) {
-// 			archive file
-// 		}
-
-// 		// server libraries
-// 		for (File file : new File("server/libs").listFiles()) {
-// 			archive file
-// 		}
-// 		archive new File("server/Centuria.jar") // server jars
-// 	}
-
-// 	// Server source lookup
-// 	sourceLookup {
-// 		// libraries
-// 		for (File file : new File("libraries").listFiles()) {
-// 			archive file
-// 		}
-
-// 		// server libraries
-// 		for (File file : new File("server/libs").listFiles()) {
-// 			archive file
-// 		}
-// 		archive new File("server/Centuria.jar") // server jars
-// 	}
-// }
-// createEclipseLaunches.dependsOn 'eclipse'
 
 task moduledata () {
 	doLast {
 		for (ResolvedArtifact arti : project.configurations.implementation.resolvedConfiguration.getResolvedArtifacts()) {
 			if (arti.getClassifier() != null)
 				continue;
-				
+			
 		    String outFileNm = arti.name + (arti.getClassifier() != null && !arti.getClassifier().isEmpty() ? "-" + arti.getClassifier() : "")
-		    if (outFileNm.equals("Centuria") || new File("emulibs", outFileNm + ".jar").exists())
+		    if (outFileNm.equals("Centuria") || outFileNm.equals("centuria") || project("Centuria Legacy").configurations.implementation.resolvedConfiguration.getResolvedArtifacts().stream().anyMatch { t -> compareArtifacts(t, arti)})
 		    	continue;
 			copy {			    
 				from arti.file
 				rename arti.file.getName(), outFileNm + "." + arti.getExtension()
-				into "build/moduledata/libs"
+				into "build/gradleout/moduledata/libs"
 			}
 		}
 		for (def task : project.tasks) {
@@ -117,11 +74,43 @@ task moduledata () {
 				copy {
 					from task.getArchiveFile().get()
 					rename task.getArchiveFile().get().getAsFile().getName(), task.getArchiveBaseName().get() + (task.getArchiveClassifier().get() != null && !task.getArchiveClassifier().get().isEmpty() ? "-" + task.getArchiveClassifier().get() : "") + "." + task.getArchiveExtension().get()
-					into "build/moduledata/modules"
+					into "build/gradleout/moduledata/modules"
 				}
 			}
 		}
 	}
+}
+
+boolean compareArtifacts(ResolvedArtifact arti, ResolvedArtifact t) {
+	if (!arti.name.equals(t.name))
+		return false;
+	if (arti.getClassifier() != null && t.getClassifier() == null || arti.getClassifier() == null && t.getClassifier() != null)
+		return false;
+	if (!arti.getClassifier().equals(t.getClassifier()))
+		return false;
+	if (arti.getModuleVersion() != null && t.getModuleVersion() == null || arti.getModuleVersion() == null && t.getModuleVersion() != null)
+		return false;
+	if (arti.getModuleVersion() != null) {
+		if (arti.getModuleVersion().getId() != null && t.getModuleVersion().getId() == null || arti.getModuleVersion().getId() == null && t.getModuleVersion().getId() != null)
+			return false;
+		if (arti.getModuleVersion().getId() != null) {
+			var v1 = arti.getModuleVersion().getId()
+			var v2 = t.getModuleVersion().getId()
+			if (v1.getGroup() != null && v2.getGroup() == null || v1.getGroup() == null && v2.getGroup() != null)
+				return false;
+			if (!v1.getGroup().equals(v2.getGroup()))
+				return false;
+			if (v1.getName() != null && v2.getName() == null || v1.getName() == null && v2.getName() != null)
+				return false;
+			if (!v1.getName().equals(v2.getName()))
+				return false;
+			if (v1.getName() != null && v2.getName() == null || v1.getName() == null && v2.getName() != null)
+				return false;
+			if (!v1.getVersion().equals(v2.getVersion()))
+				return false;
+		}
+	}
+	return true;
 }
 
 moduledata.dependsOn project.tasks.build

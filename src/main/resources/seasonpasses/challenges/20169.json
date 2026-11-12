@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie on the Dark Ornate Throne in Blood Tundra",
+  "objectName": "SEASON02/Challenge188",
+  "challengeDefID": "20169",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "31230",
+      "2364"
+    ],
+    "tags": []
+  }
+}

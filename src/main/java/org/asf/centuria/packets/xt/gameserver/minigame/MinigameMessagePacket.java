@@ -37,7 +37,7 @@ public class MinigameMessagePacket implements IXtPacket<MinigameMessagePacket> {
 	public void build(XtWriter writer) throws IOException {
 		// Log
 		if (Centuria.debugMode) {
-			System.out.println("[MINIGAME] [MESSAGE] Server to client (command: " + command + ")");
+			Centuria.logger.debug("[MINIGAME] [MESSAGE] Server to client (command: " + command + ")");
 		}
 
 		writer.writeInt(DATA_PREFIX); // padding
@@ -55,7 +55,7 @@ public class MinigameMessagePacket implements IXtPacket<MinigameMessagePacket> {
 
 		// Log
 		if (Centuria.debugMode) {
-			System.out.println("[MINIGAME] [MESSAGE] Client to server (command: " + command + ")");
+			Centuria.logger.debug("[MINIGAME] [MESSAGE] Client to server (command: " + command + ")");
 		}
 
 		// Find minigame

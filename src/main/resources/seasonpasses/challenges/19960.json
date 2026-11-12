@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear Blood Splatter Cuffs",
+  "objectName": "SEASON02/Challenge040",
+  "challengeDefID": "19960",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19653"
+    ],
+    "tags": []
+  }
+}

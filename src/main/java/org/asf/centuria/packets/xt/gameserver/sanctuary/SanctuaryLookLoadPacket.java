@@ -49,7 +49,7 @@ public class SanctuaryLookLoadPacket implements IXtPacket<SanctuaryLookLoadPacke
 
 		// Log
 		if (Centuria.debugMode) {
-			System.out.println("[SANCTUARYEDITOR] [SELECTLOOK]  Client to server (look: " + lookId + ")");
+			Centuria.logger.debug("[SANCTUARYEDITOR] [SELECTLOOK]  Client to server (look: " + lookId + ")");
 		}
 
 		// Load into active look

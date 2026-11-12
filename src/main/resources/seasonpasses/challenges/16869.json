@@ -1,0 +1,21 @@
+{
+  "challengeName": "Open 3 Bronze Chests",
+  "objectName": "TEST/Challenge_Open3BronzeChests",
+  "challengeDefID": "16869",
+  "auraPointsReward": 17,
+  "script": {
+    "actions": [
+      {
+        "action": "Complete",
+        "comparison": "GreaterThanOrEqual",
+        "value": 3
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Chest",
+      "Bronze"
+    ]
+  }
+}

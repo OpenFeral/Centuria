@@ -72,7 +72,7 @@ Phrase faggot
 Endphrase
 
 Phrase beaner
-    Mode WORD_CONTAINS
+    Mode WHOLE_PHRASE
     Variant b3eaner
     Variant b3e4n3r
     Variant b3ean3r
@@ -110,7 +110,7 @@ Phrase crippled
     Mode WHOLE_PHRASE
     Severity ALWAYS_FILTERED
     Variant crippled
-    Reason "While there are innocent uses, the phrase crippled has been used offensively, which is why we ask you to avoid the phrase."
+    Reason While there are innocent uses, the phrase crippled has been used offensively, which is why we ask you to avoid the phrase.
 Endphrase
 
 Phrase ching chong

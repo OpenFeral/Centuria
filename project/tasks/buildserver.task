@@ -1,0 +1,24 @@
+#!/bin/bash
+
+function buildserver_define() {
+    requireTask gradlebuild
+    addTaskTo build
+
+    # Dependency control
+    # addTaskTo: hard dependency, our current task will run after the given task, whenever the given task runs
+    # requireTask: hard dependency, always build given task before the current task
+
+    # Order control
+    # afterTask: our current task needs to run after the given task, sets the given task as a dependency of this task
+    # beforeTask: our current task needs to run before the given task, adds itself as a dependency of the given task
+    
+    # Order control acts as soft dependencies by default, but using requireTask and addTaskTo, can be made hard dependencies
+}
+
+function buildserver_run() {
+    # Create folder
+    createFolder "$BASEBUILDDIR/rawpackages/base"
+    
+    # Install
+    cp -rfv "build/gradleout/serverbase/." "$BASEBUILDDIR/rawpackages/base"
+}

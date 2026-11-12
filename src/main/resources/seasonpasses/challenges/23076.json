@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 20 Common Ingredients",
+  "objectName": "TEST3/HarvestCOMMON",
+  "challengeDefID": "23076",
+  "auraPointsReward": 5,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 20
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Harvest",
+      "Common",
+      "Ingredients"
+    ]
+  }
+}

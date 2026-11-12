@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear Phalanx Bracers",
+  "objectName": "SEASON04/Challenge121",
+  "challengeDefID": "24960",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "27567"
+    ],
+    "tags": []
+  }
+}

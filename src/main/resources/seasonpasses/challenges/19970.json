@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Fell Guitar in Centuria",
+  "objectName": "SEASON02/Challenge050",
+  "challengeDefID": "19970",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19779",
+      "1718"
+    ],
+    "tags": []
+  }
+}

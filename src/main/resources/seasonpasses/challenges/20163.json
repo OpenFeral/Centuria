@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Ogasa Pauldrons in Lakeroot Valley",
+  "objectName": "SEASON02/Challenge182",
+  "challengeDefID": "20163",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9687",
+      "19793"
+    ],
+    "tags": []
+  }
+}

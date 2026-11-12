@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Pilfermite Dagger",
+  "objectName": "SEASON06/Challenge203",
+  "challengeDefID": "29616",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "7810"
+    ],
+    "tags": []
+  }
+}

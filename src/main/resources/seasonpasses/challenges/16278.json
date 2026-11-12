@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at the top of the \"Rat Wall\" in City Fera",
+  "objectName": "SEASON01/Challenge001",
+  "challengeDefID": "16278",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19782",
+      "26892",
+      "820"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

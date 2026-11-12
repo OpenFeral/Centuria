@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at Broken Shrines in Lakeroot Valley",
+  "objectName": "SEASON02/Challenge176",
+  "challengeDefID": "20142",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "23416",
+      "9687"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

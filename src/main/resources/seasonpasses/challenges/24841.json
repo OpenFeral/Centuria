@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to Lafayette",
+  "objectName": "SEASON04/Challenge009",
+  "challengeDefID": "24841",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3189"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Ballet Mirror",
+  "objectName": "SEASON01/Challenge099",
+  "challengeDefID": "16513",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "27354"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "challengeName": "Visit Centuria",
+  "objectName": "TEST2/Challenge_Complete2Digs",
+  "challengeDefID": "19198",
+  "auraPointsReward": 5,
+  "script": {
+    "actions": [
+      {
+        "action": "Dig",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": []
+  }
+}

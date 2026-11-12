@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Winterwing Set in the Blood Tundra",
+  "objectName": "SEASON04/Challenge156",
+  "challengeDefID": "24995",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "2364",
+      "19761"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

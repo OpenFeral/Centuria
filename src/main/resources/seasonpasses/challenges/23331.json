@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind a Art Deco Chair",
+  "objectName": "SEASON03/Challenge125",
+  "challengeDefID": "23331",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "5115"
+    ],
+    "tags": [
+      "Unbind"
+    ]
+  }
+}

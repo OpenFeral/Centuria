@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at the top of the Mistbreath Dragon statue in Mugmyre Marsh",
+  "objectName": "SEASON01/Challenge205",
+  "challengeDefID": "31270",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "2147",
+      "19801"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

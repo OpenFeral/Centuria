@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Twiggle Hut in the Blood Tundra",
+  "objectName": "SEASON03/Challenge152",
+  "challengeDefID": "23361",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "2364",
+      "23786"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

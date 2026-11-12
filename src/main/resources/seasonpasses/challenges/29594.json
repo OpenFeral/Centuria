@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Pilfermite Dagger",
+  "objectName": "SEASON06/Challenge181",
+  "challengeDefID": "29594",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "7810"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

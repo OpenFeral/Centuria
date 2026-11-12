@@ -52,7 +52,7 @@ public class AvatarSelectLookPacket implements IXtPacket<AvatarSelectLookPacket>
 
 		// Log
 		if (Centuria.debugMode) {
-			System.out.println("[AVATAREDITOR] [SELECTLOOK]  Client to server (look: " + lookID + ")");
+			Centuria.logger.debug("[AVATAREDITOR] [SELECTLOOK]  Client to server (look: " + lookID + ")");
 		}
 
 		// Save the pending look ID

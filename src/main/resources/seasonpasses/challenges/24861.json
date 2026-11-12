@@ -1,0 +1,21 @@
+{
+  "challengeName": "Perform the \"Flex\" Emote in To Dye For",
+  "objectName": "SEASON04/Challenge026",
+  "challengeDefID": "24861",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9151",
+      "1717"
+    ],
+    "tags": []
+  }
+}

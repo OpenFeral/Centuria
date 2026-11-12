@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to Vivian",
+  "objectName": "SEASON05/Challenge075",
+  "challengeDefID": "26983",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1791"
+    ],
+    "tags": []
+  }
+}

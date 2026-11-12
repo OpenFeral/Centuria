@@ -1,0 +1,144 @@
+{
+  // Updater settings, updates are disabled by default, but when enabled it can run update checks on startup and if the user so wishes, at runtime.,
+  "enabled": %oldEnableUpdater%,
+  "enableRuntimeUpdater": %oldEnableRuntime%,
+  "runtimeUpdaterTimer": 10,
+
+  // Here you can configure which update channel to use, valid channels are: lts, latest, experimental, staging, testing and development. The Strategy controls how to install packages, either only install, or also keeping them up to date, valid values are: fullupdate, installonly
+  "defaultChannel": "latest",
+  "defaultStrategy": "fullupdate",
+
+  // Next up are the repositories, repositories are sources for colllections
+  "repositories": {
+    "openferal": "https://emuferal.openferal.net/centuria/"
+  },
+
+  // Next up are the collections, collections are downloadable packages which can be included in the server
+  "collections": {
+    // The base collection is the server itself
+    "base": {
+      "enabled": true,
+      "channel": "inherit",
+      "strategy": "fullupdate"
+    },
+
+    // The collection module-discordbot installs the discord bot module as part of the server
+    "module-discordbot": {
+      "enabled": false,
+      "channel": "inherit",
+      "strategy": "inherit"
+    },
+
+    // The collection module-feraltweaks installs the FeralTweaks module as part of the server, required for FeralTweaks-based launchers to function
+    "module-feraltweaks": {
+      "enabled": true,
+      "channel": "inherit",
+      "strategy": "inherit"
+    },
+
+    // The collection module-discordrpc installs the Discord RPC support mod as part of the server
+    "module-discordrpc": {
+      "enabled": true,
+      "channel": "inherit",
+      "strategy": "inherit"
+    },
+
+    // The collection module-playasnpcs installs the Play as NPCs mod as part of the server
+    "module-playasnpcs": {
+      "enabled": true,
+      "channel": "inherit",
+      "strategy": "inherit"
+    },
+
+    // The collection module-gcs installs the group chat mod as part of the server
+    "module-gcs": {
+      "enabled": true,
+      "channel": "inherit",
+      "strategy": "inherit"
+    },
+
+    // The collection patches-emuferalonline installs all the base EmuFeral Online patches into the server. IMPORTANT: this installs all EmuFeral chart patches into the server and will maintain to update them, for custom chart patches, use the folder named feraltweaks/userpatches, these files override files included by EmuFeral Online
+    "patches-emuferalonline": {
+      "enabled": true,
+      "channel": "inherit",
+      "strategy": "inherit"
+    },
+
+    // The collection payload-earlyaccess-1.8 installs all the Early Access 1.8 related files into the server. IMPORTANT: this branch is not permanent, you may need to remove this in the future
+    "payload-earlyaccess-1.8": {
+      "enabled": true,
+      "channel": "inherit",
+      "strategy": "inherit"
+    },
+
+    // The collection payload-launcherbinaries installs the launcher binaries into the server, instead of using from upstream (useful for offline play)
+    "payload-launcherbinaries": {
+      "enabled": false,
+      "channel": "inherit",
+      "strategy": "inherit"
+    },
+
+    // The collection payload-modloaderbinaries installs the modloader binaries into the server, instead of using from upstream (useful for offline play)
+    "payload-modloaderbinaries": {
+      "enabled": false,
+      "channel": "inherit",
+      "strategy": "inherit"
+    },
+
+    // The collection payload-archive-gameassets-0191 installs all game assets for 0.19.1 into the server, WARNING: this downloads over 8 gigabyte into the game
+    "payload-archive-gameassets-0191": {
+      "enabled": false,
+      "channel": "archive",
+      "strategy": "inherit"
+    },
+
+    // The collection payload-archive-gameassets-0215 installs all game assets for 0.2.15 into the server (archival purposes only, server doesnt run with this version), WARNING: this downloads over 3 gigabyte into the server
+    "payload-archive-gameassets-0215": {
+      "enabled": false,
+      "channel": "archive",
+      "strategy": "inherit"
+    },
+
+    // The collection payload-archive-gameassets-0411 installs all game assets for 0.4.11 into the server (archival purposes only, server doesnt run with this version), WARNING: this downloads over 3.6 gigabyte into the server
+    "payload-archive-gameassets-0411": {
+      "enabled": false,
+      "channel": "archive",
+      "strategy": "inherit"
+    },
+
+    // The collection payload-archive-gameassets-0183 installs all game assets for 0.18.3 into the server (archival purposes only, server doesnt work with this version), WARNING: this downloads over 7.9 gigabyte into the server
+    "payload-archive-gameassets-0183": {
+      "enabled": false,
+      "channel": "archive",
+      "strategy": "inherit"
+    },
+
+    // The collection payload-archive-gamedownloads-0191 installs all client downloads for 0.19.1 into the server
+    "payload-archive-gamedownloads-0191": {
+      "enabled": false,
+      "channel": "archive",
+      "strategy": "inherit"
+    },
+
+    // The collection payload-archive-gamedownloads-0215 installs all client downloads for 0.2.15 into the server (archival purposes only, doesnt run with this version)
+    "payload-archive-gamedownloads-0215": {
+      "enabled": false,
+      "channel": "archive",
+      "strategy": "inherit"
+    },
+
+    // The collection payload-archive-gamedownloads-0411 installs all client downloads for 0.4.11 into the server (archival purposes only, doesnt run with this version)
+    "payload-archive-gamedownloads-0411": {
+      "enabled": false,
+      "channel": "archive",
+      "strategy": "inherit"
+    },
+
+    // The collection payload-archive-gamedownloads-0183 installs all client downloads for 0.18.3 into the server (archival purposes only, doesnt run with this version)
+    "payload-archive-gamedownloads-0183": {
+      "enabled": false,
+      "channel": "archive",
+      "strategy": "inherit"
+    }
+  }
+}

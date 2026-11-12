@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Flex\" Emote next to the Twiggle Poster in City Fera",
+  "objectName": "SEASON04/Challenge055",
+  "challengeDefID": "24893",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9151",
+      "820",
+      "24539"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind a Fin Bustle",
+  "objectName": "SEASON05/Challenge209",
+  "challengeDefID": "27158",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "6940"
+    ],
+    "tags": [
+      "Unbind"
+    ]
+  }
+}

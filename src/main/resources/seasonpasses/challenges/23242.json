@@ -1,0 +1,23 @@
+{
+  "challengeName": "Craft any 1 item from the Winter Archer Clothing Set",
+  "objectName": "SEASON03/Challenge036",
+  "challengeDefID": "23242",
+  "auraPointsReward": 23,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "29420"
+    ],
+    "tags": [
+      "Craft",
+      "List"
+    ]
+  }
+}

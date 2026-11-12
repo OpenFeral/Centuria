@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at Arrowpeak Village in Lakeroot Valley",
+  "objectName": "SEASON01/Challenge169",
+  "challengeDefID": "16584",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "19790",
+      "9687"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

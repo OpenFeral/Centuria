@@ -43,7 +43,7 @@ public class MinigameJoinPacket implements IXtPacket<MinigameJoinPacket> {
 
 		// Log
 		if (Centuria.debugMode) {
-			System.out.println("[MINIGAME] [JOIN]  Client to server (MinigameID: " + minigameID + ")");
+			Centuria.logger.debug("[MINIGAME] [JOIN]  Client to server (MinigameID: " + minigameID + ")");
 		}
 
 		// Find and join minigame

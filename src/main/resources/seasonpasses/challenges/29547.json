@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the Bowling Alley in City Fera",
+  "objectName": "SEASON06/Challenge136",
+  "challengeDefID": "29547",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "820",
+      "24538"
+    ],
+    "tags": []
+  }
+}

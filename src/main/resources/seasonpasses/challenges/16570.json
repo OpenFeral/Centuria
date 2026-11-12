@@ -1,0 +1,23 @@
+{
+  "challengeName": "Harvest 5 Rich Pigments in Mugmyre Marsh",
+  "objectName": "SEASON01/Challenge155",
+  "challengeDefID": "16570",
+  "auraPointsReward": 21,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2147",
+      "28489"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

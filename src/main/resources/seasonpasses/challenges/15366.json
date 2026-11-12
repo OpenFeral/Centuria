@@ -1,0 +1,21 @@
+{
+  "challengeName": "Open 3 Basic Chests",
+  "objectName": "TEST/Challenge_Open3BasicChests",
+  "challengeDefID": "15366",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "Complete",
+        "comparison": "GreaterThanOrEqual",
+        "value": 3
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Chest",
+      "Basic"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Fera Chaise Lounge",
+  "objectName": "SEASON05/Challenge206",
+  "challengeDefID": "27155",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3680"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

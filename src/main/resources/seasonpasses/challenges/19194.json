@@ -1,0 +1,21 @@
+{
+  "challengeName": "Visit Centuria",
+  "objectName": "TEST2/Challenge_TakeSelfieOnRatWall",
+  "challengeDefID": "19194",
+  "auraPointsReward": 5,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19605",
+      "820"
+    ],
+    "tags": []
+  }
+}

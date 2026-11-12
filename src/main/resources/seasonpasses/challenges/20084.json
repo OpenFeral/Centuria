@@ -1,0 +1,20 @@
+{
+  "challengeName": "Visit Mugmyre Marsh",
+  "objectName": "SEASON02/Challenge121",
+  "challengeDefID": "20084",
+  "auraPointsReward": 8,
+  "script": {
+    "actions": [
+      {
+        "action": "Visit",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2147"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "challengeName": "Earn 500 Likes in Do or Dye",
+  "objectName": "TEST/Challenge_Earn500LikesInDoOrDye",
+  "challengeDefID": "15638",
+  "auraPointsReward": 9,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 500
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2327",
+      "5054"
+    ],
+    "tags": []
+  }
+}

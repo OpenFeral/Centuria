@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with Andrulian Fawnlynn",
+  "objectName": "SEASON04/Challenge128",
+  "challengeDefID": "24967",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23233",
+      "1716"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 5 Void Guts",
+  "objectName": "SEASON05/Challenge062",
+  "challengeDefID": "26954",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "6305"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to Wallace",
+  "objectName": "SEASON06/Challenge070",
+  "challengeDefID": "29469",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2485"
+    ],
+    "tags": []
+  }
+}

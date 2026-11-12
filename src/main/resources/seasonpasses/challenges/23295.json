@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Cloudburst Clothing Set in City Fera",
+  "objectName": "SEASON03/Challenge089",
+  "challengeDefID": "23295",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "820",
+      "23149"
+    ],
+    "tags": []
+  }
+}

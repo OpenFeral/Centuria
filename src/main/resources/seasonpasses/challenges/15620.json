@@ -1,0 +1,20 @@
+{
+  "challengeName": "Perform any Emote at Kino\u0027s Booth in Sunken Thicket",
+  "objectName": "ZZZ_Challenge_REUSE_ME",
+  "challengeDefID": "15620",
+  "auraPointsReward": 5,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10654"
+    ],
+    "tags": []
+  }
+}

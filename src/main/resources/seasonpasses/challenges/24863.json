@@ -1,0 +1,20 @@
+{
+  "challengeName": "Visit the Shattered Bay",
+  "objectName": "SEASON04/Challenge028",
+  "challengeDefID": "24863",
+  "auraPointsReward": 8,
+  "script": {
+    "actions": [
+      {
+        "action": "Visit",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1825"
+    ],
+    "tags": []
+  }
+}

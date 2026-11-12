@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Excite\" Emote at jewelry display case in Fera Fashions",
+  "objectName": "SEASON02/Challenge133",
+  "challengeDefID": "20096",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9122",
+      "19786",
+      "1716"
+    ],
+    "tags": []
+  }
+}

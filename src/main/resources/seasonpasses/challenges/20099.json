@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the Sandcastle in Lakeroot Valley",
+  "objectName": "SEASON02/Challenge136",
+  "challengeDefID": "20099",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19797",
+      "9687"
+    ],
+    "tags": []
+  }
+}

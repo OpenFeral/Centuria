@@ -1,0 +1,21 @@
+{
+  "challengeName": "Harvest 25 COMMON ingredients",
+  "objectName": "SEASON05/Challenge020",
+  "challengeDefID": "26904",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 25
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Common",
+      "Harvest"
+    ]
+  }
+}

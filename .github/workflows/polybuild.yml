@@ -1,0 +1,45 @@
+name: PolyTool
+
+on:
+- push
+- pull_request
+
+permissions:
+  contents: read
+
+jobs:
+  base:
+    strategy:
+      matrix:
+        package:
+          - name: base server
+            task: artifact_baseserver
+            artifact_in: base-centuria-server
+            artifact_name: Base Centuria Server (Java Runtime)
+          - name: legacy update payload
+            task: artifact_legacyupdatedata
+            artifact_in: legacy-update-data
+            artifact_name: Legacy Update Payload
+    name: Build ${{ matrix.package.name }}
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 17
+      uses: actions/setup-java@v5
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+    - name: Grant execute permission for polytool
+      run: chmod +x polytool
+    - name: Restore project
+      run: ./polytool restore
+    - name: Build project and create artifacts
+      run: ./polytool build ${{ matrix.package.task }}
+    - name: "Publish build artifact: ${{ matrix.package.artifact_name }}"
+      uses: actions/upload-artifact@v6
+      with:
+        name: ${{matrix.package.artifact_name}}
+        if-no-files-found: ignore
+        path: build/artifacts/${{ matrix.package.artifact_in }}
+

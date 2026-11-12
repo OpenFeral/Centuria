@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft an Epic Kino Figure",
+  "objectName": "SEASON05/Challenge006",
+  "challengeDefID": "26889",
+  "auraPointsReward": 22,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26470"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

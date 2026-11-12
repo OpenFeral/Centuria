@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to Andrulian Fawnlynn",
+  "objectName": "SEASON01/Challenge031",
+  "challengeDefID": "16444",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2412"
+    ],
+    "tags": []
+  }
+}

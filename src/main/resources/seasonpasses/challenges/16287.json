@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 5 Cliffrock Dyes",
+  "objectName": "SEASON01/Challenge003",
+  "challengeDefID": "16287",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10531"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

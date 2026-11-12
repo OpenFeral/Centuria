@@ -1,0 +1,23 @@
+{
+  "challengeName": "Craft any 1 item from the Saloon Furniture Set",
+  "objectName": "SEASON01/Challenge170",
+  "challengeDefID": "16585",
+  "auraPointsReward": 24,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "31263"
+    ],
+    "tags": [
+      "Craft",
+      "List"
+    ]
+  }
+}

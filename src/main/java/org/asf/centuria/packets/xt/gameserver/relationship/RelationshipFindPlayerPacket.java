@@ -50,7 +50,7 @@ public class RelationshipFindPlayerPacket implements IXtPacket<RelationshipFindP
 		// Find player
 
 		if (Centuria.debugMode) {
-			System.out.println("[SOCIAL] [FindPlayer] Client to server ( playerName: " + name + " )");
+			Centuria.logger.debug("[SOCIAL] [FindPlayer] Client to server ( playerName: " + name + " )");
 		}
 
 		boolean moderator = false;
@@ -66,7 +66,7 @@ public class RelationshipFindPlayerPacket implements IXtPacket<RelationshipFindP
 
 			// log interaction details
 			if (Centuria.debugMode) {
-				System.out.println("[SOCIAL] [FindPlayer] Server to client ( " + this.build() + " )");
+				Centuria.logger.debug("[SOCIAL] [FindPlayer] Server to client ( " + this.build() + " )");
 			}
 
 			return true; // Account not found
@@ -79,7 +79,7 @@ public class RelationshipFindPlayerPacket implements IXtPacket<RelationshipFindP
 		client.sendPacket(this);
 
 		if (Centuria.debugMode) {
-			System.out.println("[SOCIAL] [FindPlayer] Server to client ( " + this.build() + " )");
+			Centuria.logger.debug("[SOCIAL] [FindPlayer] Server to client ( " + this.build() + " )");
 		}
 
 		return true;

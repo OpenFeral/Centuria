@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear Floating Gears",
+  "objectName": "SEASON04/Challenge035",
+  "challengeDefID": "24873",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10587"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Gardener clothing set in Mugmyre Marsh",
+  "objectName": "SEASON05/Challenge080",
+  "challengeDefID": "27015",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "19806",
+      "2147"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

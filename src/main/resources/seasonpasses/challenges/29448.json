@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Mad\" Emote at the leakage site in Lakeroot Valley",
+  "objectName": "SEASON06/Challenge049",
+  "challengeDefID": "29448",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9121",
+      "9687",
+      "19792"
+    ],
+    "tags": []
+  }
+}

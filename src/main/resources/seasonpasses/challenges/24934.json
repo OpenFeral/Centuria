@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the Toboggan Run in the Blood Tundra",
+  "objectName": "SEASON04/Challenge096",
+  "challengeDefID": "24934",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19769",
+      "2364"
+    ],
+    "tags": []
+  }
+}

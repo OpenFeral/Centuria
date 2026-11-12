@@ -1,0 +1,20 @@
+{
+  "challengeName": "Visit 5 Sanctuaries",
+  "objectName": "SEASON01/Challenge100",
+  "challengeDefID": "16514",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Visit",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Sanctuary"
+    ]
+  }
+}

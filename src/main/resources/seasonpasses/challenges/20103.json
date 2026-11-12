@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Play\" Emote next to the Rubber Ducky in Sunken Thicket",
+  "objectName": "SEASON02/Challenge140",
+  "challengeDefID": "20103",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19817",
+      "3273",
+      "9190"
+    ],
+    "tags": []
+  }
+}

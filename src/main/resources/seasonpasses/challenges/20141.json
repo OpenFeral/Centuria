@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie under the Grand Chandelier in Sunken Thicket",
+  "objectName": "SEASON02/Challenge175",
+  "challengeDefID": "20141",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19818",
+      "3273"
+    ],
+    "tags": []
+  }
+}

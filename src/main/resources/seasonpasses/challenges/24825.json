@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to 5 NPCs in City Fera",
+  "objectName": "SEASON04/Challenge001",
+  "challengeDefID": "24825",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "820"
+    ],
+    "tags": []
+  }
+}

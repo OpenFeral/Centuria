@@ -18,11 +18,25 @@
 				<Route ref="Console" key="Audit" />
 			</Routes>
 		</Routing>
+		<Routing name="Debuglogfile">
+			<Routes pattern="$${sd:type}">
+				<Route>
+					<RollingFile name="LOGDEBUG" fileName="logs/debug.log"
+						filePattern="logs/debug-%d{YYYY-MM-DD}-%i.log.gz">
+						<PatternLayout
+							pattern="[%d{MM/dd/yyyy HH:mm:ss}] [%-5level] [%t] [%c{1}%notEmpty{/%markerSimpleName}] - %msg%n%throwable" />
+						<Policies />
+					</RollingFile>
+				</Route>
+				<Route ref="Console" key="Audit" />
+			</Routes>
+		</Routing>
 	</Appenders>
 	<Loggers>
 		<Root level="all">
 			<AppenderRef ref="Console" level="info" />
 			<AppenderRef ref="Logfile" level="info" />
+			<AppenderRef ref="Debuglogfile" level="debug" />
 		</Root>
 	</Loggers>
 </Configuration>

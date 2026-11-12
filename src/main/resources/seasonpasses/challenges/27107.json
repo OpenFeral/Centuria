@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Kitsune Balloon in the Blood Tundra",
+  "objectName": "SEASON05/Challenge163",
+  "challengeDefID": "27107",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2364",
+      "31230"
+    ],
+    "tags": []
+  }
+}

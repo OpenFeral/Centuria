@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the pile of Snacks in Centuria",
+  "objectName": "SEASON02/Challenge029",
+  "challengeDefID": "19950",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19775",
+      "1718"
+    ],
+    "tags": []
+  }
+}

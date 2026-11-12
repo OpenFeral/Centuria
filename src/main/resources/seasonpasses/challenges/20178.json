@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at Kino\u0027s Booth in City Fera",
+  "objectName": "SEASON02/Challenge197",
+  "challengeDefID": "20178",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "820",
+      "24534"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

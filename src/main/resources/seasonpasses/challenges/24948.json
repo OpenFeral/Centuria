@@ -1,0 +1,22 @@
+{
+  "challengeName": "Complete a quest in Mugmyre Marsh",
+  "objectName": "SEASON04/Challenge109",
+  "challengeDefID": "24948",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "Complete",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2147"
+    ],
+    "tags": [
+      "Quest"
+    ]
+  }
+}

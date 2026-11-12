@@ -1,0 +1,27 @@
+# WARNING
+# This file is sourced by polytool script, meaning any shell code here will be run
+# While using this in repositories, make sure to set up protected files that require specific review to prevent the potential risk of PRs introducing unexpected code
+
+# Dependency settings
+id=centuria-server
+output=deps/centuria-server
+type=git
+
+
+# Git URL of the dependency
+url="https://github.com/OpenFeral/Centuria.git"
+
+# Version control
+# Supports: branch, tag, commit
+#
+# For 'commit' to work, the type must be 'branch', using 'tag' with 'commit' is unsupported
+# When using tags, the branch will not be kept up to date unless the selected tag changes
+# The flags 'tag' and 'branch' will conflict
+#
+# Requires the presence of either 'tag' or 'branch'
+#
+# tag=...
+# commit=...
+# branch=...
+# tag=...
+branch=major-1.7-develop

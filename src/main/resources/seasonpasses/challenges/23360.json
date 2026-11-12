@@ -1,0 +1,20 @@
+{
+  "challengeName": "Earn 500 Likes",
+  "objectName": "SEASON03/Challenge151",
+  "challengeDefID": "23360",
+  "auraPointsReward": 15,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 500
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2327"
+    ],
+    "tags": []
+  }
+}

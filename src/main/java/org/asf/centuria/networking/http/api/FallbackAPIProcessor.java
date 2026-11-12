@@ -81,104 +81,105 @@ public class FallbackAPIProcessor extends HttpPushHandler {
 
 				JsonObject response = new JsonObject();
 				switch (method.toLowerCase()) {
-				case "get": {
-					String sourcePlayerID = acc.getAccountID();
-					String targetPlayerID = path.substring("/r/block/".length());
+					case "get": {
+						String sourcePlayerID = acc.getAccountID();
+						String targetPlayerID = path.substring("/r/block/".length());
 
-					var socialListManager = SocialManager.getInstance();
-					// open friend list
-					socialListManager.openSocialList(targetPlayerID);
-					if (socialListManager.getPlayerIsBlocked(sourcePlayerID, targetPlayerID)) {
-						SimpleDateFormat fmt = new SimpleDateFormat("YYYY-MM-dd'T'HH:mm:ss.'0Z'");
-						fmt.setTimeZone(TimeZone.getTimeZone("UTC"));
-						String createdAt = fmt.format(new Date());
+						var socialListManager = SocialManager.getInstance();
+						// open friend list
+						socialListManager.openSocialList(targetPlayerID);
+						if (socialListManager.getPlayerIsBlocked(sourcePlayerID, targetPlayerID)) {
+							SimpleDateFormat fmt = new SimpleDateFormat("YYYY-MM-dd'T'HH:mm:ss.'0Z'");
+							fmt.setTimeZone(TimeZone.getTimeZone("UTC"));
+							String createdAt = fmt.format(new Date());
 
-						response.addProperty("created_at", createdAt);
-					} else {
-						response.addProperty("error", "not_blocked");
+							response.addProperty("created_at", createdAt);
+						} else {
+							response.addProperty("error", "not_blocked");
+						}
+
+						if (Centuria.debugMode) {
+							Centuria.logger
+									.debug("[API] [r/block] [" + method + "] | Processed get block status request ");
+						}
+
+						break;
 					}
+					case "post": {
+						String sourcePlayerID = acc.getAccountID();
+						String targetPlayerID = path.substring("/r/block/".length());
 
-					if (Centuria.debugMode) {
-						System.out.println("[API] [r/block] [" + method + "] | Processed get block status request ");
+						var socialListManager = SocialManager.getInstance();
+
+						// open friend list
+						socialListManager.openSocialList(sourcePlayerID);
+
+						// check existing block
+						if (socialListManager.getPlayerIsBlocked(sourcePlayerID, targetPlayerID)) {
+							// error
+							setResponseStatus(200, "OK");
+							setResponseContent("text/json", "{\"error\":\"already_blocked\"}");
+							return;
+						}
+
+						// add player is blocked.
+						socialListManager.setBlockedPlayer(sourcePlayerID, targetPlayerID, true);
+
+						// if the player is in the sanc, BOOT THEM OUT
+						CenturiaAccount targetAcc = AccountManager.getInstance().getAccount(targetPlayerID);
+						if (targetAcc != null) {
+							Player plr = targetAcc.getOnlinePlayerInstance();
+							if (plr != null && plr.levelType == 2 && plr.room.equals("sanctuary_" + sourcePlayerID)) {
+								RoomJoinPacket pkt = new RoomJoinPacket();
+								pkt.levelID = "820";
+								pkt.levelType = 0;
+								pkt.handle(plr.client);
+								Centuria.systemMessage(plr, "You were removed from this sanctuary");
+							}
+						}
+
+						if (Centuria.debugMode) {
+							Centuria.logger.debug("[API] [r/block] [" + method + "] | Processed block Request ");
+						}
+
+						setResponseStatus(201, "No Content");
+						setResponseContent("");
+
+						break;
 					}
+					case "delete": {
+						String sourcePlayerID = acc.getAccountID();
+						String targetPlayerID = path.substring("/r/block/".length());
 
-					break;
-				}
-				case "post": {
-					String sourcePlayerID = acc.getAccountID();
-					String targetPlayerID = path.substring("/r/block/".length());
+						var socialListManager = SocialManager.getInstance();
 
-					var socialListManager = SocialManager.getInstance();
+						// open friend list
+						socialListManager.openSocialList(sourcePlayerID);
 
-					// open friend list
-					socialListManager.openSocialList(sourcePlayerID);
+						// log details
+						if (Centuria.debugMode) {
+							Centuria.logger.debug("[API] [r/block] [" + method + "] | Processed Unblock Request ");
+						}
 
-					// check existing block
-					if (socialListManager.getPlayerIsBlocked(sourcePlayerID, targetPlayerID)) {
-						// error
-						setResponseStatus(200, "OK");
-						setResponseContent("text/json", "{\"error\":\"already_blocked\"}");
-						return;
+						// check block
+						if (!socialListManager.getPlayerIsBlocked(sourcePlayerID, targetPlayerID)) {
+							// error
+							setResponseStatus(200, "OK");
+							setResponseContent("text/json", "{\"error\":\"not_blocked\"}");
+							return;
+						}
+
+						// unblock
+						socialListManager.setBlockedPlayer(sourcePlayerID, targetPlayerID, false);
+
+						break;
 					}
-
-					// add player is blocked.
-					socialListManager.setBlockedPlayer(sourcePlayerID, targetPlayerID, true);
-
-					// if the player is in the sanc, BOOT THEM OUT
-					CenturiaAccount targetAcc = AccountManager.getInstance().getAccount(targetPlayerID);
-					if (targetAcc != null) {
-						Player plr = targetAcc.getOnlinePlayerInstance();
-						if (plr != null && plr.levelType == 2 && plr.room.equals("sanctuary_" + sourcePlayerID)) {
-							RoomJoinPacket pkt = new RoomJoinPacket();
-							pkt.levelID = "820";
-							pkt.levelType = 0;
-							pkt.handle(plr.client);
-							Centuria.systemMessage(plr, "You were removed from this sanctuary");
+					default: {
+						// log details
+						if (Centuria.debugMode) {
+							System.err.println("[API] [r/block] [" + method + "] | Unhandled method ");
 						}
 					}
-
-					if (Centuria.debugMode) {
-						System.out.println("[API] [r/block] [" + method + "] | Processed block Request ");
-					}
-
-					setResponseStatus(201, "No Content");
-					setResponseContent("");
-
-					break;
-				}
-				case "delete": {
-					String sourcePlayerID = acc.getAccountID();
-					String targetPlayerID = path.substring("/r/block/".length());
-
-					var socialListManager = SocialManager.getInstance();
-
-					// open friend list
-					socialListManager.openSocialList(sourcePlayerID);
-
-					// log details
-					if (Centuria.debugMode) {
-						System.out.println("[API] [r/block] [" + method + "] | Processed Unblock Request ");
-					}
-
-					// check block
-					if (!socialListManager.getPlayerIsBlocked(sourcePlayerID, targetPlayerID)) {
-						// error
-						setResponseStatus(200, "OK");
-						setResponseContent("text/json", "{\"error\":\"not_blocked\"}");
-						return;
-					}
-
-					// unblock
-					socialListManager.setBlockedPlayer(sourcePlayerID, targetPlayerID, false);
-
-					break;
-				}
-				default: {
-					// log details
-					if (Centuria.debugMode) {
-						System.err.println("[API] [r/block] [" + method + "] | Unhandled method ");
-					}
-				}
 				}
 
 				setResponseContent("text/json", response.toString());
@@ -196,7 +197,7 @@ public class FallbackAPIProcessor extends HttpPushHandler {
 
 				// log details
 				if (Centuria.debugMode) {
-					System.out.println("[API] [r/follow] [" + method + "] inbound: ( source: " + sourcePlayerID
+					Centuria.logger.debug("[API] [r/follow] [" + method + "] inbound: ( source: " + sourcePlayerID
 							+ ", target: " + targetPlayerID + " )");
 				}
 
@@ -205,61 +206,61 @@ public class FallbackAPIProcessor extends HttpPushHandler {
 				SocialManager.getInstance().openSocialList(targetPlayerID);
 
 				switch (method.toLowerCase()) {
-				case "post": {
-					// log interaction details
-					if (Centuria.debugMode) {
-						System.out.println("[API] [r/follow] Processed friend request, sending 201... ");
+					case "post": {
+						// log interaction details
+						if (Centuria.debugMode) {
+							Centuria.logger.debug("[API] [r/follow] Processed friend request, sending 201... ");
+						}
+
+						// check follow state
+						if (SocialManager.getInstance().getPlayerIsFollowing(sourcePlayerID, targetPlayerID)) {
+							// error
+							setResponseStatus(200, "OK");
+							setResponseContent("text/json", "{\"error\":\"already_following\"}");
+							return;
+						}
+
+						// check follow count
+						if (SocialManager.getInstance().getFollowingPlayers(sourcePlayerID).length > 1000) {
+							// error
+							setResponseStatus(200, "OK");
+							setResponseContent("text/json", "{\"error\":\"limit_reached\"}");
+							return;
+						}
+
+						SocialManager.getInstance().setFollowingPlayer(sourcePlayerID, targetPlayerID, true);
+						SocialManager.getInstance().setFollowerPlayer(targetPlayerID, sourcePlayerID, true);
+
+						setResponseStatus(201, "No content");
+
+						// inform the client if possible
+						Player plr = acc.getOnlinePlayerInstance();
+						if (plr != null)
+							plr.client.sendPacket("%xt%rfosu%-1%" + targetPlayerID + "%"
+									+ (Centuria.gameServer.getPlayer(targetPlayerID) == null ? "-1" : "1") + "%");
+
+						break;
 					}
+					case "delete": {
+						// check follow state
+						if (!SocialManager.getInstance().getPlayerIsFollowing(sourcePlayerID, targetPlayerID)) {
+							// error
+							setResponseStatus(200, "OK");
+							setResponseContent("text/json", "{\"error\":\"not_following\"}");
+							return;
+						}
 
-					// check follow state
-					if (SocialManager.getInstance().getPlayerIsFollowing(sourcePlayerID, targetPlayerID)) {
-						// error
-						setResponseStatus(200, "OK");
-						setResponseContent("text/json", "{\"error\":\"already_following\"}");
-						return;
+						// must be trying to remove friend
+						SocialManager.getInstance().setFollowingPlayer(sourcePlayerID, targetPlayerID, false);
+						SocialManager.getInstance().setFollowerPlayer(targetPlayerID, sourcePlayerID, false);
+						break;
 					}
-
-					// check follow count
-					if (SocialManager.getInstance().getFollowingPlayers(sourcePlayerID).length > 1000) {
-						// error
-						setResponseStatus(200, "OK");
-						setResponseContent("text/json", "{\"error\":\"limit_reached\"}");
-						return;
+					default: {
+						// log details
+						if (Centuria.debugMode) {
+							System.err.println("[API] [r/follow] [" + method + "] | Unhandled method ");
+						}
 					}
-
-					SocialManager.getInstance().setFollowingPlayer(sourcePlayerID, targetPlayerID, true);
-					SocialManager.getInstance().setFollowerPlayer(targetPlayerID, sourcePlayerID, true);
-
-					setResponseStatus(201, "No content");
-
-					// inform the client if possible
-					Player plr = acc.getOnlinePlayerInstance();
-					if (plr != null)
-						plr.client.sendPacket("%xt%rfosu%-1%" + targetPlayerID + "%"
-								+ (Centuria.gameServer.getPlayer(targetPlayerID) == null ? "-1" : "1") + "%");
-
-					break;
-				}
-				case "delete": {
-					// check follow state
-					if (!SocialManager.getInstance().getPlayerIsFollowing(sourcePlayerID, targetPlayerID)) {
-						// error
-						setResponseStatus(200, "OK");
-						setResponseContent("text/json", "{\"error\":\"not_following\"}");
-						return;
-					}
-
-					// must be trying to remove friend
-					SocialManager.getInstance().setFollowingPlayer(sourcePlayerID, targetPlayerID, false);
-					SocialManager.getInstance().setFollowerPlayer(targetPlayerID, sourcePlayerID, false);
-					break;
-				}
-				default: {
-					// log details
-					if (Centuria.debugMode) {
-						System.err.println("[API] [r/follow] [" + method + "] | Unhandled method ");
-					}
-				}
 				}
 			} else if (path.startsWith("/r/followers")) {
 
@@ -274,7 +275,7 @@ public class FallbackAPIProcessor extends HttpPushHandler {
 
 				// log details
 				if (Centuria.debugMode) {
-					System.out.println(
+					Centuria.logger.debug(
 							"[API] [r/followers] [" + method + "] Client to server ( source: " + sourcePlayerID + " )");
 				}
 
@@ -322,7 +323,7 @@ public class FallbackAPIProcessor extends HttpPushHandler {
 
 				// log interaction details
 				if (Centuria.debugMode) {
-					System.out.println("[API] [r/followers] outbound: ( " + jsonArray.toString() + " )");
+					Centuria.logger.debug("[API] [r/followers] outbound: ( " + jsonArray.toString() + " )");
 				}
 
 			} else if (path.startsWith("/r/followings")) {
@@ -339,7 +340,7 @@ public class FallbackAPIProcessor extends HttpPushHandler {
 
 				// log details
 				if (Centuria.debugMode) {
-					System.out.println("[API] [r/followings] [" + method + "]  Client to server ( source: "
+					Centuria.logger.debug("[API] [r/followings] [" + method + "]  Client to server ( source: "
 							+ sourcePlayerID + " )");
 				}
 
@@ -382,7 +383,7 @@ public class FallbackAPIProcessor extends HttpPushHandler {
 
 				// log interaction details
 				if (Centuria.debugMode) {
-					System.out.println("[API] [r/followings] outbound: ( " + jsonArray.toString() + " )");
+					Centuria.logger.debug("[API] [r/followings] outbound: ( " + jsonArray.toString() + " )");
 				}
 			} else if (path.startsWith("/r/favorite")) {
 
@@ -399,7 +400,7 @@ public class FallbackAPIProcessor extends HttpPushHandler {
 
 				// log details
 				if (Centuria.debugMode) {
-					System.out.println("[API] [r/favorite] [" + method + "]  Client to server ( source: "
+					Centuria.logger.debug("[API] [r/favorite] [" + method + "]  Client to server ( source: "
 							+ sourcePlayerID + ", target : " + targetPlayerID + ", body: " + body + " )");
 				}
 
@@ -408,43 +409,42 @@ public class FallbackAPIProcessor extends HttpPushHandler {
 				friendListManager.openSocialList(sourcePlayerID);
 
 				switch (method.toLowerCase()) {
-				case "post": {
-					friendListManager.setFavoritePlayer(sourcePlayerID, targetPlayerID, true);
+					case "post": {
+						friendListManager.setFavoritePlayer(sourcePlayerID, targetPlayerID, true);
 
-					setResponseStatus(201, "No content");
+						setResponseStatus(201, "No content");
 
-					// log details
-					if (Centuria.debugMode) {
-						System.out.println("[API] [r/favorite] [" + method + "] Handled.");
+						// log details
+						if (Centuria.debugMode) {
+							Centuria.logger.debug("[API] [r/favorite] [" + method + "] Handled.");
+						}
+
+						break;
 					}
+					case "delete": {
+						// oops.. its kind of the same
+						friendListManager.setFavoritePlayer(sourcePlayerID, targetPlayerID, false);
 
-					break;
-				}
-				case "delete": {
-					// oops.. its kind of the same
-					friendListManager.setFavoritePlayer(sourcePlayerID, targetPlayerID, false);
-
-					// log details
-					if (Centuria.debugMode) {
-						System.out.println("[API] [r/favorite] [" + method + "] Handled.");
+						// log details
+						if (Centuria.debugMode) {
+							Centuria.logger.debug("[API] [r/favorite] [" + method + "] Handled.");
+						}
+						break;
 					}
-					break;
-				}
-				default: {
-					// log details
-					if (Centuria.debugMode) {
-						System.err.println("[API] [r/favorite] [" + method + "] | Unhandled method ");
+					default: {
+						// log details
+						if (Centuria.debugMode) {
+							System.err.println("[API] [r/favorite] [" + method + "] | Unhandled method ");
+						}
 					}
-				}
 				}
 
 			} else if (path.startsWith("/s/desktop")) {
-
 				// dud handler
 
 				// log details
 				if (Centuria.debugMode) {
-					System.out.println("[API] [/s/desktop] [" + method + "] DUD");
+					Centuria.logger.debug("[API] [/s/desktop] [" + method + "] DUD");
 				}
 			} else {
 				// log details

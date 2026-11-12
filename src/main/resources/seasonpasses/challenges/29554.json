@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind a Pinata",
+  "objectName": "SEASON06/Challenge143",
+  "challengeDefID": "29554",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "4437"
+    ],
+    "tags": [
+      "Unbind"
+    ]
+  }
+}

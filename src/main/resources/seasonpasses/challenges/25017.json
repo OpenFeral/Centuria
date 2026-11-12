@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft Single Earring",
+  "objectName": "SEASON04/Challenge175",
+  "challengeDefID": "25017",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "18708"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

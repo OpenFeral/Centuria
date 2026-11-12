@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at leakage site in the pillow cave in the Shattered Bay",
+  "objectName": "SEASON04/Challenge043",
+  "challengeDefID": "24881",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1825",
+      "23152"
+    ],
+    "tags": []
+  }
+}

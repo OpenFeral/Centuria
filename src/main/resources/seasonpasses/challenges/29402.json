@@ -1,0 +1,20 @@
+{
+  "challengeName": "Craft a Pilfermite Shamshir",
+  "objectName": "SEASON06/Challenge011",
+  "challengeDefID": "29402",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "7797"
+    ],
+    "tags": []
+  }
+}

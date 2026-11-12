@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 5 Fog Cells",
+  "objectName": "SEASON03/Challenge030",
+  "challengeDefID": "23227",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "7577"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

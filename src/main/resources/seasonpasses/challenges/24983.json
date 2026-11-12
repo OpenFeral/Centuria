@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Slumber Set in the Sunken Thicket",
+  "objectName": "SEASON04/Challenge144",
+  "challengeDefID": "24983",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "19821",
+      "3273"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

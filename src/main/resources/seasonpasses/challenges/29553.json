@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 2 Octovenom Eyeball",
+  "objectName": "SEASON06/Challenge142",
+  "challengeDefID": "29553",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3482"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

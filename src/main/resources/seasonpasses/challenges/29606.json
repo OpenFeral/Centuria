@@ -1,0 +1,20 @@
+{
+  "challengeName": "Visit Latchkey\u0027s Lab",
+  "objectName": "SEASON06/Challenge193",
+  "challengeDefID": "29606",
+  "auraPointsReward": 8,
+  "script": {
+    "actions": [
+      {
+        "action": "Visit",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "7790"
+    ],
+    "tags": []
+  }
+}

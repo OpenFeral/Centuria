@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Twiggle Hut in Mugmyre Marsh",
+  "objectName": "SEASON03/Challenge148",
+  "challengeDefID": "23357",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "2147",
+      "19805"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

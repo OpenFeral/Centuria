@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Twiggle Hut in Lakeroot Valley",
+  "objectName": "SEASON03/Challenge139",
+  "challengeDefID": "23348",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23160",
+      "9687"
+    ],
+    "tags": []
+  }
+}

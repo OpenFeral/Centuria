@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Pilfermite Cutlass",
+  "objectName": "SEASON06/Challenge187",
+  "challengeDefID": "29600",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "7796"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,151 @@
+#!/bin/bash
+
+wrapperversion=a1.0
+
+# Splash
+echo "PolyTool Wrapper $wrapperversion"
+echo "The PolyTool Wrapper is licensed under the GPLv2 license, and is completely open source, any contributions are welcome!"
+echo "NOTICE: PolyTool is still a work in progress tool, and is only a proof of concept, there will be bugs!"
+
+# Check git
+if ! command -v git &> /dev/null; then
+    1>&2 echo Error: git is not installed, please make sure to install git prior to using polytool
+    exit 1
+fi
+
+# Setup
+chmod +x "$0"
+projbasedir="$(dirname "$0")"
+
+# Get version file
+storedver=undefined
+if [ -f "$projbasedir/.polytool-version" ]; then
+    storedver="$(cat "$projbasedir/.polytool-version")"
+fi
+
+# Read runtime properties
+echo
+branch=stable
+commit=undefined
+tag=undefined
+if [ -f "$projbasedir/polytool.properties" ]; then
+    source "$projbasedir/polytool.properties"
+fi
+if [ -f "$projbasedir/polylocal/polytool.properties" ]; then
+    source "$projbasedir/polylocal/polytool.properties"
+fi
+
+# Handle new runs and whenever the polytool repo is deleted
+if [ ! -d "$projbasedir/.polytool" ]; then
+    storedver=undefined
+fi
+
+# Determine if update is needed
+currentver="$branch-$tag-$commit"
+if [ "$currentver" != "$storedver" ] || ([ "$tag" == "undefined" ] && [ "$commit" == "undefined" ]); then 
+    # Set up environment
+    targetbranch="$branch"
+    targetpretty="Latest from branch $branch"
+    if [ "$tag" != "undefined" ]; then
+        targetbranch="$tag"
+        targetpretty="Tag $tag"
+    fi
+    if [ "$commit" != "undefined" ] && [ "$tag" == "undefined" ]; then
+        targetpretty="Commit $commit from branch $branch"
+    fi
+
+    # Check
+    updated=false
+    lastdir="$PWD"
+    if [ ! -d "$projbasedir/.polytool" ]; then
+        # Log
+        echo "Downloading PolyTool $targetpretty..."
+
+        # Clone
+        git clone -c advice.detachedHead=false "$url" --branch "$targetbranch" "$projbasedir/.polytool" || exit 1
+        
+        # Enter polytool
+        cd "$projbasedir/.polytool"
+
+        # Reset
+        if [ "$commit" != "undefined" ] && [ "$tag" == "undefined" ]; then
+            # Get current commit
+            currentcommit="$(git rev-parse HEAD)"
+            if [ "$currentcommit" != "$commit" ]; then
+                # Reset
+                git reset --hard "$commit" || exit 1
+            fi
+        fi
+        updated=true
+    else
+        # Log
+        echo "Updating PolyTool $targetpretty..."
+        
+        # Enter polytool
+        cd "$projbasedir/.polytool"
+        currentcommit="$(git rev-parse HEAD)"
+
+        # Update existing
+        git fetch || exit 1
+
+        # Check branch switch
+        wasDetached=false
+        branchcurrent="$(git rev-parse --abbrev-ref HEAD)"
+        if [ "$?" != 0 ]; then
+            exit 1
+        fi
+        if [ "$branchcurrent" == "HEAD" ]; then
+            wasDetached=true
+            branchcurrent="$(git describe --tags --abbrev=0)"
+            if [ "$?" != 0 ]; then
+                exit 1
+            fi
+        fi
+
+        # Checkout if needed
+        if [ "$branchcurrent" != "$targetbranch" ]; then
+            git -c advice.detachedHead=false checkout "$targetbranch" || exit 1
+            wasDetached=false
+            if [ "$tag" != "undefined" ]; then
+                wasDetached=true
+            fi
+        fi
+
+        # Pull if needed
+        if [ "$tag" == "undefined" ] && [ "$wasDetached" == false ]; then
+            remote="$(git remote)"
+            upstreamcommit="$(git rev-parse "$remote/$targetbranch")"
+            if [ "$upstreamcommit" != "$currentcommit" ]; then
+                git pull || exit 1  
+                commitnow="$(git rev-parse HEAD)"
+                if [ "$commitnow" != "$currentcommit" ]; then 
+                    updated=true
+                    currentcommit="$commitnow"
+                fi
+            fi
+        fi
+
+        # Reset
+        if [ "$commit" != "undefined" ] && [ "$tag" == "undefined" ]; then
+            # Get current commit
+            if [ "$currentcommit" != "$commit" ]; then
+                # Reset
+                git reset --hard "$commit" || exit 1
+                updated=true
+            fi
+        fi
+    fi
+    cd "$lastdir"
+
+    # Update stored version
+    echo "$currentver" > "$projbasedir/.polytool-version"
+    version="$(cat "$projbasedir/.polytool/version.info")"
+    if [ "$updated" == "true" ]; then
+        echo "Finished! PolyTool runtime updated to $version"
+    else
+        echo "PolyTool Runtime was already up to date!"
+    fi
+    echo
+fi
+
+bash "$projbasedir/.polytool/polytool" "$@"

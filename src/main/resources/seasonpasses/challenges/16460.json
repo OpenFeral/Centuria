@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Stack of Plates",
+  "objectName": "SEASON01/Challenge047",
+  "challengeDefID": "16460",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "30010"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

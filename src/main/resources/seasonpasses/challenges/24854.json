@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Phalanx Helm",
+  "objectName": "SEASON04/Challenge022",
+  "challengeDefID": "24854",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "27577"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

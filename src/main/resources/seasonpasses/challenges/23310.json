@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with Twigla\u0027s Hammer in the Shattered Bay",
+  "objectName": "SEASON03/Challenge104",
+  "challengeDefID": "23310",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19816",
+      "1825"
+    ],
+    "tags": []
+  }
+}

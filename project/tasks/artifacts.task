@@ -1,0 +1,7 @@
+#!/bin/bash
+
+function artifacts_run() {
+    # Just needs to be empty
+    # We add the tasks via reverse binding
+    :
+}

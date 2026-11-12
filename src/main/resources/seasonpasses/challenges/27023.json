@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Braided Bracelet",
+  "objectName": "SEASON05/Challenge088",
+  "challengeDefID": "27023",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9788"
+    ],
+    "tags": []
+  }
+}

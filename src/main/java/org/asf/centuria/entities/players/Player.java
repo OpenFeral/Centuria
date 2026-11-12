@@ -29,6 +29,8 @@ import org.asf.centuria.packets.xt.gameserver.object.ObjectDeletePacket;
 import org.asf.centuria.packets.xt.gameserver.object.ObjectUpdatePacket;
 import org.asf.centuria.packets.xt.gameserver.relationship.RelationshipJumpToPlayerPacket;
 import org.asf.centuria.packets.xt.gameserver.room.RoomJoinPacket;
+import org.asf.centuria.seasonpasses.SeasonPassDefinition;
+import org.asf.centuria.seasonpasses.SeasonPassManager;
 import org.asf.centuria.social.SocialManager;
 
 import com.google.gson.JsonArray;
@@ -186,6 +188,20 @@ public class Player {
 	public HashMap<String, ArrayList<StateInfo>> stateObjects = new HashMap<String, ArrayList<StateInfo>>();
 	public boolean questStarted = false;
 	public int questObjective = 0;
+
+	// Season passes
+	private SeasonPassDefinition currentPass;
+
+	public SeasonPassDefinition getCurrentSeasonPass() {
+		if (currentPass == null)
+			currentPass = SeasonPassManager.getCurrentPass();
+		return currentPass;
+	}
+
+	public SeasonPassDefinition updateSeasonPass() {
+		currentPass = SeasonPassManager.getCurrentPass();
+		return currentPass;
+	}
 
 	public void destroyAt(Player player) {
 		// Delete character

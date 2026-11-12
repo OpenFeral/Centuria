@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft an Art Deco Chair",
+  "objectName": "SEASON03/Challenge031",
+  "challengeDefID": "23228",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "5115"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

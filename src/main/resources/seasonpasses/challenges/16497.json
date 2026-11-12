@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 3 Bold Orange Dyes",
+  "objectName": "SEASON01/Challenge083",
+  "challengeDefID": "16497",
+  "auraPointsReward": 15,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 3
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10184"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

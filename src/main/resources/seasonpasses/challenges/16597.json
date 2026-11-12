@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Ornate clothing set in Fera Fashions",
+  "objectName": "SEASON01/Challenge182",
+  "challengeDefID": "16597",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1716",
+      "31215"
+    ],
+    "tags": []
+  }
+}

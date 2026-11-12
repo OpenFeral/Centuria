@@ -1,0 +1,20 @@
+{
+  "challengeName": "Earn 15 Lockpicks",
+  "objectName": "SEASON01/Challenge021",
+  "challengeDefID": "16405",
+  "auraPointsReward": 23,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 15
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "8372"
+    ],
+    "tags": []
+  }
+}

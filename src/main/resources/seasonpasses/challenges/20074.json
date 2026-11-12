@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 2 Runic Heartwood",
+  "objectName": "SEASON02/Challenge111",
+  "challengeDefID": "20074",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1132"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

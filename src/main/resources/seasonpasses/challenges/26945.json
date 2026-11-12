@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Chess clothing set in City Fera",
+  "objectName": "SEASON05/Challenge055",
+  "challengeDefID": "26945",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "820",
+      "23149"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind a Wooden Fence Gate",
+  "objectName": "SEASON05/Challenge138",
+  "challengeDefID": "27077",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "5883"
+    ],
+    "tags": [
+      "Unbind"
+    ]
+  }
+}

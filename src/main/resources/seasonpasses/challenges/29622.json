@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 2 Picken Palace Purple Dyes",
+  "objectName": "SEASON06/Challenge209",
+  "challengeDefID": "29622",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "30334"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 15 Pondililies",
+  "objectName": "SEASON06/Challenge154",
+  "challengeDefID": "29566",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 15
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3476"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

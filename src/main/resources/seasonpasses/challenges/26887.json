@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 5 Frosted Leaves",
+  "objectName": "SEASON05/Challenge004",
+  "challengeDefID": "26887",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "7609"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

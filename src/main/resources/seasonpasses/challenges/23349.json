@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Mystical Snow Sculpture in City Fera",
+  "objectName": "SEASON03/Challenge140",
+  "challengeDefID": "23349",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23148",
+      "820"
+    ],
+    "tags": []
+  }
+}

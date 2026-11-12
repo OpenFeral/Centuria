@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 3 Goldenrod Dyes",
+  "objectName": "SEASON04/Challenge101",
+  "challengeDefID": "24939",
+  "auraPointsReward": 15,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 3
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10176"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

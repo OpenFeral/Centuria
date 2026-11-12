@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the Spa Furniture Set in the Sunken Thicket",
+  "objectName": "SEASON06/Challenge088",
+  "challengeDefID": "29487",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3273",
+      "19818"
+    ],
+    "tags": []
+  }
+}

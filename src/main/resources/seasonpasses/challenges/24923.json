@@ -1,0 +1,23 @@
+{
+  "challengeName": "Craft any 1 item from the Stonemason Furniture Set",
+  "objectName": "SEASON04/Challenge085",
+  "challengeDefID": "24923",
+  "auraPointsReward": 24,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "31266"
+    ],
+    "tags": [
+      "Craft",
+      "List"
+    ]
+  }
+}

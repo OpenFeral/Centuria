@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Miss Marguerite Plushie in To Dye For",
+  "objectName": "SEASON06/Challenge096",
+  "challengeDefID": "29495",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1717",
+      "19810"
+    ],
+    "tags": []
+  }
+}

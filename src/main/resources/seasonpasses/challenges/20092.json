@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft Nightfall Armor",
+  "objectName": "SEASON02/Challenge129",
+  "challengeDefID": "20092",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "21805"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

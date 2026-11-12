@@ -49,7 +49,7 @@ public class SanctuaryLookSwitchPacket implements IXtPacket<SanctuaryLookSwitchP
 
 		// Log
 		if (Centuria.debugMode) {
-			System.out.println("[SANCTUARYEDITOR] [SELECTLOOK]  Client to server (look: " + lookId + ")");
+			Centuria.logger.debug("[SANCTUARYEDITOR] [SELECTLOOK]  Client to server (look: " + lookId + ")");
 		}
 
 		// Save the look ID

@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Rising clothing set in Centuria",
+  "objectName": "SEASON05/Challenge053",
+  "challengeDefID": "26943",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1718",
+      "19776"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Trade 5 Sky Blue Dyes to someone else",
+  "objectName": "SEASON06/Challenge051",
+  "challengeDefID": "29450",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "17539"
+    ],
+    "tags": [
+      "Trade"
+    ]
+  }
+}

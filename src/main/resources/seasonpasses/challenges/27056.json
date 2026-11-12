@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie in front of Kino\u0027s Booth in the Sunken Thicket",
+  "objectName": "SEASON05/Challenge118",
+  "challengeDefID": "27056",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "24575",
+      "3273"
+    ],
+    "tags": []
+  }
+}

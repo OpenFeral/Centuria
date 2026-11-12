@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft an Old Dead Tree",
+  "objectName": "SEASON03/Challenge099",
+  "challengeDefID": "23305",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "13950"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

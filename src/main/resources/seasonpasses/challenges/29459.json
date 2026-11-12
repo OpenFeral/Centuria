@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie on the edge of the plank in the Blood Tundra",
+  "objectName": "SEASON06/Challenge060",
+  "challengeDefID": "29459",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2364",
+      "19770"
+    ],
+    "tags": []
+  }
+}

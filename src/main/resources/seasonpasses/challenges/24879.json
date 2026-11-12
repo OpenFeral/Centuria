@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear Fancy Cuffs",
+  "objectName": "SEASON04/Challenge041",
+  "challengeDefID": "24879",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9779"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the Hat Display in City Fera",
+  "objectName": "SEASON02/Challenge089",
+  "challengeDefID": "20052",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "820",
+      "23149"
+    ],
+    "tags": []
+  }
+}

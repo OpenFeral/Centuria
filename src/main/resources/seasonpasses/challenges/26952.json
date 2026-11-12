@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft any 1 item from the Netchweed Furniture Set",
+  "objectName": "SEASON05/Challenge060",
+  "challengeDefID": "26952",
+  "auraPointsReward": 23,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "29423"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

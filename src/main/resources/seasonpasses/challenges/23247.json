@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Twiggle Hut in the Blood Tundra",
+  "objectName": "SEASON03/Challenge041",
+  "challengeDefID": "23247",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23786",
+      "2364"
+    ],
+    "tags": []
+  }
+}

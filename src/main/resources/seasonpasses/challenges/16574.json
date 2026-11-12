@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to Brody",
+  "objectName": "SEASON01/Challenge159",
+  "challengeDefID": "16574",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1595"
+    ],
+    "tags": []
+  }
+}

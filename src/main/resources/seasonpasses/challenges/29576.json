@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear Hair Ties",
+  "objectName": "SEASON06/Challenge164",
+  "challengeDefID": "29576",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "11065"
+    ],
+    "tags": []
+  }
+}

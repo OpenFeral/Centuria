@@ -1,0 +1,23 @@
+{
+  "challengeName": "Trade 1 Voyager Set Clothing Item to someone",
+  "objectName": "TEST3/TradeList",
+  "challengeDefID": "23074",
+  "auraPointsReward": 5,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23057"
+    ],
+    "tags": [
+      "Trade",
+      "List"
+    ]
+  }
+}

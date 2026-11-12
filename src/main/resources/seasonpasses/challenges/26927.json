@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear Clockwork Cuffs",
+  "objectName": "SEASON05/Challenge038",
+  "challengeDefID": "26927",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "25616"
+    ],
+    "tags": []
+  }
+}

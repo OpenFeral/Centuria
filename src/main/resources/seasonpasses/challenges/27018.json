@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie in front of the Haunted House in City Fera",
+  "objectName": "SEASON05/Challenge083",
+  "challengeDefID": "27018",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "820",
+      "24540"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "challengeName": "Open 15 Basic Chests",
+  "objectName": "SEASON04/Challenge123",
+  "challengeDefID": "24962",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "Complete",
+        "comparison": "GreaterThanOrEqual",
+        "value": 15
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Chest",
+      "Basic"
+    ]
+  }
+}

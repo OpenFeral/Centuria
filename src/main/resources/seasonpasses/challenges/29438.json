@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at the Cafe in City Fera",
+  "objectName": "SEASON06/Challenge039",
+  "challengeDefID": "29438",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "820",
+      "23145"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

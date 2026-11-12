@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 10 Shadow Gray Dyes",
+  "objectName": "SEASON03/Challenge093",
+  "challengeDefID": "23299",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 10
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10145"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

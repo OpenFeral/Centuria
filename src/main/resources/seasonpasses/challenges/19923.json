@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 2 Cinderfish",
+  "objectName": "SEASON02/Challenge002",
+  "challengeDefID": "19923",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "384"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

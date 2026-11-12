@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie next to the Blossom Painting in City Fera",
+  "objectName": "SEASON04/Challenge080",
+  "challengeDefID": "24918",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19783",
+      "820"
+    ],
+    "tags": []
+  }
+}

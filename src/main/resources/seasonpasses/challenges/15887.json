@@ -1,0 +1,22 @@
+{
+  "challengeName": "Obtain 5 Iron by trading",
+  "objectName": "TEST/Challenge_Obtain5IronByTrading",
+  "challengeDefID": "15887",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "6705"
+    ],
+    "tags": [
+      "Trade"
+    ]
+  }
+}

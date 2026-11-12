@@ -1,0 +1,9 @@
+#!/bin/bash
+
+function buildupdatedata_define() {
+    requireTask build
+}
+
+function buildupdatedata_run() {
+    :
+}

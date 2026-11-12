@@ -1,0 +1,22 @@
+{
+  "challengeName": "Trade someone 2 of your Cinderfish",
+  "objectName": "TEST/Challenge_TradeSomeone2Cinderfish",
+  "challengeDefID": "16875",
+  "auraPointsReward": 23,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "384"
+    ],
+    "tags": [
+      "Trade"
+    ]
+  }
+}

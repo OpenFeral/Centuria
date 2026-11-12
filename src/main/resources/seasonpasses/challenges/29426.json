@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie next to the RPG Board in the Shattered Bay",
+  "objectName": "SEASON06/Challenge027",
+  "challengeDefID": "29426",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1825",
+      "29329"
+    ],
+    "tags": []
+  }
+}

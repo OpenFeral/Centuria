@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to Twigla\u0027s Hammer in the Shattered Bay",
+  "objectName": "SEASON03/Challenge004",
+  "challengeDefID": "23194",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "1825",
+      "19816"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

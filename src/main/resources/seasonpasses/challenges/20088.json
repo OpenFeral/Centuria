@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at the Hat Display in City Fera",
+  "objectName": "SEASON02/Challenge125",
+  "challengeDefID": "20088",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "23149",
+      "820"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

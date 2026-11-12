@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 3 Lavender Dyes",
+  "objectName": "SEASON05/Challenge067",
+  "challengeDefID": "26964",
+  "auraPointsReward": 15,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 3
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2702"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

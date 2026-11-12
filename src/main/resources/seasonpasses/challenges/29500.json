@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 3 Black Dyes",
+  "objectName": "SEASON06/Challenge101",
+  "challengeDefID": "29500",
+  "auraPointsReward": 15,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 3
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "6252"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

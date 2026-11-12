@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at the Hot Springs in City Fera",
+  "objectName": "SEASON04/Challenge189",
+  "challengeDefID": "25031",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "820",
+      "19781"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

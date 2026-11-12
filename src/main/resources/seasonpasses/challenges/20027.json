@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie on the Floating Rocks in Mugmyre Marsh",
+  "objectName": "SEASON02/Challenge071",
+  "challengeDefID": "20027",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23188",
+      "2147"
+    ],
+    "tags": []
+  }
+}

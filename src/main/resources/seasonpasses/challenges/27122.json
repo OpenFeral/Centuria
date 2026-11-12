@@ -1,0 +1,22 @@
+{
+  "challengeName": "Trade 2 Light Green Dyes to someone else",
+  "objectName": "SEASON05/Challenge175",
+  "challengeDefID": "27122",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "434"
+    ],
+    "tags": [
+      "Trade"
+    ]
+  }
+}

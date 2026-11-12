@@ -1,0 +1,20 @@
+{
+  "challengeName": "Visit Fera Fashions",
+  "objectName": "SEASON04/Challenge150",
+  "challengeDefID": "24989",
+  "auraPointsReward": 8,
+  "script": {
+    "actions": [
+      {
+        "action": "Visit",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1716"
+    ],
+    "tags": []
+  }
+}

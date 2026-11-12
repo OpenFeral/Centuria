@@ -33,7 +33,6 @@ public abstract class BasePersistentServiceClient<T extends BasePersistentServic
 
 	private boolean disconnecting = false;
 
-
 	/**
 	 * Retrieves the amount of packets received in the last second
 	 * 
@@ -326,11 +325,15 @@ public abstract class BasePersistentServiceClient<T extends BasePersistentServic
 	 * @throws IOException If reading fails
 	 */
 	public JsonObject readRawPacket() throws IOException {
-		JsonElement ele = JsonParser.parseReader(reader);
-		if (ele == null || !ele.isJsonObject())
-			throw new IOException("Invalid request received, stream likely closed");
-		onPacketReceived();
-		return ele.getAsJsonObject();
+		try {
+			JsonElement ele = JsonParser.parseReader(reader);
+			if (ele == null || !ele.isJsonObject())
+				throw new IOException("Invalid request received, stream likely closed");
+			onPacketReceived();
+			return ele.getAsJsonObject();
+		} catch (IllegalStateException e) {
+			throw new IOException("Error reading next packet", e);
+		}
 	}
 
 	/**

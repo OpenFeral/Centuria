@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Summer Beach Ball in Lakeroot Valley",
+  "objectName": "SEASON05/Challenge063",
+  "challengeDefID": "26955",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "9687",
+      "19797"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

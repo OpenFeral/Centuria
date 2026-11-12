@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 10 Cool Dyes",
+  "objectName": "TEST/Challenge_Craft10UncommonDyes",
+  "challengeDefID": "16873",
+  "auraPointsReward": 6,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 10
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Craft",
+      "Dye",
+      "Uncommon"
+    ]
+  }
+}

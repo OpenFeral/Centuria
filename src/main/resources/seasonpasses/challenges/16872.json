@@ -1,0 +1,21 @@
+{
+  "challengeName": "Open 2 locked chests without breaking a lock",
+  "objectName": "TEST/Challenge_Open2ChestsPerfectly",
+  "challengeDefID": "16872",
+  "auraPointsReward": 15,
+  "script": {
+    "actions": [
+      {
+        "action": "Complete",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Chest",
+      "Perfect"
+    ]
+  }
+}

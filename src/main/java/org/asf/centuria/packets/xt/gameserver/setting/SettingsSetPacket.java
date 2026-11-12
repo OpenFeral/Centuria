@@ -53,7 +53,7 @@ public class SettingsSetPacket implements IXtPacket<SettingsSetPacket> {
 	public boolean handle(SmartfoxClient client) throws IOException {
 		// log interaction details
 		if (Centuria.debugMode) {
-			System.out.println("[SETTINGS] [USERVARSET]  Client to server (varDefId: " + varDefId + ", value: " + value
+			Centuria.logger.debug("[SETTINGS] [USERVARSET]  Client to server (varDefId: " + varDefId + ", value: " + value
 					+ ", index: " + index + ")");
 		}
 
@@ -69,7 +69,7 @@ public class SettingsSetPacket implements IXtPacket<SettingsSetPacket> {
 		}
 
 		if (Centuria.debugMode) {
-			System.out.println("[SETTINGS] [USERVARSET] output inv: " + outputInv.toString());
+			Centuria.logger.debug("[SETTINGS] [USERVARSET] output inv: " + outputInv.toString());
 		}
 
 		// Send ILs

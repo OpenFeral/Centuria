@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind 5 COMMON Dyes",
+  "objectName": "SEASON05/Challenge018",
+  "challengeDefID": "26902",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Unbind",
+      "Common",
+      "Dye"
+    ]
+  }
+}

@@ -45,7 +45,7 @@ public class ObjectActionCancelPacket implements IXtPacket<ObjectActionCancelPac
 
 		// log interaction details
 		if (Centuria.debugMode) {
-			System.out.println("[INTERACTION] [CANCELED] Client to server (target: " + target + ")");
+			Centuria.logger.debug("[INTERACTION] [CANCELED] Client to server (target: " + target + ")");
 		}
 
 		// Load object

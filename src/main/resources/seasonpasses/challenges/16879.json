@@ -1,0 +1,20 @@
+{
+  "challengeName": "Visit 3 Sanctuaries",
+  "objectName": "TEST/Challenge_Visit3Sanctuaries",
+  "challengeDefID": "16879",
+  "auraPointsReward": 27,
+  "script": {
+    "actions": [
+      {
+        "action": "Visit",
+        "comparison": "GreaterThanOrEqual",
+        "value": 3
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Sanctuary"
+    ]
+  }
+}

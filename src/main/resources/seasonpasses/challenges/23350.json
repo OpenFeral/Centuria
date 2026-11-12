@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind a Rogue Hat",
+  "objectName": "SEASON03/Challenge141",
+  "challengeDefID": "23350",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "20015"
+    ],
+    "tags": [
+      "Unbind"
+    ]
+  }
+}

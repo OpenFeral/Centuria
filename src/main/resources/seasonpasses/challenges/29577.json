@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft an Ornate Throne",
+  "objectName": "SEASON06/Challenge165",
+  "challengeDefID": "29577",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "5897"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

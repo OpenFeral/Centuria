@@ -1,0 +1,22 @@
+{
+  "challengeName": "Wear any 1 item from the Picken Palace Clothing Set",
+  "objectName": "SEASON06/Challenge206",
+  "challengeDefID": "29619",
+  "auraPointsReward": 21,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "29417"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

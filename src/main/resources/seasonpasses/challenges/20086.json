@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 15 Quarry Stones",
+  "objectName": "SEASON02/Challenge123",
+  "challengeDefID": "20086",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 15
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3475"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

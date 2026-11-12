@@ -2,9 +2,11 @@ package org.asf.centuria.networking.chatserver.networking;
 
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.TimeZone;
 import java.util.UUID;
 
+import org.asf.centuria.Centuria;
 import org.asf.centuria.dms.DMManager;
 import org.asf.centuria.dms.PrivateChatMessage;
 import org.asf.centuria.entities.uservars.UserVarValue;
@@ -125,6 +127,31 @@ public class HistoryPacket extends AbstractChatPacket {
 					dmHistorySize = manager.getDMHistory(convo, client.getPlayer().getAccountID()).length;
 			} else if (includeMessages)
 				res.add("messages", new JsonArray()); // blocked
+		} else if (client.getRoom(convo).getType().equalsIgnoreCase(ChatRoomTypes.ROOM_CHAT)) {
+			// Dummy
+			if (includeMessages) {
+				JsonArray msgs = new JsonArray();
+
+				// Get message
+				String welcomePublic = Centuria.textFilterProperties.getOrDefault("public-chat-notice",
+						"Welcome to the public chat! Please keep in mind that these chats are monitored by the server moderators. As Fer.al is host to a playerbase of players as young as 13, there are chat filters present on the server, however in most circumstances you will not encounter these, we try to keep them relatively relaxed. Check the server rules for more information, and Welcome to Fer.al!")
+						.replace("\\n", "\n");
+
+				// Build message object
+				JsonObject obj = new JsonObject();
+				obj.addProperty("body", welcomePublic);
+				obj.addProperty("conversation_id", convo);
+				obj.addProperty("conversation_type", "room");
+				obj.add("mask", null);
+				obj.addProperty("message_id", "synthetic_welcome");
+				obj.addProperty("sent_at", fmt.format(new Date(System.currentTimeMillis())));
+				obj.addProperty("source", new UUID(0, 0).toString());
+				msgs.add(obj);
+
+				// Add
+				res.add("messages", msgs);
+			}
+			dmHistorySize = 1;
 		} else if (includeMessages)
 			res.add("messages", new JsonArray());
 

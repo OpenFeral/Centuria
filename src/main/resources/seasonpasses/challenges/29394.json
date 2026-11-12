@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the Wedding Reception in Lakeroot Valley",
+  "objectName": "SEASON06/Challenge003",
+  "challengeDefID": "29394",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9687",
+      "23160"
+    ],
+    "tags": []
+  }
+}

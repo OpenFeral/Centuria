@@ -13,8 +13,8 @@ import org.asf.centuria.textfilter.result.FilterResult;
 import org.asf.centuria.textfilter.result.TextPart;
 import org.asf.centuria.textfilter.result.WordMatch;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.JacksonException;
 
 public class TextFilterTester {
 
@@ -144,7 +144,7 @@ public class TextFilterTester {
 		return res;
 	}
 
-	public static void main(String[] args) throws JsonProcessingException {
+	public static void main(String[] args) throws JacksonException {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Strictmode: ");
 		TextFilterContextMemory mem = new TextFilterContextMemory(FilterSeverity.USER_STRICT_MODE, 10);

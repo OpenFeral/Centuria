@@ -1,0 +1,23 @@
+# Properties of dependency
+id="connective-http"
+output="deps/connective-http"
+type="git"
+
+
+# Git URL of the dependency
+url="https://github.com/SkySwimmer/connective-http"
+
+# Version control
+# Supports: branch, tag, commit
+#
+# For 'commit' to work, the type must be 'branch', using 'tag' with 'commit' is unsupported
+# When using tags, the branch will not be kept up to date unless the selected tag changes
+# The flags 'tag' and 'branch' will conflict
+#
+# Requires the presence of either 'tag' or 'branch'
+#
+# tag=...
+# commit=...
+# branch=...
+# tag=...
+tag=1.0.0.A20

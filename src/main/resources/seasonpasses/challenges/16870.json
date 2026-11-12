@@ -1,0 +1,21 @@
+{
+  "challengeName": "Open 3 Silver Chests",
+  "objectName": "TEST/Challenge_Open3SilverChests",
+  "challengeDefID": "16870",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "Complete",
+        "comparison": "GreaterThanOrEqual",
+        "value": 3
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Chest",
+      "Silver"
+    ]
+  }
+}

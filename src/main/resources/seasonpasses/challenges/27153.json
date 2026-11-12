@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 5 Baby Blue Dyes",
+  "objectName": "SEASON05/Challenge204",
+  "challengeDefID": "27153",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10140"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

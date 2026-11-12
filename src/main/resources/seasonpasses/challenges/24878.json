@@ -1,0 +1,22 @@
+{
+  "challengeName": "Earn 4500 points in Dizzywing Dispatch",
+  "objectName": "SEASON04/Challenge040",
+  "challengeDefID": "24878",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "Score",
+        "comparison": "GreaterThanOrEqual",
+        "value": 4500
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "8192"
+    ],
+    "tags": [
+      "Game"
+    ]
+  }
+}

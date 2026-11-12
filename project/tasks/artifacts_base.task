@@ -1,0 +1,9 @@
+#!/bin/bash
+
+function artifacts_base_define() {
+    addTaskTo artifacts
+}
+
+function artifacts_base_run() {
+    :
+}

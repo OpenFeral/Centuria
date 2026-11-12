@@ -1,0 +1,23 @@
+{
+  "challengeName": "Harvest 5 Rare Lakeroot Valley ingredients",
+  "objectName": "SEASON04/Challenge116",
+  "challengeDefID": "24955",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9687"
+    ],
+    "tags": [
+      "Rare",
+      "Harvest"
+    ]
+  }
+}

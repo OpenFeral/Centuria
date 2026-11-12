@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie next to the Clamshell clothing set in the Shattered Bay",
+  "objectName": "SEASON01/Challenge143",
+  "challengeDefID": "16558",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19784",
+      "1825"
+    ],
+    "tags": []
+  }
+}

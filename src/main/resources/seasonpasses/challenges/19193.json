@@ -1,0 +1,22 @@
+{
+  "challengeName": "Visit Centuria",
+  "objectName": "TEST2/Challenge_PerformSleepInHotsprings",
+  "challengeDefID": "19193",
+  "auraPointsReward": 5,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "820",
+      "8930",
+      "19413"
+    ],
+    "tags": []
+  }
+}

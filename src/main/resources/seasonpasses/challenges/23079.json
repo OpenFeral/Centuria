@@ -1,0 +1,24 @@
+{
+  "challengeName": "Harvest 20 Common Swamp Ingredients",
+  "objectName": "TEST3/SwampHarvestCOMMON",
+  "challengeDefID": "23079",
+  "auraPointsReward": 5,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 20
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2147"
+    ],
+    "tags": [
+      "Harvest",
+      "Common",
+      "Ingredients"
+    ]
+  }
+}

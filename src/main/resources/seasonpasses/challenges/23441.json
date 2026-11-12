@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind a Art Deco Dresser",
+  "objectName": "SEASON03/Challenge193",
+  "challengeDefID": "23441",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "5116"
+    ],
+    "tags": [
+      "Unbind"
+    ]
+  }
+}

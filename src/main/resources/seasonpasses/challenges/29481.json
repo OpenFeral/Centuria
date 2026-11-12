@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote in front of Latchkey\u0027s Lab in the Sunken Thicket",
+  "objectName": "SEASON06/Challenge082",
+  "challengeDefID": "29481",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19820",
+      "3273",
+      "26892"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

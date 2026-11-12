@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Excite\" Emote at the Voyager furniture set in Twigla\u0027s Workshop",
+  "objectName": "SEASON02/Challenge001",
+  "challengeDefID": "19757",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9122",
+      "19807",
+      "2619"
+    ],
+    "tags": []
+  }
+}

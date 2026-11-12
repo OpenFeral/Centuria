@@ -1,0 +1,23 @@
+# Properties of dependency
+id=centuria-polytool
+type=git
+output=deps/centuria-polytool
+baseproject=parent # Supports "parent" or "dependency"
+
+# Git URL of the dependency
+url=https://github.com/OpenFeral/Centuria-Polytool.git
+
+# Version control
+# Supports: branch, tag, commit
+#
+# For 'commit' to work, the type must be 'branch', using 'tag' with 'commit' is unsupported
+# When using tags, the branch will not be kept up to date unless the selected tag changes
+# The flags 'tag' and 'branch' will conflict
+#
+# Requires the presence of either 'tag' or 'branch'
+#
+# tag=...
+# commit=...
+# branch=...
+# tag=...
+branch=stable

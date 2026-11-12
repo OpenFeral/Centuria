@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Flaming Skull",
+  "objectName": "SEASON02/Challenge141",
+  "challengeDefID": "20104",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "20671"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

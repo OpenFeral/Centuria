@@ -335,7 +335,8 @@ public class ResourceCollectionModule extends InteractionModule {
 						.getLastHarvestCount(player.levelID, id);
 
 				// Check reset
-				if (def.respawnSeconds > -1 && lastHarvest + (def.respawnSeconds * 1000) < System.currentTimeMillis()) {
+				if (def.respawnSeconds > -1
+						&& lastHarvest + (def.respawnSeconds * 1000l) < System.currentTimeMillis()) {
 					player.account.getSaveSpecificInventory().getInteractionMemory().resetHarvestCount(player.levelID,
 							id); // reset
 					// harvest
@@ -355,7 +356,7 @@ public class ResourceCollectionModule extends InteractionModule {
 						.getLastTreasureUnlockTime(player.levelID, id);
 
 				// Check reset
-				if (def.respawnSeconds > -1 && lasUnlock + (def.respawnSeconds * 1000) < System.currentTimeMillis()) {
+				if (def.respawnSeconds > -1 && lasUnlock + (def.respawnSeconds * 1000l) < System.currentTimeMillis()) {
 					return true; // Valid as it had reseted
 				}
 
@@ -390,7 +391,7 @@ public class ResourceCollectionModule extends InteractionModule {
 
 								// Check reset and last unlock
 								if ((respawnSeconds != -1
-										|| lasUnlock + (respawnSeconds * 1000) < System.currentTimeMillis())
+										|| lasUnlock + (respawnSeconds * 1000l) < System.currentTimeMillis())
 										&& !player.account.getSaveSpecificInventory().getInteractionMemory()
 												.hasTreasureBeenUnlocked(player.levelID, id)) {
 									return true;
@@ -483,7 +484,7 @@ public class ResourceCollectionModule extends InteractionModule {
 						// Set harvest count and timestamp
 						player.account.getSaveSpecificInventory().getInteractionMemory().harvested(player.levelID, id);
 						player.account.getSaveSpecificInventory().getInteractionMemory().saveTo(player.client);
-						player.respawnItems.put(id, (long) (System.currentTimeMillis() + (def.respawnSeconds * 1000)));
+						player.respawnItems.put(id, (long) (System.currentTimeMillis() + (def.respawnSeconds * 1000l)));
 						ev.tags.add("map:" + manName(player));
 
 						// Dispatch XP event
@@ -512,7 +513,7 @@ public class ResourceCollectionModule extends InteractionModule {
 						.hasTreasureBeenUnlocked(player.levelID, id)
 						&& System
 								.currentTimeMillis() < (player.account.getSaveSpecificInventory().getInteractionMemory()
-										.getLastTreasureUnlockTime(player.levelID, id) + (def.respawnSeconds * 1000)))
+										.getLastTreasureUnlockTime(player.levelID, id) + (def.respawnSeconds * 1000l)))
 					return 0; // Cannot loot yet
 
 				// Give reward
@@ -521,7 +522,7 @@ public class ResourceCollectionModule extends InteractionModule {
 				// Set unlocked and timestamp
 				player.account.getSaveSpecificInventory().getInteractionMemory().unlocked(player.levelID, id);
 				player.account.getSaveSpecificInventory().getInteractionMemory().saveTo(player.client);
-				player.respawnItems.put(id, (long) (System.currentTimeMillis() + (def.respawnSeconds * 1000)));
+				player.respawnItems.put(id, (long) (System.currentTimeMillis() + (def.respawnSeconds * 1000l)));
 				return 1;
 			}
 		}
@@ -553,7 +554,7 @@ public class ResourceCollectionModule extends InteractionModule {
 										.hasTreasureBeenUnlocked(player.levelID, id)
 										&& System.currentTimeMillis() < (player.account.getSaveSpecificInventory()
 												.getInteractionMemory().getLastTreasureUnlockTime(player.levelID, id)
-												+ (respawnSeconds * 1000)))
+												+ (respawnSeconds * 1000l)))
 									return 0; // Cannot loot yet
 
 								// Set unlocked and timestamp
@@ -563,7 +564,7 @@ public class ResourceCollectionModule extends InteractionModule {
 
 								// Make sure the resource will be respawned
 								player.respawnItems.put(id,
-										(long) (System.currentTimeMillis() + (respawnSeconds * 1000)));
+										(long) (System.currentTimeMillis() + (respawnSeconds * 1000l)));
 								return 1;
 							}
 						}
@@ -823,7 +824,8 @@ public class ResourceCollectionModule extends InteractionModule {
 				pState = 0;
 
 				// Check reset
-				if (def.respawnSeconds > -1 && lastHarvest + (def.respawnSeconds * 1000) < System.currentTimeMillis()) {
+				if (def.respawnSeconds > -1
+						&& lastHarvest + (def.respawnSeconds * 1000l) < System.currentTimeMillis()) {
 					// Reset harvest count
 					player.account.getSaveSpecificInventory().getInteractionMemory()
 							.resetHarvestCount(player.pendingLevelID, id);
@@ -831,7 +833,7 @@ public class ResourceCollectionModule extends InteractionModule {
 					// Check harvest count
 					if (harvested >= def.interactionsBeforeDespawn) {
 						pState = 2;
-						player.respawnItems.put(id, (long) (lastHarvest + (def.respawnSeconds * 1000)));
+						player.respawnItems.put(id, (long) (lastHarvest + (def.respawnSeconds * 1000l)));
 					}
 				}
 			}
@@ -852,11 +854,11 @@ public class ResourceCollectionModule extends InteractionModule {
 						.getLastTreasureUnlockTime(player.pendingLevelID, id);
 
 				// Check reset and last unlock
-				if (def.respawnSeconds == -1 || lasUnlock + (def.respawnSeconds * 1000) > System.currentTimeMillis()
+				if (def.respawnSeconds == -1 || lasUnlock + (def.respawnSeconds * 1000l) > System.currentTimeMillis()
 						|| player.account.getSaveSpecificInventory().getInteractionMemory()
 								.hasTreasureBeenUnlocked(player.pendingLevelID, id)) {
 					pState = 2;
-					player.respawnItems.put(id, (long) (lasUnlock + (def.respawnSeconds * 1000)));
+					player.respawnItems.put(id, (long) (lasUnlock + (def.respawnSeconds * 1000l)));
 				}
 			}
 		}
@@ -889,11 +891,11 @@ public class ResourceCollectionModule extends InteractionModule {
 
 								// Check reset and last unlock
 								if ((respawnSeconds == -1
-										|| lasUnlock + (respawnSeconds * 1000) > System.currentTimeMillis())
+										|| lasUnlock + (respawnSeconds * 1000l) > System.currentTimeMillis())
 										&& player.account.getSaveSpecificInventory().getInteractionMemory()
 												.hasTreasureBeenUnlocked(player.pendingLevelID, id)) {
 									pState = 2;
-									player.respawnItems.put(id, (long) (lasUnlock + (respawnSeconds * 1000)));
+									player.respawnItems.put(id, (long) (lasUnlock + (respawnSeconds * 1000l)));
 								}
 							}
 						}

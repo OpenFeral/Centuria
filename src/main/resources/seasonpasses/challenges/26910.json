@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Nose Ring",
+  "objectName": "SEASON05/Challenge026",
+  "challengeDefID": "26910",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "8387"
+    ],
+    "tags": []
+  }
+}

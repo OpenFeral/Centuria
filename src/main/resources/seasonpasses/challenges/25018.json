@@ -1,0 +1,21 @@
+{
+  "challengeName": "Harvest 5 Rare ingredients",
+  "objectName": "SEASON04/Challenge176",
+  "challengeDefID": "25018",
+  "auraPointsReward": 21,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Rare",
+      "Harvest"
+    ]
+  }
+}

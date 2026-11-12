@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Mad\" Emote at the Poacher Boat in Lakeroot Valley",
+  "objectName": "SEASON03/Challenge068",
+  "challengeDefID": "23274",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9121",
+      "23162",
+      "9687"
+    ],
+    "tags": []
+  }
+}

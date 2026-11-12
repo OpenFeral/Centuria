@@ -1,0 +1,22 @@
+{
+  "challengeName": "Earn a Clothing Item from Dizzywing Dispatch",
+  "objectName": "SEASON04/Challenge068",
+  "challengeDefID": "24906",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23334"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Smithy Mask",
+  "objectName": "SEASON05/Challenge120",
+  "challengeDefID": "27058",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "24790"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

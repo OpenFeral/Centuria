@@ -2,242 +2,501 @@ package org.asf.centuria.modules;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.net.MalformedURLException;
+import java.io.InputStream;
+import java.lang.reflect.Modifier;
 import java.net.URL;
-import java.net.URLClassLoader;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.zip.ZipInputStream;
 
+import org.asf.cyan.fluid.DynamicClassLoader;
 import org.asf.cyan.fluid.bytecode.FluidClassPool;
-import org.asf.cyan.fluid.bytecode.sources.LoaderClassSourceProvider;
-import org.asf.centuria.Centuria;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.asf.centuria.modules.dependencies.IMavenRepositoryProvider;
+import org.asf.centuria.modules.dependencies.IModuleMavenDependencyProvider;
 import org.asf.centuria.modules.eventbus.EventBus;
+import org.asf.centuria.modules.eventbus.impl.EventBusImpl;
 import org.objectweb.asm.tree.ClassNode;
 
+/**
+ * 
+ * Centuria Module Manager - loosely based on the Edge module system (ported to
+ * the Centuria API)
+ * 
+ * @author Sky Swimmer
+ * 
+ */
 public class ModuleManager {
 
-	//
-	// Primary fields
-	//
-
-	// Main manager
-	protected static ModuleManager instance = new ModuleManager();
+	protected static ModuleManager implementation = new ModuleManager();
 
 	/**
-	 * Retrieves the active module manager
+	 * Retrieves the Module Manager instance
 	 * 
 	 * @return ModuleManager instance
 	 */
 	public static ModuleManager getInstance() {
-		return instance;
+		return implementation;
 	}
 
-	//
-	// Module loading core systems
-	//
+	private boolean inited = false;
+	private boolean postInited = false;
+	private Logger logger;
 
-	// Module loading
-	private URLClassLoader moduleLoader = null;
-	private FluidClassPool modulePool = FluidClassPool.createEmpty();
-
-	// Init
-	private boolean init = false;
-
-	// Module management
-	private HashMap<String, ICenturiaModule> modules = new HashMap<String, ICenturiaModule>();
+	private DynamicClassLoader moduleLoader;
+	private ArrayList<ICenturiaModule> modules = new ArrayList<ICenturiaModule>();
 
 	/**
-	 * Initializes all components
-	 * 
-	 * @throws IllegalStateException If loading fails
-	 * @throws IOException           If loading modules fails.
+	 * Initializes the module manager (internal)
 	 */
-	public void initializeComponents() throws IllegalStateException, IOException {
-		if (init)
-			throw new IllegalStateException("Components have already been initialized.");
+	public void init() {
+		if (inited)
+			throw new IllegalStateException("Already initialized");
+		inited = true;
 
-		// Log init message
-		Centuria.logger.info("Preparing to load modules...");
+		// Init logging
+		logger = LogManager.getLogger("MODULEMANAGER");
 
-		// Prepare the modules folder
-		File modules = new File("modules");
-		if (!modules.exists())
-			modules.mkdirs();
+		// Setup loading
+		File modulesDir = new File("modules");
+		logger.info("Searching for modules...");
+		modulesDir.mkdirs();
+		logger.debug("Scanning modules folder...");
+		FluidClassPool pool = FluidClassPool.create();
+		DynamicClassLoader loader = new DynamicClassLoader();
+		moduleLoader = loader;
+		EventBusImpl.initClassLoader(loader);
 
-		// Prepare source collection
-		ArrayList<URL> sources = new ArrayList<URL>();
+		// Load modules
+		findAndLoadModules(pool, modulesDir);
 
-		// Add default sources to the class pool
-		modulePool.addSource(new LoaderClassSourceProvider(ClassLoader.getSystemClassLoader()));
-		modulePool.addSource(new LoaderClassSourceProvider(Thread.currentThread().getContextClassLoader()));
+		// Resolve dependencies
+		resolveDependencies(pool);
 
-		// Add the complete classpath to the pool
-		Centuria.logger.info("Importing java classpath...");
-		for (String path : System.getProperty("java.class.path").split(File.pathSeparator)) {
-			if (path.equals("."))
-				continue;
+		// Load modules
+		logger.info("Dependencies are up-to-date, loading modules...");
+		initModules(pool);
 
-			// Load as file
-			File f = new File(path);
+		// Clean up
+		logger.info("Clearing module pool...");
+		try {
+			pool.close();
+			pool = null;
+		} catch (IOException e) {
+		}
+	}
 
-			// Convert to URL and add
-			sources.add(f.toURI().toURL());
+	private void resolveDependencies(FluidClassPool pool) {
+		// Load repos
+		logger.info("Searching for dependency repository definitions...");
+		ArrayList<IMavenRepositoryProvider> repos = new ArrayList<IMavenRepositoryProvider>();
+		for (ClassNode node : pool.getLoadedClasses()) {
+			if (nodeExtends(node, pool, IMavenRepositoryProvider.class) && !Modifier.isAbstract(node.access)
+					&& !Modifier.isInterface(node.access)) {
+				// Found a source
+				try {
+					logger.debug("Loading repository definition from: " + node.name.replace("/", ".") + "...");
+					Class<?> repoCls = moduleLoader.loadClass(node.name.replace("/", "."));
+					IMavenRepositoryProvider repoDef = (IMavenRepositoryProvider) repoCls.getConstructor()
+							.newInstance();
+					if (!repos.stream().anyMatch(t -> t.serverBaseURL().equals(repoDef.serverBaseURL())
+							&& t.priority() >= repoDef.priority())) {
+						if (repos.stream().anyMatch(t -> t.serverBaseURL().equals(repoDef.serverBaseURL()))) {
+							repos.remove(repos.stream().filter(t -> t.serverBaseURL().equals(repoDef.serverBaseURL()))
+									.findFirst().get());
+						} else {
+							logger.info("Added maven repository: " + repoDef.serverBaseURL());
+						}
+						repos.add(repoDef);
+					}
+				} catch (Exception e) {
+					logger.error("Failed to load repository definition from " + node.name.replace("/", "."), e);
+				}
+			}
+		}
+		repos.sort((t1, t2) -> Integer.compare(t1.priority(), t2.priority()));
 
-			try {
-				// Import to the module class pool
-				modulePool.addSource(f.toURI().toURL());
-			} catch (MalformedURLException e) {
-				// Log failure
-				Centuria.logger.error("Failed to load class path entry " + path + ": " + e.getClass().getSimpleName()
-						+ (e.getMessage() != null ? ": " + e.getMessage() : ""));
-				e.printStackTrace();
+		// Load dependencies
+		ArrayList<IModuleMavenDependencyProvider> deps = new ArrayList<IModuleMavenDependencyProvider>();
+		logger.info("Scanning for dependency definitions...");
+		for (ClassNode node : pool.getLoadedClasses()) {
+			if (nodeExtends(node, pool, IModuleMavenDependencyProvider.class) && !Modifier.isAbstract(node.access)
+					&& !Modifier.isInterface(node.access)) {
+				// Found a dependency
+				try {
+					logger.debug("Loading dependency definition from: " + node.name.replace("/", ".") + "...");
+					Class<?> depCls = moduleLoader.loadClass(node.name.replace("/", "."));
+					IModuleMavenDependencyProvider depDef = (IModuleMavenDependencyProvider) depCls.getConstructor()
+							.newInstance();
+
+					// Check if its present
+					if (!deps.stream().anyMatch(t -> t.group().equals(depDef.group()) && t.name().equals(depDef.name())
+							&& !checkVersionGreaterThan(depDef.version(), t.version()))) {
+						// Remove old if needed
+						if (deps.stream()
+								.anyMatch(t -> t.group().equals(depDef.group()) && t.name().equals(depDef.name())
+										&& !checkVersionGreaterThan(depDef.version(), t.version()))) {
+							deps.remove(deps.stream()
+									.filter(t -> t.group().equals(depDef.group()) && t.name().equals(depDef.name())
+											&& !checkVersionGreaterThan(depDef.version(), t.version()))
+									.findFirst().get());
+						} else
+							logger.info("Found dependency: " + depDef.group() + ":" + depDef.name() + ":"
+									+ depDef.version());
+						deps.add(depDef);
+					}
+				} catch (Exception e) {
+					logger.error("Failed to load repository definition from " + node.name.replace("/", "."), e);
+				}
 			}
 		}
 
-		// Prepare the module class loader
-		moduleLoader = new URLClassLoader(sources.toArray(t -> new URL[t]), getClass().getClassLoader());
+		// Download/update dependencies
+		File depsDir = new File("libs");
+		depsDir.mkdirs();
+		boolean updatedDeps = false;
+		logger.info("Verifying dependencies...");
+		for (IModuleMavenDependencyProvider depDef : deps) {
+			// Log
+			logger.debug("Verifying dependency: " + depDef.group() + ":" + depDef.name() + ":" + depDef.version());
 
-		// Add debug modules if debugMode is enabled
-		if (Centuria.debugMode) {
-			Centuria.logger.info("Importing debug classpath...");
-			if (System.getProperty("addCpModules") != null) {
-				for (String mod : System.getProperty("addCpModules").split(":")) {
+			// Load hash if possible
+			String oldHash = "";
+			String filePath = depDef.name() + (depDef.classifier() != null ? "-" + depDef.classifier() : "")
+					+ depDef.extension();
+			File file = new File(depsDir, filePath);
+			if (file.exists()) {
+				// Load hash
+				try {
+					FileInputStream strm = new FileInputStream(file);
+					oldHash = hashFile(strm);
+					strm.close();
+				} catch (IOException | NoSuchAlgorithmException e) {
+					oldHash = "";
+				}
+			}
+
+			// Read remote hash
+			String url = null;
+			String remoteHash = null;
+			for (IMavenRepositoryProvider repo : repos) {
+				try {
+					// Build url
+					String urlR = repo.serverBaseURL();
+					if (!urlR.endsWith("/")) {
+						urlR += "/";
+					}
+					urlR += depDef.group().replace(".", "/");
+					urlR += "/";
+					urlR += depDef.name();
+					urlR += "/";
+					urlR += depDef.version();
+					urlR += "/";
+					urlR += depDef.name();
+					urlR += "-";
+					urlR += depDef.version();
+					if (depDef.classifier() != null) {
+						urlR += "-";
+						urlR += depDef.classifier();
+					}
+					urlR += depDef.extension();
+
+					// Download hash
+					URL u = new URL(urlR + ".sha1");
+					InputStream strm = u.openStream();
+					remoteHash = new String(strm.readAllBytes(), "UTF-8").replace("\r", "").replace("\n", "");
+					url = urlR;
+					strm.close();
+					break;
+				} catch (Exception e) {
+				}
+			}
+
+			// Check
+			if (url == null) {
+				if (oldHash.isEmpty()) {
+					logger.fatal("Unable to find a repository that contains dependency " + depDef.group() + ":"
+							+ depDef.name() + ":" + depDef.version() + "!");
+					System.exit(1);
+				} else
+					logger.warn("Unable to find a repository that contains dependency " + depDef.group() + ":"
+							+ depDef.name() + ":" + depDef.version()
+							+ ", unable to check for updates and cannot verify integrity!");
+			} else {
+				// Check integrity
+				if (!oldHash.equals(remoteHash)) {
+					// Update
 					try {
-						Class<?> cls = moduleLoader.loadClass(mod);
-						modulePool.addSource(cls.getProtectionDomain().getCodeSource().getLocation());
-						modulePool.getClassNode(cls.getTypeName());
+						logger.info("Updating dependency " + depDef.group() + ":" + depDef.name() + ":"
+								+ depDef.version() + "...");
+						FileOutputStream fOut = new FileOutputStream(file);
+						URL u = new URL(url);
+						InputStream strm = u.openStream();
+						strm.transferTo(fOut);
+						strm.close();
+						fOut.close();
+						updatedDeps = true;
+					} catch (IOException e) {
+						// Error
+						logger.error("Failed to update dependency " + depDef.group() + ":" + depDef.name() + ":"
+								+ depDef.version() + "!", e);
+						System.exit(1);
+					}
+				}
+			}
+		}
+		if (updatedDeps) {
+			logger.info("Updated server dependencies, please restart the server.");
+			System.exit(237);
+		}
+	}
+
+	private void findAndLoadModules(FluidClassPool pool, File modulesDir) {
+		// Debug modules
+		if (System.getProperty("debugMode") != null) {
+			// Load all debug modules
+			String moduleList = System.getProperty("addCpModules");
+			if (moduleList != null) {
+				for (String type : moduleList.split(":")) {
+					// Load type
+					logger.info("Loading debug type: " + type);
+					try {
+						pool.getClassNode(type);
 					} catch (ClassNotFoundException e) {
-						throw new RuntimeException(e);
+						logger.error("Failed to load debug module: " + type
+								+ ": an error occured while trying to load the class", e);
 					}
 				}
 			}
 		}
 
-		// Load module jars
-		Centuria.logger.info("Loading module files...");
-		for (File jar : modules.listFiles(t -> !t.isDirectory())) {
-			Centuria.logger.info("Loading module: " + jar.getName());
-			ZipInputStream strm = new ZipInputStream(new FileInputStream(jar));
-			modulePool.importArchive(strm);
-			strm.close();
-			sources.add(jar.toURI().toURL());
-		}
-
-		// Prepare the module class loader
-		moduleLoader = new URLClassLoader(sources.toArray(t -> new URL[t]), getClass().getClassLoader());
-
-		// Load module classes
-		ArrayList<Class<? extends ICenturiaModule>> moduleClasses = new ArrayList<Class<? extends ICenturiaModule>>();
-		Centuria.logger.info("Loading module classes...");
-		for (ClassNode cls : modulePool.getLoadedClasses()) {
-			if (isModuleClass(cls)) {
-				try {
-					// Load the module class
-					Centuria.logger.info("Loading module class: " + cls.name.replace("/", "."));
-					@SuppressWarnings("unchecked")
-					Class<? extends ICenturiaModule> modCls = (Class<? extends ICenturiaModule>) moduleLoader
-							.loadClass(cls.name.replace("/", "."));
-					moduleClasses.add(modCls);
-				} catch (ClassNotFoundException e) {
-					Centuria.logger.error("Module class load failure: " + cls.name.replace("/", "."));
-				}
+		// Scan modules
+		for (File f : modulesDir.listFiles(t -> t.isFile())) {
+			// Attempt to load it
+			logger.info("Attempting to load module file: " + f.getName() + "...");
+			try {
+				// Import
+				FileInputStream fIn = new FileInputStream(f);
+				ZipInputStream zIn = new ZipInputStream(fIn);
+				pool.importArchive(zIn);
+				zIn.close();
+				fIn.close();
+				moduleLoader.addUrl(f.toURI().toURL());
+			} catch (Exception e) {
+				logger.error("Failed to load module file: " + f.getName() + ": an error occured while reading the file",
+						e);
 			}
 		}
 
-		// Load modules
-		Centuria.logger.info("Loading Centuria modules...");
-		for (Class<? extends ICenturiaModule> mod : moduleClasses) {
-			try {
-				if (!java.lang.reflect.Modifier.isAbstract(mod.getModifiers())) {
-					ICenturiaModule module = mod.getConstructor().newInstance();
-					module.preInit();
-					Centuria.logger.info("Loading module: " + module.id());
-					this.modules.put(module.id(), module);
-					EventBus.getInstance().addAllEventsFromReceiver(module);
+	}
+
+	private void initModules(FluidClassPool pool) {
+		// Find modules
+		logger.debug("Scanning for module classes...");
+		for (ClassNode node : pool.getLoadedClasses()) {
+			if (nodeExtends(node, pool, ICenturiaModule.class) && !Modifier.isAbstract(node.access)
+					&& !Modifier.isInterface(node.access)) {
+				// Found a module
+				try {
+					// Load it
+					logger.debug("Loading module class from: " + node.name.replace("/", ".") + "...");
+					Class<?> modCls = moduleLoader.loadClass(node.name.replace("/", "."));
+					try {
+						ICenturiaModule modInst = (ICenturiaModule) modCls.getConstructor().newInstance();
+						logger.info("Loading module " + modInst.id() + " version " + modInst.version() + "...");
+						if (modules.stream().anyMatch(t -> t.id().equalsIgnoreCase(modInst.id()))) {
+							// Error: duplicate modules
+							ICenturiaModule modInst2 = getModule(modInst.id());
+							logger.error("Duplicate module ID detected: " + modInst.id() + "\n\n" + modInst.id() + " "
+									+ modInst.version() + ": "
+									+ new File(modInst.getClass().getProtectionDomain().getCodeSource().getLocation()
+											.toURI()).getName()
+									+ "\n\n" + modInst2.id() + " " + modInst2.version() + ": "
+									+ new File(modInst2.getClass().getProtectionDomain().getCodeSource().getLocation()
+											.toURI()).getName());
+							System.exit(1);
+						}
+
+						// Add to loaded module list and pre-initialize it
+						modules.add(modInst);
+						try {
+							// Pre-init
+							modInst.preInit();
+
+							// Attach events
+							EventBus.getInstance().addAllEventsFromReceiver(modInst);
+						} catch (Exception e) {
+							logger.error("Failed to pre-initialize module: " + modInst.id() + ", module source file: "
+									+ new File(modCls.getProtectionDomain().getCodeSource().getLocation().toURI())
+											.getName(),
+									e);
+							modules.remove(modInst);
+						}
+					} catch (Exception e) {
+						logger.error(
+								"Failed to load module from: " + node.name.replace("/", ".") + ", module source file: "
+										+ new File(modCls.getProtectionDomain().getCodeSource().getLocation().toURI())
+												.getName(),
+								e);
+					}
+				} catch (Exception e) {
+					logger.error("Failed to load module from: " + node.name.replace("/", "."), e);
 				}
-			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
-					| InvocationTargetException | NoSuchMethodException | SecurityException e) {
-				Centuria.logger.error("Module loading failure: " + mod.getTypeName(), e);
 			}
 		}
 
 		// Initialize modules
-		Centuria.logger.info("Initializing Centuria modules...");
-		for (ICenturiaModule module : this.modules.values()) {
-			Centuria.logger.info("Initializing module: " + module.id());
-			module.init();
+		logger.info("Initializing modules...");
+		for (ICenturiaModule mod : getAllModules()) {
+			logger.info("Initializing module: " + mod.id() + "...");
+			try {
+				mod.init();
+			} catch (Exception e) {
+				logger.error("Failed to initialize module " + mod.id(), e);
+				modules.remove(mod);
+			}
 		}
 	}
 
-	// Method to determine if a class node is a module class
-	private boolean isModuleClass(ClassNode cls) {
-		// Check interfaces
-		if (cls.interfaces != null) {
-			for (String inter : cls.interfaces) {
-				try {
-					// Check interface
-					if (checkInterface(modulePool.getClassNode(inter))) {
-						// Its a module
-						return true;
-					}
-				} catch (ClassNotFoundException e) {
+	/**
+	 * Post-initializes all modules (internal)
+	 */
+	public void runModulePostInit() {
+		if (postInited)
+			throw new IllegalStateException("Already post-initialized all modules");
+		postInited = true;
+
+		// Post-init modules
+		logger.info("Post-initializing modules...");
+		for (ICenturiaModule module : getAllModules()) {
+			try {
+				logger.info("Post-initializing module: " + module.id() + "...");
+				module.postInit();
+			} catch (Exception e) {
+				logger.error("Failed to post-initialize module " + module.id(), e);
+			}
+		}
+	}
+
+	/**
+	 * Retrieves modules by ID
+	 * 
+	 * @param id Module ID
+	 * @return IConnectiveModule instance or null
+	 */
+	public ICenturiaModule getModule(String id) {
+		for (ICenturiaModule module : modules) {
+			if (module.id().equalsIgnoreCase(id))
+				return module;
+		}
+		return null;
+	}
+
+	/**
+	 * Retrieves modules by type
+	 * 
+	 * @param <T>  Module type
+	 * @param type Module class
+	 * @return Module instance or null
+	 */
+	@SuppressWarnings("unchecked")
+	public <T extends ICenturiaModule> T getModule(Class<T> type) {
+		return (T) modules.stream().filter(t -> type.isAssignableFrom(t.getClass())).findFirst().orElseGet(() -> null);
+	}
+
+	/**
+	 * Retrieves all loaded modules
+	 * 
+	 * @return Array of IConnectiveModule instancess
+	 */
+	public ICenturiaModule[] getAllModules() {
+		return modules.toArray(t -> new ICenturiaModule[t]);
+	}
+
+	private boolean checkVersionGreaterThan(String newversion, String version) {
+		newversion = convertVerToVCheckString(newversion.replace("-", ".").replaceAll("[^0-9A-Za-z.]", ""));
+		String oldver = convertVerToVCheckString(version.replace("-", ".").replaceAll("[^0-9A-Za-z.]", ""));
+
+		int ind = 0;
+		String[] old = oldver.split("\\.");
+		for (String vn : newversion.split("\\.")) {
+			if (ind < old.length) {
+				String vnold = old[ind];
+				if (Integer.valueOf(vn) > Integer.valueOf(vnold)) {
+					return true;
+				} else if (Integer.valueOf(vn) < Integer.valueOf(vnold)) {
+					return false;
+				}
+				ind++;
+			} else
+				return false;
+		}
+
+		return false;
+	}
+
+	private String convertVerToVCheckString(String version) {
+		char[] ver = version.toCharArray();
+		version = "";
+		boolean lastWasAlpha = false;
+		for (char ch : ver) {
+			if (ch == '.') {
+				version += ".";
+			} else {
+				if (Character.isAlphabetic(ch) && !lastWasAlpha && !version.endsWith(".")) {
+					version += ".";
+					lastWasAlpha = true;
+				} else if (lastWasAlpha && !version.endsWith(".")) {
+					version += ".";
+					lastWasAlpha = false;
+				} else {
+					version += Integer.toString((int) ch);
 				}
 			}
 		}
+		return version;
+	}
 
-		// Check supertype
-		if (cls.superName != null && !cls.superName.equals(Object.class.getTypeName().replace(".", "/"))) {
+	private boolean nodeExtends(ClassNode node, FluidClassPool pool, Class<?> target) {
+		while (true) {
+			// Check node
+			if (node.name.equals(target.getTypeName().replace(".", "/")))
+				return true;
+
+			// Check interfaces
+			if (node.interfaces != null) {
+				for (String inter : node.interfaces) {
+					try {
+						if (nodeExtends(pool.getClassNode(inter), pool, target))
+							return true;
+					} catch (ClassNotFoundException e) {
+					}
+				}
+			}
+
+			// Check if end was reached
+			if (node.superName == null || node.superName.equals("java/lang/Object"))
+				break;
 			try {
-				return isModuleClass(modulePool.getClassNode(cls.superName));
+				node = pool.getClassNode(node.superName);
 			} catch (ClassNotFoundException e) {
+				break;
 			}
 		}
-
-		// Not a module
 		return false;
 	}
 
-	private boolean checkInterface(ClassNode node) {
-		if (node.name.equals(ICenturiaModule.class.getTypeName().replace(".", "/")))
-			return true;
-
-		// Check supertype
-		if (node.superName != null && !node.superName.equals(Object.class.getTypeName().replace(".", "/"))) {
-			try {
-				return checkInterface(modulePool.getClassNode(node.superName));
-			} catch (ClassNotFoundException e) {
-			}
-		}
-
-		// Not a subtype of ICenturiaModule
-		return false;
+	private String hashFile(InputStream strm) throws IOException, NoSuchAlgorithmException {
+		MessageDigest digest = MessageDigest.getInstance("SHA-1");
+		byte[] hash = digest.digest(strm.readAllBytes());
+		String hashTxt = "";
+		for (byte b : hash)
+			hashTxt += Integer.toString((b & 0xff) + 0x100, 16).substring(1);
+		return hashTxt;
 	}
 
-	//
-	// Module management
-	//
-
-	/**
-	 * Retrieves all module instances
-	 * 
-	 * @return Array of ICenturiaModule instances
-	 */
-	public ICenturiaModule[] getAllModules() {
-		return modules.values().toArray(t -> new ICenturiaModule[t]);
-	}
-
-	/**
-	 * Retrieves a module by ID
-	 * 
-	 * @param id Module ID
-	 * @return ICenturiaModule instance or null
-	 */
-	public ICenturiaModule getModule(String id) {
-		if (modules.containsKey(id))
-			return modules.get(id);
-		return null;
-	}
 }

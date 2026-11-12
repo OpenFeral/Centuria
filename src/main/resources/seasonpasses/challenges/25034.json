@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 5 Lucid Veins",
+  "objectName": "SEASON04/Challenge192",
+  "challengeDefID": "25034",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "6287"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

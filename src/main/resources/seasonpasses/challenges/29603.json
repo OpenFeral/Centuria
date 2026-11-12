@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Andrulian Plushie in Fera Fashions",
+  "objectName": "SEASON06/Challenge190",
+  "challengeDefID": "29603",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1716",
+      "19785"
+    ],
+    "tags": []
+  }
+}

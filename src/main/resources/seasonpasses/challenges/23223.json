@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Rare Royal Piked Armor",
+  "objectName": "SEASON03/Challenge026",
+  "challengeDefID": "23223",
+  "auraPointsReward": 22,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "16815"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

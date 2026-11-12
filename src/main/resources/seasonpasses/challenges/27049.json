@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Kitsune Balloon in Mugmyre Marsh",
+  "objectName": "SEASON05/Challenge112",
+  "challengeDefID": "27049",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "2147",
+      "19805"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 5 Pastel Teal Dyes",
+  "objectName": "SEASON03/Challenge016",
+  "challengeDefID": "23209",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "10137"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

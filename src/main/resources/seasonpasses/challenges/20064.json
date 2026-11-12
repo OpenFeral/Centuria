@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Rare Mother-in-Law\u0027s Tongue of Wrath",
+  "objectName": "SEASON02/Challenge101",
+  "challengeDefID": "20064",
+  "auraPointsReward": 22,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "13901"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

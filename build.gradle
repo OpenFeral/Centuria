@@ -14,15 +14,17 @@ def authorname = "AerialWorks Software Foundation"
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 
+buildDir = 'build/gradleout'
+
 repositories {
     mavenCentral()
     flatDir {
-       dirs 'fluid'
+       dirs 'project/dependencies/fluid'
    }
 }
 
 jar {
-	baseName "Centuria"
+	baseName "centuria"
 	manifest {
 		attributes([
 			"Main-Class": "org.asf.centuria.launcher.LauncherMain",
@@ -38,64 +40,69 @@ jar {
 	includeEmptyDirs = false
 }
 
-// task javaDocs(type: Javadoc) {
-// 	classpath = sourceSets.main.runtimeClasspath
-// 	source = sourceSets.main.allJava
-// }
+task javaDocs(type: Javadoc) {
+	classpath = sourceSets.main.runtimeClasspath
+	source = sourceSets.main.allJava
+}
 
-// task javadocJar(type: Jar, dependsOn: 'javaDocs') {
-// 	from javadoc
-// 	classifier = 'javadoc'
-// 	exclude "**/extra/**"
-// }
+task javadocJar(type: Jar, dependsOn: 'javaDocs') {
+	from javadoc
+	baseName "centuria"
+	classifier = 'javadoc'
+	exclude "**/extra/**"
+}
 
 task sourcesJar(type: Jar, dependsOn: classes) {
-	baseName "Centuria"
+	baseName "centuria"
 	classifier = 'sources'
 	from sourceSets.main.allSource
 	exclude "**/extra/**"
 }
 
 artifacts {
-	// archives javadocJar
+	archives javadocJar
 	archives sourcesJar
 }
 
 dependencies {
-	implementation project(":deps:connective-http")
+	implementation project(":connective-http")
 	
 	implementation group: 'org.asf.cyan', name: 'Fluid', version: '1.0.0.A33'
 	
-	implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.1'
-	implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.17.1'
+	implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.26.1'
+	implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.26.1'
+	implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j2-impl', version: '2.26.1'
 	
-	implementation 'org.ow2.asm:asm:9.1'
-	implementation 'org.ow2.asm:asm-tree:9.1'
-	implementation 'org.ow2.asm:asm-commons:9.1'
+	implementation 'org.ow2.asm:asm:9.11.1'
+	implementation 'org.ow2.asm:asm-tree:9.11.1'
+	implementation 'org.ow2.asm:asm-commons:9.11.1'
 
-	implementation group: 'com.google.code.gson', name: 'gson', version: '2.9.0'
-	implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.15.2'
+	implementation group: 'com.google.code.gson', name: 'gson', version: '2.13.2'
+	implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.22.4'
 	
 	implementation group: 'javax.activation', name: 'activation', version: '1.1.1'
 	
-	implementation group: 'org.apache.commons', name: 'commons-compress', version: '1.26.1'
-	implementation group: 'org.tukaani', name: 'xz', version: '1.9'
-	implementation group: 'org.joml', name: 'joml', version: '1.10.4'
+	implementation group: 'org.apache.commons', name: 'commons-compress', version: '1.28.0'
+	implementation group: 'org.tukaani', name: 'xz', version: '1.11'
+	implementation group: 'org.joml', name: 'joml', version: '1.10.8'
 	
 	implementation group: 'org.reflections', name: 'reflections', version: '0.10.2'
-	testImplementation group: 'org.slf4j', name: 'slf4j-nop', version: '1.7.36'
 	
 	implementation group: 'net.objecthunter', name: 'exp4j', version: '0.4.8'
+	
+	implementation group: 'org.bouncycastle', name: 'bcprov-jdk18on', version: '1.83'
+	
+	implementation group: 'org.apache.httpcomponents.client5', name: 'httpclient5', version: '5.6.5'
 }
 
 project.configurations.implementation.canBeResolved = true
 
-task installation () {
+task serverbase () {
 	doLast {
 		copy {
-			from "centuria"
-			from "centuria.bat"
-			into "build/Installations"
+			from "assets/scripts/centuria"
+			from "assets/scripts/centuria.bat"
+			into "build/gradleout/serverbase"
 		}
 		for (ResolvedArtifact arti : project.configurations.implementation.resolvedConfiguration.getResolvedArtifacts()) {
 			if (arti.getClassifier() != null)
@@ -103,7 +110,7 @@ task installation () {
 			copy {
 				from arti.file
 				rename arti.file.getName(), arti.name + (arti.getClassifier() != null && !arti.getClassifier().isEmpty() ? "-" + arti.getClassifier() : "") + "." + arti.getExtension()
-				into "build/Installations/libs"
+				into "build/gradleout/serverbase/libs"
 			}
 		}
 		for (def task : project.tasks) {
@@ -114,24 +121,75 @@ task installation () {
 				copy {
 					from task.getArchiveFile().get()
 					rename task.getArchiveFile().get().getAsFile().getName(), task.getArchiveBaseName().get() + (task.getArchiveClassifier().get() != null && !task.getArchiveClassifier().get().isEmpty() ? "-" + task.getArchiveClassifier().get() : "") + "." + task.getArchiveExtension().get()
-					into "build/Installations"
+					into "build/gradleout/serverbase"
 				}
 			}
 		}
 	}
 }
 
-installation.dependsOn project.tasks.build
-build.finalizedBy installation
+serverbase.dependsOn project.tasks.build
+build.finalizedBy serverbase
 
-import java.nio.file.*
-task updateData () {
+task toolscripts () {
 	doLast {
 		copy {
-			from "centuria"
-			from "centuria.bat"
-			into "build/update"
+			from "assets/scripts/toollauncher.sh"
+			from "assets/scripts/toollauncher.bat"
+			into "build/gradleout/tools"
 		}
+		for (ResolvedArtifact arti : project.configurations.implementation.resolvedConfiguration.getResolvedArtifacts()) {
+			if (arti.getClassifier() != null)
+				continue;
+			copy {
+				from arti.file
+				rename arti.file.getName(), arti.name + (arti.getClassifier() != null && !arti.getClassifier().isEmpty() ? "-" + arti.getClassifier() : "") + "." + arti.getExtension()
+				into "build/gradleout/tools/libs"
+			}
+		}
+		for (def task : project.tasks) {
+			if (task instanceof AbstractArchiveTask) {
+				if (!task.getArchiveClassifier().get().isEmpty())
+					continue;
+					
+				copy {
+					from task.getArchiveFile().get()
+					rename task.getArchiveFile().get().getAsFile().getName(), task.getArchiveBaseName().get() + (task.getArchiveClassifier().get() != null && !task.getArchiveClassifier().get().isEmpty() ? "-" + task.getArchiveClassifier().get() : "") + "." + task.getArchiveExtension().get()
+					into "build/gradleout/tools/libs"
+				}
+			}
+		}
+		for (def f : new File("src/main/java/org/asf/centuria/tools").listFiles()) {
+			if (!f.isFile())
+				continue
+			String scriptMain = "org.asf.centuria.tools." + f.getName().replace(".java", "")
+			String unixScript = ""
+			unixScript += "#!/bin/bash\n"
+			unixScript += '''chmod +x "$(dirname "$0")/toollauncher.sh"\n'''
+			unixScript += '''chmod +x "$0"\n'''
+			unixScript += '''\n'''
+			unixScript += '''"$(dirname "$0")/toollauncher.sh" ''' + scriptMain + " " + '''"$@"''' + "\n"
+			unixScript += "exit \$?\n"
+			String dosScript = ""
+			dosScript += "@echo off\n"
+			dosScript += "setlocal EnableDelayedExpansion\n"
+			dosScript += '''set "dirpath=%~dp0"\n'''
+			dosScript += '''"%dirpath%/toollauncher" ''' + scriptMain + ''' %*\n'''
+			dosScript += "exit %ERRORLEVEL%\n"
+			String outWin = "build/gradleout/tools/" + f.getName().replace(".java", "").toLowerCase() + ".bat"
+			String outPosix = "build/gradleout/tools/" + f.getName().replace(".java", "").toLowerCase()
+			Files.writeString(file(outWin).toPath(), dosScript)
+			Files.writeString(file(outPosix).toPath(), unixScript)
+		}
+	}
+}
+
+toolscripts.dependsOn project.tasks.build
+build.finalizedBy toolscripts
+
+import java.nio.file.*
+task legacyupdateData () {
+	doLast {
 		String data = ""
 		for (ResolvedArtifact arti : project.configurations.implementation.resolvedConfiguration.getResolvedArtifacts()) {
 			if (arti.getClassifier() != null)
@@ -139,7 +197,7 @@ task updateData () {
 			copy {
 				from arti.file
 				rename arti.file.getName(), arti.name + (arti.getClassifier() != null && !arti.getClassifier().isEmpty() ? "-" + arti.getClassifier() : "") + "." + arti.getExtension()
-				into "build/update/libs"
+				into "build/gradleout/updatedatalegacy/libs"
 				data += "libs/" + arti.name + (arti.getClassifier() != null && !arti.getClassifier().isEmpty() ? "-" + arti.getClassifier() : "") + "." + arti.getExtension() + "\n"
 			}
 		}
@@ -150,15 +208,17 @@ task updateData () {
 					
 				copy {
 					from task.getArchiveFile().get()
-					rename task.getArchiveFile().get().getAsFile().getName(), task.getArchiveBaseName().get() + (task.getArchiveClassifier().get() != null && !task.getArchiveClassifier().get().isEmpty() ? "-" + task.getArchiveClassifier().get() : "") + "." + task.getArchiveExtension().get()
-					into "build/update"
-					data += (task.getArchiveBaseName().get() + (task.getArchiveClassifier().get() != null && !task.getArchiveClassifier().get().isEmpty() ? "-" + task.getArchiveClassifier().get() : "") + "." + task.getArchiveExtension().get()).replace(" ", "%20") + "\n"
+					rename task.getArchiveFile().get().getAsFile().getName(), (task.getArchiveBaseName().get().equals("centuria") ? "Centuria" : task.getArchiveBaseName().get()) + (task.getArchiveClassifier().get() != null && !task.getArchiveClassifier().get().isEmpty() ? "-" + task.getArchiveClassifier().get() : "") + "." + task.getArchiveExtension().get()
+					into "build/gradleout/updatedatalegacy"
+					data += ((task.getArchiveBaseName().get().equals("centuria") ? "Centuria" : task.getArchiveBaseName().get()) + (task.getArchiveClassifier().get() != null && !task.getArchiveClassifier().get().isEmpty() ? "-" + task.getArchiveClassifier().get() : "") + "." + task.getArchiveExtension().get()).replace(" ", "%20") + "\n"
 				}
 			}
 		}
-		Files.writeString(file("build/update/update.list").toPath(), data)
+		data += "installedfromlegacyupdatemarker";
+		Files.writeString(file("build/gradleout/updatedatalegacy/installedfromlegacyupdatemarker").toPath(), "")
+		Files.writeString(file("build/gradleout/updatedatalegacy/update.list").toPath(), data)
 	}
 }
 
-updateData.dependsOn project.tasks.build
-build.finalizedBy updateData
+legacyupdateData.dependsOn project.tasks.build
+build.finalizedBy legacyupdateData

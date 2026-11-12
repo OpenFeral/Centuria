@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie in the Green Alcove in To Dye For",
+  "objectName": "SEASON02/Challenge099",
+  "challengeDefID": "20062",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1717",
+      "19809"
+    ],
+    "tags": []
+  }
+}

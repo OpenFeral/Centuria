@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Sky Court Bed",
+  "objectName": "SEASON04/Challenge140",
+  "challengeDefID": "24979",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "24376"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

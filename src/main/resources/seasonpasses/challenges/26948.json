@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Kiteray Kite in Mugmyre Marsh",
+  "objectName": "SEASON05/Challenge058",
+  "challengeDefID": "26948",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "2147",
+      "24576"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

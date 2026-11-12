@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind a Spacer Suit",
+  "objectName": "SEASON02/Challenge127",
+  "challengeDefID": "20090",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "12321"
+    ],
+    "tags": [
+      "Unbind"
+    ]
+  }
+}

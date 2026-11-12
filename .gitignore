@@ -12,7 +12,7 @@ bin/
 .project
 
 #VSCode
-.vscode/
+/.vscode/
 
 # IntelliJ
 *.iml
@@ -29,9 +29,24 @@ research/
 clientmods/org.asf.centuria.client.plugin/lib
 clientmods/org.asf.centuria.client.chartmod/lib
 clientmods/org.asf.centuria.client.chartmod/run
-
 update.list
 updater.jar
 
 # macOS
 **/.DS_Store
+
+# Polytool
+.polytool
+.polytool-version
+build/
+polylocal/
+
+# Environment
+/environment/
+
+# Build info
+/currentbuildinfo.json
+/src/main/resources/buildinfo.json
+
+# Build info
+/.buildinfo/cache/

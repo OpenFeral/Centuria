@@ -1,0 +1,20 @@
+{
+  "challengeName": "Spend 1200 Likes while crafting",
+  "objectName": "SEASON03/Challenge113",
+  "challengeDefID": "23319",
+  "auraPointsReward": 19,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "Equals",
+        "value": 1200
+      }
+    ],
+    "operation": "Set",
+    "defs": [
+      "2327"
+    ],
+    "tags": []
+  }
+}

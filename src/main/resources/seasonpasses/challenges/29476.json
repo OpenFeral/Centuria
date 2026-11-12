@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at the Sandcastle in Lakeroot Valley",
+  "objectName": "SEASON06/Challenge077",
+  "challengeDefID": "29476",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "9687",
+      "19797"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

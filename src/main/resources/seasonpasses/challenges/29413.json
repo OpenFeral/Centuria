@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Edge Plushie in Lakeroot Valley",
+  "objectName": "SEASON06/Challenge022",
+  "challengeDefID": "29413",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9687",
+      "19787"
+    ],
+    "tags": []
+  }
+}

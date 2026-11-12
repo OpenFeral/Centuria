@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft Rare Elegant Lattice Leggings",
+  "objectName": "SEASON05/Challenge082",
+  "challengeDefID": "27017",
+  "auraPointsReward": 22,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "16842"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

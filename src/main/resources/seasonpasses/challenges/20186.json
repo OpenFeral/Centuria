@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft 5 Witch\u0027s Cauldron Dyes",
+  "objectName": "SEASON02/Challenge206",
+  "challengeDefID": "20186",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "17532"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 5 Dandy Seeds",
+  "objectName": "SEASON02/Challenge198",
+  "challengeDefID": "20179",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1134"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

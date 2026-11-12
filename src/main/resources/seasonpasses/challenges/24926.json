@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with Miss Marguerite",
+  "objectName": "SEASON04/Challenge088",
+  "challengeDefID": "24926",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19810",
+      "1717"
+    ],
+    "tags": []
+  }
+}

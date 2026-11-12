@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind a Pilfermite Bandolier ",
+  "objectName": "SEASON06/Challenge107",
+  "challengeDefID": "29506",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "7798"
+    ],
+    "tags": [
+      "Unbind"
+    ]
+  }
+}

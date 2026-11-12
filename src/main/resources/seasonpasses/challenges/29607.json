@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft Skyjelly Camouflage ",
+  "objectName": "SEASON06/Challenge194",
+  "challengeDefID": "29607",
+  "auraPointsReward": 24,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "28343"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

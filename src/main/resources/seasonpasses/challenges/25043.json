@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to Kino in the Shattered Bay",
+  "objectName": "SEASON04/Challenge201",
+  "challengeDefID": "25043",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "19812",
+      "1825"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

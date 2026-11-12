@@ -1,0 +1,7 @@
+# Project properties
+id="examplemodule"
+version="1.0.0.A1"
+group="org.example.examplemodule"
+
+# Sub-projects
+# None right now

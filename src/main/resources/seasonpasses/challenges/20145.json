@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to the Twiggle with Orange Flames",
+  "objectName": "SEASON02/Challenge179",
+  "challengeDefID": "20145",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1523"
+    ],
+    "tags": []
+  }
+}

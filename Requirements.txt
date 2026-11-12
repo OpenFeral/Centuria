@@ -1,7 +1,0 @@
-Centuria requires the following projects:
- - connective-http (2023 rewrite and above): https://github.com/SkySwimmer/connective-http
-
-Commands to set up dependencies:
- - Connective:
-   mkdir deps
-   git clone https://github.com/SkySwimmer/connective-http deps/connective-http

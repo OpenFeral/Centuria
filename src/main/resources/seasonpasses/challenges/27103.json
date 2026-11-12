@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote next to the Extravagant Hat in the Shattered Bay",
+  "objectName": "SEASON05/Challenge160",
+  "challengeDefID": "27103",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "1825",
+      "19816"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

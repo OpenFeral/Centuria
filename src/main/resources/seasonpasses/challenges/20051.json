@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to the Twiggle with Blue Flames",
+  "objectName": "SEASON02/Challenge088",
+  "challengeDefID": "20051",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1509"
+    ],
+    "tags": []
+  }
+}

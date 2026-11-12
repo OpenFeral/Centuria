@@ -1,0 +1,20 @@
+{
+  "challengeName": "Visit Centuria",
+  "objectName": "TEST/Challenge_VisitCenturia",
+  "challengeDefID": "16880",
+  "auraPointsReward": 28,
+  "script": {
+    "actions": [
+      {
+        "action": "Visit",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Set",
+    "defs": [
+      "1718"
+    ],
+    "tags": []
+  }
+}

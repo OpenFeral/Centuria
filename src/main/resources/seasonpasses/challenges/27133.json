@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at Bellamy\u0027s Outpost in the Sunken Thicket",
+  "objectName": "SEASON05/Challenge185",
+  "challengeDefID": "27133",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3273",
+      "23153"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,18 @@
+#!/bin/bash
+function start() {
+	libs=$(find . -maxdepth 1 -name '*.jar' -exec echo -n :{} \;)
+	libs=$libs:$(find libs/ -name '*.jar' -exec echo -n :{} \;)
+	libs=${libs:1}
+	
+	java -cp "$libs" org.asf.centuria.Centuria "$@"
+	code=$?
+	if [ "$code" == "0" ] && [ -f updater.jar ]; then
+		java -cp "updater.jar" org.asf.centuria.CenturiaUpdater --update || exit $?
+		rm updater.jar
+		echo
+		start
+	fi
+	exit $code
+}
+
+start

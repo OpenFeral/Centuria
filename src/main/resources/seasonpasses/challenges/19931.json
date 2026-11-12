@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Corrupt Crown",
+  "objectName": "SEASON02/Challenge010",
+  "challengeDefID": "19931",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19904"
+    ],
+    "tags": []
+  }
+}

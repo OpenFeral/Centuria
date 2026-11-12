@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Flex\" Emote at the Treehouse in Lakeroot Valley",
+  "objectName": "SEASON02/Challenge058",
+  "challengeDefID": "19984",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9151",
+      "23161",
+      "9687"
+    ],
+    "tags": []
+  }
+}

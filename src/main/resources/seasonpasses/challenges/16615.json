@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Kitsune Back Buddy",
+  "objectName": "SEASON01/Challenge200",
+  "challengeDefID": "16615",
+  "auraPointsReward": 24,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "29527"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

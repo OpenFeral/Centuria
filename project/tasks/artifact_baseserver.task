@@ -1,0 +1,12 @@
+#!/bin/bash
+
+function artifact_baseserver_define() {
+    requireTask buildserver
+    addTaskTo artifacts_base
+}
+
+function artifact_baseserver_run() {
+    # Install
+    createFolder "$BASEBUILDDIR/artifacts/base-centuria-server"
+    cp -rfv "$BASEBUILDDIR/rawpackages/base/." "$BASEBUILDDIR/artifacts/base-centuria-server"
+}

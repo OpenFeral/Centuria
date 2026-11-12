@@ -12,6 +12,7 @@ import java.net.URL;
 import java.net.UnknownHostException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.KeyFactory;
 import java.security.KeyManagementException;
@@ -22,6 +23,7 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
+import java.security.Security;
 import java.security.Signature;
 import java.security.SignatureException;
 import java.security.UnrecoverableKeyException;
@@ -33,11 +35,14 @@ import java.time.LocalDateTime;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.UUID;
+import java.util.stream.Stream;
 
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 
 import org.asf.connective.ConnectiveHttpServer;
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.pqc.jcajce.spec.DilithiumParameterSpec;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.asf.centuria.connective.logger.Log4jManagerImpl;
@@ -52,6 +57,7 @@ import org.asf.centuria.modules.events.accounts.AccountDisconnectEvent;
 import org.asf.centuria.modules.events.accounts.AccountDisconnectEvent.DisconnectType;
 import org.asf.centuria.modules.events.servers.APIServerStartupEvent;
 import org.asf.centuria.modules.events.servers.DirectorServerStartupEvent;
+import org.asf.centuria.modules.events.updates.AutomaticUpdateFailedEvent;
 import org.asf.centuria.modules.events.updates.ServerUpdateCompletionEvent;
 import org.asf.centuria.modules.events.updates.ServerUpdateEvent;
 import org.asf.centuria.modules.events.updates.UpdateCancelEvent;
@@ -83,15 +89,14 @@ import org.asf.centuria.networking.http.director.GameServerRequestHandler;
 import org.asf.centuria.networking.voicechatserver.VoiceChatServer;
 import org.asf.centuria.seasonpasses.SeasonPassManager;
 import org.asf.centuria.textfilter.TextFilterService;
+import org.asf.centuria.updater.PolyUpdaterClient;
+import org.asf.centuria.updater.collections.PolyCollection;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 public class Centuria {
-	// Update
-	public static String SERVER_UPDATE_VERSION = "b1.7.4";
-	public static String DOWNLOAD_BASE_URL = "https://emuferal.openferal.net";
-
 	// Configuration
 	public static Logger logger;
 	public static HashMap<String, String> serverProperties;
@@ -116,6 +121,9 @@ public class Centuria {
 	public static boolean defaultAllowGiveItemCurrency = true;
 	public static boolean defaultAllowSkipTwiggleWork = true;
 	public static boolean defaultEnableCreativeRestock = false;
+	public static boolean staffFixedUpdateError = false;
+	public static boolean forceInstallUpdate = false;
+	private static boolean lockUpdaterUntilFixed = false;
 	public static boolean encryptChat = false;
 	public static boolean encryptGame = false;
 	public static boolean encryptVoiceChat = false;
@@ -125,6 +133,14 @@ public class Centuria {
 
 	public static long keepAliveWarningInterval = 0;
 	public static long keepAliveKickInterval = 0;
+
+	public static boolean hasUpdaterFailed() {
+		return lockUpdaterUntilFixed;
+	}
+
+	// Current version
+	// FIXME: replace with better solution
+	public static String SERVER_UPDATE_VERSION = "b1.7.4";
 
 	// Servers
 	private static ConnectiveHttpServer apiServer;
@@ -136,11 +152,6 @@ public class Centuria {
 	// Keys
 	private static PrivateKey privateKey;
 	private static PublicKey publicKey;
-
-	// Updating
-	private static boolean cancelUpdate = false;
-	public static boolean updating = false;
-	private static String nextVersion = null;
 
 	// Messages
 	private static String NIL_UUID = new UUID(0, 0).toString();
@@ -176,73 +187,295 @@ public class Centuria {
 			System.setProperty("log4j2.configurationFile", Centuria.class.getResource("/log4j2.xml").toString());
 		}
 		logger = LogManager.getLogger("CENTURIA");
+		Security.addProvider(new BouncyCastleProvider());
+
+		// Check arguments
+		if (Stream.of(args).anyMatch(t -> t.equals("--force-update"))) {
+			forceInstallUpdate = true;
+		}
+
+		// Check if coming from a legacy update
+		if (new File("installedfromlegacyupdatemarker").exists()) {
+			// Enable force install mode so we can overwrite the old legacy payloads
+			// properly
+			forceInstallUpdate = true;
+		}
 
 		// Load http logger
 		new Log4jManagerImpl().assignAsMain();
 
 		// Load modules
-		ModuleManager.getInstance().initializeComponents();
+		ModuleManager.getInstance().init();
 
-		// Update configuration
-		String updateChannel = "beta";
-		boolean disableUpdater = true;
-		if (new File("updater.conf").exists()) {
-			// Parse properties
-			HashMap<String, String> properties = new HashMap<String, String>();
-			for (String line : Files.readAllLines(Path.of("updater.conf"))) {
-				String key = line;
-				String value = "";
-				if (key.contains("=")) {
-					value = key.substring(key.indexOf("=") + 1);
-					key = key.substring(0, key.indexOf("="));
+		// Create updater files if needed
+		File repoCache = new File("updater/repositories");
+		File packageCache = new File("updater/packages");
+		repoCache.mkdirs();
+		packageCache.mkdirs();
+		if (!new File("updater.json").exists()) {
+			boolean oldDisableUpdater = true;
+			boolean oldEnableRuntime = true;
+			if (new File("updater.conf").exists()) {
+				// Parse properties
+				HashMap<String, String> properties = new HashMap<String, String>();
+				for (String line : Files.readAllLines(Path.of("updater.conf"))) {
+					String key = line;
+					String value = "";
+					if (key.contains("=")) {
+						value = key.substring(key.indexOf("=") + 1);
+						key = key.substring(0, key.indexOf("="));
+					}
+					properties.put(key, value);
 				}
-				properties.put(key, value);
+
+				// Check if disabled
+				oldDisableUpdater = Boolean.parseBoolean(properties.getOrDefault("disable", "true"));
+				oldEnableRuntime = Boolean.parseBoolean(properties.getOrDefault("runtime-auto-update", "true"));
 			}
 
-			// Load channel
-			updateChannel = properties.getOrDefault("channel", updateChannel);
+			// Create config
+			InputStream strm = Centuria.class.getClassLoader().getResourceAsStream("skel/updater.json");
+			String configData = new String(strm.readAllBytes(), "UTF-8");
+			strm.close();
+			Files.writeString(Path.of("updater.json"),
+					configData.replace("%oldEnableRuntime%", oldEnableRuntime ? "true" : "false")
+							.replace("%oldEnableUpdater%", !oldDisableUpdater ? "true" : "false"));
+		}
 
-			// Check if disabled
-			disableUpdater = Boolean.parseBoolean(properties.getOrDefault("disable", "true"));
+		// Parse properties
+		JsonObject updateSettings = JsonParser.parseString(Files.readString(Path.of("updater.json"))).getAsJsonObject();
+
+		// Check if disabled
+		boolean disableUpdater = updateSettings.has("enabled") && !updateSettings.get("enabled").getAsBoolean();
+
+		// Check json upgrade
+		PolyUpdaterClient.installJsonUpgrades(new File("."));
+
+		// Updater
+		if (!disableUpdater) {
+			// Initialize
+			PolyUpdaterClient.init(updateSettings, repoCache, packageCache, new File("."));
+
+			// Check for updates
+			if (shouldUpdate()) {
+				// Download
+				if (new File("installedfromlegacyupdatemarker").exists()) {
+					// Enable force install mode so we can overwrite the old legacy payloads
+					// properly
+					forceInstallUpdate = true;
+				}
+				if (!downloadUpdate(
+						"Add the argument \"--force-update\" to the server command to forcefully install the update bypassing conflict detection mechanism.")) {
+					// Failed
+					logger.fatal("The download process could not be completed, please check the log for errors.");
+					EventBus.getInstance().dispatchEvent(new AutomaticUpdateFailedEvent());
+					System.exit(1);
+					return;
+				}
+
+				// Check for errors
+				boolean hasInstallables = false;
+				boolean shouldWarn = false;
+				for (PolyCollection col : PolyUpdaterClient.getCollections()) {
+					if (!col.isInstalledLocally() && !col.hasUpdateAvailable()) {
+						shouldWarn = true;
+					} else if (col.hasUpdateAvailable()) {
+						hasInstallables = true;
+					}
+				}
+				if (shouldWarn && !hasInstallables) {
+					// Error
+					logger.fatal(
+							"Automatic installation of packages failed! The server was unable to download requested collections.");
+					System.exit(1);
+					return;
+				} else if (shouldWarn) {
+					// Error
+					logger.warn(
+							"There are collections that are pending installation however not all could be provided a source for downloading, please review the logs!");
+					logger.warn(
+							"The server will proceed with downloading the packages that are available, however this is likely to crash the server on next startup!");
+				}
+
+				// Dispatch event
+				EventBus.getInstance()
+						.dispatchEvent(new ServerUpdateEvent(PolyUpdaterClient.getBaseSoftwareNextVersion(), -1,
+								Stream.of(PolyUpdaterClient.getCollections()).filter(t -> t.hasUpdateAvailable())
+										.toArray(t -> new PolyCollection[t])));
+
+				// Dispatch completion event
+				EventBus.getInstance()
+						.dispatchEvent(new ServerUpdateCompletionEvent(PolyUpdaterClient.getBaseSoftwareNextVersion(),
+								Stream.of(PolyUpdaterClient.getCollections()).filter(t -> t.hasUpdateAvailable())
+										.toArray(t -> new PolyCollection[t])));
+
+				// Copy jar
+				if (!new File("updater.jar").exists() && new File("centuria.jar").exists())
+					Files.copy(Path.of("centuria.jar"), Path.of("updater.jar"));
+				else if (!new File("updater.jar").exists() && new File("Centuria.jar").exists())
+					Files.copy(Path.of("Centuria.jar"), Path.of("updater.jar"));
+				if (new File("installedfromlegacyupdatemarker").exists())
+					new File("installedfromlegacyupdatemarker").delete();
+
+				// Exit server
+				logger.info("Restarting server!");
+				System.exit(0);
+			}
 
 			// Check if automatic updating is enabled
-			if (Boolean.parseBoolean(properties.getOrDefault("runtime-auto-update", "false")) && !Centuria.debugMode) {
-				int mins = Integer.parseInt(properties.getOrDefault("runtime-update-timer-length", "10"));
+			if (updateSettings.has("enableRuntimeUpdater")
+					&& updateSettings.get("enableRuntimeUpdater").getAsBoolean()) {
+				int mins = updateSettings.has("runtimeUpdaterTimer")
+						? updateSettings.get("runtimeUpdaterTimer").getAsInt()
+						: 10;
 
 				// Start the automatic update thread
-				final String channel = updateChannel;
 				Thread updater = new Thread(() -> {
+					boolean wasLocked = false;
+					JsonObject updateSettingsLocal = updateSettings;
 					while (true) {
 						// Run every 2 minutes
 						try {
 							Thread.sleep(120000);
 						} catch (InterruptedException e) {
+							break;
+						}
+
+						// Check scheduled
+						if (PolyUpdaterClient.isUpdateScheduled()) {
+							// Update was scheduled manually
+							// Wait until its no longer scheduled
+							continue;
+						}
+
+						// Check
+						if (lockUpdaterUntilFixed && !staffFixedUpdateError)
+							continue;
+						if (wasLocked && staffFixedUpdateError) {
+							// Reload config
+							logger.info("Loading update configuration...");
+							try {
+								updateSettingsLocal = JsonParser.parseString(Files.readString(Path.of("updater.json")))
+										.getAsJsonObject();
+							} catch (Exception e) {
+								// Failed Failed
+								staffFixedUpdateError = false;
+								logger.fatal("Could not reinitialize automatic updater!", e);
+								EventBus.getInstance().dispatchEvent(new AutomaticUpdateFailedEvent());
+								PolyUpdaterClient.resetUpdateStates();
+								lockUpdaterUntilFixed = true;
+								staffFixedUpdateError = false;
+								wasLocked = true;
+								continue;
+							}
+						}
+						staffFixedUpdateError = false;
+
+						// De-initialize the updater
+						logger.info("Beginning automatic update checker...");
+						PolyUpdaterClient.deinitialize();
+
+						// Reinit
+						try {
+							// Reinit
+							logger.info("Reinitializing update system...");
+							PolyUpdaterClient.init(updateSettingsLocal, repoCache, packageCache, new File("."));
+						} catch (Exception e) {
+							// Failed Failed
+							logger.fatal("Could not reinitialize automatic updater!", e);
+							EventBus.getInstance().dispatchEvent(new AutomaticUpdateFailedEvent());
+							PolyUpdaterClient.resetUpdateStates();
+							lockUpdaterUntilFixed = true;
+							staffFixedUpdateError = false;
+							wasLocked = true;
+							continue;
 						}
 
 						// Check for updates
-						if (shouldUpdate(channel)) {
-							runUpdater(mins);
+						if (shouldUpdate()) {
+							try {
+								// Download
+								if (new File("installedfromlegacyupdatemarker").exists()) {
+									// Enable force install mode so we can overwrite the old legacy payloads
+									// properly
+									forceInstallUpdate = true;
+								}
+								if (!downloadUpdate(
+										"Use the admin command \"forceinstallupdate\" ingame to forcefully install updates bypassing the conflict detection mechanism.")) {
+									// Failed
+									logger.fatal(
+											"The download process could not be completed, please check the log for errors.");
+									EventBus.getInstance().dispatchEvent(new AutomaticUpdateFailedEvent());
+									PolyUpdaterClient.resetUpdateStates();
+									lockUpdaterUntilFixed = true;
+									wasLocked = true;
+
+									// Cancel if needed
+									if (PolyUpdaterClient.isUpdateScheduled()) {
+										boolean res = PolyUpdaterClient.cancelScheduledUpdate();
+										if (res)
+											EventBus.getInstance().dispatchEvent(new UpdateCancelEvent());
+										forceInstallUpdate = false;
+									}
+
+									// Error
+									throw new IOException();
+								}
+
+								// Check for errors
+								boolean hasInstallables = false;
+								boolean shouldWarn = false;
+								for (PolyCollection col : PolyUpdaterClient.getCollections()) {
+									if (!col.isInstalledLocally() && !col.hasUpdateAvailable()) {
+										shouldWarn = true;
+									} else if (col.hasUpdateAvailable()) {
+										hasInstallables = true;
+									}
+								}
+								if (shouldWarn && !hasInstallables) {
+									// Error
+									logger.fatal(
+											"Automatic installation of packages failed! The server was unable to download requested collections.");
+									EventBus.getInstance().dispatchEvent(new AutomaticUpdateFailedEvent());
+									PolyUpdaterClient.resetUpdateStates();
+									lockUpdaterUntilFixed = true;
+									wasLocked = true;
+									throw new IOException();
+								} else if (shouldWarn) {
+									// Error
+									logger.fatal(
+											"There are collections that are pending installation however not all could be provided a source for downloading, please review the logs!");
+									EventBus.getInstance().dispatchEvent(new AutomaticUpdateFailedEvent());
+									PolyUpdaterClient.resetUpdateStates();
+									lockUpdaterUntilFixed = true;
+									wasLocked = true;
+									throw new IOException();
+								}
+							} catch (IOException e) {
+								if (lockUpdaterUntilFixed)
+									continue;
+
+								// Rerun after an hour
+								Centuria.logger.error("An error occurred while downloading available updates!", e);
+								try {
+									Thread.sleep(60 * 1000);
+								} catch (InterruptedException e1) {
+									break;
+								}
+								continue;
+							}
+
+							// Schedule updater
+							if (!PolyUpdaterClient.isUpdateScheduled()) {
+								logger.info("Scheduling update for automatic restart!");
+								runUpdater(mins);
+							}
 							return;
 						}
 					}
 				}, "Automatic update thread");
 				updater.setDaemon(true);
 				updater.start();
-			}
-		}
-
-		// Updater
-		if (!disableUpdater && !Centuria.debugMode) {
-			// Check for updates
-			if (shouldUpdate(updateChannel)) {
-				// Dispatch event
-				EventBus.getInstance().dispatchEvent(new ServerUpdateEvent(nextVersion, -1));
-
-				// Dispatch completion event
-				EventBus.getInstance().dispatchEvent(new ServerUpdateCompletionEvent(nextVersion));
-
-				// Exit server
-				System.exit(0);
 			}
 		}
 
@@ -277,13 +510,11 @@ public class Centuria {
 	 * @return True if successful, false otherwise
 	 */
 	public static boolean cancelUpdate() {
-		if (updating) {
-			cancelUpdate = true;
-			nextVersion = null;
+		boolean res = PolyUpdaterClient.cancelScheduledUpdate();
+		if (res)
 			EventBus.getInstance().dispatchEvent(new UpdateCancelEvent());
-			return true;
-		} else
-			return false;
+		forceInstallUpdate = false;
+		return res;
 	}
 
 	/**
@@ -295,16 +526,43 @@ public class Centuria {
 	 */
 	public static boolean runUpdater(int mins) {
 		// Run timer
-		if (!cancelUpdate) {
-			updating = true;
+		if (PolyUpdaterClient.isUpdateScheduled())
+			return false; // Already scheduled
 
-			EventBus.getInstance().dispatchEvent(new ServerUpdateEvent(nextVersion, mins));
+		// Check state
+		if (!PolyUpdaterClient.isUpdateCancelled()) {
+			// Mark scheduled
+			PolyUpdaterClient.scheduleUpdate();
+
+			// Dispatch
+			EventBus.getInstance()
+					.dispatchEvent(new ServerUpdateEvent(PolyUpdaterClient.getBaseSoftwareNextVersion(), mins,
+							Stream.of(PolyUpdaterClient.getCollections()).filter(t -> t.hasUpdateAvailable())
+									.toArray(t -> new PolyCollection[t])));
+
+			// Check if server is empty
+			if (Centuria.gameServer.getPlayers().length == 0) {
+				// Restart now
+				updateShutdown(null);
+				return true;
+			}
+
+			// Start timer
 			final int minutes = mins;
 			Thread th = new Thread(() -> {
 				int remaining = minutes;
-				while (!cancelUpdate) {
+				while (!PolyUpdaterClient.isUpdateCancelled()) {
+					// Check
+					if (Centuria.gameServer.getPlayers().length == 0) {
+						// Restart now
+						updateShutdown(null);
+						break;
+					}
+
+					// Send message
 					String message = null;
 					switch (remaining) {
+					case 120:
 					case 60:
 					case 30:
 					case 15:
@@ -319,7 +577,6 @@ public class Centuria {
 					case 0:
 						// Shut down
 						updateShutdown(null);
-						cancelUpdate = false;
 						return;
 					}
 
@@ -331,7 +588,7 @@ public class Centuria {
 					}
 
 					for (int i = 0; i < 60; i++) {
-						if (cancelUpdate)
+						if (PolyUpdaterClient.isUpdateCancelled())
 							break;
 						try {
 							Thread.sleep(1000);
@@ -341,12 +598,12 @@ public class Centuria {
 
 					remaining--;
 				}
-				cancelUpdate = false;
-				updating = false;
+				PolyUpdaterClient.resetScheduledUpdate();
 			});
-			th.setName("Update Thread");
+			th.setName("Update Scheduler Thread");
 			th.start();
 
+			// Return
 			return true;
 		}
 
@@ -358,15 +615,33 @@ public class Centuria {
 	 */
 	public static void updateShutdown(String reason) {
 		// Dispatch event if the update was instant
-		if (!updating) {
-			EventBus.getInstance().dispatchEvent(new ServerUpdateEvent(nextVersion, -1));
+		logger.info("Shutting down server for update...");
+		if (!PolyUpdaterClient.isUpdateScheduled()) {
+			EventBus.getInstance()
+					.dispatchEvent(new ServerUpdateEvent(PolyUpdaterClient.getBaseSoftwareNextVersion(), -1,
+							Stream.of(PolyUpdaterClient.getCollections()).filter(t -> t.hasUpdateAvailable())
+									.toArray(t -> new PolyCollection[t])));
 		}
 
 		// Shut down the server
 		disconnectPlayersForShutdown(reason);
 
 		// Dispatch completion event
-		EventBus.getInstance().dispatchEvent(new ServerUpdateCompletionEvent(nextVersion));
+		EventBus.getInstance()
+				.dispatchEvent(new ServerUpdateCompletionEvent(PolyUpdaterClient.getBaseSoftwareNextVersion(),
+						Stream.of(PolyUpdaterClient.getCollections()).filter(t -> t.hasUpdateAvailable())
+								.toArray(t -> new PolyCollection[t])));
+
+		// Copy jar
+		try {
+			if (!new File("updater.jar").exists() && new File("centuria.jar").exists())
+				Files.copy(Path.of("centuria.jar"), Path.of("updater.jar"));
+			else if (!new File("updater.jar").exists() && new File("Centuria.jar").exists())
+				Files.copy(Path.of("Centuria.jar"), Path.of("updater.jar"));
+			if (new File("installedfromlegacyupdatemarker").exists())
+				new File("installedfromlegacyupdatemarker").delete();
+		} catch (IOException e) {
+		}
 
 		// Exit
 		System.exit(0);
@@ -509,9 +784,14 @@ public class Centuria {
 		keepAliveKickInterval = Long
 				.parseLong(keepAliveProperties.getOrDefault("keep-alive-kick-interval-secs", "4500"));
 
-		File textFilterHistoryConf = new File("textfilter.conf");
-		if (!textFilterHistoryConf.exists()) {
-			Files.writeString(textFilterHistoryConf.toPath(), "" //
+		File textFilterConf = new File("textfilter.conf");
+		if (!textFilterConf.exists()) {
+			Files.writeString(textFilterConf.toPath(), "" //
+					+ "# Public chat notice displayed when the chat loads\n" //
+					+ "public-chat-notice=Welcome to the public chat! Please keep in mind that these chats are monitored by the server moderators. As Fer.al is host to a playerbase of players as young as 13, there are chat filters present on the server, however in most circumstances you will not encounter these, we try to keep them relatively relaxed. Check the server rules for more information, and Welcome to Fer.al!\n" //
+					+ "private-chat-notice=Welcome to direct messages! Keep in mind that while staff doesn't actively monitor these, this is still a 13+ space and there are players as young as 13, so we ask to try to keep your private chats safe and respectful as well. As this is a game with a lot of minors, these are not encrypted, and while not monitored, in cases of emergency and serious reports, can be pulled from the server if the need is severe enough.\\n\\nPlease do note that chat filters are still active in private chats as well and while staff doesnt monitor private chats, filter triggers do still alert the moderators, and in cases of severe reports, staff can request the server chats from the operators. For more information refer to the server rules.\n" //
+					+ "\n" //
+					+ "\n" //
 					+ "# The amount of messages to retain in memory during context matching\n" //
 					+ "chat-message-memory-max-length=10\n" //
 					+ "\n" //
@@ -554,7 +834,7 @@ public class Centuria {
 			);
 		}
 		textFilterProperties = new HashMap<String, String>();
-		for (String line : Files.readAllLines(textFilterHistoryConf.toPath())) {
+		for (String line : Files.readAllLines(textFilterConf.toPath())) {
 			if (line.isEmpty() || line.startsWith("#"))
 				continue;
 			String key = line;
@@ -567,18 +847,24 @@ public class Centuria {
 		}
 
 		// Load or generate keys for JWT signatures
-		File publicKey = new File("publickey.pem");
-		File privateKey = new File("privatekey.pem");
+		File publicKey = new File("publickey-di.pem");
+		File privateKey = new File("privatekey-di.pem");
 		if (!publicKey.exists() || !privateKey.exists()) {
 			// Generate new keys
-			KeyPair pair = KeyPairGenerator.getInstance("RSA").generateKeyPair();
+			KeyPairGenerator gen = KeyPairGenerator.getInstance("Dilithium");
+			try {
+				gen.initialize(DilithiumParameterSpec.dilithium5);
+			} catch (InvalidAlgorithmParameterException e) {
+				throw new RuntimeException(e);
+			}
+			KeyPair pair = gen.generateKeyPair();
 
 			// Save keys
 			Files.writeString(publicKey.toPath(), pemEncode(pair.getPublic().getEncoded(), "PUBLIC"));
 			Files.writeString(privateKey.toPath(), pemEncode(pair.getPrivate().getEncoded(), "PRIVATE"));
 		}
 		// Load keys
-		KeyFactory fac = KeyFactory.getInstance("RSA");
+		KeyFactory fac = KeyFactory.getInstance("Dilithium");
 		try {
 			Centuria.privateKey = fac
 					.generatePrivate(new PKCS8EncodedKeySpec(pemDecode(Files.readString(privateKey.toPath()))));
@@ -1037,7 +1323,7 @@ public class Centuria {
 	// Signature generator
 	public static byte[] sign(byte[] data) {
 		try {
-			Signature sig = Signature.getInstance("Sha256WithRSA");
+			Signature sig = Signature.getInstance("Dilithium");
 			sig.initSign(privateKey);
 			sig.update(data);
 			return sig.sign();
@@ -1049,7 +1335,7 @@ public class Centuria {
 	// Signature verification
 	public static boolean verify(byte[] data, byte[] signature) {
 		try {
-			Signature sig = Signature.getInstance("Sha256WithRSA");
+			Signature sig = Signature.getInstance("Dilithium");
 			sig.initVerify(publicKey);
 			sig.update(data);
 			return sig.verify(signature);
@@ -1109,47 +1395,15 @@ public class Centuria {
 	}
 
 	// Updater
-	private static boolean shouldUpdate(String channel) {
-		Centuria.logger.info("Checking for updates...");
+	private static boolean shouldUpdate() {
+		return PolyUpdaterClient.checkForUpdates();
+	}
 
+	private static boolean downloadUpdate(String forcedMessage) throws IOException {
 		try {
-			InputStream updateLog = new URL(Centuria.DOWNLOAD_BASE_URL + "/" + channel + "/update.info").openStream();
-			String update = new String(updateLog.readAllBytes(), "UTF-8").trim();
-			updateLog.close();
-
-			if (!SERVER_UPDATE_VERSION.equals(update)) {
-				// Download the update list
-				Centuria.logger.info("Update available, new version: " + update);
-				Centuria.logger.info("Preparing to update Centuria...");
-				InputStream strm = new URL(Centuria.DOWNLOAD_BASE_URL + "/" + channel + "/" + update + "/update.list")
-						.openStream();
-				String fileList = new String(strm.readAllBytes(), "UTF-8").trim();
-				strm.close();
-
-				// Parse the file list (newline-separated)
-				String downloadList = "";
-				for (String file : fileList.split("\n")) {
-					if (!file.isEmpty()) {
-						downloadList += file + "=" + Centuria.DOWNLOAD_BASE_URL + "/" + channel + "/" + update + "/"
-								+ file + "\n";
-					}
-				}
-
-				// Save the file, copy jar and run the shutdown timer
-				Files.writeString(Path.of("update.list"), downloadList);
-				if (!new File("updater.jar").exists())
-					Files.copy(Path.of("Centuria.jar"), Path.of("updater.jar"));
-
-				// Save new version in memory
-				nextVersion = update;
-
-				// Update available
-				return true;
-			}
-		} catch (IOException e) {
+			return PolyUpdaterClient.downloadUpdates(forceInstallUpdate, forcedMessage);
+		} finally {
+			forceInstallUpdate = false;
 		}
-
-		// No update available
-		return false;
 	}
 }

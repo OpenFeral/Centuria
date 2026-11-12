@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Summer Beach Ball in Lakeroot Valley",
+  "objectName": "SEASON05/Challenge189",
+  "challengeDefID": "27138",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19797",
+      "9687"
+    ],
+    "tags": []
+  }
+}

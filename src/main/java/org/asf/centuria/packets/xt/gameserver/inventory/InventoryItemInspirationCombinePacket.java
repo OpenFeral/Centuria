@@ -64,7 +64,7 @@ public class InventoryItemInspirationCombinePacket implements IXtPacket<Inventor
 			}
 
 			ids = ids.substring(0, ids.length() - 2);
-			System.out.println("[INVENTORY] [UPDATE]  Client to server: Combine Inspirations using ids" + ids);
+			Centuria.logger.debug("[INVENTORY] [UPDATE]  Client to server: Combine Inspirations using ids" + ids);
 		}
 
 		result = plr.account.getSaveSpecificInventory().getInspirationAccessor().combineInspirations(inspirationIds,
@@ -112,7 +112,7 @@ public class InventoryItemInspirationCombinePacket implements IXtPacket<Inventor
 		plr.client.sendPacket(this);
 
 		if (Centuria.debugMode) {
-			System.out.println("[INVENTORY] [UPDATE]  Server to client: " + this.build());
+			Centuria.logger.debug("[INVENTORY] [UPDATE]  Server to client: " + this.build());
 		}
 
 		return true;

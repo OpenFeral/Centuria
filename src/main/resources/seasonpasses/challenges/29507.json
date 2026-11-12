@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the leakage site in City Fera",
+  "objectName": "SEASON06/Challenge108",
+  "challengeDefID": "29507",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "820",
+      "19782"
+    ],
+    "tags": []
+  }
+}

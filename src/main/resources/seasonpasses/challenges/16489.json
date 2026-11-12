@@ -1,0 +1,23 @@
+{
+  "challengeName": "Harvest 20 COMMON Mugmyre Marsh ingredients",
+  "objectName": "SEASON01/Challenge075",
+  "challengeDefID": "16489",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 20
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2147"
+    ],
+    "tags": [
+      "Harvest",
+      "Common"
+    ]
+  }
+}

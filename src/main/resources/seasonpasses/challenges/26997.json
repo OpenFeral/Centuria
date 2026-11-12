@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear a Rare Couture Handbag",
+  "objectName": "SEASON05/Challenge078",
+  "challengeDefID": "26997",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "28721"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind a Bubbling Crack",
+  "objectName": "SEASON02/Challenge164",
+  "challengeDefID": "20130",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "21282"
+    ],
+    "tags": [
+      "Unbind"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie next to the Broken Beast Statue in Mugmyre Marsh",
+  "objectName": "SEASON04/Challenge136",
+  "challengeDefID": "24975",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2147",
+      "19800"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind 2 COOL Dyes",
+  "objectName": "SEASON05/Challenge140",
+  "challengeDefID": "27079",
+  "auraPointsReward": 15,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [],
+    "tags": [
+      "Uncommon",
+      "Dye",
+      "Unbind"
+    ]
+  }
+}

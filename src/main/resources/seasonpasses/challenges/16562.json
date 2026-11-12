@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the Hot Springs in City Fera",
+  "objectName": "SEASON01/Challenge147",
+  "challengeDefID": "16562",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19781",
+      "820"
+    ],
+    "tags": []
+  }
+}

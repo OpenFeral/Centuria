@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at the Fishing Gear in Shattered Bay",
+  "objectName": "SEASON02/Challenge203",
+  "challengeDefID": "20184",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19784",
+      "1825",
+      "26892"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Radiant Shelf",
+  "objectName": "SEASON04/Challenge024",
+  "challengeDefID": "24859",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "4587"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

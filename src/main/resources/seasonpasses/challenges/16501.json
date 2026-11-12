@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Flex\" Emote next to the Rare Bioluminescent Mushroom Patch in Sporesville",
+  "objectName": "SEASON01/Challenge087",
+  "challengeDefID": "16501",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9151",
+      "2147",
+      "19806"
+    ],
+    "tags": []
+  }
+}

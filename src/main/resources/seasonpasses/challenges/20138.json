@@ -1,0 +1,22 @@
+{
+  "challengeName": "Unbind an Autumn Window",
+  "objectName": "SEASON02/Challenge172",
+  "challengeDefID": "20138",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "LoseItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "21205"
+    ],
+    "tags": [
+      "Unbind"
+    ]
+  }
+}

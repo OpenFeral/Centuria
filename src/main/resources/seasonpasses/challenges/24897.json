@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie next to the Thicket Explorer Set in the Sunken Thicket",
+  "objectName": "SEASON04/Challenge059",
+  "challengeDefID": "24897",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23153",
+      "3273"
+    ],
+    "tags": []
+  }
+}

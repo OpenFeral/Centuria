@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Rare Barbed Tail Chain",
+  "objectName": "SEASON06/Challenge160",
+  "challengeDefID": "29572",
+  "auraPointsReward": 22,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9493"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

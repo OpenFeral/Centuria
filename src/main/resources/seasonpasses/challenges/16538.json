@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote at Bellamy\u0027s Outpost",
+  "objectName": "SEASON01/Challenge123",
+  "challengeDefID": "16538",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3273",
+      "26892",
+      "23153"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

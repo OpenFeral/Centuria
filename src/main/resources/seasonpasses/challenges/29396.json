@@ -1,0 +1,24 @@
+{
+  "challengeName": "Perform any Emote on the Centuria Stage in the Shattered Bay",
+  "objectName": "SEASON06/Challenge005",
+  "challengeDefID": "29396",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "26892",
+      "1825",
+      "19814"
+    ],
+    "tags": [
+      "List"
+    ]
+  }
+}

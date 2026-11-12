@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Peachburst clothing set in Lakeroot Valley",
+  "objectName": "SEASON05/Challenge077",
+  "challengeDefID": "26995",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19792",
+      "9687"
+    ],
+    "tags": []
+  }
+}

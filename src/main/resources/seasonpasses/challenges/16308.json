@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Boxing Belt",
+  "objectName": "SEASON01/Challenge012",
+  "challengeDefID": "16308",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "30616"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

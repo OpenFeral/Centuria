@@ -1,0 +1,20 @@
+{
+  "challengeName": "Talk to Miss Marguerite",
+  "objectName": "SEASON01/Challenge116",
+  "challengeDefID": "16531",
+  "auraPointsReward": 10,
+  "script": {
+    "actions": [
+      {
+        "action": "Talk",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3796"
+    ],
+    "tags": []
+  }
+}

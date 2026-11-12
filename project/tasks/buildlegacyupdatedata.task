@@ -1,0 +1,63 @@
+#!/bin/bash
+
+function buildlegacyupdatedata_define() {
+    requireTask buildserver
+    addTaskTo buildupdatedata
+}
+
+function buildlegacyupdatedata_run() {
+    # Set fields
+    echo Loading version info...
+    local version="$LOCALPROJECTVERSION"
+    local channel="${PROPERTIES["legacyCenturiaUpdateChannel"]}"
+    
+    # Current channel
+    echo ">>> Preparing..."
+    rm -rf $BASEBUILDDIR/rawpackages/updatedatalegacy
+    rm -rf $BASEBUILDDIR/updatelegacy
+    echo ">>> "
+    echo ">>> Centuria Update Builder"
+    echo ">>> Version: $version"
+    echo ">>> Version type: $channel"
+    echo ">>> "
+
+    echo ">>> Copying data..."
+    copyUpdateData "$version" alpha
+    copyUpdateData "$version" beta
+
+    echo ">>> "
+    echo ">>> Build completed."
+}
+
+function copyUpdateData() {
+	local version="$1"
+	local channel="$2"
+	
+	# Create directory
+    mkdir -p "$BASEBUILDDIR/rawpackages/updatedatalegacy/$channel" || exit 1
+	
+	# Copy files
+	function copyData() {
+		for file in $1/* ; do
+			pref=$2
+			targetf="${file:${#pref}}"
+			if [ -f "$file" ]; then
+				dir="$(dirname "$BASEBUILDDIR/rawpackages/updatedatalegacy/$channel/${version}/${targetf}")"
+				if [ ! -d "$dir" ]; then
+					mkdir -p "$dir" || exit 1
+				fi
+				cp -rfv "$file" "$BASEBUILDDIR/rawpackages/updatedatalegacy/$channel/${version}/${targetf}" | sed "s/^/>>> /g" | sed "s/^>>> >>>/>>>>>/g"  | sed "s/^>>> >>/>>>/g" | sed "s/^>>> >/>>>/g"
+			fi
+			if [ "$?" != "0" ]; then
+				echo Build failure!
+				exit 1
+			fi
+			if [ -d "$file" ]; then
+				copyData "$file" "$2"
+			fi
+		done
+	}
+	
+	copyData build/gradleout/updatedatalegacy "build/gradleout/updatedatalegacy/"
+	echo -n "$version" > "$BASEBUILDDIR/rawpackages/updatedatalegacy/$channel/update.info"
+}

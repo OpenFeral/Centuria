@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft a Fera Armchair",
+  "objectName": "SEASON05/Challenge057",
+  "challengeDefID": "26947",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "4121"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

@@ -4,14 +4,19 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.TimeZone;
+import java.util.UUID;
 
 import org.asf.centuria.Centuria;
 import org.asf.centuria.accounts.AccountManager;
 import org.asf.centuria.accounts.CenturiaAccount;
 import org.asf.centuria.dms.DMManager;
+import org.asf.centuria.dms.PrivateChatMessage;
 import org.asf.centuria.entities.players.Player;
 import org.asf.centuria.modules.eventbus.EventBus;
 import org.asf.centuria.modules.events.chat.ChatLoginEvent;
@@ -297,6 +302,10 @@ public class ChatClient extends BasePersistentServiceClient<ChatClient, ChatServ
 			if (toRemove.size() != 0)
 				acc.getSaveSharedInventory().setItem("dms", dms);
 		}
+
+		// FIXME: load modules
+		// FIXME: update gcs module to load at the right time
+
 		// Send success
 		JsonObject res = new JsonObject();
 		res.addProperty("eventId", "sessions.start");
@@ -361,12 +370,16 @@ public class ChatClient extends BasePersistentServiceClient<ChatClient, ChatServ
 		boolean left = false;
 		String oldType = null;
 		synchronized (rooms) {
+			ChatRoom roomInstance = null;
 			if (rooms.containsKey(room)) {
-				oldType = rooms.get(room).getType();
+				roomInstance = rooms.get(room);
+				oldType = roomInstance.getType();
 				rooms.remove(room);
 				localRooms.remove(room);
 				left = true;
 			}
+			if (roomInstance != null)
+				leftRoom(roomInstance);
 			getServer().leaveRoom(room);
 		}
 		if (left && !oldType.equals(ChatRoomTypes.PRIVATE_CHAT)) {
@@ -411,6 +424,7 @@ public class ChatClient extends BasePersistentServiceClient<ChatClient, ChatServ
 				localRooms.put(room, localRoom);
 				rooms.put(room, roomInstance);
 				joined = true;
+				joinedRoom(roomInstance);
 				SendMessage.joinedRoom(this, roomInstance);
 			}
 		}
@@ -439,6 +453,34 @@ public class ChatClient extends BasePersistentServiceClient<ChatClient, ChatServ
 				client.sendPacket(response);
 			}
 		}
+	}
+
+	private void joinedRoom(ChatRoom roomInstance) {
+		// Send welcome if needed
+		String welcomeDm = Centuria.textFilterProperties.getOrDefault("private-chat-notice",
+				"Welcome to direct messages! Keep in mind that while staff doesn't actively monitor these, this is still a 13+ space and there are players as young as 13, so we ask to try to keep your private chats safe and respectful as well. As this is a game with a lot of minors, these are not encrypted, and while not monitored, in cases of emergency and serious reports, can be pulled from the server if the need is severe enough.\\n\\nPlease do note that chat filters are still active in private chats as well and while staff doesnt monitor private chats, filter triggers do still alert the moderators, and in cases of severe reports, staff can request the server chats from the operators. For more information refer to the server rules.")
+				.replace("\\n", "\n");
+		if (roomInstance.getType().equalsIgnoreCase(ChatRoomTypes.PRIVATE_CHAT)) {
+			// Check state
+			DMManager manager = DMManager.getInstance();
+			if (!manager.hasSentWelcome(roomInstance.getRoomID()) && manager.dmExists(roomInstance.getRoomID())) {
+				// Write message
+				SimpleDateFormat fmt = new SimpleDateFormat("yyyy'-'MM'-'dd'T'HH':'mm':'ssXXX");
+				fmt.setTimeZone(TimeZone.getTimeZone("UTC"));
+				PrivateChatMessage msg = new PrivateChatMessage();
+				msg.content = welcomeDm;
+				msg.source = new UUID(0, 0).toString();
+				msg.sentAt = fmt.format(new Date());
+				manager.saveDMMessge(roomInstance.getRoomID(), msg);
+
+				// Set state
+				manager.setSentWelcome(roomInstance.getRoomID(), true);
+			}
+		}
+	}
+
+	private void leftRoom(ChatRoom roomInstance) {
+		// TODO Auto-generated method stub
 	}
 
 	/**

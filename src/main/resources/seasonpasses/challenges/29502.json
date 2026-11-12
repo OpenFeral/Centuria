@@ -1,0 +1,22 @@
+{
+  "challengeName": "Harvest 5 Coagulated Sap",
+  "objectName": "SEASON06/Challenge103",
+  "challengeDefID": "29502",
+  "auraPointsReward": 16,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 5
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "7607"
+    ],
+    "tags": [
+      "Harvest"
+    ]
+  }
+}

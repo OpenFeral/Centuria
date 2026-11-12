@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Sit\" Emote next to the Adventure Spear in Ogasa Village in Lakeroot Valley",
+  "objectName": "SEASON04/Challenge199",
+  "challengeDefID": "25041",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9116",
+      "19793",
+      "9687"
+    ],
+    "tags": []
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "challengeName": "Wear Rare Woodland Tail Bells",
+  "objectName": "SEASON04/Challenge015",
+  "challengeDefID": "24847",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "Equip",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "15918"
+    ],
+    "tags": []
+  }
+}

@@ -25,12 +25,6 @@ public interface IXtPacket<T extends IXtPacket<T>> extends ISmartfoxPacket {
 	public default boolean parse(String content) throws IOException {
 		if (!content.startsWith("%xt%"))
 			return false;
-		
-		//if (Centuria.debugMode) {
-			//System.out.println("client to server: " + content);
-		//}
-				
-		
 		XtReader rd = new XtReader(content);
 		String packetID = rd.read();
 		if (!packetID.equals(id()))

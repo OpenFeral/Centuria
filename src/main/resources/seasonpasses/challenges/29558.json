@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Lucky Kobold in Lakeroot Valley",
+  "objectName": "SEASON06/Challenge146",
+  "challengeDefID": "29558",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9687",
+      "23161"
+    ],
+    "tags": []
+  }
+}

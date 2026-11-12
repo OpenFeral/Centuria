@@ -15,6 +15,7 @@ import org.asf.centuria.networking.chatserver.networking.SendMessage;
 import org.asf.centuria.networking.gameserver.GameServer;
 import org.asf.centuria.networking.smartfox.SmartfoxClient;
 import org.asf.centuria.packets.xt.IXtPacket;
+import org.asf.centuria.social.SocialManager;
 
 import com.google.gson.JsonObject;
 
@@ -55,68 +56,68 @@ public class ObjectUpdatePacket implements IXtPacket<ObjectUpdatePacket> {
 
 		// Check mode
 		switch (mode) {
-		case 0:
-			// Initial
-		case 2: {
-			// Move
-			// Same as initial
+			case 0:
+				// Initial
+			case 2: {
+				// Move
+				// Same as initial
 
-			// Read position
-			position.x = reader.readDouble();
-			position.y = reader.readDouble();
-			position.z = reader.readDouble();
+				// Read position
+				position.x = reader.readDouble();
+				position.y = reader.readDouble();
+				position.z = reader.readDouble();
 
-			// Read heading
-			heading.x = reader.readDouble();
-			heading.y = reader.readDouble();
-			heading.z = reader.readDouble();
+				// Read heading
+				heading.x = reader.readDouble();
+				heading.y = reader.readDouble();
+				heading.z = reader.readDouble();
 
-			// Read rotation
-			rotation.x = reader.readDouble();
-			rotation.y = reader.readDouble();
-			rotation.z = reader.readDouble();
-			rotation.w = reader.readDouble();
+				// Read rotation
+				rotation.x = reader.readDouble();
+				rotation.y = reader.readDouble();
+				rotation.z = reader.readDouble();
+				rotation.w = reader.readDouble();
 
-			// Read speed
-			speed = reader.readFloat();
-			break;
-		}
-		case 4: {
-			// Action
-
-			// Read position
-			position.x = reader.readDouble();
-			position.y = reader.readDouble();
-			position.z = reader.readDouble();
-
-			// Read heading
-			heading.x = reader.readDouble();
-			heading.y = reader.readDouble();
-			heading.z = reader.readDouble();
-
-			// Read rotation
-			rotation.x = reader.readDouble();
-			rotation.y = reader.readDouble();
-			rotation.z = reader.readDouble();
-			rotation.w = reader.readDouble();
-
-			// Read speed
-			speed = reader.readFloat();
-
-			// Read action
-			action = reader.readInt();
-			break;
-		}
-		case 5: {
-			// TP
-			targetUUID = reader.read();
-			break;
-		}
-		default:
-			// Print out world object update call..
-			if (Centuria.debugMode) {
-				System.out.println("[OBJECTS] [OU] Unhandled Mode " + mode + ": " + reader.readRemaining());
+				// Read speed
+				speed = reader.readFloat();
+				break;
 			}
+			case 4: {
+				// Action
+
+				// Read position
+				position.x = reader.readDouble();
+				position.y = reader.readDouble();
+				position.z = reader.readDouble();
+
+				// Read heading
+				heading.x = reader.readDouble();
+				heading.y = reader.readDouble();
+				heading.z = reader.readDouble();
+
+				// Read rotation
+				rotation.x = reader.readDouble();
+				rotation.y = reader.readDouble();
+				rotation.z = reader.readDouble();
+				rotation.w = reader.readDouble();
+
+				// Read speed
+				speed = reader.readFloat();
+
+				// Read action
+				action = reader.readInt();
+				break;
+			}
+			case 5: {
+				// TP
+				targetUUID = reader.read();
+				break;
+			}
+			default:
+				// Print out world object update call..
+				if (Centuria.debugMode) {
+					Centuria.logger.debug("[OBJECTS] [OU] Unhandled Mode " + mode + ": " + reader.readRemaining());
+				}
 		}
 
 	}
@@ -202,18 +203,29 @@ public class ObjectUpdatePacket implements IXtPacket<ObjectUpdatePacket> {
 			// First attempt to find a player with the ID
 			for (Player player : ((GameServer) client.getServer()).getPlayers()) {
 				if (player.account.getAccountID().equals(targetUUID)) {
-					// Load coordinates
-					success = true;
-					position.x = player.lastPos.x;
-					position.y = player.lastPos.y;
-					position.z = player.lastPos.z;
-					rotation.w = player.lastRot.w;
-					rotation.x = player.lastRot.x;
-					rotation.y = player.lastRot.y;
-					rotation.z = player.lastRot.z;
-					break;
+					// Check social system
+					if (player.roomReady && player.levelType != 1
+							&& (!SocialManager.getInstance().socialListExists(targetUUID) || !SocialManager
+									.getInstance().getPlayerIsBlocked(targetUUID, plr.account.getAccountID())
+									|| (player.overrideTpLocks && player.hasModPerms))) {
+						// Mark success
+						success = true;
+
+						// Load coordinates
+						position.x = player.lastPos.x;
+						position.y = player.lastPos.y;
+						position.z = player.lastPos.z;
+						rotation.w = player.lastRot.w;
+						rotation.x = player.lastRot.x;
+						rotation.y = player.lastRot.y;
+						rotation.z = player.lastRot.z;
+						break;
+					}
 				}
 			}
+
+			// FIXME: support teleporter pads / destinations
+			// FIXME: make sure the client doesnt break with these
 
 			// Cancel if not found
 			if (!success)

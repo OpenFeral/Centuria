@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie next to the Mystic Gambler Set in the Sunken Thicket",
+  "objectName": "SEASON04/Challenge107",
+  "challengeDefID": "24946",
+  "auraPointsReward": 12,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "24575",
+      "3273"
+    ],
+    "tags": []
+  }
+}

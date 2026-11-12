@@ -1,0 +1,23 @@
+{
+  "challengeName": "Craft 1 Voyager Set Clothing Item",
+  "objectName": "TEST3/CraftList",
+  "challengeDefID": "23072",
+  "auraPointsReward": 5,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23057"
+    ],
+    "tags": [
+      "Craft",
+      "List"
+    ]
+  }
+}

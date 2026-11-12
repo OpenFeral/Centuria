@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the leakage site in Mugmyre Marsh",
+  "objectName": "SEASON06/Challenge188",
+  "challengeDefID": "29601",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "2147",
+      "19806"
+    ],
+    "tags": []
+  }
+}

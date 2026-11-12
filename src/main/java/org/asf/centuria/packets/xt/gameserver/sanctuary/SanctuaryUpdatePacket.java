@@ -77,7 +77,7 @@ public class SanctuaryUpdatePacket implements IXtPacket<SanctuaryUpdatePacket> {
 		// Log
 		if (Centuria.debugMode) {
 			if (numOfAdditions > 0) {
-				System.out.println(
+				Centuria.logger.debug(
 						"[SANCTUARY] [UPDATE] Client to server: " + numOfAdditions + " furniture additions...");
 			}
 		}
@@ -105,7 +105,7 @@ public class SanctuaryUpdatePacket implements IXtPacket<SanctuaryUpdatePacket> {
 		// Log
 		if (Centuria.debugMode) {
 			if (numOfRoomChanges > 0) {
-				System.out.println("[SANCTUARY] [UPDATE] Client to server: " + numOfRoomChanges + " room updates...");
+				Centuria.logger.debug("[SANCTUARY] [UPDATE] Client to server: " + numOfRoomChanges + " room updates...");
 			}
 		}
 	}
@@ -216,7 +216,7 @@ public class SanctuaryUpdatePacket implements IXtPacket<SanctuaryUpdatePacket> {
 
 							// Log
 							if (Centuria.debugMode) {
-								System.out.println(
+								Centuria.logger.debug(
 										"[SANCTUARY] [UPDATE] Server to client: load object (" + packet.build() + ")");
 							}
 						}
@@ -246,7 +246,7 @@ public class SanctuaryUpdatePacket implements IXtPacket<SanctuaryUpdatePacket> {
 
 						// Log
 						if (Centuria.debugMode) {
-							System.out.println("[SANCTUARY] [UPDATE] Server to client: Delete object (" + pk + ")");
+							Centuria.logger.debug("[SANCTUARY] [UPDATE] Server to client: Delete object (" + pk + ")");
 						}
 					}
 				}
@@ -287,7 +287,7 @@ public class SanctuaryUpdatePacket implements IXtPacket<SanctuaryUpdatePacket> {
 
 						// Log
 						if (Centuria.debugMode) {
-							System.out.println(
+							Centuria.logger.debug(
 									"[SANCTUARY] [UPDATE] Server to client: update house (" + packet.build() + ")");
 						}
 

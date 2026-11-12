@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie outside of Latchkey\u0027s Lab in the Sunken Thicket",
+  "objectName": "SEASON03/Challenge059",
+  "challengeDefID": "23265",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "3273",
+      "19820"
+    ],
+    "tags": []
+  }
+}

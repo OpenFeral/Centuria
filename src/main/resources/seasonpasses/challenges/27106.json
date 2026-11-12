@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Kiteray Kite in Lakeroot Valley",
+  "objectName": "SEASON05/Challenge162",
+  "challengeDefID": "27106",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "9687",
+      "19790"
+    ],
+    "tags": []
+  }
+}

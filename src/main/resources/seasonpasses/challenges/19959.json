@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft an Emerald Revenge Amulet",
+  "objectName": "SEASON02/Challenge038",
+  "challengeDefID": "19959",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19668"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

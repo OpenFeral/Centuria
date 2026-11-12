@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie at the Fishing Gear in Shattered Bay",
+  "objectName": "SEASON02/Challenge116",
+  "challengeDefID": "20079",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "1825",
+      "19784"
+    ],
+    "tags": []
+  }
+}

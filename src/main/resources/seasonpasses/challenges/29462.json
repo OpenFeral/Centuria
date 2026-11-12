@@ -1,0 +1,22 @@
+{
+  "challengeName": "Perform the \"Excite\" Emote next to the Andrulian Plushie in Fera Fashions",
+  "objectName": "SEASON06/Challenge063",
+  "challengeDefID": "29462",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "PerformAction",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19785",
+      "9122",
+      "1716"
+    ],
+    "tags": []
+  }
+}

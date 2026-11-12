@@ -1,0 +1,22 @@
+{
+  "challengeName": "Craft an Origami Creature",
+  "objectName": "SEASON04/Challenge092",
+  "challengeDefID": "24930",
+  "auraPointsReward": 18,
+  "script": {
+    "actions": [
+      {
+        "action": "GainItem",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23102"
+    ],
+    "tags": [
+      "Craft"
+    ]
+  }
+}

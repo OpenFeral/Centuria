@@ -1,0 +1,25 @@
+{
+  "challengeName": "Visit Centuria",
+  "objectName": "TEST2/Challenge_Earn20PointsFromDoOrDyeLevel3",
+  "challengeDefID": "19204",
+  "auraPointsReward": 5,
+  "script": {
+    "actions": [
+      {
+        "action": "Score",
+        "comparison": "GreaterThanOrEqual",
+        "value": 20
+      },
+      {
+        "action": "Level",
+        "comparison": "Equals",
+        "value": 2
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "5054"
+    ],
+    "tags": []
+  }
+}

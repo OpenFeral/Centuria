@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Twiggle Hut in Mugmyre Marsh",
+  "objectName": "SEASON03/Challenge171",
+  "challengeDefID": "23419",
+  "auraPointsReward": 11,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19805",
+      "2147"
+    ],
+    "tags": []
+  }
+}

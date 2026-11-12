@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie next to the Rare Bioluminescent Mushroom Patch in Sporeville",
+  "objectName": "SEASON01/Challenge117",
+  "challengeDefID": "16532",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "19806",
+      "2147"
+    ],
+    "tags": []
+  }
+}

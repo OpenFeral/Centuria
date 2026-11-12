@@ -1,0 +1,21 @@
+{
+  "challengeName": "Take a Selfie with the Twigla Plushie in Twigla\u0027s Workshop",
+  "objectName": "SEASON06/Challenge048",
+  "challengeDefID": "29447",
+  "auraPointsReward": 14,
+  "script": {
+    "actions": [
+      {
+        "action": "SelfieShot",
+        "comparison": "GreaterThanOrEqual",
+        "value": 1
+      }
+    ],
+    "operation": "Increment",
+    "defs": [
+      "23232",
+      "2619"
+    ],
+    "tags": []
+  }
+}
