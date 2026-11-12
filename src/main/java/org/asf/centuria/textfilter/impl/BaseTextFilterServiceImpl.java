@@ -31,7 +31,7 @@ public abstract class BaseTextFilterServiceImpl extends TextFilterService {
 	@Override
 	public void initService() {
 		// Load
-		LogManager.getLogger().info("Initializing service...");
+		LogManager.getLogger().info("Initializing textfilter service... Loading filters...");
 		loadFilters();
 	}
 
