@@ -309,7 +309,7 @@ public class PolyUpdaterClient {
 	 */
 	public static boolean checkForUpdates() {
 		if (!inited)
-			throw new IllegalStateException("Updater not initialized");
+			return false;
 
 		// Log
 		logger.info("Checking for updates...");
@@ -826,7 +826,7 @@ public class PolyUpdaterClient {
 	 */
 	public static boolean downloadUpdates(boolean forced, String forcedGuideMessage) throws IOException {
 		if (!inited)
-			throw new IllegalStateException("Updater not initialized");
+			return false;
 
 		// Check
 		if (!wereUpdatesAvailable && !checkForUpdates())
@@ -913,8 +913,7 @@ public class PolyUpdaterClient {
 							knownArtifacts.put(col.getId(), artifacts.toArray(t -> new SupportArtifact[t]));
 					} catch (Exception e) {
 						logger.error(
-								"Could not process artifacts if " + col.getId() + ", an unexpected error occurred!",
-								e);
+								"Could not process artifacts if " + col.getId() + ", an unexpected error occurred!", e);
 					}
 				}
 			}
@@ -952,12 +951,10 @@ public class PolyUpdaterClient {
 			// Log
 			if (col.isInstalledLocally()) {
 				if (collectionsToReinstall.contains(col.getId()) && !col.hasUpdateAvailable())
-					logger.info(
-							"Will update " + col.getId() + ": " + col.getCurrentVersion());
+					logger.info("Will update " + col.getId() + ": " + col.getCurrentVersion());
 				else
-					logger.info(
-							"Will update " + col.getId() + ": " + col.getCurrentVersion() + " -> "
-									+ col.getNewVersion());
+					logger.info("Will update " + col.getId() + ": " + col.getCurrentVersion() + " -> "
+							+ col.getNewVersion());
 			} else
 				logger.info("Will install " + col.getId() + ": " + col.getNewVersion());
 		}
@@ -1072,11 +1069,33 @@ public class PolyUpdaterClient {
 				String upstreamHash = source.hashList.get(name);
 				switch (entry.type) {
 
-					case PAYLOAD:
-					case JSONMERGER: {
+				case PAYLOAD:
+				case JSONMERGER: {
+					// Check change
+					String localHash = localHashes.get(name);
+					if (localHash == null || !localHash.equals(upstreamHash) || newlyIntroduced) {
+						// Add
+						if (!filesToInstall.containsKey(name)) {
+							logger.debug("Added: " + name);
+							filesToInstall.put(name, upstreamHash);
+							if (currentlyDownloaded.containsKey(name))
+								currentlyDownloaded.remove(name);
+						}
+					} else {
+						logger.debug("Unchanged: " + name);
+					}
+					break;
+				}
+
+				case SKEL: {
+					// Check if the file exists
+					String installedLocalHash = installedFileHashes.get(name);
+					String expectedLocalHash = localHashes.get(name);
+					if (!downloadTarget.exists() || (installedLocalHash != null
+							&& installedLocalHash.equals(expectedLocalHash) && previouslyInstalledFiles.contains(name))
+							|| newlyIntroduced) {
 						// Check change
-						String localHash = localHashes.get(name);
-						if (localHash == null || !localHash.equals(upstreamHash) || newlyIntroduced) {
+						if (expectedLocalHash == null || !expectedLocalHash.equals(upstreamHash)) {
 							// Add
 							if (!filesToInstall.containsKey(name)) {
 								logger.debug("Added: " + name);
@@ -1087,32 +1106,9 @@ public class PolyUpdaterClient {
 						} else {
 							logger.debug("Unchanged: " + name);
 						}
-						break;
 					}
-
-					case SKEL: {
-						// Check if the file exists
-						String installedLocalHash = installedFileHashes.get(name);
-						String expectedLocalHash = localHashes.get(name);
-						if (!downloadTarget.exists()
-								|| (installedLocalHash != null && installedLocalHash.equals(expectedLocalHash)
-										&& previouslyInstalledFiles.contains(name))
-								|| newlyIntroduced) {
-							// Check change
-							if (expectedLocalHash == null || !expectedLocalHash.equals(upstreamHash)) {
-								// Add
-								if (!filesToInstall.containsKey(name)) {
-									logger.debug("Added: " + name);
-									filesToInstall.put(name, upstreamHash);
-									if (currentlyDownloaded.containsKey(name))
-										currentlyDownloaded.remove(name);
-								}
-							} else {
-								logger.debug("Unchanged: " + name);
-							}
-						}
-						break;
-					}
+					break;
+				}
 
 				}
 			}

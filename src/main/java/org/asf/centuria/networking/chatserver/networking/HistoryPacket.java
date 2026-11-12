@@ -134,7 +134,7 @@ public class HistoryPacket extends AbstractChatPacket {
 
 				// Get message
 				String welcomePublic = Centuria.textFilterProperties.getOrDefault("public-chat-notice",
-						"Welcome to the public chat! Please keep in mind that these chats are monitored by the server moderators. As Fer.al is host to a playerbase of players as young as 13, there are chat filters present on the server, however in most circumstances you will not encounter these, we try to keep them relatively relaxed. Check the server rules for more information, and Welcome to Fer.al!")
+						"Welcome to the public chat! Please keep in mind that these chats are monitored by the server moderators. As Fer.al is host to a playerbase of players as young as 13, there are chat filters present on the server, however we try to keep them relatively relaxed. Check the server rules for more information, and Welcome to Fer.al!")
 						.replace("\\n", "\n");
 
 				// Build message object

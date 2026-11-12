@@ -458,7 +458,7 @@ public class ChatClient extends BasePersistentServiceClient<ChatClient, ChatServ
 	private void joinedRoom(ChatRoom roomInstance) {
 		// Send welcome if needed
 		String welcomeDm = Centuria.textFilterProperties.getOrDefault("private-chat-notice",
-				"Welcome to direct messages! Keep in mind that while staff doesn't actively monitor these, this is still a 13+ space and there are players as young as 13, so we ask to try to keep your private chats safe and respectful. As this is a game with a lot of minors, these are not encrypted, and while not actively monitored, in cases of emergency and serious reports, can be pulled from the server if the need is severe enough.\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\nPlease do note that chat filters are still active in private chats as well and while staff doesnt monitor private chats, filter triggers do still alert the moderators, and in cases of severe reports, staff can request the server chats from the operators. For more information refer to the server rules.")
+				"Welcome to direct messages! Keep in mind that while staff doesn't actively monitor these, considering our 13+ playerbase, chats are not encrypted and chat filters are still active in private chats, and filter triggers do still alert the moderators.\\n\\nThis is out of user safety concerns only, we do not monitor these chats actively, and they are in normal circumstances inaccesssible. In cases of severe reports, staff can request the server chats from the operators. For more information refer to the server rules.")
 				.replace("\\n", "\n");
 		if (roomInstance.getType().equalsIgnoreCase(ChatRoomTypes.PRIVATE_CHAT)) {
 			// Check state
