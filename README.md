@@ -3,6 +3,8 @@
 # Centuria
 Centuria is a work-in-progress server emulator for the now-defunct MMORPG Fer.al. Developed by a group of developers from the Fer.ever project, Centuria is a fan-run server designed to bring back the MMO game that recently shut down.
 
+Please keep in mind this readme is outdated.
+
 # Building Centuria
 To build Centuria you will need to have Java 17 JDK installed. Centuria is build using gradle. 
 
