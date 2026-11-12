@@ -1102,7 +1102,7 @@ public class SendMessage extends AbstractChatPacket {
 				res = new SendMessage();
 				res.roomType = roomInstance.getType();
 				res.room = room;
-				res.message = "</noparse><color=red>[!] </color><color=orange><noparse>" + message
+				res.message = "</noparse><color=red>[-] </color><color=orange><noparse>" + message
 						+ "</noparse></color><noparse>";
 				res.messagePlain = "[!] " + message;
 				res.originalMessage = message;
@@ -1164,7 +1164,7 @@ public class SendMessage extends AbstractChatPacket {
 					res = new SendMessage();
 					res.roomType = roomInstance.getType();
 					res.room = room;
-					res.message = "</noparse><color=red>[!] </color><color=orange><noparse>" + message
+					res.message = "</noparse><color=red>[-] </color><color=orange><noparse>" + message
 							+ "</noparse></color><noparse>";
 					res.messagePlain = "[!] " + message;
 					res.originalMessage = message;
@@ -1298,7 +1298,7 @@ public class SendMessage extends AbstractChatPacket {
 				res = new SendMessage();
 				res.roomType = roomInstance.getType();
 				res.room = room;
-				res.message = "</noparse><color=red>[!] </color><color=orange><noparse>" + message
+				res.message = "</noparse><color=red>[-] </color><color=orange><noparse>" + message
 						+ "</noparse></color><noparse>";
 				res.messagePlain = "[!] " + message;
 				res.originalMessage = message;
@@ -1461,9 +1461,9 @@ public class SendMessage extends AbstractChatPacket {
 				res = new SendMessage();
 				res.roomType = roomInstance.getType();
 				res.room = room;
-				res.message = "</noparse><color=red>[!] </color><color=orange><noparse>"
+				res.message = "</noparse><color=red>[-] </color><color=orange><noparse>"
 						+ selectedFilterResult.getFilterResult() + "</noparse></color><noparse>";
-				res.messageHighlighted = "</noparse><color=red>[!] </color><color=orange><noparse>" + highlightedMessage
+				res.messageHighlighted = "</noparse><color=red>[-] </color><color=orange><noparse>" + highlightedMessage
 						+ "</noparse></color><noparse>";
 				res.messagePartsWriter = selectedFilterResult.getTextParts();
 				res.filterResultWriter = selectedFilterResult;
@@ -1649,9 +1649,9 @@ public class SendMessage extends AbstractChatPacket {
 					res = new SendMessage();
 					res.roomType = roomInstance.getType();
 					res.room = room;
-					res.message = "</noparse><color=red>[!] </color><color=orange><noparse>"
+					res.message = "</noparse><color=red>[-] </color><color=orange><noparse>"
 							+ filterResultDefaultOrig.getFilterResult() + "</noparse></color><noparse>";
-					res.messageHighlighted = "</noparse><color=red>[!] </color><color=orange><noparse>"
+					res.messageHighlighted = "</noparse><color=red>[-] </color><color=orange><noparse>"
 							+ highlightedMessage + "</noparse></color><noparse>";
 					res.messagePartsWriter = filterResultDefaultOrig.getTextParts();
 					res.filterResultWriter = filterResultDefaultOrig;
@@ -1755,7 +1755,7 @@ public class SendMessage extends AbstractChatPacket {
 					res = new SendMessage();
 					res.roomType = roomInstance.getType();
 					res.room = room;
-					res.message = "</noparse><color=red>[!] </color><color=orange><noparse>" + message
+					res.message = "</noparse><color=red>[-] </color><color=orange><noparse>" + message
 							+ "</noparse></color><noparse>";
 					res.messagePlain = "[!] " + message;
 					res.originalMessage = message;
