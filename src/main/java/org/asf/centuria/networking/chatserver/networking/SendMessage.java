@@ -422,7 +422,34 @@ public class SendMessage extends AbstractChatPacket {
 			lastFlagAutoactivate = 0;
 			flagCountAutoactivate = 0;
 
-			if (!reenabledChat) { // Time format
+			// Reenable chat
+			if (chatDisabled) {
+				chatDisabled = false;
+				renableChatAter = -1;
+				flagCountChatdisable = 0;
+				flagCountChatdisableSecondary = 0;
+				lastFlagChatdisable = System.currentTimeMillis();
+				lastFlagChatdisableSecondary = System.currentTimeMillis();
+
+				// Moderation log
+				if (roomInst.getType().equalsIgnoreCase(ChatRoomTypes.PRIVATE_CHAT)) {
+					EventBus.getInstance()
+							.dispatchEvent(new MiscModerationEvent("chatfilter.mute",
+									"Chat has been re-enabled in room " + formatRoomName(null, roomInst),
+									Map.of("Private chat room", formatRoomName(null, roomInst), "Room",
+											roomInst.getRoomID(), "Resulting action", "chat re-enabled"),
+									"SYSTEM", null));
+				} else {
+					EventBus.getInstance()
+							.dispatchEvent(new MiscModerationEvent("chatfilter.mute",
+									"Chat has been re-enabled in room " + formatRoomName(null, roomInst), Map.of("Room",
+											formatRoomName(null, roomInst), "Resulting action", "chat re-enabled"),
+									"SYSTEM", null));
+				}
+			}
+
+			if (!reenabledChat) {
+				// Time format
 				SimpleDateFormat fmt = new SimpleDateFormat("yyyy'-'MM'-'dd'T'HH':'mm':'ssXXX");
 				fmt.setTimeZone(TimeZone.getTimeZone("UTC"));
 
@@ -468,6 +495,7 @@ public class SendMessage extends AbstractChatPacket {
 		}
 
 		// Check moderator perms
+		boolean reenabledChat = false;
 		String permLevel = "member";
 		if (client.getPlayer().getSaveSharedInventory().containsItem("permissions")) {
 			permLevel = client.getPlayer().getSaveSharedInventory().getItem("permissions").getAsJsonObject()
@@ -482,6 +510,31 @@ public class SendMessage extends AbstractChatPacket {
 			// Reactivate chat if needed
 			if (flags.chatDisabled) {
 				flags.enableChat(client.getServer());
+				reenabledChat = true;
+			}
+		}
+
+		// Deactivate heightened sensitivity if needed
+		if (flags.active && !flags.chatDisabled && flags.wasAutoactivate && heightenedSensitivityDeactivateTimer != -1
+				&& System.currentTimeMillis() >= flags.disableAfter) {
+			// Disable
+			flags.deactivateHeightenedSensitivity(client.getServer(), reenabledChat);
+
+			// Check if private
+			if (roomInstance.getType().equalsIgnoreCase(ChatRoomTypes.PRIVATE_CHAT)) {
+				EventBus.getInstance()
+						.dispatchEvent(new MiscModerationEvent("chatfilter.heightenedstrictness.deactivate",
+								"Heightened sensitivity mode deactivated",
+								Map.of("Private chat room", formatRoomName(client, roomInstance), "Room",
+										roomInstance.getRoomID(), "Action", "deactivated heightened sensitivity mode"),
+								"SYSTEM", null));
+			} else {
+				EventBus.getInstance()
+						.dispatchEvent(new MiscModerationEvent("chatfilter.heightenedstrictness.deactivate",
+								"Heightened sensitivity mode deactivated",
+								Map.of("Room", formatRoomName(client, roomInstance), "Action",
+										"deactivated heightened sensitivity mode"),
+								"SYSTEM", null));
 			}
 		}
 
@@ -537,10 +590,12 @@ public class SendMessage extends AbstractChatPacket {
 				fmt2.setTimeZone(TimeZone.getTimeZone("UTC"));
 				res.roomType = roomInstance.getType();
 				res.room = roomInstance.getRoomID();
-				// FIXME: message for with auto disable limit
-				// FIXME: message for private chats
-				// FIXME: update this message
-				res.message = "Due to the large amount of filter triggers within this chat room without staff being present, the chat has been placed in heightened sensitivity mode, filters are temporarily more aggressive until staff disables this mode. Please avoid using swears and/or sensitive language until staff disables this mode.";
+				if (flags.chatDisabled)
+					res.message = "Due to the large amount of filter triggers within this chat room, the chat has been temporarily disabled until a staff member can get online. We apologize about the inconvenience! The team has already been alerted about the chat being disabled and will get on to investigate and re-enable it as soon as possible!";
+				else if (flags.wasAutoactivate)
+					res.message = "Due to the large amount of filter triggers within this chat room without staff being present, the chat has been placed in heightened sensitivity mode, filters are temporarily more aggressive until staff disables this mode. Please avoid using swears and/or sensitive language until staff disables this mode.";
+				else
+					res.message = "This chat room has been placed in heightened sensitivity mode by the server staff, filters are temporarily more aggressive. Please avoid using swears and/or sensitive language until staff disables this mode.";
 				res.sourceWriter = NIL_UUID;
 				res.sentAtWriter = fmt.format(new Date());
 				res.moderatorMessage = GameServer.hasPerm(permLevel, "moderator");
@@ -678,8 +733,8 @@ public class SendMessage extends AbstractChatPacket {
 					}
 				} else {
 					// Check level
-					if (!room.equalsIgnoreCase("room_" + gameClient.levelID)) { // FIXME: incompatible with instance
-																				// management
+					// FIXME: incompatible with instance management
+					if (!room.equalsIgnoreCase("room_" + gameClient.levelID)) {
 						// Invalid
 						return true;
 					}
@@ -820,126 +875,6 @@ public class SendMessage extends AbstractChatPacket {
 				}
 			}
 
-			// Check rate limit
-			if (rateLimit.isRateLimited()) {
-				// Cancel message
-
-				// Set timer
-				rateLimit.rateLimitEnableTime = System.currentTimeMillis();
-
-				// Time format
-				SimpleDateFormat fmt = new SimpleDateFormat("yyyy'-'MM'-'dd'T'HH':'mm':'ssXXX");
-				fmt.setTimeZone(TimeZone.getTimeZone("UTC"));
-
-				// Send failure
-				SendMessage res = new SendMessage();
-				res.roomType = roomInstance.getType();
-				res.room = room;
-				res.message = "</noparse><color=red>[!] </color><color=orange><noparse>" + message
-						+ "</noparse></color><noparse>";
-				res.messagePlain = "[!] " + message;
-				res.originalMessage = message;
-				res.moderatorMessage = GameServer.hasPerm(permLevel, "moderator");
-				res.alertingMessage = true;
-				res.criticalAlertingMessage = true;
-				res.blockedMessage = true;
-				res.sourceWriter = client.getPlayer().getAccountID();
-				res.sentAtWriter = fmt.format(new Date());
-				client.sendPacket(res);
-
-				// Broadcast to moderators unless its a private chat
-				res = new SendMessage();
-				res.roomType = roomInstance.getType();
-				res.room = room;
-				res.message = "</noparse><color=red>[!] </color><color=orange><noparse>" + message
-						+ "</noparse></color><noparse>";
-				res.messagePlain = "[!] " + message;
-				res.originalMessage = message;
-				res.moderatorMessage = GameServer.hasPerm(permLevel, "moderator");
-				res.alertingMessage = true;
-				res.criticalAlertingMessage = true;
-				res.blockedMessage = true;
-				res.sourceWriter = client.getPlayer().getAccountID();
-				res.sentAtWriter = fmt.format(new Date());
-				broadcastToModerators(client, res);
-
-				// System message
-				res = new SendMessage();
-				res.roomType = roomInstance.getType();
-				res.room = room;
-				res.message = "Whoah there! You are sending too many messages in a short period, please slow down! Please wait 15 seconds before sending another message.";
-				res.sourceWriter = NIL_UUID;
-				res.sentAtWriter = fmt.format(new Date());
-				res.moderatorMessage = GameServer.hasPerm(permLevel, "moderator");
-				client.sendPacket(res);
-
-				// Exit
-				return true;
-			}
-
-			// Check mute
-			CenturiaAccount acc = client.getPlayer();
-			if (acc.getSaveSharedInventory().containsItem("penalty") && acc.getSaveSharedInventory().getItem("penalty")
-					.getAsJsonObject().get("type").getAsString().equals("mute")) {
-				JsonObject muteInfo = acc.getSaveSharedInventory().getItem("penalty").getAsJsonObject();
-				if (muteInfo.get("unmuteTimestamp").getAsLong() == -1
-						|| muteInfo.get("unmuteTimestamp").getAsLong() > System.currentTimeMillis()) {
-					// Time format
-					SimpleDateFormat fmt = new SimpleDateFormat("yyyy'-'MM'-'dd'T'HH':'mm':'ssXXX");
-					fmt.setTimeZone(TimeZone.getTimeZone("UTC"));
-
-					// Get reason
-					String reason = null;
-					if (muteInfo.has("reason"))
-						reason = muteInfo.get("reason").getAsString();
-
-					// Send failure
-					SendMessage res = new SendMessage();
-					res.roomType = roomInstance.getType();
-					res.room = room;
-					res.message = "</noparse><color=red>[!] </color><color=orange><noparse>" + message
-							+ "</noparse></color><noparse>";
-					res.messagePlain = "[!] " + message;
-					res.originalMessage = message;
-					res.moderatorMessage = GameServer.hasPerm(permLevel, "moderator");
-					res.alertingMessage = true;
-					res.criticalAlertingMessage = true;
-					res.blockedMessage = true;
-					res.sourceWriter = client.getPlayer().getAccountID();
-					res.sentAtWriter = fmt.format(new Date());
-					client.sendPacket(res);
-
-					// Broadcast to moderators unless its a private chat
-					res = new SendMessage();
-					res.roomType = roomInstance.getType();
-					res.room = room;
-					res.message = "</noparse><color=red>[!] </color><color=orange><noparse>" + message
-							+ "</noparse></color><noparse>";
-					res.messagePlain = "[!] " + message;
-					res.originalMessage = message;
-					res.moderatorMessage = GameServer.hasPerm(permLevel, "moderator");
-					res.alertingMessage = true;
-					res.criticalAlertingMessage = true;
-					res.blockedMessage = true;
-					res.sourceWriter = client.getPlayer().getAccountID();
-					res.sentAtWriter = fmt.format(new Date());
-					broadcastToModerators(client, res);
-
-					// System message
-					res = new SendMessage();
-					res.roomType = roomInstance.getType();
-					res.room = room;
-					res.message = "You are muted and cannot send messages in chat."
-							+ (reason != null ? "\nReason: " + reason : "");
-					res.sourceWriter = NIL_UUID;
-					res.sentAtWriter = fmt.format(new Date());
-					res.moderatorMessage = GameServer.hasPerm(permLevel, "moderator");
-					client.sendPacket(res);
-
-					return true; // ignore chat
-				}
-			}
-
 			// Heightened sensitivity config
 			if (!heightenedSensitivityConfigInited) {
 				try {
@@ -1018,9 +953,8 @@ public class SendMessage extends AbstractChatPacket {
 			}
 
 			// Reset chat disable counters if needed
-			if (!flags.active
-					&& ((heightenedSensitivityChatDisableMaxAge1 != -1 || heightenedSensitivityChatDisableMaxAge2 != -1)
-							|| roomHasStaff)) {
+			if (((heightenedSensitivityChatDisableMaxAge1 != -1 || heightenedSensitivityChatDisableMaxAge2 != -1)
+					|| roomHasStaff)) {
 				// Reset if needed
 				if (roomHasStaff || (heightenedSensitivityChatDisableMaxAge1 != -1 && System.currentTimeMillis()
 						- flags.lastFlagChatdisable > heightenedSensitivityChatDisableMaxAge1)) {
@@ -1106,15 +1040,142 @@ public class SendMessage extends AbstractChatPacket {
 			boolean filteredFlaggedState = filterResultStaffHighlightStrict.isMatch();
 			boolean filteredFlaggedWithoutStrictmodeState = filterResultStaffHighlight.isMatch();
 
+			// Load user settings
+			int filterSettingSelf = 0;
+			UserVarValue valS = client.getPlayer().getSaveSpecificInventory().getUserVarAccesor()
+					.getPlayerVarValue("9362", 0); // the setting for the filter ingame, if the user wishes to have a
+													// stricter filter enabled.
+			if (valS != null)
+				filterSettingSelf = valS.value;
+
+			// Select message
+			String messageIn = filterResultDefaultMod.getFilterResult();
+			if (filteredUserStrictModeState && filteredUserStrictModeCensor && filterSettingSelf != 0)
+				messageIn = filterResultStrict.getFilterResult(); // Strict mode, source had strict enabled
+
+			// Check rate limit
+			if (rateLimit.isRateLimited()) {
+				// Cancel message
+
+				// Set timer
+				rateLimit.rateLimitEnableTime = System.currentTimeMillis();
+
+				// Time format
+				SimpleDateFormat fmt = new SimpleDateFormat("yyyy'-'MM'-'dd'T'HH':'mm':'ssXXX");
+				fmt.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+				// Send failure
+				SendMessage res = new SendMessage();
+				res.roomType = roomInstance.getType();
+				res.room = room;
+				res.message = "</noparse><color=red>[!] </color><color=orange><noparse>" + messageIn
+						+ "</noparse></color><noparse>";
+				res.messagePlain = "[!] " + messageIn;
+				res.originalMessage = message;
+				res.moderatorMessage = GameServer.hasPerm(permLevel, "moderator");
+				res.alertingMessage = true;
+				res.criticalAlertingMessage = true;
+				res.blockedMessage = true;
+				res.sourceWriter = client.getPlayer().getAccountID();
+				res.sentAtWriter = fmt.format(new Date());
+				client.sendPacket(res);
+
+				// Broadcast to moderators unless its a private chat
+				res = new SendMessage();
+				res.roomType = roomInstance.getType();
+				res.room = room;
+				res.message = "</noparse><color=red>[!] </color><color=orange><noparse>" + message
+						+ "</noparse></color><noparse>";
+				res.messagePlain = "[!] " + message;
+				res.originalMessage = message;
+				res.moderatorMessage = GameServer.hasPerm(permLevel, "moderator");
+				res.alertingMessage = true;
+				res.criticalAlertingMessage = true;
+				res.blockedMessage = true;
+				res.sourceWriter = client.getPlayer().getAccountID();
+				res.sentAtWriter = fmt.format(new Date());
+				broadcastToModerators(client, res);
+
+				// System message
+				res = new SendMessage();
+				res.roomType = roomInstance.getType();
+				res.room = room;
+				res.message = "Whoah there! You are sending too many messages in a short period, please slow down! Please wait 15 seconds before sending another message.";
+				res.sourceWriter = NIL_UUID;
+				res.sentAtWriter = fmt.format(new Date());
+				res.moderatorMessage = GameServer.hasPerm(permLevel, "moderator");
+				client.sendPacket(res);
+
+				// Exit
+				return true;
+			}
+
+			// Check mute
+			CenturiaAccount acc = client.getPlayer();
+			if (acc.getSaveSharedInventory().containsItem("penalty") && acc.getSaveSharedInventory().getItem("penalty")
+					.getAsJsonObject().get("type").getAsString().equals("mute")) {
+				JsonObject muteInfo = acc.getSaveSharedInventory().getItem("penalty").getAsJsonObject();
+				if (muteInfo.get("unmuteTimestamp").getAsLong() == -1
+						|| muteInfo.get("unmuteTimestamp").getAsLong() > System.currentTimeMillis()) {
+					// Time format
+					SimpleDateFormat fmt = new SimpleDateFormat("yyyy'-'MM'-'dd'T'HH':'mm':'ssXXX");
+					fmt.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+					// Get reason
+					String reason = null;
+					if (muteInfo.has("reason"))
+						reason = muteInfo.get("reason").getAsString();
+
+					// Send failure
+					SendMessage res = new SendMessage();
+					res.roomType = roomInstance.getType();
+					res.room = room;
+					res.message = "</noparse><color=red>[!] </color><color=orange><noparse>" + messageIn
+							+ "</noparse></color><noparse>";
+					res.messagePlain = "[!] " + messageIn;
+					res.originalMessage = message;
+					res.moderatorMessage = GameServer.hasPerm(permLevel, "moderator");
+					res.alertingMessage = true;
+					res.criticalAlertingMessage = true;
+					res.blockedMessage = true;
+					res.sourceWriter = client.getPlayer().getAccountID();
+					res.sentAtWriter = fmt.format(new Date());
+					client.sendPacket(res);
+
+					// Broadcast to moderators unless its a private chat
+					res = new SendMessage();
+					res.roomType = roomInstance.getType();
+					res.room = room;
+					res.message = "</noparse><color=red>[!] </color><color=orange><noparse>" + message
+							+ "</noparse></color><noparse>";
+					res.messagePlain = "[!] " + message;
+					res.originalMessage = message;
+					res.moderatorMessage = GameServer.hasPerm(permLevel, "moderator");
+					res.alertingMessage = true;
+					res.criticalAlertingMessage = true;
+					res.blockedMessage = true;
+					res.sourceWriter = client.getPlayer().getAccountID();
+					res.sentAtWriter = fmt.format(new Date());
+					broadcastToModerators(client, res);
+
+					// System message
+					res = new SendMessage();
+					res.roomType = roomInstance.getType();
+					res.room = room;
+					res.message = "You are muted and cannot send messages in chat."
+							+ (reason != null ? "\nReason: " + reason : "");
+					res.sourceWriter = NIL_UUID;
+					res.sentAtWriter = fmt.format(new Date());
+					res.moderatorMessage = GameServer.hasPerm(permLevel, "moderator");
+					client.sendPacket(res);
+
+					return true; // ignore chat
+				}
+			}
+
 			// Disable chat if needed
-			// FIXME: update code from here: chat filters sensitivity should be supported by
-			// private chats but always with timer enabled
-			// FIXME: chat disable should also be supported by private chats and transient
-			// chats but always with timer enabled
-			// FIXME: dont forget to update the messages
 			if (flags.active && !flags.chatDisabled && !roomHasStaff && filterResultDefaultOrig.isMatch()
-					&& filteredDefaultOrigCensor
-					&& !roomInstance.getType().equalsIgnoreCase(ChatRoomTypes.PRIVATE_CHAT)) {
+					&& filteredDefaultOrigCensor) {
 				// Increase flag counter for chat disable
 				flags.flagCountChatdisable++;
 				flags.flagCountChatdisableSecondary++;
@@ -1131,9 +1192,17 @@ public class SendMessage extends AbstractChatPacket {
 					String filterReason = filterResultDefaultOrig.getPrimaryFilterReason();
 
 					// Disable chat
-					flags.renableChatAter = heightenedSensitivityChatReactivateTimer == -1
-							? heightenedSensitivityChatReactivateTimer
-							: System.currentTimeMillis() + heightenedSensitivityChatReactivateTimer;
+					//
+					// Check if theres a timer assigned, if not, in private chat this reverts to the
+					// default timer
+					if (roomInstance.getType().equalsIgnoreCase(ChatRoomTypes.ROOM_CHAT)
+							|| heightenedSensitivityChatReactivateTimer != -1)
+						flags.renableChatAter = heightenedSensitivityChatReactivateTimer == -1 ? -1
+								: System.currentTimeMillis() + heightenedSensitivityChatReactivateTimer;
+					else
+						flags.renableChatAter = System.currentTimeMillis() + 900000;
+
+					// Disable the chat
 					flags.disableChat(client.getServer());
 
 					// Dispatch event
@@ -1195,9 +1264,9 @@ public class SendMessage extends AbstractChatPacket {
 				SendMessage res = new SendMessage();
 				res.roomType = roomInstance.getType();
 				res.room = room;
-				res.message = "</noparse><color=red>[!] </color><color=orange><noparse>" + message
+				res.message = "</noparse><color=red>[!] </color><color=orange><noparse>" + messageIn
 						+ "</noparse></color><noparse>";
-				res.messagePlain = "[!] " + message;
+				res.messagePlain = "[!] " + messageIn;
 				res.originalMessage = message;
 				res.moderatorMessage = GameServer.hasPerm(permLevel, "moderator");
 				res.alertingMessage = true;
@@ -1229,13 +1298,26 @@ public class SendMessage extends AbstractChatPacket {
 				fmt2.setTimeZone(TimeZone.getTimeZone("UTC"));
 				res.roomType = roomInstance.getType();
 				res.room = room;
-				res.message = "Due to a large amount of filter triggers, the chat has currently been disabled for this world until a staff member can get on. We apologize about the inconvenience! The team has already been alerted about the chat being disabled."
-						+ (flags.renableChatAter != -1
-								? "\n\nChat re-enables at " + fmt2.format(new Date(flags.renableChatAter)) + " UTC ("
-										+ formatTimeRelative(flags.renableChatAter - System.currentTimeMillis())
-										+ " from now)" + " or whenever a staff member gets online."
-								: "")
-						+ (reason != null ? "\nReason of activation of heightened sensitivity mode: " + reason : "");
+				if (roomInstance.getType().equalsIgnoreCase(ChatRoomTypes.ROOM_CHAT))
+					res.message = "Due to a large amount of filter triggers, the chat has currently been disabled for this world until a staff member can get on. We apologize about the inconvenience! The team has already been alerted about the chat being disabled."
+							+ (flags.renableChatAter != -1
+									? "\n\nChat re-enables at " + fmt2.format(new Date(flags.renableChatAter))
+											+ " UTC ("
+											+ formatTimeRelative(flags.renableChatAter - System.currentTimeMillis())
+											+ " from now)" + " or whenever a staff member gets online."
+									: "")
+							+ (reason != null ? "\nReason of activation of heightened sensitivity mode: " + reason
+									: "");
+				else
+					res.message = "Due to a large amount of filter triggers, chat has currently been disabled for this room until the timer lapses. We apologize about the inconvenience!"
+							+ (flags.renableChatAter != -1
+									? "\n\nChat re-enables at " + fmt2.format(new Date(flags.renableChatAter))
+											+ " UTC ("
+											+ formatTimeRelative(flags.renableChatAter - System.currentTimeMillis())
+											+ " from now)"
+									: "")
+							+ (reason != null ? "\nReason of activation of heightened sensitivity mode: " + reason
+									: "");
 				res.sourceWriter = NIL_UUID;
 				res.sentAtWriter = fmt.format(new Date());
 				res.moderatorMessage = GameServer.hasPerm(permLevel, "moderator");
@@ -1244,19 +1326,12 @@ public class SendMessage extends AbstractChatPacket {
 				return true; // ignore chat
 			}
 
-			// Load user settings
-			int filterSettingSelf = 0;
-			UserVarValue valS = client.getPlayer().getSaveSpecificInventory().getUserVarAccesor()
-					.getPlayerVarValue("9362", 0); // the setting for the filter ingame, if the user wishes to have a
-													// stricter filter enabled.
-			if (valS != null)
-				filterSettingSelf = valS.value;
-
 			// Check trigger
 			// Enable heightened sensitivity if needed
 			if (!flags.active && filterResultDefaultOrig.isMatch() && filteredDefaultOrigCensor && !roomHasStaff) {
 				// Increase counter
 				flags.flagCountAutoactivate++;
+				flags.lastFlagAutoactivate = System.currentTimeMillis();
 				if (flags.flagCountAutoactivate >= heightenedSensitivityTriggerThreshold) {
 					// Enable heightened sensitivity mode
 					flags.activationReason = null;
@@ -1707,11 +1782,6 @@ public class SendMessage extends AbstractChatPacket {
 					msg.source = "plaintext:" + ocProxyName;
 				manager.saveDMMessge(room, msg);
 			}
-
-			// Select message
-			String messageIn = filterResultDefaultMod.getFilterResult();
-			if (filteredUserStrictModeState && filteredUserStrictModeCensor && filterSettingSelf != 0)
-				messageIn = filterResultStrict.getFilterResult(); // Strict mode, source had strict enabled
 
 			// Send to all in room
 			SocialManager socialManager = SocialManager.getInstance();
