@@ -41,10 +41,16 @@ Phrase fuck
 	Mode WORD_CONTAINS
     Variant fucking
     Variant fuck1ng
+    Variant f u c k
+    
+    Context-Include Local *
+Endphrase
+
+Phrase fuck
+	Mode WHOLE_PHRASE
     Variant fuk
     Variant fck
     Variant feck
-    Variant f u c k
     
     Context-Include Local *
 Endphrase
@@ -60,10 +66,18 @@ Phrase fuck
 	Mode WORD_CONTAINS
     Variant fucking
     Variant fuck1ng
+    Variant f u c k
+    
+    Context-Include Global *
+    
+    Reason Due to recent filter triggers, this phrase is being temporarily censored to prevent the use of it in NSFW context.
+Endphrase
+
+Phrase fuck
+	Mode WHOLE_PHRASE
     Variant fuk
     Variant fck
     Variant feck
-    Variant f u c k
     
     Context-Include Global *
     
@@ -158,7 +172,7 @@ Phrase b10wj0b
 Endphrase
 
 Phrase boob
-    Mode WORD_CONTAINS
+    Mode WHOLE_PHRASE
     Variant b00b
     Variant bo0b
     Variant b0ob
@@ -204,7 +218,7 @@ Phrase whore
 Endphrase
 
 Phrase dick
-    Mode WORD_CONTAINS
+    Mode WHOLE_PHRASE
     Variant d1ck
     Variant cock
     Variant c0ck
@@ -276,7 +290,7 @@ Phrase pu5sy
 Endphrase
 
 Phrase slut
-    Mode WORD_CONTAINS
+    Mode WHOLE_PHRASE
     Severity INSTAMUTE
     Variant 51ut
     Variant 5lut
@@ -337,7 +351,7 @@ Phrase smegma
 Endphrase
 
 Phrase cunt
-    Mode WORD_CONTAINS
+    Mode WHOLE_PHRASE
     Severity INSTAMUTE
 Endphrase
 
@@ -404,7 +418,7 @@ Phrase schlong
 Endphrase
 
 Phrase cum
-    Mode WORD_CONTAINS
+    Mode WHOLE_PHRASE
     Severity INSTAMUTE
 Endphrase
 
@@ -414,7 +428,7 @@ Phrase c u m
 Endphrase
 
 Phrase semen
-    Mode WORD_CONTAINS
+    Mode WHOLE_PHRASE
     Severity INSTAMUTE
 Endphrase
 
@@ -428,7 +442,7 @@ Phrase semen
 Endphrase
 
 Phrase sperm
-    Mode WORD_CONTAINS
+    Mode WHOLE_PHRASE
     Severity INSTAMUTE
 Endphrase
 

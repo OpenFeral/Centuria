@@ -787,6 +787,11 @@ public class Centuria {
 		File textFilterConf = new File("textfilter.conf");
 		if (!textFilterConf.exists()) {
 			Files.writeString(textFilterConf.toPath(), "" //
+					+ "# Public chat notice displayed when the chat loads\n" //
+					+ "public-chat-notice=Welcome to the public chat! Please keep in mind that these chats are monitored by the server moderators. As Fer.al is host to a playerbase of players as young as 13, there are chat filters present on the server, however in most circumstances you will not encounter these, we try to keep them relatively relaxed. Check the server rules for more information, and Welcome to Fer.al!\n" //
+					+ "private-chat-notice=Welcome to direct messages! Keep in mind that while staff doesn't actively monitor these, this is still a 13+ space and there are players as young as 13, so we ask to try to keep your private chats safe and respectful as well. As this is a game with a lot of minors, these are not encrypted, and while not monitored, in cases of emergency and serious reports, can be pulled from the server if the need is severe enough.\\n\\nPlease do note that chat filters are still active in private chats as well and while staff doesnt monitor private chats, filter triggers do still alert the moderators, and in cases of severe reports, staff can request the server chats from the operators. For more information refer to the server rules.\n" //
+					+ "\n" //
+					+ "\n" //
 					+ "# The amount of messages to retain in memory during context matching\n" //
 					+ "chat-message-memory-max-length=10\n" //
 					+ "\n" //

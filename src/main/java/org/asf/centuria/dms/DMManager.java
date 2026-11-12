@@ -89,4 +89,21 @@ public abstract class DMManager {
 	 */
 	public abstract void deleteDM(String dmID);
 
+	/**
+	 * Assigns the state of the DM welcome message
+	 * 
+	 * @param dmID  Conversation ID
+	 * @param state State of if the welcome message was sent
+	 */
+	public abstract void setSentWelcome(String dmID, boolean state);
+
+	/**
+	 * Checks if the DM welcome message was sent yet
+	 * 
+	 * @param dmID Conversation ID
+	 * @since Beta 1.7.4
+	 * @return True if the welcome message was sent, false otherwise
+	 */
+	public abstract boolean hasSentWelcome(String dmID);
+
 }

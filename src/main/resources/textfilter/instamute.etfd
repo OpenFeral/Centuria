@@ -72,7 +72,7 @@ Phrase faggot
 Endphrase
 
 Phrase beaner
-    Mode WORD_CONTAINS
+    Mode WHOLE_PHRASE
     Variant b3eaner
     Variant b3e4n3r
     Variant b3ean3r
