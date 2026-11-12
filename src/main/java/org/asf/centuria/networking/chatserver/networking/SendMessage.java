@@ -591,9 +591,27 @@ public class SendMessage extends AbstractChatPacket {
 				res.roomType = roomInstance.getType();
 				res.room = roomInstance.getRoomID();
 				if (flags.chatDisabled)
-					res.message = "Due to the large amount of filter triggers within this chat room, the chat has been temporarily disabled until a staff member can get online. We apologize about the inconvenience! The team has already been alerted about the chat being disabled and will get on to investigate and re-enable it as soon as possible!";
+					res.message = "Due to a large amount of filter triggers, the chat has currently been disabled for this world until a staff member can get on. We apologize about the inconvenience! The team has already been alerted about the chat being disabled and will get on to investigate and re-enable it as soon as possible!"
+							+ (flags.renableChatAter != -1
+									? "\n\nChat re-enables at " + fmt2.format(new Date(flags.renableChatAter))
+											+ " UTC ("
+											+ formatTimeRelative(flags.renableChatAter - System.currentTimeMillis())
+											+ " from now)" + " or whenever a staff member gets online."
+									: "")
+							+ (flags.activationReason != null
+									? "\nReason of activation of heightened sensitivity mode: " + flags.activationReason
+									: "");
 				else if (flags.wasAutoactivate)
-					res.message = "Due to the large amount of filter triggers within this chat room without staff being present, the chat has been placed in heightened sensitivity mode, filters are temporarily more aggressive until staff disables this mode. Please avoid using swears and/or sensitive language until staff disables this mode.";
+					res.message = "Due to the large amount of filter triggers within this chat room without staff being present, the chat has been placed in heightened sensitivity mode, filters are temporarily more aggressive until staff disables this mode. Please avoid using swears and/or sensitive language until staff disables this mode."
+							+ (flags.disableAfter != -1
+									? "\n\nChat disables strict filtering at "
+											+ fmt2.format(new Date(flags.disableAfter)) + " UTC ("
+											+ formatTimeRelative(flags.disableAfter - System.currentTimeMillis())
+											+ " from now)" + " or whenever a staff member disables this mode."
+									: "")
+							+ (flags.activationReason != null
+									? "\nReason of activation of heightened sensitivity mode: " + flags.activationReason
+									: "");
 				else
 					res.message = "This chat room has been placed in heightened sensitivity mode by the server staff, filters are temporarily more aggressive. Please avoid using swears and/or sensitive language until staff disables this mode.";
 				res.sourceWriter = NIL_UUID;
@@ -1299,7 +1317,7 @@ public class SendMessage extends AbstractChatPacket {
 				res.roomType = roomInstance.getType();
 				res.room = room;
 				if (roomInstance.getType().equalsIgnoreCase(ChatRoomTypes.ROOM_CHAT))
-					res.message = "Due to a large amount of filter triggers, the chat has currently been disabled for this world until a staff member can get on. We apologize about the inconvenience! The team has already been alerted about the chat being disabled."
+					res.message = "Due to a large amount of filter triggers, the chat has currently been disabled for this world until a staff member can get on. We apologize about the inconvenience! The team has already been alerted about the chat being disabled and will get on to investigate and re-enable it as soon as possible!"
 							+ (flags.renableChatAter != -1
 									? "\n\nChat re-enables at " + fmt2.format(new Date(flags.renableChatAter))
 											+ " UTC ("
