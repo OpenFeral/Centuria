@@ -23,7 +23,6 @@
 		<Root level="all">
 			<AppenderRef ref="Console" level="info" />
 			<AppenderRef ref="Logfile" level="info" />
-			<AppenderRef ref="Debuglogfile" level="debug" />
 		</Root>
 	</Loggers>
 </Configuration>
