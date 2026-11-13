@@ -3,7 +3,7 @@ package org.asf.centuria.tools;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -63,7 +63,7 @@ public class DoDDataConverter {
 						}
 
 						// Load reward data
-						HashMap<Integer, Integer[]> rewardIndexes = new HashMap<Integer, Integer[]>();
+						LinkedHashMap<Integer, Integer[]> rewardIndexes = new LinkedHashMap<Integer, Integer[]>();
 
 						// Load most specific first
 						for (JsonElement ele : dodData.get("levelRewards").getAsJsonArray()) {

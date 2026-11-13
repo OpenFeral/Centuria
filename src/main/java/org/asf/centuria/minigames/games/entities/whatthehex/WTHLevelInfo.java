@@ -1,10 +1,10 @@
 package org.asf.centuria.minigames.games.entities.whatthehex;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class WTHLevelInfo {
 
 	public int levelMax;
-	public HashMap<String, WTHRewardInfo> rewards = new HashMap<String, WTHRewardInfo>();
+	public LinkedHashMap<String, WTHRewardInfo> rewards = new LinkedHashMap<String, WTHRewardInfo>();
 
 }

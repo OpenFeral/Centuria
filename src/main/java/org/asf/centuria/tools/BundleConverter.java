@@ -2,7 +2,7 @@ package org.asf.centuria.tools;
 
 import java.io.IOException;
 import java.nio.file.*;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -36,7 +36,7 @@ public class BundleConverter {
 				lastData = lastData.replace("`", "\"");
 				JsonObject obj = JsonParser.parseString(lastData).getAsJsonObject();
 
-				HashMap<String, Integer> items = new HashMap<String, Integer>();
+				LinkedHashMap<String, Integer> items = new LinkedHashMap<String, Integer>();
 				for (JsonElement ele : obj.get("components").getAsJsonArray()) {
 					JsonObject data = ele.getAsJsonObject();
 					if (data.get("componentClass").getAsString().equals("BundlePackDefComponent")) {

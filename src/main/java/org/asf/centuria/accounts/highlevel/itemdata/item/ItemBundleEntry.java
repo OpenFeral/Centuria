@@ -1,10 +1,10 @@
 package org.asf.centuria.accounts.highlevel.itemdata.item;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class ItemBundleEntry {
 
 	public String objectName;
-	public HashMap<String, Integer> items = new HashMap<String, Integer>();
+	public LinkedHashMap<String, Integer> items = new LinkedHashMap<String, Integer>();
 
 }

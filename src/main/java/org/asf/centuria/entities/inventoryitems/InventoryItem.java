@@ -1,7 +1,7 @@
 package org.asf.centuria.entities.inventoryitems;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.asf.centuria.entities.components.ComponentManager;
@@ -28,15 +28,14 @@ public abstract class InventoryItem {
 	public String defId;
 	public String uuid;
 	public InventoryType invType;
-	private Map<String, InventoryItemComponent> components = new HashMap<String, InventoryItemComponent>();
+	private Map<String, InventoryItemComponent> components = new LinkedHashMap<String, InventoryItemComponent>();
 
-	public InventoryItem()
-	{
+	public InventoryItem() {
 		this.defId = "-1";
 		this.uuid = "";
 		this.invType = null;
 	}
-	
+
 	/**
 	 * Base constructor for all inventory items.
 	 * 
@@ -163,18 +162,15 @@ public abstract class InventoryItem {
 	 * @param component
 	 */
 	public void SetComponent(InventoryItemComponent component) {
-		
-		//TODO: Is the behaviour of replace acceptable for me not to need this check?
-		if(components.containsKey(component.getComponentName()))
-		{
+
+		// TODO: Is the behaviour of replace acceptable for me not to need this check?
+		if (components.containsKey(component.getComponentName())) {
 			components.replace(component.getComponentName(), component);
-		}
-		else
-		{
+		} else {
 			components.put(component.getComponentName(), component);
 		}
 	}
-	
+
 	/**
 	 * Gets the inv type for the item.
 	 */

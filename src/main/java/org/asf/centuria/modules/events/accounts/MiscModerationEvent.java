@@ -1,6 +1,6 @@
 package org.asf.centuria.modules.events.accounts;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.asf.centuria.accounts.CenturiaAccount;
@@ -67,7 +67,7 @@ public class MiscModerationEvent extends EventObject {
 	 * @return Detail map
 	 */
 	public Map<String, String> getDetails() {
-		return new HashMap<String, String>(details);
+		return new LinkedHashMap<String, String>(details);
 	}
 
 	/**

@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
@@ -41,8 +42,8 @@ public class ItemAccessor {
 
 	private Player player;
 	private PlayerInventory inventory;
-	private static HashMap<String, ItemInfo> definitions = new HashMap<String, ItemInfo>();
-	private static HashMap<String, ItemBundleEntry> bundles = new HashMap<String, ItemBundleEntry>();
+	private static LinkedHashMap<String, ItemInfo> definitions = new LinkedHashMap<String, ItemInfo>();
+	private static LinkedHashMap<String, ItemBundleEntry> bundles = new LinkedHashMap<String, ItemBundleEntry>();
 
 	private static ItemComponent tradelisComponent() {
 		JsonObject tr = new JsonObject();
@@ -58,7 +59,6 @@ public class ItemAccessor {
 		return new ItemComponent("Enigma", e);
 	}
 
-	@SuppressWarnings("serial")
 	private static final Map<String, InventoryDefinitionContainer> inventoryTypeMap = new HashMap<String, InventoryDefinitionContainer>() {
 		{
 			// Avatar species
@@ -100,6 +100,9 @@ public class ItemAccessor {
 			// Inspirations
 			put("8", new InventoryDefinitionContainer(InventoryStorageType.SINGLE_ITEM,
 					new GenericHelper("8", new ItemComponent("Inspiration", new JsonObject()))));
+
+			// Season passes
+			put("12", new InventoryDefinitionContainer(InventoryStorageType.SINGLE_ITEM, new GenericHelper("12")));
 		}
 	};
 

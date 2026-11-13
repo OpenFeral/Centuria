@@ -1,10 +1,10 @@
 package org.asf.centuria.shops.info;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class UncraftingInfo {
 
 	public String object;
-	public HashMap<String, Integer> result = new HashMap<String, Integer>();
+	public LinkedHashMap<String, Integer> result = new LinkedHashMap<String, Integer>();
 
 }

@@ -61,8 +61,8 @@ public class ShopConverter {
 		JsonObject uncrafting = new JsonObject();
 		LinkedHashMap<String, String> itemTypes = new LinkedHashMap<String, String>();
 		LinkedHashMap<String, String> enigmaMap = new LinkedHashMap<String, String>();
-		LinkedHashMap<String, HashMap<String, Integer>> costs = new LinkedHashMap<String, HashMap<String, Integer>>();
-		LinkedHashMap<String, HashMap<String, Integer>> eurekaItems = new LinkedHashMap<String, HashMap<String, Integer>>();
+		LinkedHashMap<String, LinkedHashMap<String, Integer>> costs = new LinkedHashMap<String, LinkedHashMap<String, Integer>>();
+		LinkedHashMap<String, LinkedHashMap<String, Integer>> eurekaItems = new LinkedHashMap<String, LinkedHashMap<String, Integer>>();
 
 		lastName = "";
 		lastData = null;
@@ -89,7 +89,7 @@ public class ShopConverter {
 					if (data.get("componentClass").getAsString().equals("PurchaseableDefComponent")) {
 						data = data.get("componentJSON").getAsJsonObject();
 						purchaseable = data;
-						HashMap<String, Integer> cost = new HashMap<String, Integer>();
+						LinkedHashMap<String, Integer> cost = new LinkedHashMap<String, Integer>();
 						for (JsonElement elem : data.get("_cost").getAsJsonArray()) {
 							JsonObject costObj = elem.getAsJsonObject();
 							String itm = costObj.get("itemDefID").getAsString();
@@ -100,9 +100,9 @@ public class ShopConverter {
 					} else if (data.get("componentClass").getAsString().equals("PurchaseRareChanceDefComponent")) {
 						data = data.get("componentJSON").getAsJsonObject();
 						if (!data.get("itemDefID").getAsString().isEmpty()) {
-							HashMap<String, Integer> itemChances;
+							LinkedHashMap<String, Integer> itemChances;
 							if (!eurekaItems.containsKey(lastID)) {
-								itemChances = new HashMap<String, Integer>();
+								itemChances = new LinkedHashMap<String, Integer>();
 								eurekaItems.put(lastID, itemChances);
 							} else
 								itemChances = eurekaItems.get(lastID);
@@ -146,7 +146,7 @@ public class ShopConverter {
 		lastName = "";
 		lastData = null;
 		lastID = null;
-		LinkedHashMap<String, HashMap<String, Integer>> bundles = new LinkedHashMap<String, HashMap<String, Integer>>();
+		LinkedHashMap<String, LinkedHashMap<String, Integer>> bundles = new LinkedHashMap<String, LinkedHashMap<String, Integer>>();
 		for (String line : Files.readAllLines(Path.of(args[4]))) {
 			if (line.startsWith("\"") && !line.startsWith("\"\"") && !line.startsWith("\"DefID")) {
 				lastID = line.substring(1);
@@ -165,7 +165,7 @@ public class ShopConverter {
 					JsonObject data = ele.getAsJsonObject();
 					if (data.get("componentClass").getAsString().equals("PurchaseableDefComponent")) {
 						data = data.get("componentJSON").getAsJsonObject();
-						HashMap<String, Integer> cost = new HashMap<String, Integer>();
+						LinkedHashMap<String, Integer> cost = new LinkedHashMap<String, Integer>();
 						for (JsonElement elem : data.get("_cost").getAsJsonArray()) {
 							JsonObject costObj = elem.getAsJsonObject();
 							String itm = costObj.get("itemDefID").getAsString();
@@ -175,7 +175,7 @@ public class ShopConverter {
 						costs.put(lastID, cost);
 					} else if (data.get("componentClass").getAsString().equals("BundlePackDefComponent")) {
 						data = data.get("componentJSON").getAsJsonObject();
-						HashMap<String, Integer> items = new HashMap<String, Integer>();
+						LinkedHashMap<String, Integer> items = new LinkedHashMap<String, Integer>();
 						for (JsonElement elem : data.get("_craftableItems").getAsJsonArray()) {
 							JsonObject itmObj = elem.getAsJsonObject();
 							String itm = itmObj.get("itemDefID").getAsString();
@@ -338,9 +338,9 @@ public class ShopConverter {
 	}
 
 	private static void addItem(JsonObject items, String lastID, String id, String oID,
-			LinkedHashMap<String, HashMap<String, Integer>> costs,
-			LinkedHashMap<String, HashMap<String, Integer>> eurekaItems, LinkedHashMap<String, String> itemTypes,
-			LinkedHashMap<String, String> objectNames, HashMap<String, HashMap<String, Integer>> bundles) {
+			LinkedHashMap<String, LinkedHashMap<String, Integer>> costs,
+			LinkedHashMap<String, LinkedHashMap<String, Integer>> eurekaItems, LinkedHashMap<String, String> itemTypes,
+			LinkedHashMap<String, String> objectNames, LinkedHashMap<String, LinkedHashMap<String, Integer>> bundles) {
 		JsonObject costObj = new JsonObject();
 		costs.get(id).forEach((costId, amount) -> {
 			costObj.addProperty(costId, amount);
@@ -354,16 +354,15 @@ public class ShopConverter {
 
 		if (lastID.equals("30549")) {
 			// Astrale shop
-			// Single-time purchases for avatars, body mods, sancs, enigmas and bundles
-			if (itms.size() != 1)
-				entry.addProperty("stock", 1);
-			else {
+			// Single-time purchases for avatars, body mods, sancs, and enigmas
+			if (itms.size() == 1) {
 				String type = itemTypes.get(itms.keySet().toArray(t -> new String[t])[0]);
 				if (type.equals("1") || type.equals("2") || type.equals("10") || type.equals("7"))
 					entry.addProperty("stock", 1);
 				else
 					entry.addProperty("stock", -1);
-			}
+			} else
+				entry.addProperty("stock", -1);
 		} else {
 			// Other shop
 			// Set to -1 to disable
@@ -375,7 +374,7 @@ public class ShopConverter {
 		entry.add("cost", costObj);
 
 		if (eurekaItems.containsKey(id) && !eurekaItems.get(id).isEmpty()) {
-			HashMap<String, Integer> itemChances = eurekaItems.get(id);
+			LinkedHashMap<String, Integer> itemChances = eurekaItems.get(id);
 			JsonObject chanceObj = new JsonObject();
 			itemChances.forEach((itmId, chance) -> {
 				chanceObj.addProperty(itmId, chance);
@@ -386,8 +385,8 @@ public class ShopConverter {
 		items.add(oID, entry);
 	}
 
-	private static void addItems(JsonObject itms, String id, HashMap<String, HashMap<String, Integer>> bundles,
-			int count) {
+	private static void addItems(JsonObject itms, String id,
+			LinkedHashMap<String, LinkedHashMap<String, Integer>> bundles, int count) {
 		if (!bundles.containsKey(id))
 			itms.addProperty(id, count);
 		else

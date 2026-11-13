@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Random;
 import java.util.UUID;
 import java.util.stream.Stream;
@@ -402,7 +403,7 @@ public class LevelManager extends LevelInfo {
 			lvl.levelUpRewardQuantity = 25;
 
 			// Create a list of potential rewards
-			HashMap<RewardDefinition, Integer> levelRewards = new HashMap<RewardDefinition, Integer>();
+			LinkedHashMap<RewardDefinition, Integer> levelRewards = new LinkedHashMap<RewardDefinition, Integer>();
 			for (LevelReward potentialReward : rewards.rewardsForLevels) {
 				// Check if it matches
 				boolean match = false;

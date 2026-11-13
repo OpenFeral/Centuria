@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import org.apache.logging.log4j.MarkerManager;
 import org.asf.centuria.Centuria;
@@ -14,6 +14,7 @@ import org.asf.centuria.accounts.CenturiaAccount;
 import org.asf.centuria.accounts.highlevel.ItemAccessor;
 import org.asf.centuria.modules.ICenturiaModule;
 import org.asf.centuria.modules.ModuleManager;
+import org.asf.centuria.seasonpasses.SeasonPassManager;
 import org.asf.centuria.shops.info.ShopInfo;
 import org.asf.centuria.shops.info.ShopItem;
 import org.asf.centuria.shops.info.UncraftingInfo;
@@ -25,9 +26,9 @@ import com.google.gson.JsonParser;
 
 public class ShopManager {
 
-	private static HashMap<String, ShopInfo> shops = new HashMap<String, ShopInfo>();
-	private static HashMap<String, ArrayList<String>> itemShops = new HashMap<String, ArrayList<String>>();
-	private static HashMap<String, UncraftingInfo> uncrafting = new HashMap<String, UncraftingInfo>();
+	private static LinkedHashMap<String, ShopInfo> shops = new LinkedHashMap<String, ShopInfo>();
+	private static LinkedHashMap<String, ArrayList<String>> itemShops = new LinkedHashMap<String, ArrayList<String>>();
+	private static LinkedHashMap<String, UncraftingInfo> uncrafting = new LinkedHashMap<String, UncraftingInfo>();
 
 	private static void loadShopData(JsonObject helper) {
 		JsonObject shopsJson = helper.get("Shops").getAsJsonObject();
@@ -286,6 +287,15 @@ public class ShopManager {
 
 		// Create list of items
 		ArrayList<String> items = new ArrayList<String>();
+
+		// Add season pass
+		if (SeasonPassManager.getCurrentPass() != null)
+			items.add(SeasonPassManager.getCurrentPass().premiumPassID); // FIXME: cost
+
+		// Add module stock
+		// FIXME
+
+		// Add general contents
 		shop.contents.forEach((id, item) -> {
 			// Skip enigma IDs
 			if (shop.enigmas.contains(id))
@@ -326,7 +336,8 @@ public class ShopManager {
 			}
 
 			// Add item
-			items.add(id);
+			if (!items.contains(id))
+				items.add(id);
 		});
 
 		// Enigma items
@@ -343,6 +354,8 @@ public class ShopManager {
 					items.add(player.getSaveSpecificInventory().getInspirationAccessor().getEnigmaResult(enigma));
 			}
 		}
+
+		// Filter items
 
 		return items.toArray(t -> new String[t]);
 	}
