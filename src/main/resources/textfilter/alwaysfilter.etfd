@@ -819,29 +819,29 @@ Phrase cocaine
     Variant c0caine
     Variant c0ca!n3
     Variant c0ca!ne
-	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al has players of a 13+ playerbase.
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
 Endphrase
 
 Phrase drugs
 	Mode WHOLE_PHRASE
-	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al has players of a 13+ playerbase.
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
 Endphrase
 
 Phrase drug
 	Mode WHOLE_PHRASE
-	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al has players of a 13+ playerbase.
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
 Endphrase
 
 Phrase dimethyltryptamine
 	Mode WORD_CONTAINS
     Severity INSTAMUTE
-	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al has players of a 13+ playerbase.
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
 Endphrase
 
 Phrase lysergic acid diethylamide
 	Mode WHOLE_PHRASE
     Severity INSTAMUTE
-	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al has players of a 13+ playerbase.
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
 Endphrase
 
 Phrase dmt
@@ -849,7 +849,7 @@ Phrase dmt
     Severity INSTAMUTE
     Context-Include Local *
     Context-Include Global *
-	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al has players of a 13+ playerbase.
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
 Endphrase	
 
 Phrase lsd
@@ -857,18 +857,18 @@ Phrase lsd
     Severity INSTAMUTE
     Context-Include Local *
     Context-Include Global *
-	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al has players of a 13+ playerbase.
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
 Endphrase	
 
 Phrase erowid
 	Mode WHOLE_PHRASE
     Severity INSTAMUTE
-	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al has players of a 13+ playerbase.
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
 Endphrase
 
 Phrase psychedelics
 	Mode WHOLE_PHRASE
-	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al has players of a 13+ playerbase.
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
 Endphrase
 
 Phrase psychedel1cs
@@ -877,12 +877,12 @@ Phrase psychedel1cs
     Variant psyched3lics
     Variant psych3d3lics
     Variant psych3delics
-	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al has players of a 13+ playerbase.
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
 Endphrase
 
 Phrase weed
 	Mode WHOLE_PHRASE
-	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al has players of a 13+ playerbase.
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
 Endphrase
 
 Phrase we3d
@@ -892,12 +892,12 @@ Phrase we3d
     Variant w3ed
     Variant w33d
     
-	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al has players of a 13+ playerbase.
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
 Endphrase	
 
 Phrase kys
 	Mode WHOLE_PHRASE
-	Reason Please do not use phrases of harm in the public chat.
+	Reason Please do not use rude, harmful or otherwise offensive remarks to other users that may be subject to moderator action.
 	Variant kill yourself
 	Variant kill your self
 Endphrase
@@ -905,7 +905,7 @@ Endphrase
 Phrase k1ll yourself
 	Mode WHOLE_PHRASE
     Severity INSTAMUTE
-	Reason Please do not use phrases of harm in the public chat.
+	Reason Please do not use rude, harmful or otherwise offensive remarks to other users that may be subject to moderator action.
 	Variant k1ll yourself
 	Variant k1ll your self
 	Variant k1ll y0urself
