@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.asf.centuria.Centuria;
+import org.asf.centuria.accounts.CenturiaAccount;
 import org.asf.centuria.data.XtReader;
 import org.asf.centuria.data.XtWriter;
 import org.asf.centuria.entities.players.Player;
@@ -52,12 +53,12 @@ public class GameDoOrDye extends AbstractMinigame {
 	private ArrayList<RewardData> rewardsThreeStars = new ArrayList<RewardData>();
 	private HashMap<Integer, Integer> timeBonuses = new HashMap<Integer, Integer>();
 
-	private void addLoot(LootInfo reward, ArrayList<RewardData> rewards) {
+	private void addLoot(LootInfo reward, ArrayList<RewardData> rewards, CenturiaAccount acc) {
 		if (reward.reward.referencedTableId != null) {
 			// Find referenced table
-			LootInfo ref = ResourceCollectionModule.getLootReward(reward.reward.referencedTableId);
+			LootInfo ref = ResourceCollectionModule.getLootReward(reward.reward.referencedTableId, acc);
 			if (ref != null)
-				addLoot(ref, rewards);
+				addLoot(ref, rewards, acc);
 		}
 
 		// Add items to memory
@@ -143,9 +144,9 @@ public class GameDoOrDye extends AbstractMinigame {
 				rewardIndex++;
 
 				// load reward
-				LootInfo loot = ResourceCollectionModule.getLootReward(reward);
+				LootInfo loot = ResourceCollectionModule.getLootReward(reward, plr.account);
 				if (loot != null)
-					addLoot(loot, rewardList);
+					addLoot(loot, rewardList, plr.account);
 			}
 
 			// load available dyes from sum

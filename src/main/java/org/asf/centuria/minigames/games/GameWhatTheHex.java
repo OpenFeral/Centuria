@@ -813,7 +813,8 @@ public class GameWhatTheHex extends AbstractMinigame {
 					player.account.getSaveSpecificInventory().getUserVarAccesor().setPlayerVarValue("4932", 0, score);
 
 					// Update client
-					for (String change : player.account.getSaveSpecificInventory().getAccessor().getChangedInventories())
+					for (String change : player.account.getSaveSpecificInventory().getAccessor()
+							.getChangedInventories())
 						player.account.getSaveSpecificInventory().getAccessor().transferUpdatedItemsToPlayer(player,
 								change);
 				}
@@ -1176,13 +1177,13 @@ public class GameWhatTheHex extends AbstractMinigame {
 				element.currencyRewardAmount = reward.count;
 			} else {
 				// Loot
-				LootInfo loot = ResourceCollectionModule.getLootReward(reward.id);
+				LootInfo loot = ResourceCollectionModule.getLootReward(reward.id, player.account);
 				while (true) {
 					if (loot.reward == null)
 						break;
 
 					if (loot.reward.referencedTableId != null)
-						loot = ResourceCollectionModule.getLootReward(loot.reward.referencedTableId);
+						loot = ResourceCollectionModule.getLootReward(loot.reward.referencedTableId, player.account);
 					else {
 						element.currencyRewardType = loot.reward.itemId;
 						element.currencyRewardAmount = reward.count * loot.count;

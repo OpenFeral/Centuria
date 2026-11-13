@@ -155,6 +155,37 @@ public class ItemAccessor {
 	}
 
 	/**
+	 * Checks if a user can have multiple of a specific item or if its a give-once
+	 * item
+	 * 
+	 * @param defID Item def ID to check
+	 * @return True if this item allows multiple of the same item to be present,
+	 *         false otherwise or if not known
+	 */
+	public static boolean canHaveMultipleOf(String defID) {
+		// Find definition
+		ItemInfo info = definitions.get(defID);
+		if (info == null) {
+			// Find bundle
+			if (bundles.containsKey(defID)) {
+				// Its a bundle
+				return true;
+			}
+
+			// We dont know!
+			return false;
+		}
+
+		// Find inventory
+		if (!inventoryTypeMap.containsKey(info.inventory))
+			return false;
+		InventoryDefinitionContainer container = inventoryTypeMap.get(info.inventory);
+		if (container.inventoryType == InventoryStorageType.SINGLE_ITEM)
+			return false;
+		return true;
+	}
+
+	/**
 	 * Retrieves the rarity of a item
 	 * 
 	 * @param itemDefId Item defID
@@ -300,6 +331,13 @@ public class ItemAccessor {
 				ItemBundleEntry entry = bundles.get(defID);
 				for (String id : entry.items.keySet()) {
 					int count = entry.items.get(id);
+
+					// Check if can be given
+					if (getInventoryTypeOf(id) != null && !canHaveMultipleOf(id) && inventory.getAccessor()
+							.hasInventoryObjectByDefId(ItemAccessor.getInventoryTypeOf(id), id))
+						continue; // Ship
+
+					// Add
 					String[] ids = add(id, count);
 					if (res == null && ids.length > 0)
 						res = ids[0];
@@ -383,6 +421,13 @@ public class ItemAccessor {
 				ItemBundleEntry entry = bundles.get(defID);
 				for (String id : entry.items.keySet()) {
 					int itC = entry.items.get(id);
+
+					// Check if can be given
+					if (getInventoryTypeOf(id) != null && !canHaveMultipleOf(id) && inventory.getAccessor()
+							.hasInventoryObjectByDefId(ItemAccessor.getInventoryTypeOf(id), id))
+						continue; // Ship
+
+					// Add
 					String[] ids = add(id, count * itC);
 					for (String itmI : ids)
 						res.add(itmI);

@@ -12,6 +12,7 @@ import java.util.UUID;
 
 import org.apache.logging.log4j.MarkerManager;
 import org.asf.centuria.Centuria;
+import org.asf.centuria.accounts.CenturiaAccount;
 import org.asf.centuria.accounts.highlevel.ItemAccessor;
 import org.asf.centuria.data.XtWriter;
 import org.asf.centuria.entities.players.Player;
@@ -580,14 +581,22 @@ public class ResourceCollectionModule extends InteractionModule {
 	 * Selects loot from a loot table
 	 * 
 	 * @param lootTableId Table to select loot from
+	 * @param acc         The account to focus on for item filtering
 	 * @return LootInfo object or null
 	 */
-	public static LootInfo getLootReward(String lootTableId) {
+	public static LootInfo getLootReward(String lootTableId, CenturiaAccount acc) {
 		LootTable table = lootTables.get(lootTableId);
 		if (table != null) {
 			// Find reward
 			HashMap<LootReward, Integer> options = new HashMap<LootReward, Integer>();
 			table.rewards.forEach(t -> {
+				// Check if can be given
+				if (ItemAccessor.getInventoryTypeOf(t.itemId) != null && !ItemAccessor.canHaveMultipleOf(t.itemId)
+						&& acc.getSaveSharedInventory().getAccessor()
+								.hasInventoryObjectByDefId(ItemAccessor.getInventoryTypeOf(t.itemId), t.itemId))
+					return; // Ship
+
+				// Add option
 				options.put(t, t.weight);
 			});
 			LootReward reward = RandomSelectorUtil.selectWeighted(options);
@@ -623,7 +632,7 @@ public class ResourceCollectionModule extends InteractionModule {
 		String originalTableId = lootTableId;
 		boolean rewarded = false;
 		while (true) {
-			LootInfo info = getLootReward(lootTableId);
+			LootInfo info = getLootReward(lootTableId, player.account);
 			if (info != null) {
 				LootReward reward = info.reward;
 				if (reward.itemId != null) {

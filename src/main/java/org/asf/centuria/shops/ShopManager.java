@@ -356,7 +356,16 @@ public class ShopManager {
 		}
 
 		// Filter items
+		for (String id : items.toArray(t -> new String[t])) {
+			// Check if valid
+			if (ItemAccessor.getInventoryTypeOf(id) != null && !ItemAccessor.canHaveMultipleOf(id)
+					&& player.getSaveSpecificInventory().getAccessor()
+							.hasInventoryObjectByDefId(ItemAccessor.getInventoryTypeOf(id), id)) {
+				items.remove(id);
+			}
+		}
 
+		// Return
 		return items.toArray(t -> new String[t]);
 	}
 

@@ -347,13 +347,13 @@ public class GameDizzywingDispatch extends AbstractMinigame {
 								if (sumWeight < randNo && randNo <= sumWeight + reward.get("weight").getAsInt()) {
 									String lootTableDefID = reward.get("lootTableDefID").getAsString();
 									Centuria.logger.debug(lootTableDefID, "lootTableDefId");
-									LootInfo chosenReward = ResourceCollectionModule.getLootReward(lootTableDefID);
+									LootInfo chosenReward = ResourceCollectionModule.getLootReward(lootTableDefID, player.account);
 
 									// Give reward
 									String itemId = chosenReward.reward.itemId;
 									while (itemId == null) {
 										chosenReward = ResourceCollectionModule
-												.getLootReward(chosenReward.reward.referencedTableId);
+												.getLootReward(chosenReward.reward.referencedTableId, player.account);
 										itemId = chosenReward.reward.itemId;
 									}
 									Centuria.logger.debug(itemId, "itemID");
