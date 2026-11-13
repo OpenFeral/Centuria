@@ -556,6 +556,7 @@ public class DefaultFilterRunner implements IFilterRunner {
 						}
 
 						// Verify word
+						indexInVariant++;
 						if (indexInVariant == variantWords.length) {
 							// Matched
 							match = true;
@@ -568,7 +569,6 @@ public class DefaultFilterRunner implements IFilterRunner {
 							match = false;
 							break;
 						}
-						indexInVariant++;
 					}
 					if (indexInVariant != variantWords.length)
 						match = false;
@@ -703,10 +703,7 @@ public class DefaultFilterRunner implements IFilterRunner {
 							}
 
 							// Apply
-							matchedPhraseParts = Arrays.copyOfRange(words, i,
-									matchRes.newIndex == i ? matchRes.newIndex + 1 : matchRes.newIndex);
-							if (matchRes.newIndex != i)
-								matchRes.newIndex = matchRes.newIndex - 1;
+							matchedPhraseParts = Arrays.copyOfRange(words, i, matchRes.newIndex + 1);
 							i = matchRes.newIndex;
 							hasMatch = true;
 							break;

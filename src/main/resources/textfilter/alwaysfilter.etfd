@@ -183,6 +183,7 @@ Phrase boob
     Variant bewb
     Variant bewbs
     Variant b3wbs
+    Variant booba
     Severity INSTAMUTE
 Endphrase
 
@@ -567,14 +568,6 @@ Phrase aynal
     Severity INSTAMUTE
 Endphrase
 
-Phrase cocaine
-    Mode WHOLE_PHRASE
-    Severity INSTAMUTE
-    Variant c0caine
-    Variant c0ca!n3
-    Variant c0ca!ne
-Endphrase
-
 Phrase cocksucker
     Mode WHOLE_PHRASE
     Severity INSTAMUTE
@@ -758,3 +751,163 @@ Phrase pothead
 	Variant potheads
 Endphrase
 
+Phrase shlong
+	Mode WHOLE_PHRASE
+	Variant shl0ng
+Endphrase
+
+Phrase shl0ng
+	Mode WHOLE_PHRASE
+    Severity INSTAMUTE
+Endphrase
+
+Phrase vore
+	Mode WHOLE_PHRASE
+	Variant voreable
+Endphrase
+
+Phrase vore
+	Mode WHOLE_PHRASE
+	Variant voreable
+Endphrase
+
+Phrase v0re
+	Mode WHOLE_PHRASE
+    Severity INSTAMUTE
+    Variant vor3
+	Variant v0r3
+Endphrase
+
+Phrase inflation
+	Mode WHOLE_PHRASE
+	
+	Variant inflate
+	Variant inflated
+
+    Context-Include Local *
+Endphrase
+
+Phrase inflation
+	Mode WHOLE_PHRASE
+
+    Context-Include Global *
+	
+	Variant inflate
+	Variant inflated
+    
+    Reason Due to recent filter triggers, this phrase is being temporarily censored to prevent the use of it in NSFW context.
+Endphrase
+
+Phrase infl4tion
+	Mode WHOLE_PHRASE
+	Severity INSTAMUTE
+	Variant infl4ti0n
+	Variant inflati0n
+	Variant inflat1on
+	Variant infl4t10n
+	Variant inflat10n
+	Variant infl4t1on
+	Variant inflat1on
+	Variant infl4te
+	Variant inflat3d
+	Variant infl4t3d
+Endphrase
+
+Phrase cocaine
+    Mode WHOLE_PHRASE
+    Severity INSTAMUTE
+    Variant c0caine
+    Variant c0ca!n3
+    Variant c0ca!ne
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
+Endphrase
+
+Phrase drugs
+	Mode WHOLE_PHRASE
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
+Endphrase
+
+Phrase drug
+	Mode WHOLE_PHRASE
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
+Endphrase
+
+Phrase dimethyltryptamine
+	Mode WORD_CONTAINS
+    Severity INSTAMUTE
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
+Endphrase
+
+Phrase lysergic acid diethylamide
+	Mode WHOLE_PHRASE
+    Severity INSTAMUTE
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
+Endphrase
+
+Phrase dmt
+	Mode WHOLE_PHRASE
+    Severity INSTAMUTE
+    Context-Include Local *
+    Context-Include Global *
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
+Endphrase	
+
+Phrase lsd
+	Mode WHOLE_PHRASE
+    Severity INSTAMUTE
+    Context-Include Local *
+    Context-Include Global *
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
+Endphrase	
+
+Phrase erowid
+	Mode WHOLE_PHRASE
+    Severity INSTAMUTE
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
+Endphrase
+
+Phrase psychedelics
+	Mode WHOLE_PHRASE
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
+Endphrase
+
+Phrase psychedel1cs
+	Mode WHOLE_PHRASE
+    Severity INSTAMUTE
+    Variant psyched3lics
+    Variant psych3d3lics
+    Variant psych3delics
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
+Endphrase
+
+Phrase weed
+	Mode WHOLE_PHRASE
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
+Endphrase
+
+Phrase we3d
+	Mode WHOLE_PHRASE
+    Severity INSTAMUTE
+    
+    Variant w3ed
+    Variant w33d
+    
+	Reason This is not a safe space to discuss drugs and associated topics, please keep in mind Fer.al consists of a 13+ playerbase.
+Endphrase	
+
+Phrase kys
+	Mode WHOLE_PHRASE
+	Reason Please do not use rude, harmful or otherwise offensive remarks to other users that may be subject to moderator action.
+	Variant kill yourself
+	Variant kill your self
+Endphrase
+
+Phrase k1ll yourself
+	Mode WHOLE_PHRASE
+    Severity INSTAMUTE
+	Reason Please do not use rude, harmful or otherwise offensive remarks to other users that may be subject to moderator action.
+	Variant k1ll yourself
+	Variant k1ll your self
+	Variant k1ll y0urself
+	Variant k1ll y0ur self
+Endphrase
