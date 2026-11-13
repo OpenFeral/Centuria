@@ -1774,7 +1774,7 @@ public class SendMessage extends AbstractChatPacket {
 					if (wasBlockAccess)
 						res.message = "Error: the message could not be sent as the chat room you are sending your message to revoked your access";
 					else
-						res.message = "Error: the message could not be sent as the chat you are trying to send a message to was deleted";
+						res.message = "Error: the message could not be sent as the chat you are trying to send a message to does not exist";
 					res.sourceWriter = NIL_UUID;
 					res.sentAtWriter = fmt.format(new Date());
 					res.moderatorMessage = GameServer.hasPerm(permLevel, "moderator");
