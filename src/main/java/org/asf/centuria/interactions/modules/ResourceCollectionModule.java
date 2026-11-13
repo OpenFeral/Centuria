@@ -592,7 +592,7 @@ public class ResourceCollectionModule extends InteractionModule {
 			table.rewards.forEach(t -> {
 				// Check if can be given
 				if (ItemAccessor.getInventoryTypeOf(t.itemId) != null && !ItemAccessor.canHaveMultipleOf(t.itemId)
-						&& acc.getSaveSharedInventory().getAccessor()
+						&& acc.getSaveSpecificInventory().getAccessor()
 								.hasInventoryObjectByDefId(ItemAccessor.getInventoryTypeOf(t.itemId), t.itemId))
 					return; // Ship
 

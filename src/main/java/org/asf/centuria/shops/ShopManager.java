@@ -455,6 +455,7 @@ public class ShopManager {
 		ShopItem item = shop.contents.get(itemId);
 
 		// Check stock
+		// FIXME: should not be done here
 		if (item.stock != -1) {
 			// Check mode
 			if (item.stock == 1 && shop.restockTime == -1) {

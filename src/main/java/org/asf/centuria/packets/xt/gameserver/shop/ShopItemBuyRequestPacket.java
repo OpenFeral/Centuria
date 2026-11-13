@@ -146,6 +146,12 @@ public class ShopItemBuyRequestPacket implements IXtPacket<ShopItemBuyRequestPac
 		itm.items.forEach((id, amount) -> {
 			amount *= count;
 
+			// Check if can be given
+			if (ItemAccessor.getInventoryTypeOf(id) != null && !ItemAccessor.canHaveMultipleOf(id)
+					&& plr.account.getSaveSpecificInventory().getAccessor()
+							.hasInventoryObjectByDefId(ItemAccessor.getInventoryTypeOf(id), id))
+				return; // Ship
+
 			// Add item to inventory
 			String[] ids;
 			if (!id.equals("30197"))
