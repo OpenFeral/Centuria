@@ -131,7 +131,9 @@ public class ShopConverter {
 						JsonObject costObj = elem.getAsJsonObject();
 						String itm = costObj.get("itemDefID").getAsString();
 						int count = costObj.get("count").getAsInt();
-						results.addProperty(itm, (int) (count * 0.3f));
+						float calc = count * 0.3f;
+						int unboundQuant = (calc - (float) ((int) calc) > 0) ? (int) calc + 1 : (int) calc;
+						results.addProperty(itm, unboundQuant);
 					}
 					if (results.size() != 0)
 						uncrafting.add(lastID, uncraftInfo);
