@@ -30,11 +30,13 @@ public class ListPlayersHandler extends HttpPushProcessor {
 			}
 
 			// Send response
+			int counter = 0;
 			JsonObject response = new JsonObject();
 			HashMap<String, Integer> maps = new HashMap<String, Integer>();
 			for (Player plr : Centuria.gameServer.getPlayers()) {
 				if (!plr.roomReady)
 					continue;
+				counter++;
 				String map = Integer.toString(plr.levelID);
 				if (plr.levelID == 25280)
 					map = "Tutorial";
@@ -42,7 +44,8 @@ public class ListPlayersHandler extends HttpPushProcessor {
 					map = helper.get(Integer.toString(plr.levelID)).getAsString();
 				maps.put(map, maps.getOrDefault(map, 0) + 1);
 			}
-			response.addProperty("online", Centuria.gameServer.getPlayers().length);
+			response.addProperty("active", counter);
+			response.addProperty("connected", Centuria.gameServer.getPlayers().length);
 			JsonObject mapData = new JsonObject();
 			maps.forEach((k, v) -> mapData.addProperty(k, v));
 			response.add("maps", mapData);

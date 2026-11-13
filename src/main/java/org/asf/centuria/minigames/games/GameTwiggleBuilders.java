@@ -12,11 +12,11 @@ import org.asf.centuria.packets.xt.gameserver.minigame.MinigameMessagePacket;
 import org.asf.centuria.packets.xt.gameserver.minigame.MinigamePrizePacket;;
 
 public class GameTwiggleBuilders extends AbstractMinigame {
-	
+
 	public int level;
 	public int score;
 	public String results;
-	
+
 	@Override
 	public boolean canHandle(int levelID) {
 		return levelID == 4111;
@@ -42,7 +42,7 @@ public class GameTwiggleBuilders extends AbstractMinigame {
 		pk1.data = wr1.encode().substring(4);
 		plr.client.sendPacket(pk1);
 	}
-	
+
 	@MinigameMessage("requestResults")
 	public void requestResults(Player plr, XtReader rd) {
 		results = rd.readRemaining();
@@ -51,14 +51,15 @@ public class GameTwiggleBuilders extends AbstractMinigame {
 	@MinigameMessage("endLevel")
 	public void endLevel(Player plr, XtReader rd) {
 		//TODO: Use results to calculate score and rewards
-		
+
 		if (results.isEmpty()){
 			score = 0;
 		}
 		else{
-			score = 30;
+			//15 per star * 3
+			score = 45;
 		}
-		
+
 		// Save score
 		UserVarValue var = plr.account.getSaveSpecificInventory().getUserVarAccesor().getPlayerVarValue(9311,
 		level);
@@ -72,10 +73,12 @@ public class GameTwiggleBuilders extends AbstractMinigame {
 		InventoryItemPacket pkt = new InventoryItemPacket();
 		pkt.item = plr.account.getSaveSpecificInventory().getItem("303");
 		plr.client.sendPacket(pkt);
-		
+
 		//Prize
-		givePrize(plr);	
-		
+		givePrize(plr);
+		plr.account.getSaveSpecificInventory().getCurrencyAccessor().addLikes(plr.client,score);
+
+
 		//End
 		XtWriter wr1 = new XtWriter();
 		wr1.writeInt(score);
